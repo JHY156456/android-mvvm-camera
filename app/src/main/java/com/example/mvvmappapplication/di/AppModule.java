@@ -12,6 +12,22 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * incldues : ViewModel을 애플리케이션 범위로 관리하도록 AppModule에 포함시킨다.
+ * @Module(
+ *         includes = MotorModule.class
+ * )
+ * public class BikeModule {
+ *
+ *     @Provides
+ *     Bike provideBike(Motor motor) {
+ *         return new Bike(motor);
+ *     }
+ * }
+ * 여기서 보면 Bike객체를 제공해주는 @Provides을 보면 Motor객체가 파라미터로 존재합니다.
+ * 과연 이 파라미터는 어디서 제공받고 있을까 라는 의문이 듭니다.
+ * 이건 @Module의 includes부분에 보면 MotorModule.class를 포함하고 있고, MotorModule에서 Motor객체를 provides하고 있기에 가능합니다.
+ */
 @Module(includes = {
         ViewModelModule.class,
         RetrofitModule.class

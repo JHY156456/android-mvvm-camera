@@ -1,28 +1,27 @@
 package com.example.mvvmappapplication.ui.user;
 
-import javax.inject.Inject;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.charlezz.arch.databinding.FragmentUserBinding;
-import com.charlezz.arch.di.AppViewModelFactory;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.example.mvvmappapplication.databinding.FragmentUserBinding;
+import com.example.mvvmappapplication.di.AppViewModelFactory;
+
+import javax.inject.Inject;
+
 import dagger.android.support.DaggerFragment;
 
 public class UserFragment extends DaggerFragment {
 
     @Inject
     AppViewModelFactory viewModelFactory;
-
     @Inject
     FragmentUserBinding binding;
-
     UserViewModel viewModel;
 
     @Override
@@ -46,6 +45,5 @@ public class UserFragment extends DaggerFragment {
         super.onViewCreated(view, savedInstanceState);
         binding.setLifecycleOwner(getViewLifecycleOwner());
         binding.setViewModel(viewModel);
-
     }
 }

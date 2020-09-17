@@ -77,5 +77,6 @@ public class PostFragment extends DaggerFragment {
                 .observe(getViewLifecycleOwner(), postItem ->
                         navController.get().navigate(PostFragmentDirections
                                 .actionPostFragmentToPostDetailFragment(postItem.getPost())));
+
     }
 }

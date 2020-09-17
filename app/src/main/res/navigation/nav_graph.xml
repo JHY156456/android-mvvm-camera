@@ -11,6 +11,7 @@
         android:label="fragment_post"
         tools:layout="@layout/fragment_post">
         <!--PostFragment에서 PostDetailFragment로 이동-->
+        <!-- label : 목적지 XML 레이아웃 파일 이름 -->
         <!--화면 전환시 사용할 애니메이션도 적용한다-->
         <action
             android:id="@+id/action_post_fragment_to_post_detail_fragment"
@@ -26,7 +27,7 @@
         <!--PostDetailFragment가 요구하는 인자로 Post를 설정한다.-->
         <argument
             android:name="post"
-            app:argType="com.charlezz.arch.data.entity.Post" />
+            app:argType="com.example.mvvmappapplication.data.entity.Post" />
         <action
             android:id="@+id/action_post_detail_fragment_to_userFragment"
             app:destination="@id/userFragment"
