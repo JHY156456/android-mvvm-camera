@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.example.mvvmappapplication.custom.HSUntactCardView
+        android:id="@+id/hsnucv_common_table_type_cardview_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dimen_16"
+        android:paddingRight="@dimen/dimen_16"
+        app:cardBackgroundColor="@color/transparent"
+        app:contentPaddingLeft="@dimen/dimen_15"
+        app:contentPaddingRight="@dimen/dimen_15" >
+
+        <LinearLayout
+            android:id="@+id/ll_layout_new_untact_table_type_content_item_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/dimen_59"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rl_common_table_type_untouchable"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <com.example.mvvmappapplication.custom.HSUntactTextView
+                    android:id="@+id/hsntv_common_title_type_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="이름"
+                    android:letterSpacing="-0.03"
+                    android:textColor="@color/color_000000"
+                    android:textSize="@dimen/dimen_11" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_layout_new_untact_table_type_content_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+                com.example.mvvmappapplication.custom.HSUntactEditText
+                <com.example.mvvmappapplication.custom.HSUntactEditText
+                    android:id="@+id/hsnetv_common_table_type_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:maxLength="3"
+                    android:hint="입금자명 앞 3자리 숫자"
+                    android:textSize="@dimen/dimen_19"
+                    android:textColor="@color/color_000000"
+                    android:letterSpacing="-0.03"
+                    android:lineSpacingExtra="3sp"
+                    android:background="@null"/>
+                <com.example.mvvmappapplication.custom.HSUntactImageView
+                    android:visibility="gone"
+                    android:id="@+id/hsniv_common_table_type_icon"
+                    android:layout_width="@dimen/dimen_22"
+                    android:layout_height="@dimen/dimen_22"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/untact_selector_updown_arrow_bg" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.example.mvvmappapplication.custom.HSUntactCardView>
+</layout>

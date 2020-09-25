@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/cardBackground"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.example.mvvmappapplication.custom.HSImageView
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="?attr/comingsoon_base" />
+
+            <com.example.mvvmappapplication.custom.HSImageView
+                app:layout_constraintBottom_toBottomOf="@+id/guide_bottom"
+                app:layout_constraintLeft_toLeftOf="@+id/guide_left"
+                app:layout_constraintRight_toRightOf="@+id/guide_right"
+                app:layout_constraintTop_toTopOf="@+id/guide_top"
+
+                android:id="@+id/imageContentsView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.336" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.288" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.712" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.938" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:id="@+id/contentsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dimen_15"
+            android:paddingRight="@dimen/dimen_15"
+            android:textSize="@dimen/dimen_18"
+            android:textColor="?attr/labelColor"
+            tools:text="우리은행 채권은\n00월 00일 판매 예정입니다." />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:id="@+id/contents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginBottom="@dimen/dimen_16"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dimen_15"
+            android:paddingRight="@dimen/dimen_15"
+            android:textColor="?attr/subTextColor2"
+            tools:text="예금자보호법상 보호상품 아님예금자보호법상 보호상품 아님예금자보호법상 보호상품 아님예금자보호법상 보호상품 아님\n예금자보호법상 보호상품 아님예금자보호법상 보호상품 아님\n예금자보호법상 보호상품 아님" />
+    </LinearLayout>
+</ScrollView>

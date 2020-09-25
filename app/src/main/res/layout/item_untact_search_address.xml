@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_item_untact_search_address_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingTop="@dimen/dimen_14">
+
+        <!-- 우편번호 -->
+        <com.example.mvvmappapplication.custom.HSUntactTextView
+            android:id="@+id/hsntv_item_untact_search_address_postNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="@dimen/dimen_3"
+            android:minHeight="@dimen/dimen_20"
+            android:textColor="?attr/subTextColor"
+            android:textSize="@dimen/dimen_15"
+            android:textStyle="italic"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="07325" />
+
+        <!-- 도로명 -->
+        <com.example.mvvmappapplication.custom.HSUntactTextView
+            android:id="@+id/hsntv_item_untact_search_address_roadAddr"
+            style="@style/ItemTitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_20"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hsntv_item_untact_search_address_postNum"
+            tools:text="서울 영등포구 여의공원로 111" />
+
+        <!-- 지번 -->
+        <com.example.mvvmappapplication.custom.HSUntactChip
+            android:id="@+id/hsntv_item_untact_search_address_jibun_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_20"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:checkable="false"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="지번"
+            android:textSize="@dimen/dimen_11"
+            android:textStyle="italic"
+            app:chipBackgroundColor="?attr/backgroundColor4"
+            app:chipMinHeight="@dimen/dimen_20"
+            app:layout_constraintLeft_toLeftOf="@id/hsntv_item_untact_search_address_roadAddr"
+            app:layout_constraintTop_toBottomOf="@id/hsntv_item_untact_search_address_roadAddr" />
+
+        <com.example.mvvmappapplication.custom.HSUntactTextView
+            android:id="@+id/hsntv_item_untact_search_address_jibunAddr"
+            style="@style/ItemSubTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_4"
+            android:layout_marginBottom="@dimen/dimen_14"
+            android:lineSpacingExtra="@dimen/dimen_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/hsntv_item_untact_search_address_jibun_tag"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/hsntv_item_untact_search_address_jibun_tag"
+            tools:text="서울 영등포구 여의도동 10-2 여의도 태영빌딩" />
+
+        <com.example.mvvmappapplication.custom.HSUntactView
+            android:id="@+id/v_item_untact_search_address_didvider"
+            style="@style/UntactTableOfLineStyle"
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

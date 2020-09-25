@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.example.mvvmappapplication.custom.HSUntactCardView
+        android:id="@+id/hsnucv_common_table_type_cardview_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dimen_16"
+        android:paddingRight="@dimen/dimen_16"
+        app:cardBackgroundColor="@color/transparent"
+        app:contentPaddingLeft="@dimen/dimen_15"
+        app:contentPaddingRight="@dimen/dimen_15" >
+
+        <LinearLayout
+            android:id="@+id/ll_layout_new_untact_table_type_content_item_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/common_table_items_type_a_height"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <com.example.mvvmappapplication.custom.HSUntactTextView
+                android:id="@+id/hsntv_common_title_type_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:text="지역을 선택하세요"
+                android:textColor="@color/untact_selector_table_title_text_color"
+                android:textSize="@dimen/dimen_11"
+                android:textStyle="italic" />
+
+            <com.example.mvvmappapplication.custom.HSUntactHorizontalScrollView
+                android:id="@+id/hsv_layout_new_untact_table_type_content_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:overScrollMode="never"
+                android:scrollbars="none" >
+
+                <com.example.mvvmappapplication.custom.HSUntactRadioGroup
+                    android:id="@+id/hsnrg_common_table_type_horizontal_scroll_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.example.mvvmappapplication.custom.HSUntactRadioButton
+                        android:visibility="gone"
+                        android:id="@+id/hsnrb_common_table_horizontal_scrollview_item_admin_1"
+                        style="@style/UntactHorizontalItemStyle"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="전체" />
+
+                    <com.example.mvvmappapplication.custom.HSUntactRadioButton
+                        android:id="@+id/hsnrb_common_table_horizontal_scrollview_item_admin_2"
+                        style="@style/UntactHorizontalItemStyle"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="서울" />
+
+                    <com.example.mvvmappapplication.custom.HSUntactRadioButton
+                        android:id="@+id/hsnrb_common_table_horizontal_scrollview_item_admin_3"
+                        style="@style/UntactHorizontalItemStyle"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="인천/경기" />
+
+                    <com.example.mvvmappapplication.custom.HSUntactRadioButton
+                        android:id="@+id/hsnrb_common_table_horizontal_scrollview_item_admin_4"
+                        style="@style/UntactHorizontalItemStyle"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="대전/충청" />
+
+                    <com.example.mvvmappapplication.custom.HSUntactRadioButton
+                        android:id="@+id/hsnrb_common_table_horizontal_scrollview_item_admin_5"
+                        style="@style/UntactHorizontalItemStyle"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="대구/경북" />
+
+                    <com.example.mvvmappapplication.custom.HSUntactRadioButton
+                        android:id="@+id/hsnrb_common_table_horizontal_scrollview_item_admin_6"
+                        style="@style/UntactHorizontalItemStyle"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="광주/전라" />
+
+                    <com.example.mvvmappapplication.custom.HSUntactRadioButton
+                        android:id="@+id/hsnrb_common_table_horizontal_scrollview_item_admin_7"
+                        style="@style/UntactHorizontalItemStyle"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="부산/울산/경남" />
+
+                    <com.example.mvvmappapplication.custom.HSUntactRadioButton
+                        android:id="@+id/hsnrb_common_table_horizontal_scrollview_item_admin_8"
+                        style="@style/UntactHorizontalItemStyle"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="제주" />
+                </com.example.mvvmappapplication.custom.HSUntactRadioGroup>
+            </com.example.mvvmappapplication.custom.HSUntactHorizontalScrollView>
+        </LinearLayout>
+    </com.example.mvvmappapplication.custom.HSUntactCardView>
+</layout>

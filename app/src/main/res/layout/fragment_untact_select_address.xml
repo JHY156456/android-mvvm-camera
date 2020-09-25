@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/content_margin"
+            android:layout_marginRight="@dimen/content_margin"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_fragment_untact_select_address_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_20"
+                android:background="@drawable/untact_selector_table_bg_single"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_fragment_untact_select_address_refine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="vertical">
+
+                    <!-- 추천 주소 -->
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        style="@style/SubTitleStyle"
+                        android:text="추천 주소"
+                        android:textSize="@dimen/dimen_14" />
+
+                    <include
+                        android:id="@+id/inc_fragment_untact_select_address_refine"
+                        layout="@layout/layout_untact_search_address_result" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1"
+                    android:layout_marginLeft="-20dp"
+                    android:layout_marginRight="-20dp"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:layout_marginBottom="@dimen/dimen_20"
+                    android:background="@color/color_979797"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_fragment_untact_select_address_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="vertical">
+
+                    <!-- 입력한 주소 -->
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        style="@style/SubTitleStyle"
+                        android:textSize="@dimen/dimen_14" />
+
+                    <include
+                        android:id="@+id/inc_fragment_untact_select_address_input"
+                        layout="@layout/layout_untact_search_address_result" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.mvvmappapplication.custom.HSCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:cardBackgroundColor="?attr/bg_toast_rounded"
+    app:cardCornerRadius="@dimen/dimen_14">
+
+    <RelativeLayout
+        android:id="@+id/toastLayout"
+        android:layout_width="@dimen/dimen_260"
+        android:layout_height="@dimen/dimen_43"
+        android:paddingBottom="@dimen/dimen_11"
+        android:paddingLeft="@dimen/dimen_13"
+        android:paddingRight="@dimen/dimen_13"
+        android:paddingTop="@dimen/dimen_10">
+
+        <com.example.mvvmappapplication.custom.HSImageView
+            android:id="@+id/icon_error"
+            android:layout_width="@dimen/dimen_18"
+            android:layout_height="@dimen/dimen_18"
+            android:layout_centerVertical="true"
+            android:background="?attr/icon_error_message2"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:id="@+id/toastMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_6"
+            android:layout_toRightOf="@+id/icon_error"
+            android:textColor="@color/color_ff5a5a"
+            android:textSize="@dimen/dimen_15"
+            tools:text="해당 계좌의 잔고가 부족합니다" />
+    </RelativeLayout>
+</com.example.mvvmappapplication.custom.HSCardView>

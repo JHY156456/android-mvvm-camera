@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/sendKakaotalk"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_58"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/content_margin"
+        android:paddingRight="@dimen/content_margin">
+
+        <View
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:background="@drawable/ic_sns_kakao" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="카카오톡"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <com.example.mvvmappapplication.custom.HSView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1"
+        android:background="?attr/listLineColor" />
+
+    <LinearLayout
+        android:id="@+id/snedSms"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_58"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/content_margin"
+        android:paddingRight="@dimen/content_margin">
+
+        <View
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:background="@drawable/ic_sns_message" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="문자 메시지"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <com.example.mvvmappapplication.custom.HSView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1"
+        android:background="?attr/listLineColor" />
+
+
+    <LinearLayout
+        android:id="@+id/linkCopy"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_58"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/content_margin"
+        android:paddingRight="@dimen/content_margin">
+
+        <View
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:background="@drawable/ic_sns_copylink" />
+        com.example.mvvmappapplication.custom.HSTextView
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="링크복사"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <com.example.mvvmappapplication.custom.HSView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1"
+        android:background="?attr/listLineColor" />
+
+    <LinearLayout
+        android:id="@+id/sendEmail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_58"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/content_margin"
+        android:paddingRight="@dimen/content_margin">
+
+        <View
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:background="@drawable/ic_sns_email" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="이메일"
+            android:textStyle="italic" />
+    </LinearLayout>
+</LinearLayout>

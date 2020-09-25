@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 타이틀 -->
+        <com.example.mvvmappapplication.custom.HSTitleBar
+            android:id="@+id/titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backIconType="back"
+            app:title="a" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/confirmBT"
+            android:layout_below="@id/titleBar"
+            android:fitsSystemWindows="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/desc"
+                    style="@style/GuideTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/content_margin"
+                    android:layout_marginTop="@dimen/dimen_6"
+                    android:layout_marginRight="@dimen/content_margin"
+                    android:text="b" />
+
+                <com.example.mvvmappapplication.custom.HSCardView
+                    android:id="@+id/profileCard"
+                    android:layout_width="@dimen/dimen_150"
+                    android:layout_height="@dimen/dimen_150"
+                    android:layout_below="@+id/desc"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dimen_30"
+                    app:cardCornerRadius="@dimen/dimen_75">
+
+                    <com.example.mvvmappapplication.custom.HSImageView
+                        android:id="@+id/profileImgIV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:onClick="onClick"
+                        android:scaleType="fitCenter"
+                        android:src="?attr/img_profile_basic" />
+                </com.example.mvvmappapplication.custom.HSCardView>
+
+                <com.example.mvvmappapplication.custom.HSView
+                    android:layout_width="@dimen/dimen_36"
+                    android:layout_height="@dimen/dimen_36"
+                    android:layout_alignRight="@id/profileCard"
+                    android:layout_alignBottom="@id/profileCard"
+                    android:layout_marginBottom="@dimen/dimen_11"
+                    android:background="?attr/btn_photo_setting" />
+
+                <com.example.mvvmappapplication.custom.HSEditText
+                    android:id="@+id/nickNameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profileCard"
+                    android:layout_marginLeft="@dimen/content_margin"
+                    android:layout_marginTop="@dimen/dimen_40"
+                    android:layout_marginRight="@dimen/content_margin"
+                    android:imeOptions="actionDone"
+                    android:inputType="textNoSuggestions"
+                    android:maxLines="1"
+                    android:paddingRight="@dimen/dimen_40" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/byteTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/maxByte"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:layout_toLeftOf="@+id/slash"
+                    android:text="0"
+                    android:textColor="?attr/selectedColor"
+                    android:textSize="@dimen/dimen_12" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/slash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/maxByte"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:layout_toLeftOf="@+id/maxByte"
+                    android:text="b"
+                    android:textColor="?attr/dividerLineColor"
+                    android:textSize="@dimen/dimen_12" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/maxByte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/nickNameET"
+                    android:layout_alignBottom="@id/nickNameET"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:layout_marginBottom="@dimen/dimen_10"
+                    android:text="asdf"
+                    android:textColor="?attr/subTextColor"
+                    android:textSize="@dimen/dimen_12" />
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+        <com.example.mvvmappapplication.custom.HSMaterialButton
+            android:id="@+id/confirmBT"
+            style="@style/MaterialButton.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:onClick="onClick"
+            android:text="d" />
+
+    </RelativeLayout>
+</layout>

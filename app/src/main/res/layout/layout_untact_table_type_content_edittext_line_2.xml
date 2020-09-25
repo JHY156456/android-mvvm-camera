@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.example.mvvmappapplication.custom.HSUntactCardView
+        android:id="@+id/hsnucv_common_table_type_cardview_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dimen_16"
+        android:paddingRight="@dimen/dimen_16"
+        app:cardBackgroundColor="@color/transparent"
+        app:contentPaddingLeft="@dimen/dimen_15"
+        app:contentPaddingRight="@dimen/dimen_15" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/common_table_items_type_a_height"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <com.example.mvvmappapplication.custom.HSUntactTextView
+                android:id="@+id/hsntv_common_title_type_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="이름"
+                android:textColor="@color/untact_selector_table_title_text_color"
+                android:textSize="@dimen/dimen_11"
+                android:textStyle="italic" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <com.example.mvvmappapplication.custom.HSUntactEditText
+                    android:id="@+id/hsnetv_common_table_type_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/dimen_30"
+                    android:layout_weight="1"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:hint="터치하여 입력하세요"
+                    android:textSize="@dimen/dimen_19"
+                    android:background="@null"/>
+
+                <!-- 재전송 버튼 -->
+                <com.example.mvvmappapplication.custom.HSUntactButton
+                    android:visibility="gone"
+                    android:id="@+id/hsnbtn_common_table_type_recall"
+                    android:layout_gravity="center_vertical"
+                    style="@style/UntactReCallButtonStyle"
+                    android:text="재전송" />
+
+                <!-- 주소검색 아이콘 -->
+                <com.example.mvvmappapplication.custom.HSUntactImageView
+                    android:visibility="gone"
+                    android:id="@+id/hsniv_common_table_type_icon"
+                    android:layout_width="@dimen/dimen_22"
+                    android:layout_height="@dimen/dimen_22"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/untact_ic_search" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.example.mvvmappapplication.custom.HSUntactCardView>
+</layout>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/tvChargeInfo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/content_margin"
+                android:paddingRight="@dimen/content_margin"
+                android:textColor="?attr/colorSecondaryRed"
+                android:textSize="@dimen/dimen_14"
+                android:textStyle="italic" />
+            com.example.mvvmappapplication.custom.HSCardView
+
+            <com.example.mvvmappapplication.custom.HSCardView
+                android:id="@+id/layoutUsdCharge"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_54"
+                android:layout_margin="@dimen/dimen_20"
+                android:visibility="gone"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="@dimen/dimen_27"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:id="@+id/tvLackUsdValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="?attr/colorSurface"
+                        android:textSize="@dimen/dimen_16"
+                        android:textStyle="bold" />
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_2"
+                        android:textColor="?attr/colorSurface"
+                        android:textSize="@dimen/dimen_14"
+                        android:textStyle="italic" />
+                </LinearLayout>
+            </com.example.mvvmappapplication.custom.HSCardView>
+
+            <com.example.mvvmappapplication.custom.HSCardView
+                android:id="@+id/layoutWonCharge"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_54"
+                android:layout_margin="@dimen/dimen_20"
+                android:visibility="gone"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="@dimen/dimen_27"
+                tools:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical">
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:id="@+id/tvBtnMsg1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/dimen_2"
+                        android:textColor="?attr/colorSurface"
+                        android:textSize="@dimen/dimen_14"
+                        android:textStyle="italic" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvBtnMsg1"
+                        android:layout_centerHorizontal="true"
+                        android:orientation="horizontal">
+
+                        <com.example.mvvmappapplication.custom.HSTextView
+                            android:id="@+id/tvBtnWonData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="?attr/colorSurface"
+                            android:textSize="@dimen/dimen_16"
+                            android:textStyle="bold" />
+
+                        <com.example.mvvmappapplication.custom.HSTextView
+                            android:id="@+id/tvBtnMsg2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimen_2"
+                            android:textColor="?attr/colorSurface"
+                            android:textSize="@dimen/dimen_14"
+                            android:textStyle="italic" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </com.example.mvvmappapplication.custom.HSCardView>
+
+            <LinearLayout
+                android:id="@+id/ll_charge_order_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_20"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_30"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:id="@+id/chargeTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textSize="@dimen/dimen_14"
+                        android:textStyle="bold" />
+
+                    <com.example.mvvmappapplication.custom.HSImageView
+                        android:layout_width="@dimen/dimen_30"
+                        android:layout_height="@dimen/dimen_30"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:background="?attr/check_on" />
+                </LinearLayout>
+
+                <com.example.mvvmappapplication.custom.HSView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:background="?attr/listLineColor" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_24"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:orientation="horizontal">
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:id="@+id/tvExtAccount"
+                        android:layout_width="@dimen/dimen_62"
+                        android:layout_height="@dimen/dimen_22"
+                        android:background="@drawable/drawable_rounded_rectangle_9b9b9b_30_1"
+                        android:gravity="center"
+                        android:text="연결계좌"
+                        android:textSize="@dimen/dimen_12"
+                        android:textStyle="italic" />
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:id="@+id/tvExtAccountInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dimen_6"
+                        android:gravity="center_vertical"
+                        android:textSize="@dimen/dimen_12"
+                        android:textStyle="italic"
+                        tools:text="신한 500-11111" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_42"
+                    android:layout_marginTop="@dimen/dimen_30"
+                    android:orientation="horizontal">
+
+                    <com.example.mvvmappapplication.custom.HSMaterialButton
+                        android:id="@+id/btnCancel"
+                        style="@style/MaterialButton.Outline.Ellipse"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:layout_weight="1"
+                        />
+
+                    <com.example.mvvmappapplication.custom.HSMaterialButton
+                        android:id="@+id/btnOk"
+                        style="@style/MaterialButton.Primary.Ellipse"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

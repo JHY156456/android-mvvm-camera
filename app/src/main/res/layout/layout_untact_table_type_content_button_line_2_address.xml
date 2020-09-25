@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.example.mvvmappapplication.custom.HSUntactCardView
+        android:id="@+id/hsnucv_common_table_type_cardview_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/transparent"
+        app:contentPaddingLeft="@dimen/dimen_15"
+        app:contentPaddingRight="@dimen/dimen_15" >
+
+        <include
+            android:visibility="visible"
+            android:id="@+id/inc_common_table_type_body_base"
+            layout="@layout/layout_untact_search_address_base"/>
+
+        <include
+            android:visibility="gone"
+            android:id="@+id/inc_common_table_type_body_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_15"
+            android:layout_marginBottom="@dimen/dimen_15"
+            layout="@layout/layout_untact_search_address_result"/>
+    </com.example.mvvmappapplication.custom.HSUntactCardView>
+</layout>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.example.mvvmappapplication.custom.HSUntactView
+                style="@style/UntactTableOfLineStyle" />
+            <com.example.mvvmappapplication.custom.HSUntactTextView
+                style="@style/UntactTableOfSubTitleStyle"
+                android:layout_marginLeft="@dimen/dimen_50"
+                android:layout_marginTop="@dimen/dimen_17"
+                android:layout_marginBottom="@dimen/dimen_17"
+                android:text="개인신용정보마케팅 이용동의" />
+
+            <com.example.mvvmappapplication.custom.HSUntactCheckBox
+                android:id="@+id/cb_layout_untact_common_term_sub_type_3_term_1"
+                style="@style/UntactCheckBoxType2Style"
+                android:drawableRight="@null"
+                android:text="이메일" />
+
+            <com.example.mvvmappapplication.custom.HSUntactCheckBox
+                android:id="@+id/cb_layout_untact_common_term_sub_type_3_term_2"
+                style="@style/UntactCheckBoxType2Style"
+                android:drawableRight="@null"
+                android:text="SMS" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.example.mvvmappapplication.custom.HSUntactCheckBox
+                    android:id="@+id/cb_layout_untact_common_term_sub_type_3_term_3"
+                    style="@style/UntactCheckBoxType2Style"
+                    android:drawableRight="@null"
+                    android:text="전화" />
+
+                <com.example.mvvmappapplication.custom.HSUntactTextView
+                    android:id="@+id/hsntv_layout_untact_common_term_sub_type_3_term_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_50"
+                    android:layout_marginTop="@dimen/dimen_2"
+                    android:lineSpacingExtra="@dimen/dimen_4"
+                    android:text="계좌개설 완료 후 간편송금 출금계좌 (전자서명 및 보안매체 없이 1일 200만원 한도내에서 송금가능) 로 등록됩니다."
+                    android:textColor="?attr/subTextColor"
+                    android:textSize="@dimen/dimen_12"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <com.example.mvvmappapplication.custom.HSUntactCheckBox
+                android:id="@+id/cb_layout_untact_common_term_sub_type_3_term_4"
+                style="@style/UntactCheckBoxType2Style"
+                android:drawableRight="@null"
+                android:text="우편" />
+
+            <com.example.mvvmappapplication.custom.HSUntactTextView
+                style="@style/UntactTableOfSubTitleStyle"
+                android:layout_marginLeft="@dimen/dimen_50"
+                android:layout_marginTop="@dimen/dimen_17"
+                android:layout_marginBottom="@dimen/dimen_17"
+                android:text="개인신용정보 제3자 제공동의" />
+
+            <com.example.mvvmappapplication.custom.HSUntactCheckBox
+                android:id="@+id/cb_layout_untact_common_term_sub_type_3_term_5"
+                style="@style/UntactCheckBoxType2Style"
+                android:drawableRight="@null"
+                android:text="세무법인 정보제공" />
+
+            <com.example.mvvmappapplication.custom.HSUntactCheckBox
+                android:id="@+id/cb_layout_untact_common_term_sub_type_3_term_6"
+                style="@style/UntactCheckBoxType2Style"
+                android:drawableRight="@null"
+                android:text="상품개발연구 및 고객분석" />
+
+            <com.example.mvvmappapplication.custom.HSUntactCheckBox
+                android:id="@+id/cb_layout_untact_common_term_sub_type_3_term_7"
+                style="@style/UntactCheckBoxType2Style"
+                android:drawableRight="@null"
+                android:text="세무법인 고유식별정보 처리" />
+
+            <com.example.mvvmappapplication.custom.HSUntactView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_marginLeft="@dimen/common_table_of_minus_margin_left"
+                android:layout_marginRight="@dimen/common_table_of_minus_margin_right"
+                android:background="#9b9b9b" />
+
+            <com.example.mvvmappapplication.custom.HSUntactTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_33"
+                android:layout_marginLeft="@dimen/common_table_of_minus_margin_left"
+                android:layout_marginRight="@dimen/common_table_of_minus_margin_right"
+                android:paddingLeft="@dimen/dimen_20"
+                android:gravity="center_vertical"
+                android:text="개인(신용)정보제공 선택동의서"
+                android:letterSpacing="-0.06"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/dimen_12"
+                android:background="#d8d8d8"/>
+            <com.example.mvvmappapplication.custom.HSUntactView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_marginLeft="@dimen/common_table_of_minus_margin_left"
+                android:layout_marginRight="@dimen/common_table_of_minus_margin_right"
+                android:background="#9b9b9b" />
+
+            <com.example.mvvmappapplication.custom.HSUntactTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_20"
+                android:gravity="center_vertical"
+                android:text=
+                    "고객의 권리에 대한 안내\n
+귀하는 개인(신용)정보의 선택적인 수집,이용,제공에 대한 동의를 거부할 수 있습니다. 또한, 동의하시더라도 당사 홈페이지(https://www.hanwhawm.com) 및 고객센터 (080-851-8282)를 통해 언제든지 철회하실 수 있습니다.\n
+\n
+고객의 권리에 대한 안내\n
+귀하는 개인(신용)정보의 선택적인 수집,이용,제공에 대한 동의를 거부할 수 있습니다. 또한, 동의하시더라도 당사 홈페이지(https://www.hanwhawm.com) 및 고객센터 (080-851-8282)를 통해 언제든지 철회하실 수 있습니다.\n
+\n
+고객의 권리에 대한 안내\n
+귀하는 개인(신용)정보의 선택적인 수집,이용,제공에 대한 동의를 거부할 수 있습니다. 또한, 동의하시더라도 당사 홈페이지(https://www.hanwhawm.com) 및 고객센터 (080-851-8282)를 통해 언제든지 철회하실 수 있습니다."
+                android:letterSpacing="-0.03"
+                android:textColor="#000000"
+                android:textSize="@dimen/dimen_11"/>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

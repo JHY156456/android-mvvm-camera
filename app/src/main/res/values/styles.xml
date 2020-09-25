@@ -26,4 +26,261 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+
+
+    <!-- ////////////////////////////////// 비대면용 ////////////////////////////////// -->
+    <style name="UntactTitleContainerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/untact_common_title_min_height</item>
+        <item name="android:background">?attr/UntactTitleContainerBgColor</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="UntactTitleContainerAreaUpStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/untact_common_title_height</item>
+    </style>
+
+    <style name="UntactTitleContainerAreaDownStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <!--        <item name="android:minHeight">@dimen/dimen_30</item>-->
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="UntactTitleBackButtonStyle">
+        <item name="android:layout_width">@dimen/dimen_32</item>
+        <item name="android:layout_height">@dimen/dimen_32</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_18</item>
+        <item name="android:background">?attr/UntactTitleBackButtonIcon</item>
+        <item name="android:button">@null</item>
+    </style>
+
+    <style name="UntactTitleCloseButtonStyle">
+        <item name="android:layout_width">@dimen/dimen_34</item>
+        <item name="android:layout_height">@dimen/dimen_32</item>
+        <item name="android:layout_marginRight">@dimen/dimen_11</item>
+        <item name="android:background">?attr/UntactTitleCloseButtonIcon</item>
+        <item name="android:button">@null</item>
+    </style>
+
+    <style name="UntactTitleTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <!--        <item name="android:layout_marginLeft">@dimen/dimen_19</item>-->
+        <item name="android:minHeight">@dimen/dimen_30</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/dimen_18</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textStyle">bold</item>
+        <!--        <item name="android:singleLine">true</item>-->
+    </style>
+
+    <style name="UntactTitleTextSubStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_30</item>
+        <item name="android:layout_marginRight">@dimen/dimen_30</item>
+        <item name="android:minHeight">@dimen/dimen_30</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">@color/color_000000</item>
+        <item name="android:textSize">@dimen/dimen_11</item>
+    </style>
+
+    <style name="UntactTitleAdminButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/dimen_30</item>
+        <item name="android:minWidth">@dimen/dimen_69</item>
+        <item name="android:layout_marginRight">@dimen/dimen_17</item>
+        <item name="android:lines">1</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textSize">@dimen/dimen_11</item>
+        <item name="android:textColor">?attr/UntactTitleAdminTextSelector</item>
+        <item name="android:textStyle">italic</item>
+        <!--        <item name="android:drawableRight">?attr/UntactTitleAdminDrawableRightBgSelector</item>-->
+        <item name="android:background">?attr/UntactTitleAdminBgSelector</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+    </style>
+
+    <style name="UntactReCallButtonStyle">
+        <item name="android:layout_width">@dimen/dimen_66</item>
+        <item name="android:layout_height">@dimen/dimen_30</item>
+        <item name="android:lines">1</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textSize">@dimen/dimen_11</item>
+        <!--        <item name="android:textColor">@color/color_000000</item>-->
+        <item name="android:textColor">@color/untact_selector_table_title_text_color</item>
+        <item name="android:textStyle">italic</item>
+        <!--        <item name="android:drawableRight">?attr/UntactTitleAdminDrawableRightBgSelector</item>-->
+        <item name="android:background">?attr/UntactReCallBgSelector</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+    </style>
+
+    <style name="UntactTitleLineStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_1</item>
+        <item name="android:background">?titleLineColor</item>
+    </style>
+
+    <style name="UntactCheckBoxType2Style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/common_term_sub_body_height</item>
+        <item name="android:textSize">@dimen/dimen_11</item>
+        <item name="android:textColor">@color/untact_selector_term_sub_text_color</item>
+        <item name="android:paddingRight">@dimen/dimen_17</item>
+        <item name="android:button">?attr/UntactCheckBoxIconType2Selector</item>
+        <item name="android:drawableRight">?attr/btn_arrow_b</item>
+        <item name="android:foreground">?android:selectableItemBackground</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <style name="UntactTableOfLineStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_1</item>
+        <item name="android:layout_marginLeft">@dimen/common_table_of_minus_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/common_table_of_minus_margin_right</item>
+        <item name="android:background">?listLineColor</item>
+    </style>
+
+    <style name="UntactTableOfSubTitleStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:letterSpacing">-0.06</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/dimen_12</item>
+    </style>
+
+    <!-- RoundButton -->
+    <style name="UntactRoundButtonBlackStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_55</item>
+        <item name="android:background">@drawable/untact_selector_round_button_black_bg</item>
+        <item name="android:textColor">@color/color_ffffff</item>
+        <item name="android:textSize">@dimen/dimen_14</item>
+    </style>
+
+    <style name="UntactRoundButtonWhiteStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_55</item>
+        <item name="android:background">@drawable/untact_selector_round_button_white_bg</item>
+        <item name="android:textColor">@color/color_000000</item>
+        <item name="android:textSize">@dimen/dimen_14</item>
+    </style>
+
+    <style name="UntactRoundButtonReTakePictureStyle">
+        <item name="android:layout_width">@dimen/dimen_155</item>
+        <item name="android:layout_height">@dimen/dimen_52</item>
+        <item name="android:background">@drawable/untact_selector_round_button_re_take_picture_bg</item>
+        <item name="android:textColor">@color/color_000000</item>
+        <item name="android:textSize">@dimen/dimen_14</item>
+    </style>
+
+    <!-- Switch(New) -->
+    <style name="UntactSwitchStyle">
+        <item name="android:minWidth">@dimen/dimen_51</item>
+        <item name="android:minHeight">@dimen/dimen_31</item>
+        <item name="android:maxWidth">@dimen/dimen_51</item>
+        <item name="android:maxHeight">@dimen/dimen_31</item>
+        <item name="android:background">?attr/UntactSwitchButtonSelector</item>
+        <item name="android:textOn">""</item>
+        <item name="android:textOff">""</item>
+    </style>
+
+    <!-- 비대면 계좌개설 작업 -->
+    <style name="UntactHorizontalItemStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/dimen_26</item>
+        <item name="android:minWidth">@dimen/dimen_55</item>
+        <item name="android:paddingLeft">@dimen/dimen_10</item>
+        <item name="android:paddingRight">@dimen/dimen_10</item>
+        <item name="android:lines">1</item>
+        <item name="android:textSize">@dimen/dimen_14</item>
+        <item name="android:textColor">@color/color_ffffff</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:background">?attr/UntactButtonRound</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+    </style>
+
+    <style name="UntactWindowPopupDropdownAnimation">
+        <item name="android:windowEnterAnimation">@anim/anim_dropdown_show_dialog</item>
+        <item name="android:windowExitAnimation">@anim/anim_dropdown_hide_dialog</item>
+    </style>
+
+    <style name="TitleTextStyle">
+        <item name="android:minHeight">@dimen/dimen_30</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/dimen_20</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="TitleLineStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_1</item>
+        <item name="android:background">?titleLineColor</item>
+    </style>
+
+    <!-- Guide Text -->
+    <style name="GuideTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/dimen_24</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/dimen_12</item>
+        <item name="android:textColor">?attr/guideTextColor</item>
+        <item name="android:lineSpacingExtra">@dimen/dimen_3</item>
+    </style>
+
+    <style name="SubTitleStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/dimen_16</item>
+        <item name="android:minHeight">@dimen/dimen_42</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LabelTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/dimen_14</item>
+        <item name="android:minHeight">@dimen/dimen_35</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">?attr/labelColor</item>
+    </style>
+    <style name="ListLineStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_1</item>
+        <item name="android:background">?listLineColor</item>
+    </style>
+
+    <style name="GuideSubTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/dimen_12</item>
+        <item name="android:lineSpacingExtra">@dimen/dimen_2</item>
+        <item name="android:textColor">?attr/subTextColor</item>
+        <item name="android:background">?attr/ic_ss_dot_gray</item>
+    </style>
+
+    <!-- DialogBase -->
+    <style name="DialogBase">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:top="@dimen/common_table_of_minus_margin_top"
+        android:bottom="@dimen/common_table_of_minus_margin_bottom"
+        android:left="@dimen/common_table_of_minus_margin_left"
+        android:right="@dimen/common_table_of_minus_margin_right" >
+        <shape android:shape="rectangle">
+            <padding
+                android:top="@dimen/common_table_of_minus_margin_top"
+                android:bottom="@dimen/common_table_of_minus_margin_bottom"
+                android:left="0dp"
+                android:right="0dp" />
+            <solid android:color="#f7f7f7"/>
+            <stroke android:width="@dimen/table_body_bg_stroke_width" android:color="#979797"/>
+            <corners android:radius="@dimen/table_body_bg_radius" />
+        </shape>
+    </item>
+</layer-list>

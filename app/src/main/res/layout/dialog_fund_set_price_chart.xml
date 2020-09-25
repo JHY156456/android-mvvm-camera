@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/content_margin"
+    android:layout_marginRight="@dimen/content_margin"
+    android:layout_marginBottom="@dimen/content_margin"
+    android:orientation="vertical">
+
+    <com.example.mvvmappapplication.custom.HSView
+        android:id="@+id/lineV"
+        style="@style/TitleLineStyle"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginBottom="@dimen/dimen_15" />
+
+    <plus.steps.sapp.activity.product.checkpoint.HSFundYieldGraph
+        android:id="@+id/chartLayout"
+        android:layout_width="match_parent"
+        android:hardwareAccelerated="true"
+        android:layout_height="@dimen/dimen_210"/>
+
+</LinearLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.example.mvvmappapplication.custom.HSUntactCardView
+        android:id="@+id/hsnucv_common_table_type_cardview_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/transparent"
+        app:contentPaddingLeft="@dimen/dimen_15"
+        app:contentPaddingRight="@dimen/dimen_15" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/ll_layout_new_untact_table_type_content_item_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/common_table_items_type_a_height"
+                android:layout_gravity="center"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <com.example.mvvmappapplication.custom.HSUntactTextView
+                    android:id="@+id/hsntv_common_title_type_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_10"
+                    android:gravity="center_vertical"
+                    android:text="현재직업"
+                    android:textColor="@color/untact_selector_table_title_text_color"
+                    android:textSize="@dimen/dimen_11"
+                    android:textStyle="italic" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <com.example.mvvmappapplication.custom.HSUntactTextView
+                        android:id="@+id/hsntv_common_title_type_button_input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:text=""
+                        android:textColor="@color/untact_selector_table_title_text_color"
+                        android:textSize="@dimen/dimen_19" />
+
+                    <com.example.mvvmappapplication.custom.HSUntactImageView
+                        android:id="@+id/hsniv_common_table_type_icon"
+                        android:layout_width="@dimen/dimen_18"
+                        android:layout_height="@dimen/dimen_13"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter"
+                        android:background="@drawable/untact_selector_updown_arrow_bg" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:visibility="visible"
+                android:id="@+id/fl_layout_untact_common_type_detail_body"
+                android:animateLayoutChanges="true"
+                android:duplicateParentState="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </com.example.mvvmappapplication.custom.HSUntactCardView>
+</layout>

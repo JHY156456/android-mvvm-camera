@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/bottomSheetRootView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:id="@+id/title"
+            style="@style/TitleTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/content_margin"
+            android:layout_marginRight="@dimen/content_margin"
+            android:text="asdf"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.mvvmappapplication.custom.HSView
+            android:id="@+id/line"
+            style="@style/TitleLineStyle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dimen_10"
+            app:layout_collapseMode="pin"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        com.example.mvvmappapplication.custom.HSEditText
+        <com.example.mvvmappapplication.custom.HSEditText
+            android:id="@+id/etGroupTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/content_margin"
+            android:layout_marginTop="@dimen/dimen_30"
+            android:layout_marginRight="@dimen/content_margin"
+            android:focusable="true"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:paddingRight="@dimen/dimen_70"
+            app:layout_constraintTop_toBottomOf="@+id/line"
+            tools:text="WatchList" >
+            <requestFocus />
+        </com.example.mvvmappapplication.custom.HSEditText>
+
+        <com.example.mvvmappapplication.custom.HSButton
+            android:id="@+id/textClearBT"
+            android:layout_width="@dimen/dimen_22"
+            android:layout_height="@dimen/dimen_22"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:background="?attr/btn_text_del"
+            app:layout_constraintBottom_toBottomOf="@+id/etGroupTitle"
+            app:layout_constraintRight_toLeftOf="@+id/groupTitleCurrentCount"
+            app:layout_constraintTop_toTopOf="@+id/etGroupTitle" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:id="@+id/slash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/subTextColor2"
+            android:textSize="@dimen/dimen_12"
+            app:layout_constraintBottom_toBottomOf="@+id/etGroupTitle"
+            app:layout_constraintTop_toTopOf="@+id/etGroupTitle"
+            app:layout_constraintRight_toLeftOf="@+id/groupTitleMaxCount" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:id="@+id/groupTitleCurrentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|end"
+            android:minWidth="@dimen/dimen_15"
+            android:textColor="?attr/selectedColor"
+            android:textSize="@dimen/dimen_12"
+            app:layout_constraintBottom_toBottomOf="@+id/etGroupTitle"
+            app:layout_constraintTop_toTopOf="@+id/etGroupTitle"
+            app:layout_constraintRight_toLeftOf="@+id/slash"
+            tools:text="6" />
+
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:id="@+id/groupTitleMaxCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dimen_12"
+            app:layout_constraintBottom_toBottomOf="@+id/etGroupTitle"
+            app:layout_constraintTop_toTopOf="@+id/etGroupTitle"
+            app:layout_constraintRight_toRightOf="@+id/etGroupTitle" />
+
+
+        <RelativeLayout
+            android:id="@+id/groupPublicBody"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_30"
+            android:layout_marginLeft="@dimen/content_margin"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_marginRight="@dimen/content_margin"
+            app:layout_constraintTop_toBottomOf="@+id/etGroupTitle"
+            tools:visibility="visible">
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/groupPublicTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/dimen_14"
+                android:textStyle="italic" />
+
+            <ToggleButton
+                android:id="@+id/groupPublicToggle"
+                style="@style/SwitchStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:id="@+id/groupPublicDesc2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/content_margin"
+            android:layout_marginRight="@dimen/content_margin"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/dimen_16"
+            android:textColor="?attr/subTextColor"
+            android:textSize="@dimen/dimen_11"
+            android:textStyle="italic"
+            app:layout_constraintTop_toBottomOf="@+id/groupPublicBody"
+            tools:visibility="visible" />
+
+        <com.example.mvvmappapplication.custom.HSMaterialButton
+            android:id="@+id/btnDone"
+            style="@style/MaterialButton.Primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_30"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/groupPublicDesc2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

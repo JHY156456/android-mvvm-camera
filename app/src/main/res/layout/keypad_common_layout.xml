@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <HorizontalScrollView
+            android:id="@+id/keyscroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/keylayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/dimen_7"
+                android:visibility="gone" />
+        </HorizontalScrollView>
+
+        <RelativeLayout
+            android:id="@+id/pwd_edit_text_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_54"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.example.mvvmappapplication.custom.HSEditText
+                android:id="@+id/pwd_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_54"
+                android:layout_marginLeft="@dimen/dimen_7"
+                android:background="@null"
+                android:clickable="true"
+                android:cursorVisible="false"
+                android:editable="false"
+                android:focusable="false"
+                android:gravity="center_vertical"
+                android:inputType="textPassword"
+                android:maxLength="8"
+                android:paddingRight="@dimen/dimen_7"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/auto_login_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_54"
+                android:background="?android:attr/windowBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <com.example.mvvmappapplication.custom.HSDotView
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginRight="4dp"
+                    app:dotColor="?attr/colorPrimary" />
+
+                <com.example.mvvmappapplication.custom.HSDotView
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    app:dotColor="?attr/colorPrimary" />
+
+                <com.example.mvvmappapplication.custom.HSDotView
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    app:dotColor="?attr/colorPrimary" />
+
+                <com.example.mvvmappapplication.custom.HSDotView
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginLeft="4dp"
+                    app:dotColor="?attr/colorPrimary" />
+            </LinearLayout>
+
+            <com.example.mvvmappapplication.custom.HSView
+                android:id="@+id/hsv_edit_text_undeline"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_alignParentBottom="true"
+                android:background="?attr/titleLineColor" />
+        </RelativeLayout>
+
+
+        <!--보안카드 입력-->
+
+        <LinearLayout
+            android:id="@+id/card_no_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_28"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:id="@+id/title_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/selectedColor"
+                        android:textSize="@dimen/dimen_16"
+                        android:textStyle="italic"
+                        tools:text="23번" />
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text=" 앞 두자리"
+                        android:textColor="?android:attr/textColor"
+                        android:textSize="@dimen/dimen_16"
+                        android:textStyle="italic" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_35"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/dimen_50"
+                        android:layout_height="match_parent">
+
+                        <com.example.mvvmappapplication.custom.HSTextView
+                            android:id="@+id/card_1"
+                            android:layout_width="@dimen/dimen_16"
+                            android:layout_height="@dimen/dimen_16"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_4"
+                            android:background="?attr/img_pw_mask2_selector"
+                            android:gravity="center"
+                            android:textSize="@dimen/dimen_14"
+                            android:textStyle="bold" />
+
+                        <com.example.mvvmappapplication.custom.HSTextView
+                            android:id="@+id/card_2"
+                            android:layout_width="@dimen/dimen_16"
+                            android:layout_height="@dimen/dimen_16"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_toRightOf="@+id/card_1"
+                            android:background="?attr/img_pw_mask2_selector"
+                            android:gravity="center"
+                            android:textSize="@dimen/dimen_14"
+                            android:textStyle="bold" />
+
+                        <com.example.mvvmappapplication.custom.HSView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_alignParentBottom="true"
+                            android:background="?attr/accountSpinnerLineColor" />
+
+                    </RelativeLayout>
+
+                    <com.example.mvvmappapplication.custom.HSView
+                        android:layout_width="@dimen/dimen_16"
+                        android:layout_height="@dimen/dimen_16"
+                        android:layout_marginLeft="@dimen/dimen_20"
+                        android:background="?attr/img_pw_mask_selector" />
+
+                    <com.example.mvvmappapplication.custom.HSView
+                        android:layout_width="@dimen/dimen_16"
+                        android:layout_height="@dimen/dimen_16"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:background="?attr/img_pw_mask_selector" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_28"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:id="@+id/title_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/selectedColor"
+                        android:textSize="@dimen/dimen_16"
+                        android:textStyle="italic"
+                        tools:text="23번" />
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text=" 뒤 두자리"
+                        android:textSize="@dimen/dimen_16"
+                        android:textStyle="italic" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_35"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.example.mvvmappapplication.custom.HSView
+                        android:layout_width="@dimen/dimen_16"
+                        android:layout_height="@dimen/dimen_16"
+                        android:background="?attr/img_pw_mask_selector" />
+
+                    <com.example.mvvmappapplication.custom.HSView
+                        android:layout_width="@dimen/dimen_16"
+                        android:layout_height="@dimen/dimen_16"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:background="?attr/img_pw_mask_selector" />
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/dimen_50"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dimen_20">
+
+                        <com.example.mvvmappapplication.custom.HSTextView
+                            android:id="@+id/card_3"
+                            android:layout_width="@dimen/dimen_16"
+                            android:layout_height="@dimen/dimen_16"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_4"
+                            android:background="?attr/img_pw_mask2_selector"
+                            android:gravity="center"
+                            android:textSize="@dimen/dimen_14"
+                            android:textStyle="bold" />
+
+                        <com.example.mvvmappapplication.custom.HSTextView
+                            android:id="@+id/card_4"
+                            android:layout_width="@dimen/dimen_16"
+                            android:layout_height="@dimen/dimen_16"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_toRightOf="@+id/card_3"
+                            android:background="?attr/img_pw_mask2_selector"
+                            android:gravity="center"
+                            android:textSize="@dimen/dimen_14"
+                            android:textStyle="bold" />
+
+                        <com.example.mvvmappapplication.custom.HSView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_alignParentBottom="true"
+                            android:background="?attr/accountSpinnerLineColor" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--공인인증 비밀번호 입력-->
+
+        <LinearLayout
+            android:id="@+id/default_pwd_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/default_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list_bg"
+                android:gravity="center_vertical"
+                android:hint="10자리 이상 ~ 30자리 이하"
+                android:textColorHint="?android:attr/textColorHint"
+                android:textSize="@dimen/dimen_16" />
+        </LinearLayout>
+
+        <!--OTP 번호 입력-->
+
+        <LinearLayout
+            android:id="@+id/otp_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_35">
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/otp_1"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_21"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/otp_2"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_21"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/otp_3"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_21"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/otp_4"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_21"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/otp_5"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_21"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/otp_6"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_21"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <com.example.mvvmappapplication.custom.HSView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:background="?attr/titleLineColor" />
+
+        </LinearLayout>
+
+        <!--계좌 비밀번호 입력-->
+
+        <LinearLayout
+            android:id="@+id/account_pwd_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/acn_pwd_1"
+                android:layout_width="@dimen/dimen_16"
+                android:layout_height="@dimen/dimen_16"
+                android:background="?attr/img_pw_mask_selector"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/acn_pwd_2"
+                android:layout_width="@dimen/dimen_16"
+                android:layout_height="@dimen/dimen_16"
+                android:layout_marginLeft="@dimen/dimen_19"
+                android:background="?attr/img_pw_mask_selector"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/acn_pwd_3"
+                android:layout_width="@dimen/dimen_16"
+                android:layout_height="@dimen/dimen_16"
+                android:layout_marginLeft="@dimen/dimen_19"
+                android:background="?attr/img_pw_mask_selector"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/acn_pwd_4"
+                android:layout_width="@dimen/dimen_16"
+                android:layout_height="@dimen/dimen_16"
+                android:layout_marginLeft="@dimen/dimen_19"
+                android:background="?attr/img_pw_mask_selector"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/acn_pwd_5"
+                android:layout_width="@dimen/dimen_16"
+                android:layout_height="@dimen/dimen_16"
+                android:layout_marginLeft="@dimen/dimen_19"
+                android:background="?attr/img_pw_mask_selector"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/acn_pwd_6"
+                android:layout_width="@dimen/dimen_16"
+                android:layout_height="@dimen/dimen_16"
+                android:layout_marginLeft="@dimen/dimen_19"
+                android:background="?attr/img_pw_mask_selector"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/acn_pwd_7"
+                android:layout_width="@dimen/dimen_16"
+                android:layout_height="@dimen/dimen_16"
+                android:layout_marginLeft="@dimen/dimen_19"
+                android:background="?attr/img_pw_mask_selector"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/acn_pwd_8"
+                android:layout_width="@dimen/dimen_16"
+                android:layout_height="@dimen/dimen_16"
+                android:layout_marginLeft="@dimen/dimen_19"
+                android:background="?attr/img_pw_mask_selector"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!--주민번호입력-->
+        <LinearLayout
+            android:id="@+id/jumin_no_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_55"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/jumin_no_1"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textStyle="italic" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/jumin_no_2"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textStyle="italic" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/jumin_no_3"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textStyle="italic" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/jumin_no_4"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textStyle="italic" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/jumin_no_5"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textStyle="italic" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/jumin_no_6"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textStyle="italic" />
+
+                <LinearLayout
+                    android:layout_width="@dimen/dimen_6"
+                    android:layout_height="@dimen/dimen_1"
+                    android:layout_marginLeft="@dimen/dimen_8"
+                    android:layout_marginRight="@dimen/dimen_8"
+                    android:background="?attr/colorPrimary" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/jumin_no_7"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textStyle="italic" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/jumin_no_8"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textStyle="italic" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/jumin_no_9"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textStyle="italic" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/jumin_no_10"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textStyle="italic" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/jumin_no_11"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textStyle="italic" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/jumin_no_12"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textStyle="italic" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/jumin_no_13"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/img_pw_mask_selector"
+                    android:gravity="center"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <com.example.mvvmappapplication.custom.HSView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:background="?attr/titleLineColor" />
+        </LinearLayout>
+
+        <!--계좌비밀번호입력 (비대면용)-->
+        <LinearLayout
+            android:id="@+id/untact_account_pwd_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/untact_acn_pwd_1"
+                android:layout_width="@dimen/dimen_35"
+                android:layout_height="@dimen/dimen_44"
+                android:background="?attr/UntactSelectorPwMaskImage3"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/untact_acn_pwd_2"
+                android:layout_width="@dimen/dimen_35"
+                android:layout_height="@dimen/dimen_44"
+                android:layout_marginLeft="@dimen/dimen_22"
+                android:background="?attr/UntactSelectorPwMaskImage3"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/untact_acn_pwd_3"
+                android:layout_width="@dimen/dimen_35"
+                android:layout_height="@dimen/dimen_44"
+                android:layout_marginLeft="@dimen/dimen_22"
+                android:background="?attr/UntactSelectorPwMaskImage3"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/untact_acn_pwd_4"
+                android:layout_width="@dimen/dimen_35"
+                android:layout_height="@dimen/dimen_44"
+                android:layout_marginLeft="@dimen/dimen_22"
+                android:background="?attr/UntactSelectorPwMaskImage3"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/untact_acn_pwd_5"
+                android:layout_width="@dimen/dimen_35"
+                android:layout_height="@dimen/dimen_44"
+                android:layout_marginLeft="@dimen/dimen_22"
+                android:background="?attr/UntactSelectorPwMaskImage3"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/untact_acn_pwd_6"
+                android:layout_width="@dimen/dimen_35"
+                android:layout_height="@dimen/dimen_44"
+                android:layout_marginLeft="@dimen/dimen_22"
+                android:background="?attr/UntactSelectorPwMaskImage3"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/untact_acn_pwd_7"
+                android:layout_width="@dimen/dimen_35"
+                android:layout_height="@dimen/dimen_44"
+                android:layout_marginLeft="@dimen/dimen_22"
+                android:background="?attr/UntactSelectorPwMaskImage3"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/untact_acn_pwd_8"
+                android:layout_width="@dimen/dimen_35"
+                android:layout_height="@dimen/dimen_44"
+                android:layout_marginLeft="@dimen/dimen_22"
+                android:background="?attr/UntactSelectorPwMaskImage3"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_21"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!--주민번호입력 (비대면용)-->
+        <LinearLayout
+            android:id="@+id/untact_jumin_no_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:orientation="horizontal">
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/untact_jumin_no_1"
+                    android:layout_width="@dimen/dimen_10"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/UntactSelectorPwMaskImage1"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_19"
+                    android:textStyle="bold" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/untact_jumin_no_2"
+                    android:layout_width="@dimen/dimen_10"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_2"
+                    android:background="?attr/UntactSelectorPwMaskImage1"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_19"
+                    android:textStyle="bold" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/untact_jumin_no_3"
+                    android:layout_width="@dimen/dimen_10"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_2"
+                    android:background="?attr/UntactSelectorPwMaskImage1"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_19"
+                    android:textStyle="bold" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/untact_jumin_no_4"
+                    android:layout_width="@dimen/dimen_10"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_2"
+                    android:background="?attr/UntactSelectorPwMaskImage1"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_19"
+                    android:textStyle="bold" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/untact_jumin_no_5"
+                    android:layout_width="@dimen/dimen_10"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_2"
+                    android:background="?attr/UntactSelectorPwMaskImage1"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_19"
+                    android:textStyle="bold" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/untact_jumin_no_6"
+                    android:layout_width="@dimen/dimen_10"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_2"
+                    android:background="?attr/UntactSelectorPwMaskImage1"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_19"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="@dimen/dimen_6"
+                    android:layout_height="@dimen/dimen_1"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_marginRight="@dimen/dimen_5"
+                    android:background="?attr/colorPrimary" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/untact_jumin_no_7"
+                    android:layout_width="@dimen/dimen_10"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/UntactSelectorPwMaskImage1"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_19"
+                    android:textStyle="bold" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/untact_jumin_no_8"
+                    android:layout_width="@dimen/dimen_6"
+                    android:layout_height="@dimen/dimen_6"
+                    android:layout_marginLeft="@dimen/dimen_20"
+                    android:background="?attr/UntactSelectorPwMaskImage2"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_19"
+                    android:textStyle="bold" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/untact_jumin_no_9"
+                    android:layout_width="@dimen/dimen_6"
+                    android:layout_height="@dimen/dimen_6"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/UntactSelectorPwMaskImage2"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_19"
+                    android:textStyle="bold" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/untact_jumin_no_10"
+                    android:layout_width="@dimen/dimen_6"
+                    android:layout_height="@dimen/dimen_6"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/UntactSelectorPwMaskImage2"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_19"
+                    android:textStyle="bold" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/untact_jumin_no_11"
+                    android:layout_width="@dimen/dimen_6"
+                    android:layout_height="@dimen/dimen_6"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/UntactSelectorPwMaskImage2"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_19"
+                    android:textStyle="bold" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/untact_jumin_no_12"
+                    android:layout_width="@dimen/dimen_6"
+                    android:layout_height="@dimen/dimen_6"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/UntactSelectorPwMaskImage2"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_19"
+                    android:textStyle="bold" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/untact_jumin_no_13"
+                    android:layout_width="@dimen/dimen_6"
+                    android:layout_height="@dimen/dimen_6"
+                    android:layout_marginLeft="@dimen/dimen_6"
+                    android:background="?attr/UntactSelectorPwMaskImage2"
+                    android:gravity="center"
+                    android:textSize="@dimen/dimen_19"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.example.mvvmappapplication.custom.HSUntactCardView
+        android:id="@+id/hsnucv_common_table_type_cardview_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dimen_16"
+        android:paddingRight="@dimen/dimen_16"
+        app:cardBackgroundColor="@color/transparent"
+        app:contentPaddingLeft="@dimen/dimen_15"
+        app:contentPaddingRight="@dimen/dimen_15" >
+
+        <LinearLayout
+            android:id="@+id/ll_layout_new_untact_table_type_content_item_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/common_table_items_type_b_height"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <com.example.mvvmappapplication.custom.HSUntactTextView
+                android:visibility="gone"
+                android:id="@+id/hsntv_common_title_type_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/dimen_30"
+                android:text=""
+                android:textColor="@color/untact_selector_table_title_text_color"
+                android:textSize="@dimen/dimen_16"
+                android:textStyle="italic" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/rl_common_table_type_untouchable"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal">
+
+                        <com.example.mvvmappapplication.custom.HSUntactTextView
+                            android:id="@+id/hsntv_common_title_type_button_input"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:letterSpacing="-0.03"
+                            android:text="바이오 인증 신청"
+                            android:textColor="@color/color_000000"
+                            android:textSize="@dimen/dimen_11"
+                            android:textStyle="italic" />
+
+                        <com.example.mvvmappapplication.custom.HSUntactImageView
+                            android:visibility="gone"
+                            android:id="@+id/hsniv_common_title_type_switch_info"
+                            android:layout_width="@dimen/dimen_32"
+                            android:layout_height="@dimen/dimen_32"
+                            android:layout_gravity="center"
+                            android:scaleType="fitCenter"
+                            android:background="@drawable/untact_ic_question_mark" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_common_title_type_switch"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="right|center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.example.mvvmappapplication.custom.HSUntactTextView
+                        android:id="@+id/hsntv_common_title_type_switch_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dimen_14"
+                        android:gravity="right|center_vertical"
+                        android:layout_weight="1"
+                        android:letterSpacing="-0.03"
+                        android:text="아니오"
+                        android:textColor="@color/color_000000"
+                        android:textSize="@dimen/dimen_19"
+                        android:textStyle="bold" />
+
+                    <ToggleButton
+                        android:id="@+id/tb_common_title_type_swich_btn"
+                        style="@style/UntactSwitchStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.example.mvvmappapplication.custom.HSUntactCardView>
+</layout>

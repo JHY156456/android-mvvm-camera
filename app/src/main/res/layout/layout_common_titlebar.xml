@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/titleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/titlebar_height">
+
+        <!-- 배경 색상 -->
+        <com.example.mvvmappapplication.custom.HSView
+            android:id="@+id/backgroundV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="?attr/windowBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/dimen_12" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/content_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/content_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/titlebar_height" />
+
+        <!-- Back 버튼 -->
+        <com.example.mvvmappapplication.custom.HSButton
+            android:id="@+id/titleBackBtn"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:background="?attr/btn_top_arrow"
+            android:foreground="?selectableItemBackground"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toLeftOf="@+id/titleNameLayout"
+            app:layout_constraintTop_toBottomOf="@+id/guidelineTop"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/titleNameLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toRightOf="@+id/titleBackBtn"
+            app:layout_constraintRight_toLeftOf="@+id/titleCartBtn"
+            app:layout_constraintTop_toBottomOf="@+id/guidelineTop">
+
+            <!-- 타이틀 -->
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/titleName"
+                style="@style/TitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="@dimen/dimen_11"
+                android:layout_marginBottom="@dimen/dimen_8"
+                android:drawablePadding="@dimen/dimen_5"
+                android:maxLines="2"
+                android:singleLine="false"
+                android:visibility="gone"
+                tools:text="타이틀"
+                tools:visibility="visible" />
+
+            <!-- 체험 태그 -->
+            <TextView
+                android:id="@+id/titleExperienceTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dimen_6"
+                android:layout_marginTop="@dimen/dimen_3"
+                android:background="@drawable/drawable_badge"
+                android:gravity="center"
+                android:minWidth="@dimen/dimen_34"
+                android:minHeight="@dimen/dimen_20"
+                android:paddingLeft="@dimen/dimen_6"
+                android:paddingRight="@dimen/dimen_6"
+                android:text="asdf"
+                android:textColor="?attr/colorOnSecondary"
+                android:textSize="@dimen/dimen_11"
+                android:textStyle="italic"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+        <!-- 장바구니 메뉴 -->
+        <com.example.mvvmappapplication.custom.HSButton
+            android:id="@+id/titleCartBtn"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:background="?attr/btn_top_cart"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+            app:layout_constraintRight_toLeftOf="@+id/titleSearchBtn"
+            app:layout_constraintTop_toBottomOf="@+id/guidelineTop"
+            tools:visibility="visible" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:id="@+id/titleCartCountBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/drawable_badge"
+            android:gravity="center"
+            android:minWidth="@dimen/dimen_20"
+            android:minHeight="@dimen/dimen_20"
+            android:paddingLeft="@dimen/dimen_3"
+            android:paddingRight="@dimen/dimen_3"
+            android:text="1"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="@dimen/dimen_11"
+            android:textStyle="italic"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/titleCartBtn"
+            app:layout_constraintLeft_toRightOf="@+id/titleCartBtn"
+            app:layout_constraintRight_toRightOf="@+id/titleCartBtn"
+            app:layout_constraintTop_toTopOf="@+id/titleCartBtn"
+            tools:visibility="visible" />
+
+        <!-- 검색 메뉴 -->
+        <com.example.mvvmappapplication.custom.HSButton
+            android:id="@+id/titleSearchBtn"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:background="?attr/btn_top_search"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+            app:layout_constraintRight_toLeftOf="@+id/titleCloseBtn"
+            app:layout_constraintTop_toBottomOf="@+id/guidelineTop"
+            tools:visibility="visible" />
+
+        <!-- Close 버튼 -->
+        <com.example.mvvmappapplication.custom.HSButton
+            android:id="@+id/titleCloseBtn"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:background="?attr/btn_top_close"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@+id/guidelineTop"
+            tools:visibility="visible" />
+
+        <com.example.mvvmappapplication.custom.HSView
+            android:id="@+id/underlineV"
+            style="@style/TitleLineStyle"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/dimen_18"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@+id/titleNameLayout"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layout_confirm_invest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="false"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/content_margin"
+            android:paddingRight="@dimen/content_margin"
+            android:paddingBottom="@dimen/dimen_30">
+
+            <ImageView
+                android:id="@+id/productLogoView"
+                android:layout_width="@dimen/dimen_198"
+                android:layout_height="@dimen/dimen_64"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:scaleType="fitCenter"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <com.example.mvvmappapplication.custom.HSAutofitTextView
+                android:id="@+id/companyName"
+                style="@style/TitleTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:maxLines="2"
+                tools:text="현대모비스" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/subTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_6"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/dimen_20"
+                android:textSize="@dimen/dimen_12"
+                tools:text="국내주식 | KOSPI150 | 운수장비" />
+
+            <com.example.mvvmappapplication.custom.HSCardView
+                android:id="@+id/priceView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_4"
+                app:cardBackgroundColor="?attr/backgroundColor4"
+                app:cardCornerRadius="@dimen/dimen_5">
+
+                <RelativeLayout
+                    android:id="@+id/priceInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/dimen_10"
+                    android:paddingRight="@dimen/dimen_10"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/dimen_12"
+                        tools:text="45,800" />
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:id="@+id/prdy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dimen_20"
+                        android:layout_toLeftOf="@+id/vrss"
+                        android:textColor="?attr/stockPriceRateColor"
+                        android:textSize="@dimen/dimen_12"
+                        tools:text="5.25%" />
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:id="@+id/vrss"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="?attr/stockPriceRateColor"
+                        android:textSize="@dimen/dimen_12"
+                        tools:text="+18,00" />
+
+                </RelativeLayout>
+
+            </com.example.mvvmappapplication.custom.HSCardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_10"/>
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/contentsNotice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="@dimen/dimen_86"
+                android:ellipsize="end"
+                android:lineSpacingExtra="@dimen/dimen_4"
+                android:maxLines="4"
+                android:textSize="@dimen/dimen_12"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="고무용 도료 기술로 출발해 폴리우레탄 수지 및 전자, 자동차, 생명과학 등에 사용되는 다양한 정밀화확제품을 생산 및 판매하는 것을 목적사업으로 함. A/S부품 사업을 영위함. A/S용 부품사업은 부품의 책임공급을..." />
+
+            <com.example.mvvmappapplication.custom.HSView
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:background="?attr/listLineColor" />
+
+            <LinearLayout
+                android:id="@+id/infoBondFund"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_66"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:id="@+id/infoBondFundTitle01"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_20"
+                        android:gravity="center"
+                        android:text="위험도"
+                        android:textColor="?attr/subTextColor2"
+                        android:textSize="@dimen/dimen_14"
+                        android:textStyle="italic" />
+
+                    <com.example.mvvmappapplication.custom.HSAutofitTextView
+                        android:id="@+id/infoBondFundValue01"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_24"
+                        android:layout_marginTop="@dimen/dimen_6"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:textSize="@dimen/dimen_20"
+                        android:textStyle="bold"
+                        tools:text="위험도" />
+                </LinearLayout>
+                <com.example.mvvmappapplication.custom.HSView
+                    android:layout_width="@dimen/dimen_1"
+                    android:layout_height="@dimen/dimen_28"
+                    android:layout_gravity="center_vertical"
+                    android:background="?attr/subTextColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:id="@+id/infoBondFundTitle02"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_20"
+                        android:gravity="center"
+                        android:text="규모"
+                        android:textColor="?attr/subTextColor2"
+                        android:textSize="@dimen/dimen_14"
+                        android:textStyle="italic" />
+
+                    <com.example.mvvmappapplication.custom.HSAutofitTextView
+                        android:id="@+id/infoBondFundValue02"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_24"
+                        android:layout_marginTop="@dimen/dimen_6"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:textSize="@dimen/dimen_20"
+                        android:textStyle="bold"
+                        tools:text="규모" />
+                </LinearLayout>
+
+                <com.example.mvvmappapplication.custom.HSView
+                    android:layout_width="@dimen/dimen_1"
+                    android:layout_height="@dimen/dimen_28"
+                    android:layout_gravity="center_vertical"
+                    android:background="?attr/subTextColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <com.example.mvvmappapplication.custom.HSTextView
+                        android:id="@+id/infoBondFundTitle03"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_20"
+                        android:gravity="center"
+                        android:textColor="?attr/subTextColor2"
+                        android:textSize="@dimen/dimen_14"
+                        android:textStyle="italic"
+                        tools:text="수익률" />
+
+                    <com.example.mvvmappapplication.custom.HSAutofitTextView
+                        android:id="@+id/infoBondFundValue03"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_24"
+                        android:layout_marginTop="@dimen/dimen_6"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/dimen_2"
+                        android:paddingRight="@dimen/dimen_2"
+                        android:singleLine="true"
+                        android:textSize="@dimen/dimen_20"
+                        android:textStyle="bold"
+                        tools:text="위험도" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_42"
+                android:layout_marginTop="@dimen/dimen_30"
+                android:orientation="horizontal">
+
+                <com.example.mvvmappapplication.custom.HSMaterialButton
+                    android:id="@+id/btnBuy"
+                    style="@style/MaterialButton.Primary.Ellipse"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dimen_5"
+                    android:layout_weight="1"
+                    android:text="사기"
+                    android:textColor="?attr/colorSecondaryRed" />
+
+                <com.example.mvvmappapplication.custom.HSMaterialButton
+                    android:id="@+id/btnAddCart"
+                    style="@style/MaterialButton.Primary.Ellipse"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dimen_5"
+                    android:layout_weight="1"
+                    android:text="장바구니담기"
+                    android:visibility="gone" />
+                <com.example.mvvmappapplication.custom.HSMaterialButton
+                    android:id="@+id/btnDetail"
+                    style="@style/MaterialButton.Outline.Ellipse"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dimen_5"
+                    android:layout_weight="1"
+                    android:text="더보기" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

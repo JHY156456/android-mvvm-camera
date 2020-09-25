@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/content_margin"
+        android:paddingRight="@dimen/content_margin" >
+
+        <LinearLayout
+            android:id="@+id/ll_fragment_untact_search_address_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dimen_10"
+            android:paddingBottom="@dimen/dimen_10"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:minHeight="@dimen/untact_common_title_min_height"
+            android:orientation="vertical"
+            android:background="@drawable/untact_selector_table_bg_single" >
+
+            <LinearLayout
+                android:id="@+id/ll_fragment_untact_search_address_input_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/common_table_items_type_a_height"
+                android:paddingLeft="@dimen/dimen_20"
+                android:paddingRight="@dimen/dimen_20"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <com.example.mvvmappapplication.custom.HSUntactTextView
+                    android:id="@+id/hsntv_common_title_type_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="주소"
+                    android:textColor="@color/untact_selector_table_title_text_color"
+                    android:textSize="@dimen/dimen_11"
+                    android:textStyle="italic" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <com.example.mvvmappapplication.custom.HSUntactEditText
+                        android:id="@+id/hsuet_fragment_untact_search_address_input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:hint="예) 도산대로, 신사동"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="@dimen/dimen_19"
+                        android:textStyle="bold" />
+
+                    <!-- 주소검색 아이콘 -->
+                    <com.example.mvvmappapplication.custom.HSUntactImageView
+                        android:id="@+id/iv_fragment_untact_search_address_search_icon"
+                        android:layout_width="@dimen/dimen_22"
+                        android:layout_height="@dimen/dimen_22"
+                        android:clickable="false"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter"
+                        android:background="@drawable/untact_ic_search" />
+
+                    <!-- Clear 버튼 -->
+                    <com.example.mvvmappapplication.custom.HSUntactButton
+                        android:id="@+id/btn_fragment_untact_search_address_clear"
+                        android:layout_width="@dimen/dimen_22"
+                        android:layout_height="@dimen/dimen_22"
+                        android:layout_gravity="center"
+                        android:background="?attr/btn_text_del"
+                        android:visibility="invisible"
+                        tools:visibility="visible" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 주소 검색 결과 창 -->
+            <View
+                android:id="@+id/v_fragment_untact_search_address_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/common_table_of_minus_margin_left"
+                android:layout_marginRight="@dimen/common_table_of_minus_margin_right"
+                android:background="@color/color_000000" />
+
+            <!-- 주소 검색 결과 창 -->
+            <com.example.mvvmappapplication.custom.HSRecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_table_of_minus_margin_left"
+                android:layout_marginRight="@dimen/common_table_of_minus_margin_right"
+                tools:listitem="@layout/item_untact_search_address" />
+        </LinearLayout>
+
+        <!-- 가이드 -->
+        <com.example.mvvmappapplication.custom.HSUntactTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_below="@+id/ll_fragment_untact_search_address_body"
+            android:gravity="left|top"
+            android:letterSpacing="-0.03"
+            android:text="예) 판교역로 235, 분당주공\n우편물 수령이 가능한 주소를 입력해 주세요"
+            android:textColor="@color/color_000000"
+            android:textSize="@dimen/dimen_11" />
+    </RelativeLayout>
+</layout>

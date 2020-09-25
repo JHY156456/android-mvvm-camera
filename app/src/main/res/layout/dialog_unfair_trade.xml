@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/content_margin"
+    android:layout_marginRight="@dimen/content_margin"
+    android:orientation="vertical">
+
+    <com.example.mvvmappapplication.custom.HSTextView
+        android:id="@+id/noticeTV"
+        style="@style/GuideTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:gravity="left"
+        android:lineSpacingExtra="@dimen/dimen_6"
+        android:textSize="@dimen/dimen_13"
+        tools:text="@string/dialog_unfair_trade1" />
+
+    <com.example.mvvmappapplication.custom.HSTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_26"
+        android:text="이상매매 내용"
+        android:textSize="@dimen/dimen_13"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/detailInfoContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+</LinearLayout>

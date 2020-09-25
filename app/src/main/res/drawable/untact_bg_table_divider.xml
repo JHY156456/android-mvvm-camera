@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:left="@dimen/common_table_of_minus_margin_left"
+        android:right="@dimen/common_table_of_minus_margin_right" >
+        <shape android:shape="rectangle">
+            <solid android:color="#979797"/>
+        </shape>
+    </item>
+</layer-list>

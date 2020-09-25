@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.example.mvvmappapplication.custom.HSAutofitTextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/content_margin"
+            android:maxLines="1"
+            android:textSize="@dimen/dimen_20"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.example.mvvmappapplication.custom.HSView
+            style="@style/TitleLineStyle"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitle"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <plus.steps.sapp.custom.HSRecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/layoutTitle"/>
+
+</LinearLayout>

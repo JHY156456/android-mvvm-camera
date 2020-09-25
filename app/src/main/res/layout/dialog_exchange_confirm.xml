@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/content_margin"
+    android:layout_marginRight="@dimen/content_margin"
+    android:orientation="vertical">
+
+    <com.example.mvvmappapplication.custom.HSTextView
+        android:id="@+id/subLabelTV"
+        style="@style/SubTitleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:textSize="@dimen/dimen_14"
+        tools:text="외화매수" />
+
+    <com.example.mvvmappapplication.custom.HSView
+        style="@style/TitleLineStyle" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3">
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            style="@style/LabelTextStyle"
+            android:layout_height="@dimen/dimen_50"
+            android:text="외화신청금액" />
+
+        <com.example.mvvmappapplication.custom.HSAutofitTextView
+            android:id="@+id/frcrAmtTV"
+            android:layout_width="0dp"
+            android:layout_gravity="fill"
+            android:gravity="center_vertical|end"
+            android:maxLines="1"
+            android:textSize="@dimen/dimen_20"
+            android:textStyle="italic"
+            tools:text="000,000" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:id="@+id/frcrUnitTV"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:gravity="center_vertical|end"
+            tools:text="USD" />
+
+        <com.example.mvvmappapplication.custom.HSView
+            style="@style/ListLineStyle"
+            android:layout_columnSpan="3" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            style="@style/LabelTextStyle"
+            android:layout_height="@dimen/dimen_50"
+            android:text="원화정산금액" />
+
+        <com.example.mvvmappapplication.custom.HSAutofitTextView
+            android:id="@+id/wonAmtTV"
+            android:layout_width="0dp"
+            android:layout_gravity="fill"
+            android:gravity="center_vertical|end"
+            android:maxLines="1"
+            android:textColor="?attr/selectedColor"
+            android:textSize="@dimen/dimen_20"
+            android:textStyle="italic"
+            tools:text="000,000" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:id="@+id/wonUnitTV"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:gravity="center_vertical|end"
+            android:textColor="?attr/selectedColor"
+            tools:text="KRW" />
+    </GridLayout>
+
+    <com.example.mvvmappapplication.custom.HSView
+        style="@style/ListLineStyle" />
+
+    <com.example.mvvmappapplication.custom.HSTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_30"
+        android:layout_marginBottom="@dimen/dimen_30"
+        android:gravity="center"
+        android:minHeight="@dimen/dimen_24"
+        android:text="환전 신청 후 취소가 불가합니다."
+        android:textSize="@dimen/dimen_14" />
+
+</LinearLayout>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/content_margin"
+    android:layout_marginRight="@dimen/content_margin"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_13"
+            android:orientation="vertical">
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_22"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:text="AAA"
+                android:textSize="@dimen/dimen_13"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_20"
+                android:lineSpacingExtra="@dimen/dimen_6"
+                android:text="@string/checkpoint_bond_rating_info01"
+                android:textColor="?attr/subTextColor"
+                android:textSize="@dimen/dimen_13" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_22"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:text="AA"
+                android:textSize="@dimen/dimen_13"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_18"
+                android:lineSpacingExtra="@dimen/dimen_6"
+                android:text="@string/checkpoint_bond_rating_info02"
+                android:textColor="?attr/subTextColor"
+                android:textSize="@dimen/dimen_13" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_22"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:text="A"
+                android:textSize="@dimen/dimen_13"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_18"
+                android:lineSpacingExtra="@dimen/dimen_6"
+                android:text="@string/checkpoint_bond_rating_info03"
+                android:textColor="?attr/subTextColor"
+                android:textSize="@dimen/dimen_13" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_22"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:text="BBB"
+                android:textSize="@dimen/dimen_13"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_18"
+                android:lineSpacingExtra="@dimen/dimen_6"
+                android:text="@string/checkpoint_bond_rating_info04"
+                android:textColor="?attr/subTextColor"
+                android:textSize="@dimen/dimen_13" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_22"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:text="BB"
+                android:textSize="@dimen/dimen_13"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_18"
+                android:lineSpacingExtra="@dimen/dimen_6"
+                android:text="@string/checkpoint_bond_rating_info05"
+                android:textColor="?attr/subTextColor"
+                android:textSize="@dimen/dimen_13" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_22"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:text="B"
+                android:textSize="@dimen/dimen_13"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_18"
+                android:lineSpacingExtra="@dimen/dimen_6"
+                android:text="@string/checkpoint_bond_rating_info06"
+                android:textColor="?attr/subTextColor"
+                android:textSize="@dimen/dimen_13" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_22"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:text="CCC"
+                android:textSize="@dimen/dimen_13"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_18"
+                android:lineSpacingExtra="@dimen/dimen_6"
+                android:text="@string/checkpoint_bond_rating_info07"
+                android:textColor="?attr/subTextColor"
+                android:textSize="@dimen/dimen_13" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_22"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:text="CC"
+                android:textSize="@dimen/dimen_13"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_18"
+                android:lineSpacingExtra="@dimen/dimen_6"
+                android:text="@string/checkpoint_bond_rating_info08"
+                android:textColor="?attr/subTextColor"
+                android:textSize="@dimen/dimen_13" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_22"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:text="C"
+                android:textSize="@dimen/dimen_13"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_18"
+                android:lineSpacingExtra="@dimen/dimen_6"
+                android:text="@string/checkpoint_bond_rating_info09"
+                android:textColor="?attr/subTextColor"
+                android:textSize="@dimen/dimen_13" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_22"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:text="D"
+                android:textSize="@dimen/dimen_13"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_18"
+                android:lineSpacingExtra="@dimen/dimen_6"
+                android:text="@string/checkpoint_bond_rating_info10"
+                android:textColor="?attr/subTextColor"
+                android:textSize="@dimen/dimen_13" />
+
+        </LinearLayout>
+
+</LinearLayout>

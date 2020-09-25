@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialogAssetsBsLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="false"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/dimen_15"
+    android:paddingBottom="@dimen/dimen_30">
+
+    <com.example.mvvmappapplication.custom.HSAutofitTextView
+        android:id="@+id/dialogAssetsBsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_30"
+        android:layout_marginLeft="@dimen/content_margin"
+        android:layout_marginRight="@dimen/content_margin"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:textSize="@dimen/dimen_16"
+        android:textStyle="bold" />
+
+    <com.example.mvvmappapplication.custom.HSView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1"
+        android:layout_marginTop="@dimen/dimen_6"
+        android:background="?attr/titleLineColor" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_42"
+        android:layout_marginLeft="@dimen/dimen_10"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_marginRight="@dimen/dimen_10"
+        android:orientation="horizontal">
+
+        <com.example.mvvmappapplication.custom.HSMaterialButton
+            android:id="@+id/addBuyBT"
+            style="@style/MaterialButton.Primary.Ellipse"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:layout_weight="1"
+
+            android:textColor="?attr/colorSecondaryRed" />
+
+        <com.example.mvvmappapplication.custom.HSMaterialButton
+            android:id="@+id/sellBT"
+            style="@style/MaterialButton.Primary.Ellipse"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:layout_weight="1"
+
+            android:textColor="?attr/colorSecondaryBlue" />
+    </LinearLayout>
+</LinearLayout>

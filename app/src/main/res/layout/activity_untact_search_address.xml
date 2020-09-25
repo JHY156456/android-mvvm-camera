@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 타이틀 -->
+        <com.example.mvvmappapplication.custom.HSUntactTitleBar
+            android:id="@+id/hsnutb_untact_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:underline="false"
+            app:menuBack="false"
+            app:menuAdmin="false"
+            app:menuClose="false"
+            app:areaDescription="false"
+            app:titleBarType="close"
+            app:titleClickable="false"
+            app:title="타이틀"
+            app:titleBg="?attr/UntactTitleContainerBgColor" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_below="@+id/hsnutb_untact_title_bar"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/fl_fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#FFFFFF" />
+
+            <!-- 이전 / 다음 버튼 -->
+            <com.example.mvvmappapplication.custom.HSUntactFloatingButtonType
+                android:id="@+id/hsnufbt_untact_floating_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

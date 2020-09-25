@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.example.mvvmappapplication.custom.HSTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="@dimen/dimen_44"
+        android:text="코드표의 번호 확인 후\n표시된 숫자를 입력하세요."
+        android:textSize="@dimen/dimen_14" />
+
+    <com.example.mvvmappapplication.custom.HSTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_35"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:text="보안카드 예시"
+        android:textColor="?attr/subTextColor"
+        android:textSize="@dimen/dimen_11" />
+
+    <com.example.mvvmappapplication.custom.HSImageView
+        android:layout_width="@dimen/dimen_250"
+        android:layout_height="@dimen/dimen_176"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimen_4"
+        android:layout_marginBottom="@dimen/dimen_20"
+        android:background="?attr/img_securitycard"/>
+</LinearLayout>

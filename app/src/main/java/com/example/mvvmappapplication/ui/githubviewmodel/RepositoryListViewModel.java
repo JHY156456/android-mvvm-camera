@@ -15,7 +15,11 @@ import org.reactivestreams.Subscriber;
 import java.util.Calendar;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.core.Scheduler;
+import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
@@ -25,6 +29,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class RepositoryListViewModel {
   public final ObservableInt progressBarVisibility = new ObservableInt(View.VISIBLE);
   private final RepositoryListViewContract repositoryListView;
+  //GitHubService Model에 접근한다.
   private final GitHubService gitHubService;
 
   public RepositoryListViewModel(RepositoryListViewContract repositoryListView, GitHubService gitHubService) {
@@ -55,27 +60,32 @@ public class RepositoryListViewModel {
     Observable<GitHubService.Repositories> observable = gitHubService.listRepos("language:" + langugae + " " + "created:>" + text);
     // 입출력(IO)용 스레드로 통신하고, 메인스레드로 결과를 받도록 한다
     observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new Subscriber<GitHubService.Repositories>() {
-      @Override
-      public void onNext(GitHubService.Repositories repositories) {
-        // 로딩이 끝났으므로 진행바를 표시하지 않는다
-        progressBarVisibility.set(View.GONE);
-        // 가져온 아이템을 표시하고자, RecyclerView에 아이템을 설정해 갱신한다
-        repositoryListView.showRepositories(repositories);
-      }
+            .subscribe(new Observer<GitHubService.Repositories>() {
+              @Override
+              public void onSubscribe(@NonNull Disposable d) {
 
-      @Override
-      public void onError(Throwable e) {
-        // 통신에 실패하면 호출된다
-        // 여기서는 스낵바를 표시한다(아래에 표시되는 바)
-        repositoryListView.showError();
-      }
+              }
 
-      @Override
-      public void onCompleted() {
-        // 아무것도 하지 않는다
-      }
-    });
+              @Override
+              public void onNext(GitHubService.@NonNull Repositories repositories) {
+                // 로딩이 끝났으므로 진행바를 표시하지 않는다
+                progressBarVisibility.set(View.GONE);
+                // 가져온 아이템을 표시하고자, RecyclerView에 아이템을 설정해 갱신한다
+                repositoryListView.showRepositories(repositories);
+              }
+
+              @Override
+              public void onError(@NonNull Throwable e) {
+                // 통신에 실패하면 호출된다
+                // 여기서는 스낵바를 표시한다(아래에 표시되는 바)
+                repositoryListView.showError();
+              }
+
+              @Override
+              public void onComplete() {
+
+              }
+            });
   }
 }
 

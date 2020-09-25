@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dimen_11"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_marginBottom="@dimen/dimen_36"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:gravity="center"
+                android:text="@string/home_fund_info_1"
+                android:textSize="@dimen/dimen_14" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                style="@style/LabelTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_30"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:text="위험고지안내"
+                android:textSize="@dimen/dimen_14"
+                android:textStyle="bold" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                style="@style/GuideSubTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:text="@string/home_fund_info_2"
+                android:textSize="@dimen/dimen_14" />
+
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                style="@style/GuideSubTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:text="@string/home_fund_info_3"
+                android:textSize="@dimen/dimen_14" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                style="@style/GuideSubTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:text="@string/home_fund_info_4"
+                android:textSize="@dimen/dimen_14" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                style="@style/GuideSubTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:text="@string/home_fund_info_5"
+                android:textSize="@dimen/dimen_14" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                style="@style/GuideSubTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:text="@string/home_fund_info_6"
+                android:textSize="@dimen/dimen_14" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                style="@style/GuideSubTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:text="@string/home_fund_info_7"
+                android:textSize="@dimen/dimen_14" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                style="@style/GuideSubTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:text="@string/home_fund_info_8"
+                android:textSize="@dimen/dimen_14" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                style="@style/GuideSubTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:text="@string/home_fund_info_9"
+                android:textSize="@dimen/dimen_14" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                style="@style/GuideSubTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:text="@string/home_fund_info_10"
+                android:textSize="@dimen/dimen_14" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                style="@style/GuideSubTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:text="@string/home_fund_info_11"
+                android:textSize="@dimen/dimen_14" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                style="@style/GuideSubTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:text="@string/home_fund_info_12"
+                android:textSize="@dimen/dimen_14" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                style="@style/GuideSubTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:text="@string/home_fund_info_13"
+                android:textSize="@dimen/dimen_14" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                style="@style/GuideSubTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:text="@string/home_fund_info_14"
+                android:textSize="@dimen/dimen_14" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

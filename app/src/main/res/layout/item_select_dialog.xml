@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutItem"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_54">
+
+    <com.example.mvvmappapplication.custom.HSTextView
+        android:id="@+id/textViewItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="?attr/dialogListTextColor"
+        android:textSize="@dimen/dimen_17"
+        android:gravity="center"
+        tools:text="ITEM TEXT" />
+
+    <com.example.mvvmappapplication.custom.HSView
+        android:id="@+id/checkIcon"
+        android:layout_width="@dimen/dimen_18"
+        android:layout_height="@dimen/dimen_18"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dimen_8"
+        android:layout_toLeftOf="@+id/textViewItem"
+        android:background="?attr/ic_popup_check_selector" />
+
+</RelativeLayout>

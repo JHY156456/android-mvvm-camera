@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 타이틀 -->
+
+    <com.example.mvvmappapplication.custom.HSTitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/titleBar"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/fragment_place"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <include layout="@layout/layout_floating_button" />
+
+        <!-- 키 패드가 들어갈 공간 -->
+        <FrameLayout
+            android:id="@+id/keypadContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!-- 키 패드 입력시 말풍선 -->
+    <RelativeLayout
+        android:id="@+id/keypadBallon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_10" />
+
+</RelativeLayout>

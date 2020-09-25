@@ -5,4 +5,113 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="checkbox_paddingLeft">@dimen/dimen_10</dimen>
+
+    <dimen name="titlebar_height">@dimen/dimen_66</dimen>
+
+    <dimen name="content_margin">@dimen/dimen_20</dimen>
+    <dimen name="button_height">@dimen/dimen_50</dimen>
+
+    <dimen name="main_bottom_menu_height">@dimen/dimen_68</dimen>
+    <dimen name="dam_product_bottom_edit_height">@dimen/dimen_66</dimen>
+    <dimen name="dam_product_bottom_height">@dimen/dimen_116</dimen>
+    <dimen name="elevation_shadow_height">@dimen/dimen_10</dimen>
+
+    <dimen name="dialog_list_item_height">@dimen/dimen_52</dimen>
+
+    <!-- Watchlist -->
+    <dimen name="watchlist_titlebar_height">@dimen/dimen_98</dimen>
+
+    <dimen name="watchlist_header_max_height">@dimen/dimen_188</dimen>
+    <dimen name="watchlist_header_min_height">@dimen/dimen_117</dimen>
+    <dimen name="watchlist_header_pin_height">@dimen/dimen_147</dimen>
+    <dimen name="watchlist_header_info_height">@dimen/dimen_42</dimen>
+    <dimen name="watchlist_add_btn_y">@dimen/dimen_75</dimen>
+    <dimen name="watchlist_add_btn_x">@dimen/dimen_37</dimen>
+
+    <dimen name="watchlist_check_icon_size">@dimen/dimen_28</dimen>
+    <dimen name="watchlist_drag_icon_size">@dimen/dimen_28</dimen>
+    <dimen name="watchlist_rate_min_width">@dimen/dimen_60</dimen>
+
+    <dimen name="item_product_behind_cell_width">@dimen/dimen_60</dimen>
+
+    <!-- 검색 - 섹터 상품목록 -->
+    <dimen name="sector_invest_label_width">@dimen/dimen_100</dimen>
+
+    <!-- 검색 - 공개 Watchlist 상품목록 -->
+    <dimen name="open_watchlist_header_height">@dimen/dimen_194</dimen>
+    <dimen name="open_watchlist_header_02_height">@dimen/dimen_151</dimen>
+    <dimen name="open_watchlist_title_min_y">@dimen/dimen_16</dimen>
+    <dimen name="open_watchlist_title_max_y">@dimen/dimen_138</dimen>
+
+    <!-- 검색 - 이슈 상품목록 -->
+    <dimen name="issues_search_header_height">@dimen/dimen_174</dimen>
+    <dimen name="issues_search_title_min_y">@dimen/dimen_1</dimen>
+    <dimen name="issues_search_title_max_y">@dimen/dimen_45</dimen>
+    <dimen name="issues_search_add_icon_small_size">@dimen/dimen_22</dimen>
+
+    <!-- 검색 -->
+    <dimen name="favorite_icon_size">@dimen/dimen_28</dimen>
+    <dimen name="item_text_margin">@dimen/dimen_10</dimen>
+    <dimen name="search_etc_price_width">@dimen/dimen_72</dimen>
+
+    <!-- 주문 10호가 -->
+    <dimen name="hoga_area_height">@dimen/dimen_360</dimen>
+    <dimen name="hoga_top_margin">@dimen/dimen_157</dimen>
+    <dimen name="hoga_title_height">@dimen/dimen_35</dimen>
+    <dimen name="hoga_item_height">@dimen/dimen_36</dimen>
+    <dimen name="hoga_total_qnt_height">@dimen/dimen_40</dimen>
+
+    <!-- 현재가 -->
+    <dimen name="product_home_appbar_height">@dimen/dimen_320</dimen>  <!-- 136 + 160 -->
+    <dimen name="product_home_appbar_image_height">@dimen/dimen_160</dimen>
+    <dimen name="product_home_appbar_pin_height">@dimen/dimen_210</dimen>
+    <dimen name="product_home_name_right_margin">@dimen/dimen_70</dimen>
+
+    <dimen name="product_home_appbar_tabbar_height">@dimen/dimen_296</dimen>   <!-- 56 + 300  +  40 -->
+
+    <dimen name="product_chart_header_height">@dimen/dimen_105</dimen>
+
+    <dimen name="subtitle_info_icon_width">@dimen/dimen_22</dimen>
+    <dimen name="subtitle_info_icon_height">@dimen/dimen_22</dimen>
+    <dimen name="subtitle_info_icon_margin">@dimen/dimen_5</dimen>
+
+    <!-- 체크포인트 재무현황 -->
+    <dimen name="finanacial_row_devider_height">@dimen/dimen_20</dimen>
+
+    <!-- 계좌 드랍다운 아이템 -->
+    <dimen name="account_drop_down_view_height">@dimen/dimen_48</dimen>
+
+    <!-- ////////////////////////////////// 비대면용 ////////////////////////////////// -->
+    <dimen name="table_body_bg_stroke_width">@dimen/dimen_1</dimen>
+    <dimen name="table_body_bg_radius">@dimen/dimen_6</dimen>
+    <dimen name="table_body_bg_margin_top">@dimen/dimen_5</dimen>
+    <dimen name="table_body_bg_margin_bottom">@dimen/dimen_8</dimen>
+    <dimen name="table_body_bg_margin_left">@dimen/dimen_3</dimen>
+    <dimen name="table_body_bg_margin_right">@dimen/dimen_3</dimen>
+    <dimen name="table_items_stroke_width">@dimen/dimen_2</dimen>
+    <dimen name="table_items_radius">@dimen/dimen_3</dimen>
+    <dimen name="common_table_items_type_a_height">@dimen/dimen_90</dimen>
+    <dimen name="common_table_items_type_b_height">@dimen/dimen_74</dimen>
+    <dimen name="common_term_body_height">@dimen/dimen_74</dimen>
+    <dimen name="common_term_sub_body_height">@dimen/dimen_42</dimen>
+    <dimen name="table_items_margin_left">@dimen/dimen_20</dimen>
+    <dimen name="table_items_margin_right">@dimen/dimen_20</dimen>
+
+    <dimen name="common_table_of_minus_margin_top">@dimen/dimen_5</dimen>
+    <dimen name="common_table_of_minus_margin_bottom">@dimen/dimen_10</dimen>
+    <dimen name="common_table_of_minus_margin_left">@dimen/dimen_3</dimen>
+    <dimen name="common_table_of_minus_margin_right">@dimen/dimen_3</dimen>
+
+    <dimen name="new_untact_table_body_bg_stroke_width">@dimen/dimen_1</dimen>
+    <dimen name="new_untact_table_body_bg_radius">@dimen/dimen_6</dimen>
+    <dimen name="new_untact_table_items_stroke_width">@dimen/dimen_2</dimen>
+    <dimen name="new_untact_table_items_radius">@dimen/dimen_3</dimen>
+    <dimen name="new_untact_table_items_height">@dimen/dimen_100</dimen>
+    <dimen name="new_untact_table_items_margin_left">@dimen/dimen_20</dimen>
+    <dimen name="new_untact_table_items_margin_right">@dimen/dimen_20</dimen>
+
+    <dimen name="untact_common_title_height">@dimen/dimen_46</dimen>
+    <dimen name="untact_common_title_min_height">@dimen/dimen_46</dimen>
+
 </resources>

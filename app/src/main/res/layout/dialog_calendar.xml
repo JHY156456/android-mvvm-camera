@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/dimen_300"
+    android:layout_height="wrap_content">
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="@dimen/dimen_16"
+        android:layout_height="@dimen/dimen_30"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimen_20" />
+
+    <com.example.mvvmappapplication.custom.HSMaterialButton
+        android:id="@+id/yearBT"
+        style="@style/MaterialButton.Outline.Round"
+        android:layout_width="@dimen/dimen_110"
+        android:layout_height="@dimen/dimen_30"
+        android:layout_alignTop="@+id/space"
+        android:layout_toLeftOf="@+id/space"
+        android:gravity="center_vertical"
+        android:textStyle="italic"
+        app:cornerRadius="@dimen/dimen_8"
+        app:icon="?attr/btn_drop_s_n"
+        app:iconGravity="end" />
+
+    <com.example.mvvmappapplication.custom.HSMaterialButton
+        android:id="@+id/monthBT"
+        style="@style/MaterialButton.Outline.Round"
+        android:layout_width="@dimen/dimen_100"
+        android:layout_height="@dimen/dimen_30"
+        android:layout_alignTop="@+id/space"
+        android:layout_toRightOf="@+id/space"
+        android:gravity="center_vertical"
+        android:textStyle="italic"
+        app:cornerRadius="@dimen/dimen_8"
+        app:icon="?attr/btn_drop_s_n"
+        app:iconGravity="end" />
+
+    <com.example.mvvmappapplication.custom.HSButton
+        android:id="@+id/layoutMonthPre"
+        android:layout_width="@dimen/dimen_28"
+        android:layout_height="@dimen/dimen_28"
+        android:layout_marginLeft="@dimen/dimen_9"
+        android:layout_marginTop="@dimen/dimen_4"
+        android:visibility="gone" />
+
+    <com.example.mvvmappapplication.custom.HSButton
+        android:id="@+id/layoutMonthNext"
+        android:layout_width="@dimen/dimen_28"
+        android:layout_height="@dimen/dimen_28"
+        android:layout_marginTop="@dimen/dimen_4"
+        android:layout_marginRight="@dimen/dimen_9"
+        android:visibility="gone" />
+
+    <!-- 요일 -->
+
+    <plus.steps.sapp.custom.HSLinearLayout
+        android:id="@+id/layoutDow"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_34"
+        android:layout_below="@+id/space"
+        android:layout_marginTop="@dimen/dimen_15"
+        android:background="?attr/calendarWeekBackgroundColor"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimen_25"
+        android:paddingRight="@dimen/dimen_25">
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="일"
+            android:textColor="?attr/subTextColor2"
+            android:textSize="@dimen/dimen_12"
+            android:textStyle="bold" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:gravity="center"
+            android:text="월"
+            android:textSize="@dimen/dimen_12"
+            android:textStyle="bold" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="화"
+            android:textSize="@dimen/dimen_12"
+            android:textStyle="bold" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="수"
+            android:textSize="@dimen/dimen_12"
+            android:textStyle="bold" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="목"
+            android:textSize="@dimen/dimen_12"
+            android:textStyle="bold" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="금"
+            android:textSize="@dimen/dimen_12"
+            android:textStyle="bold" />
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:gravity="center"
+            android:text="토"
+            android:textColor="?attr/subTextColor2"
+            android:textSize="@dimen/dimen_12"
+            android:textStyle="bold" />
+    </plus.steps.sapp.custom.HSLinearLayout>
+
+    <GridView
+        android:id="@+id/gridViewCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutDow"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginBottom="@dimen/dimen_20"
+        android:listSelector="@color/transparent"
+        android:numColumns="7"
+        android:layout_marginLeft="@dimen/dimen_15"
+        android:layout_marginRight="@dimen/dimen_15" />
+
+    <com.example.mvvmappapplication.custom.HSCardView
+        android:id="@+id/layoutYear"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_240"
+        android:layout_alignLeft="@+id/yearBT"
+        android:layout_alignTop="@+id/yearBT"
+        android:layout_alignRight="@+id/yearBT"
+        android:visibility="gone"
+        app:cardCornerRadius="@dimen/dimen_8"
+        app:strokeColor="?android:attr/textColor"
+        app:strokeWidth="@dimen/dimen_1">
+
+        <plus.steps.sapp.custom.HSRecyclerView
+            android:id="@+id/listYear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.example.mvvmappapplication.custom.HSCardView>
+
+    <com.example.mvvmappapplication.custom.HSCardView
+        android:id="@+id/layoutMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_240"
+        android:layout_alignLeft="@+id/monthBT"
+        android:layout_alignTop="@+id/monthBT"
+        android:layout_alignRight="@+id/monthBT"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:cardCornerRadius="@dimen/dimen_8"
+        app:strokeColor="?android:attr/textColor"
+        app:strokeWidth="@dimen/dimen_1">
+
+        <plus.steps.sapp.custom.HSRecyclerView
+            android:id="@+id/listMonth"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.example.mvvmappapplication.custom.HSCardView>
+</RelativeLayout>

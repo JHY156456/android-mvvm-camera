@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.example.mvvmappapplication.custom.HSUntactCardView
+        android:id="@+id/hsnucv_common_table_type_cardview_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dimen_16"
+        android:paddingRight="@dimen/dimen_16"
+        app:cardBackgroundColor="@color/transparent"
+        app:contentPaddingLeft="@dimen/dimen_15"
+        app:contentPaddingRight="@dimen/dimen_15" >
+
+        <LinearLayout
+            android:id="@+id/ll_layout_new_untact_table_type_content_item_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/common_table_items_type_b_height"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <com.example.mvvmappapplication.custom.HSUntactTextView
+                android:id="@+id/hsntv_common_title_type_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/dimen_30"
+                android:text="현재직업"
+                android:textColor="@color/color_000000"
+                android:textSize="@dimen/dimen_11"
+                android:textStyle="italic" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <com.example.mvvmappapplication.custom.HSUntactTextView
+                    android:id="@+id/hsntv_common_title_type_button_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_14"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:letterSpacing="-0.03"
+                    android:text="직업"
+                    android:textColor="@color/color_000000"
+                    android:textSize="@dimen/dimen_19"
+                    android:textStyle="bold"/>
+
+                <com.example.mvvmappapplication.custom.HSUntactImageView
+                    android:id="@+id/hsniv_common_table_type_icon"
+                    android:layout_width="@dimen/dimen_18"
+                    android:layout_height="@dimen/dimen_13"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/untact_selector_updown_arrow_bg" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.example.mvvmappapplication.custom.HSUntactCardView>
+</layout>

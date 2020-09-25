@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_54"
+        android:foreground="?attr/selectableItemBackground">
+
+        <CheckedTextView
+            android:id="@+id/value"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checkMark="?attr/checkbox_01_selector"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/content_margin"
+            android:paddingRight="@dimen/content_margin"
+            android:textSize="@dimen/dimen_14"
+            android:textStyle="italic"
+            tools:text="ITEM" />
+
+        <com.example.mvvmappapplication.custom.HSView
+            android:id="@+id/lineV"
+            style="@style/ListLineStyle"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</layout>

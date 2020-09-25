@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="0dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dimen_15"
+    android:paddingTop="@dimen/dimen_26"
+    android:paddingRight="@dimen/dimen_15"
+    android:paddingBottom="@dimen/dimen_30">
+
+    <RelativeLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_31">
+
+        <com.example.mvvmappapplication.custom.HSAutofitTextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:maxLines="1"
+            android:textSize="@dimen/dimen_20" />
+    </RelativeLayout>
+
+    <com.example.mvvmappapplication.custom.HSView
+        style="@style/TitleLineStyle"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginBottom="@dimen/dimen_15" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:listSelector="@android:color/transparent" />
+</LinearLayout>

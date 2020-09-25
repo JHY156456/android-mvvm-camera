@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<!--    app:titleText="@string/buy_amt"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.example.mvvmappapplication.custom.HSView
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginBottom="@dimen/dimen_10"
+            style="@style/TitleLineStyle" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_15"
+            android:layout_marginRight="@dimen/dimen_15"
+            android:layout_marginBottom="@dimen/dimen_20"
+            android:orientation="vertical">
+            <!-- 신청일자 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistoryRqsDateValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14" />
+
+            <!-- 주문일자 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistoryOrdDateValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14" />
+
+            <!-- 결제일자 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistorySttlDateValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14" />
+            <!--                app:titleText="@string/dialog_order_history_pay_date"-->
+
+            <!-- 중간구분선 -->
+            <com.example.mvvmappapplication.custom.HSView
+                android:id="@+id/dialogOrderHistoryDivider1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginBottom="@dimen/dimen_6"
+                android:background="?attr/cardOnLineColor"
+                android:visibility="gone" />
+
+            <!-- 수량 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistoryQntValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14" />
+
+            <!-- 채권수량 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistoryBondQntValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14" />
+
+            <!-- 매매방식 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistoryTrdeTypeValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14" />
+
+            <!-- 구매증거금 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistoryProofPriceValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14" />
+
+            <!-- 주당 체결가 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistoryAvgUnprValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14" />
+
+            <!-- 수수료 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistoryTotalFeeValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14" />
+
+            <!-- 기준가 적용일 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistorySprcApplyDateValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14" />
+
+            <!-- 신청금액 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistoryReqAmtValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14"
+                android:visibility="gone"/>
+
+            <!-- 선취/환매수수료 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistoryFeeValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14" />
+
+            <!-- 매매단가 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistoryTrdeUnprValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14" />
+
+            <!-- 신청금액 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistoryBondReqAmtValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14"
+                android:visibility="gone"/>
+
+            <!-- 세금 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistoryBondTaxAmtValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:underline="false"
+                app:valueSize="@dimen/dimen_14" />
+
+            <!-- 아래구분선 -->
+            <com.example.mvvmappapplication.custom.HSView
+                android:id="@+id/dialogOrderHistoryDivider2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:background="?attr/titleLineColor"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+
+            <!-- 구매금액, 결제금액 -->
+            <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+                android:id="@+id/dialogOrderHistorySttlAmtValue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40"
+                app:titleStyleBold="true"
+                app:underline="false"
+                app:valueColor="?attr/selectedColor"
+                app:valueStyleBold="true" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

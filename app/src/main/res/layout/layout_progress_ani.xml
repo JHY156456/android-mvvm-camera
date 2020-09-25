@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical"
+    android:background="@null" >
+
+    <ImageView
+        android:id="@+id/loader_icon"
+        android:layout_width="@dimen/dimen_41"
+        android:layout_height="@dimen/dimen_41"
+        android:background="@drawable/loader_001"/>
+</LinearLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 선택되어 노출된 창 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/content_margin"
+            android:paddingRight="@dimen/content_margin">
+
+            <RelativeLayout
+                android:id="@+id/rl_fragment_untact_detail_address_result_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_20"
+                android:background="@drawable/untact_selector_table_bg_single" >
+                <include
+                    android:id="@+id/inc_fragment_untact_detail_address_result"
+                    layout="@layout/layout_untact_search_address_result" />
+            </RelativeLayout>
+
+            <!-- 상세 주소 입력 창 -->
+            <RelativeLayout
+                android:id="@+id/rl_fragment_untact_detail_address_detail_body"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_59"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:paddingLeft="@dimen/dimen_10"
+                android:paddingRight="@dimen/dimen_10"
+                android:background="@drawable/untact_selector_table_bg_single" >
+
+                <com.example.mvvmappapplication.custom.HSUntactEditText
+                    android:id="@+id/hsuet_fragment_untact_detail_address_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="상세 주소 입력"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:background="@null"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:id="@+id/titleTV"
+            style="@style/TitleTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/dimen_50"
+            android:paddingLeft="@dimen/content_margin"
+            android:paddingRight="@dimen/content_margin"
+            tools:text="변동률" />
+
+        <com.example.mvvmappapplication.custom.HSView
+            style="@style/TitleLineStyle"
+            android:layout_width="match_parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/bottom_sheet_list_item" />
+
+    </LinearLayout>
+</layout>

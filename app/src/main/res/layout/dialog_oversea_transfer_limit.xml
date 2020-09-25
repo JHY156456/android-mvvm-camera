@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/transparent"
+    android:paddingLeft="@dimen/dimen_15"
+    android:paddingRight="@dimen/dimen_15"
+    android:paddingBottom="@dimen/dimen_30">
+
+    <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+        android:id="@+id/d1Title"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_40"
+        app:underline="false"
+        app:titleSize="@dimen/dimen_14"
+        app:valueSize="@dimen/dimen_14"
+        app:titleStyleBold="true"
+        app:valueStyleBold="true"
+        app:valueColor="?attr/subTextColor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <com.example.mvvmappapplication.custom.HSView
+        android:id="@+id/d1Line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1"
+        app:layout_constraintTop_toBottomOf="@+id/d1Title"
+        android:background="?attr/titleLineColor"/>
+
+    <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+        android:id="@+id/d1AccumulateView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_50"
+        app:titleSize="@dimen/dimen_14"
+        app:valueSize="@dimen/dimen_16"
+        app:valueStyleItalic="true"
+        app:layout_constraintTop_toBottomOf="@+id/d1Line"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+        android:id="@+id/d1RemainderView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_50"
+        app:titleSize="@dimen/dimen_14"
+        app:valueSize="@dimen/dimen_16"
+        app:valueStyleItalic="true"
+        app:layout_constraintTop_toBottomOf="@+id/d1AccumulateView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+        android:id="@+id/y1Title"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_40"
+        android:layout_marginTop="@dimen/dimen_20"
+        app:underline="false"
+        app:titleSize="@dimen/dimen_14"
+        app:valueSize="@dimen/dimen_14"
+        app:titleStyleBold="true"
+        app:valueStyleBold="true"
+        app:valueColor="?attr/subTextColor"
+        app:layout_constraintTop_toBottomOf="@+id/d1RemainderView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <com.example.mvvmappapplication.custom.HSView
+        android:id="@+id/y1Line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1"
+        app:layout_constraintTop_toBottomOf="@+id/y1Title"
+        android:background="?attr/titleLineColor"/>
+
+    <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+        android:id="@+id/y1AccumulateView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_50"
+        app:titleSize="@dimen/dimen_14"
+        app:valueSize="@dimen/dimen_16"
+        app:valueStyleItalic="true"
+        app:layout_constraintTop_toBottomOf="@+id/y1Line"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <com.example.mvvmappapplication.custom.HSHorizonTalTitleValueTextView
+        android:id="@+id/y1RemainderView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_50"
+        app:titleSize="@dimen/dimen_14"
+        app:valueSize="@dimen/dimen_16"
+        app:valueStyleItalic="true"
+        app:layout_constraintTop_toBottomOf="@+id/y1AccumulateView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <com.example.mvvmappapplication.custom.HSDotView
+        android:id="@+id/dot01"
+        android:layout_width="@dimen/dimen_4"
+        android:layout_height="@dimen/dimen_4"
+        app:dotColor="?attr/titleLineColor"
+        android:layout_marginTop="@dimen/dimen_7"
+        app:layout_constraintTop_toTopOf="@+id/guide01View"
+        app:layout_constraintRight_toLeftOf="@+id/guide01View"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <com.example.mvvmappapplication.custom.HSTextView
+        android:id="@+id/guide01View"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_8"
+        android:textSize="@dimen/dimen_12"
+        android:textColor="?attr/subTextColor"
+        android:layout_marginTop="@dimen/dimen_20"
+        app:layout_constraintTop_toBottomOf="@+id/y1RemainderView"
+        app:layout_constraintLeft_toRightOf="@+id/dot01"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <com.example.mvvmappapplication.custom.HSDotView
+        android:id="@+id/dot02"
+        android:layout_width="@dimen/dimen_4"
+        android:layout_height="@dimen/dimen_4"
+        app:dotColor="?attr/titleLineColor"
+        android:layout_marginTop="@dimen/dimen_7"
+        app:layout_constraintTop_toTopOf="@+id/guide02View"
+        app:layout_constraintRight_toLeftOf="@+id/guide02View"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <com.example.mvvmappapplication.custom.HSTextView
+        android:id="@+id/guide02View"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_8"
+        android:textSize="@dimen/dimen_12"
+        android:textColor="?attr/subTextColor"
+        android:layout_marginTop="@dimen/dimen_10"
+        app:layout_constraintTop_toBottomOf="@+id/guide01View"
+        app:layout_constraintLeft_toRightOf="@+id/dot02"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

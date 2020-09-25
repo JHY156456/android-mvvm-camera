@@ -5,5 +5,121 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
     <color name="gray">#5b5b5b</color>
+    <color name="transparent">#00000000</color>
+    <color name="color_ffffff_3">#08ffffff</color>
+    <color name="color_ffffff_40">#64ffffff</color>
+    <color name="color_ffffff_50">#7fffffff</color>
+    <color name="color_000000_3">#08000000</color>
+    <color name="color_000000_10">#2f000000</color>
+    <color name="color_000000_40">#66000000</color>
+    <color name="color_000000_50">#7f000000</color>
+    <color name="color_d1d1d1">#d1d1d1</color>
+    <color name="color_949494">#949494</color>
+    <color name="color_3a72cf">#3a72cf</color>
+    <color name="color_637490">#637490</color>
+    <color name="color_d8d8d8">#d8d8d8</color>
+    <color name="color_2c78bf">#2c78bf</color>
+    <color name="color_dddddd">#dddddd</color>
+    <color name="color_414358">#414358</color>
+    <color name="color_94a7b8">#94a7b8</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_b6bdc8">#b6bdc8</color>
+    <color name="color_d9e0e6">#d9e0e6</color>
+    <color name="color_ececec">#ececec</color>
+    <color name="color_9ca1a5">#9ca1a5</color>
+    <color name="color_657788">#657788</color>
+    <color name="color_364553">#364553</color>
+    <color name="color_6a7178">#6a7178</color>
+    <color name="color_556677">#556677</color>
+    <color name="color_8397ac">#8397ac</color>
+    <color name="color_ff5859">#ff5859</color>
+    <color name="color_93a7b8">#93a7b8</color>
+    <color name="color_b4babf">#b4babf</color>
+    <color name="color_4cb200">#4cb200</color>
+    <color name="color_b1b6ba">#b1b6ba</color>
+    <color name="color_e6e6e6">#e6e6e6</color>
+    <color name="color_ff6060">#ff6060</color>
+    <color name="color_4a4a4a">#4a4a4a</color>
+    <color name="color_181818_70">#b3181818</color>
+    <color name="color_9b9b9b">#9b9b9b</color>
+    <color name="color_272727">#272727</color>
+    <color name="color_707070">#707070</color>
+    <color name="color_f55456">#f55456</color>
+    <color name="color_cc272727">#cc272727</color>
+    <color name="color_ca4747">#ca4747</color>
+    <color name="color_3a3a3a">#3a3a3a</color>
+    <color name="color_128474">#128474</color>
+    <color name="color_f2f1f1">#f2f1f1</color>
+    <color name="color_e4e4e4">#e4e4e4</color>
+    <color name="color_2c4bc2">#2c4bc2</color>
+    <color name="color_1d1d1d">#1d1d1d</color>
+    <color name="color_646464">#646464</color>
+    <color name="color_f8f8f8">#f8f8f8</color>
+    <color name="color_33ff6060">#33ff6060</color>
+    <color name="color_334a69e2">#334a69e2</color>
+    <color name="color_dc6060">#dc6060</color>
+    <color name="color_e7a66a">#e7a66a</color>
+    <color name="color_a572d2">#a572d2</color>
+    <color name="color_509c9a">#509c9a</color>
+    <color name="color_d3d3d3">#d3d3d3</color>
+    <color name="color_c0c0c0">#c0c0c0</color>
+    <color name="color_6ccf8d">#6ccf8d</color>
+    <color name="color_6f1515">#6f1515</color>
+    <color name="color_111420">#111420</color>
+    <color name="color_6e85dd">#6e85dd</color>
+    <color name="color_0c000000">#0c000000</color>
+    <color name="color_99ffffff">#99ffffff</color>
 
+    <!-- White Theme -->
+    <color name="color_000000">#000000</color> <!-- textColor -->
+    <color name="color_ffffff">#ffffff</color> <!-- background -->
+    <color name="color_022f59">#022f59</color> <!-- primaryTextColor -->
+    <color name="color_666666">#666666</color> <!-- guideTextColor -->
+    <color name="color_e5e5e5">#e5e5e5</color> <!-- listLineColor -->
+    <color name="color_cccccc">#cccccc</color> <!-- dotLineColor -->
+
+    <!-- Dark Theme -->
+    <color name="color_b5b9bc">#b5b9bc</color> <!-- textColor -->
+    <color name="color_07131e">#07131e</color> <!-- background -->
+    <color name="color_b83d3d">#b83d3d</color> <!-- errorTextColor -->
+    <color name="color_282e32">#282e32</color> <!-- listLineColor -->
+    <color name="color_13212f">#13212f</color> <!-- button background n -->
+    <color name="color_202b35">#202b35</color> <!-- dotLineColor -->
+
+    <!-- RISK Dark Theme -->
+    <!--<color name="color_ffffff">#ffffff</color> &lt;!&ndash; textColor &ndash;&gt;-->
+    <color name="color_181818">#181818</color> <!-- background -->
+    <color name="color_4a69e2">#4a69e2</color> <!-- primaryTextColor -->
+    <color name="color_ff5a5a">#ff5a5a</color> <!-- errorTextColor -->
+    <color name="color_7591ff">#7991ff</color> <!-- buttonDarKColor -->
+    <color name="color_ff4747">#ff4747</color> <!-- portfolioRatioColor -->
+
+    <!-- PINE Main Color -->
+    <color name="color_979797">#979797</color> <!-- color_main_general_product_bg -->
+    <color name="color_88000000">#80000000</color>
+
+    <!-- PINE Asset Color Dark Theme -->
+    <color name="color_f57d23">#f57d23</color>
+    <color name="color_fcb80c">#fcb80c</color>
+    <color name="color_9ec110">#9ec110</color>
+    <color name="color_3cb850">#3cb850</color>
+    <color name="color_186fa9">#186fa9</color>
+    <color name="color_124684">#124684</color>
+    <color name="color_18188c">#18188c</color>
+    <color name="color_3f0099">#3f0099</color>
+    <color name="color_9013fe">#9013fe</color>
+    <color name="color_bd10e0">#bd10e0</color>
+    <color name="color_e9acbb">#e9acbb</color>
+    <color name="color_eb7b67">#eb7b67</color>
+    <color name="color_f1ea88">#f1ea88</color>
+    <color name="color_77d690">#77d690</color>
+    <color name="color_9f9bc3">#9f9bc3</color>
+    <color name="color_74d3e9">#74d3e9</color>
+    <color name="color_b1a59d">#b1a59d</color>
+    <color name="color_c2d0f1">#c2d0f1</color>
+    <color name="color_8f8f91">#8f8f91</color>
+    <color name="color_dbc7c7">#dbc7c7</color>
+
+    <!-- 전용상품 판매 프로그래스바 색상 -->
+    <color name="color_131b3a">#131b3a</color>
 </resources>

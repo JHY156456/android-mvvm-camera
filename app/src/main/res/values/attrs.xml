@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- HSTitleBar -->
+    <!-- 타이틀명 -->
+    <attr name="title" format="string" />
+    <attr name="titleClickable" format="boolean" />
+    <!-- 왼쪽 버튼 타입 -->
+    <attr name="backIconType">
+        <enum name="none" value="0" />
+        <enum name="back" value="1" />
+        <enum name="close" value="2" />
+    </attr>
+    <!-- 오른쪽 검색 버튼 노출 여부 -->
+    <attr name="searchMenu" format="boolean" />
+    <!-- 타이틀 라인 노출 여부 -->
+    <attr name="underline" format="boolean" />
+
+    <attr name="titleText" format="reference|string" />
+    <attr name="valueText" format="reference|string" />
+
+    <declare-styleable name="HSTitleBar">
+        <!-- 타이틀명 -->
+        <attr name="title" />
+        <attr name="titleClickable" />
+        <attr name="titleBackground" format="reference" />
+        <!-- 체험 태그 노출 여부 -->
+        <attr name="experienceTag" format="boolean" />
+        <!-- 왼쪽 버튼 타입 -->
+        <attr name="backIconType" />
+        <!-- 오른쪽 검색 버튼 노출 여부 -->
+        <attr name="searchMenu" />
+        <!-- 오른쪽 장바구니 버튼 노출 여부 -->
+        <attr name="cartMenu" format="boolean" />
+        <attr name="underline" />
+    </declare-styleable>
+
+    <!-- HSDotView -->
+    <declare-styleable name="HSDotView">
+        <attr name="dotColor" format="reference"/>
+    </declare-styleable>
+
+    <!-- HSCircleProgress -->
+    <declare-styleable name="HSCircleProgress">
+        <attr name="half" format="boolean"/>
+    </declare-styleable>
+
+    <!-- HSAvgGraph -->
+    <declare-styleable name="HSAvgGraph">
+        <attr name="showData" format="boolean"/>
+    </declare-styleable>
+
+    <!-- HSHorizonTalTitleValueTextView -->
+    <declare-styleable name="TitleValueTextView">
+        <attr name="titleText" />
+        <attr name="titleWidth" format="dimension" />
+        <attr name="titleSize" format="dimension" />
+        <attr name="titleColor" format="reference" />
+        <attr name="titleStyleBold" format="boolean" />
+        <attr name="valueText" />
+        <attr name="valueSize" format="dimension" />
+        <attr name="valueColor" format="reference" />
+        <attr name="valueStyleBold" format="boolean" />
+        <attr name="valueStyleItalic" format="boolean" />
+        <attr name="valueStyleNormal" format="boolean" />
+        <attr name="valueGravity">
+            <flag name="left" value="3" />
+            <flag name="right" value="5" />
+            <flag name="start" value="8388611" />
+            <flag name="end" value="8388613" />
+            <flag name="center_horizontal" value="1" />
+            <flag name="center_vertical" value="16" />
+        </attr>
+        <attr name="valueMaxLines" format="integer" />
+        <attr name="horizontalPadding" format="dimension" />
+        <attr name="underline" />
+    </declare-styleable>
+
+    <declare-styleable name="InputType">
+        <attr name="inputTypeTitle" format="reference|string" />
+        <attr name="inputTypeHintTitle" format="reference|string" />
+        <attr name="inputTypeValue" format="reference|string" />
+        <attr name="inputTypeTitleColor" format="reference" />
+        <attr name="inputTypeValueColor" format="reference" />
+        <attr name="inputTypeMarginLeft" format="dimension" />
+        <attr name="inputTypeMarginRight" format="dimension" />
+        <attr name="inputTypePaddingLeft" format="dimension" />
+        <attr name="inputTypePaddingRight" format="dimension" />
+        <attr name="inputTypeTitleSize" format="dimension" />
+        <attr name="inputTypeValueSize" format="dimension" />
+        <attr name="inputTypeHintSize" format="dimension" />
+        <attr name="maxLength" format="integer" />
+        <attr name="buttonMode" format="boolean" />
+        <attr name="setVisibleUpperLine" format="boolean" />
+        <attr name="setVisibleUnderLine" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="MaterialButtonStyle">
+        <attr name="materialButtonType" format="enum">
+            <enum name="round" value="0" />
+            <enum name="ellipse" value="1" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="ButtonType">
+        <attr name="buttonText" format="reference|string" />
+        <attr name="buttonIcon" format="integer"/>
+    </declare-styleable>
+    <declare-styleable name="HSOrderMethodButton" parent = "ButtonType">
+        <attr name="buttonText" />
+        <attr name="buttonTitleText" format="reference|string" />
+        <attr name="buttonIcon" />
+    </declare-styleable>
+    <declare-styleable name="FinancialTextType">
+        <attr name="titleText" />
+        <attr name="subText" format="reference|string" />
+        <attr name="valueText" />
+    </declare-styleable>
+    <declare-styleable name="CollapsingMoveBehavior">
+        <attr name="collapsedTarget" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="StyleBox">
+        <attr name="reverse" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="EasyPickerView">
+        <attr name="epvTextSize" format="dimension"/>
+        <attr name="epvTextColor" format="color"/>
+        <attr name="epvTextPadding" format="dimension"/>
+        <attr name="epvTextMaxScale" format="float"/>
+        <attr name="epvTextMinAlpha" format="float"/>
+        <attr name="epvRecycleMode" format="boolean"/>
+        <attr name="epvMaxShowNum" format="integer"/>
+    </declare-styleable>
+
+    <!-- dropdownview -->
+    <declare-styleable name="DropDownView">
+        <attr name="containerBackgroundColor" format="color" />
+        <attr name="overlayColor" format="color"/>
+    </declare-styleable>
+
+    <!-- accountSpinner -->
+    <declare-styleable name="AccountSpinnerStyle">
+        <attr name="displayType" format="enum">
+            <enum name="name" value="0" />
+            <enum name="type" value="1" />
+            <enum name="both" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <!-- ////////////////////////////////// 비대면용 ////////////////////////////////// -->
+    <declare-styleable name="HSUntactTitleBar">
+        <attr name="titleBg" format="reference" />
+        <attr name="title" />
+        <attr name="titleClickable" />
+        <attr name="underline" />
+        <attr name="menuBack" format="boolean" />
+        <attr name="menuClose" format="boolean" />
+        <attr name="menuAdmin" format="boolean" />
+        <attr name="areaDescription" format="boolean" />
+        <attr name="titleBarType">
+            <enum name="custom" value="0" />
+            <enum name="base" value="1" />
+            <enum name="back1" value="2" />
+            <enum name="back2" value="3" />
+            <enum name="close" value="4" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="HSNewUntactTermType">
+        <attr name="termType">
+            <enum name="none" value="0" />
+            <enum name="identity_all" value="1" />
+            <enum name="account_all" value="2" />
+            <enum name="account_choice" value="3" />
+            <enum name="account_choice_all" value="4" />
+        </attr>
+    </declare-styleable>
+
+
+
+</resources>

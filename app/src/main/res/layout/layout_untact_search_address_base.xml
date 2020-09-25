@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/ll_layout_new_untact_table_type_content_item_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/common_table_items_type_a_height"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <com.example.mvvmappapplication.custom.HSUntactTextView
+            android:id="@+id/hsntv_common_title_type_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:gravity="center_vertical"
+            android:text="주소"
+            android:textColor="@color/untact_selector_table_title_text_color"
+            android:textSize="@dimen/dimen_11"
+            android:textStyle="italic" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <com.example.mvvmappapplication.custom.HSUntactTextView
+                android:id="@+id/hsntv_common_title_type_button_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:text=""
+                android:textColor="@color/untact_selector_table_title_text_color"
+                android:textSize="@dimen/dimen_19" />
+
+            <com.example.mvvmappapplication.custom.HSUntactImageView
+                android:id="@+id/hsniv_common_table_type_icon"
+                android:layout_width="@dimen/dimen_22"
+                android:layout_height="@dimen/dimen_22"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:background="@drawable/untact_ic_search" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

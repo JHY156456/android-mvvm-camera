@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.example.mvvmappapplication.custom.HSUntactCardView
+        android:id="@+id/hsnucv_common_table_type_cardview_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dimen_16"
+        android:paddingRight="@dimen/dimen_16"
+        app:cardBackgroundColor="@color/transparent"
+        app:contentPaddingLeft="@dimen/dimen_15"
+        app:contentPaddingRight="@dimen/dimen_15" >
+
+        <LinearLayout
+            android:id="@+id/ll_layout_new_untact_table_type_content_item_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/common_table_items_type_a_height"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <com.example.mvvmappapplication.custom.HSUntactTextView
+                android:id="@+id/hsntv_common_title_type_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:gravity="center_vertical"
+                android:text="통신사선택"
+                android:textColor="@color/untact_selector_table_title_text_color"
+                android:textSize="@dimen/dimen_11"
+                android:textStyle="italic" />
+
+            <com.example.mvvmappapplication.custom.HSUntactHorizontalScrollView
+                android:id="@+id/hsv_layout_new_untact_table_type_content_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:overScrollMode="never"
+                android:scrollbars="none" >
+
+                <com.example.mvvmappapplication.custom.HSUntactRadioGroup
+                    android:id="@+id/hsnrg_common_table_type_horizontal_scroll_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.example.mvvmappapplication.custom.HSUntactRadioButton
+                        android:id="@+id/hsnrb_common_table_horizontal_scrollview_item_skt"
+                        style="@style/UntactHorizontalItemStyle"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="SKT" />
+
+                    <com.example.mvvmappapplication.custom.HSUntactRadioButton
+                        android:id="@+id/hsnrb_common_table_horizontal_scrollview_item_kt"
+                        style="@style/UntactHorizontalItemStyle"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="KT" />
+
+                    <com.example.mvvmappapplication.custom.HSUntactRadioButton
+                        android:id="@+id/hsnrb_common_table_horizontal_scrollview_item_lg"
+                        style="@style/UntactHorizontalItemStyle"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="LGU+" />
+
+                    <com.example.mvvmappapplication.custom.HSUntactRadioButton
+                        android:id="@+id/hsnrb_common_table_horizontal_scrollview_item_skt_s"
+                        style="@style/UntactHorizontalItemStyle"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="SKT알뜰폰" />
+
+                    <com.example.mvvmappapplication.custom.HSUntactRadioButton
+                        android:id="@+id/hsnrb_common_table_horizontal_scrollview_item_kt_s"
+                        style="@style/UntactHorizontalItemStyle"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:text="KT알뜰폰" />
+
+                    <com.example.mvvmappapplication.custom.HSUntactRadioButton
+                        android:id="@+id/hsnrb_common_table_horizontal_scrollview_item_lg_s"
+                        style="@style/UntactHorizontalItemStyle"
+                        android:text="LGU+알뜰폰" />
+                </com.example.mvvmappapplication.custom.HSUntactRadioGroup>
+            </com.example.mvvmappapplication.custom.HSUntactHorizontalScrollView>
+
+        </LinearLayout>
+    </com.example.mvvmappapplication.custom.HSUntactCardView>
+</layout>

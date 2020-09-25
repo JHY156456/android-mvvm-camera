@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="WhiteTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+
+        <item name="android:textSize">@dimen/dimen_14</item>
+        <item name="android:textColor">@color/color_000000</item>
+
+        <item name="colorPrimary">@color/color_000000</item>
+        <item name="colorPrimaryDark">@color/color_f8f8f8</item>
+        <item name="colorPrimaryVariant">@color/color_000000</item>
+        <item name="colorOnPrimary">@color/color_ffffff</item>
+        <item name="colorSecondaryBlue">@color/color_4a69e2</item>
+        <item name="colorSecondaryRed">@color/color_dc6060</item>
+        <item name="colorOnSecondary">@color/color_ffffff</item>
+        <item name="colorSurface">@color/color_ffffff</item>
+        <item name="colorOnSurface">@color/color_000000</item>
+        <item name="colorError">@color/color_dc6060</item>
+        <item name="windowBackground">@color/color_f8f8f8</item>
+        <item name="android:windowBackground">@color/color_f8f8f8</item>
+        <item name="android:colorBackground">@color/color_f8f8f8</item>
+
+        <item name="colorControlNormal">@color/color_9b9b9b</item>
+        <item name="android:colorControlNormal">@color/color_9b9b9b</item>
+        <item name="colorControlActivated">@color/color_000000</item>
+        <item name="android:colorControlActivated">@color/color_000000</item>
+        <item name="android:textColorHint">@color/color_c0c0c0</item>
+
+        <!-- Component -->
+        <item name="chipStyle">@style/BaseTheme.Chip</item>
+        <item name="android:listViewStyle">@style/BaseTheme.ListView</item>
+        <item name="android:dropDownListViewStyle">@style/spinnerStyle</item>
+
+        <!-- Component - Button -->
+        <item name="buttonStyle">@style/BaseTheme.Button</item>
+        <item name="android:buttonStyle">@style/BaseTheme.Button</item>
+
+        <!-- Component - EditText -->
+        <item name="editTextStyle">@style/BaseTheme.EditText</item>
+        <item name="android:editTextStyle">@style/BaseTheme.EditText</item>
+        <!-- Component - CheckBox -->
+        <item name="checkboxStyle">@style/BaseTheme.CheckBox</item>
+        <item name="android:checkboxStyle">@style/BaseTheme.CheckBox</item>
+        <item name="checkbox_textcolor">?android:attr/textColor</item>
+
+        <!-- Component - CardView -->
+        <item name="cardViewStyle">@style/BaseTheme.CardView</item>
+        <item name="cardBackground">@color/color_ffffff</item>
+        <item name="cardStrockColor">@color/color_d3d3d3</item>
+
+
+        <!-- Component - ProgressBar -->
+        <item name="android:progressBarStyleHorizontal">@style/BaseTheme.HorizontalProgressBar</item>
+
+        <!-- Calendar -->
+        <item name="calendarWeekBackgroundColor">@color/color_ececec</item>
+
+
+        <!-- Component - Spinner -->
+        <item name="spinnerBackground">@color/color_272727</item>
+
+
+
+        <item name="defaultImage">@color/color_e4e4e4</item>
+
+        <!-- ================================================================================== -->
+
+        <!-- Text -->
+        <item name="subTextColor">@color/color_4a4a4a</item>
+        <item name="subTextColor2">@color/color_9b9b9b</item>
+        <item name="guideTextColor">@color/color_000000</item>
+        <item name="itemTitleColor">?android:attr/textColor</item>
+        <item name="labelColor">@color/color_000000</item>
+        <item name="disableColor">@color/color_666666</item>
+        <item name="selectedColor">@color/color_4a69e2</item>
+        <item name="lowColor">@color/color_4a69e2</item>
+        <item name="highColor">@color/color_dc6060</item>
+        <item name="textColorReverse">@color/color_ffffff</item>
+
+        <item name="dimColor">@color/color_000000_50</item>
+        <item name="simulContentTitleColor">@color/color_333333</item>
+        <item name="simulGroupTitleColor">@color/color_666666</item>
+
+        <item name="hogaTextColor">@color/color_666666</item>
+
+        <item name="sellButtonColor">@color/color_6e85dd</item>
+
+        <!-- Line -->
+        <item name="titleLineColor">@color/color_9b9b9b</item>
+        <item name="listLineColor">@color/color_d3d3d3</item>
+        <item name="dividerLineColor">@color/color_9b9b9b</item>
+        <item name="accountSpinnerLineColor">@color/color_4a4a4a</item>
+        <item name="cardOnLineColor">@color/color_e4e4e4</item>
+        <item name="buttonDividerLineColor">@color/color_4a4a4a</item>
+
+        <!-- Bg -->
+        <item name="backgroundColor1">@color/color_94a7b8</item>
+        <item name="backgroundColor2">@color/color_d9e0e6</item>
+        <item name="backgroundColor4">@color/color_e4e4e4</item>
+        <item name="backgroundColor5">@color/color_ffffff</item>
+        <item name="toastBackground">@color/color_272727</item>
+        <item name="mainTabBackground">@color/color_ffffff</item>
+        <item name="bg_toast_rounded">@color/color_3a3a3a</item>
+        <item name="searchSectorBackgroundColor">@color/color_ececec</item>
+        <item name="tableTitleBackgroundColor">@color/color_ececec</item>
+        <item name="homeBestSellerBackgroundColor">@color/color_ececec</item>
+
+        <!-- Text Box Border -->
+        <item name="borderColor1">@color/color_000000</item>
+
+        <!-- Drawable Xml -->
+        <item name="colorDot">@color/color_9b9b9b</item>
+
+        <!-- 자산 -->
+        <item name="assetsRealDotColor">@color/color_6ccf8d</item>
+        <item name="assetsDelayDotColor">@color/color_dc6060</item>
+
+        <!-- 펀드 -->
+        <item name="fundWeightColor1">@color/color_eb7b67</item>
+        <item name="fundWeightColor2">@color/color_9f9bc3</item>
+        <item name="fundWeightColor3">@color/color_77d690</item>
+
+        <!-- Invest color -->
+        <item name="color_risk_grade_0">@color/color_9b9b9b</item>
+        <item name="color_risk_grade_1">@color/color_509c9a</item>
+        <item name="color_risk_grade_2">@color/color_186fa9</item>
+        <item name="color_risk_grade_3">@color/color_a572d2</item>
+        <item name="color_risk_grade_4">@color/color_e7a66a</item>
+        <item name="color_risk_grade_5">@color/color_dc6060</item>
+
+        <!-- Asset color -->
+        <item name="color_asset_1">@color/color_e9acbb</item>
+        <item name="color_asset_2">@color/color_eb7b67</item>
+        <item name="color_asset_3">@color/color_f1ea88</item>
+        <item name="color_asset_4">@color/color_77d690</item>
+        <item name="color_asset_5">@color/color_9f9bc3</item>
+        <item name="color_asset_6">@color/color_74d3e9</item>
+        <item name="color_asset_7">@color/color_b1a59d</item>
+        <item name="color_asset_8">@color/color_c2d0f1</item>
+        <item name="color_asset_9">@color/color_8f8f91</item>
+        <item name="color_asset_10">@color/color_dbc7c7</item>
+        <item name="color_asset_risk_manage_1">@color/color_eb7b67</item>
+        <item name="color_asset_risk_manage_2">@color/color_c2d0f1</item>
+        <item name="color_asset_risk_manage_3">@color/color_f1ea88</item>
+
+        <item name="bg_asset_status_bar">@color/color_d3d3d3</item>
+        <item name="bg_asset_status_bar1">@color/color_eb7b67</item>
+        <item name="bg_asset_status_bar2">@color/color_9f9bc3</item>
+        <item name="bg_asset_status_bar3">@color/color_e4e4e4</item>
+
+        <!-- styleBox -->
+        <item name="styleBoxColor1">@color/color_6ccf8d</item>
+        <item name="styleBoxColor2">@color/color_4a69e2</item>
+        <item name="styleBoxColor3">@color/color_dc6060</item>
+
+        <!-- Drawable -->
+
+
+        <item name="btn_menu_home_selector">@drawable/btn_menu_home_selector</item>
+        <item name="btn_menu_search_selector">@drawable/btn_menu_search_selector</item>
+        <item name="btn_menu_watchlist_selector">@drawable/btn_menu_watchlist_selector</item>
+        <item name="btn_menu_asset_selector">@drawable/ic_menu_asset_selector</item>
+        <item name="btn_menu_mypage_selector">@drawable/btn_menu_mypage_selector</item>
+
+
+        <!-- ////////////////////////////////// 비대면용 ////////////////////////////////// -->
+        <item name="UntactTitleContainerBgColor">@color/color_ffffff</item>
+        <item name="UntactTitleAdminBgSelector">@drawable/untact_selector_title_admin_bg_color</item>
+        <item name="UntactReCallBgSelector">@drawable/untact_selector_recall_bg_color</item>
+<!--        <item name="UntactTitleAdminDrawableRightBgSelector">@drawable/untact_selector_drawable_right_checkbox</item>-->
+        <item name="UntactTitleLineColor">@color/color_9b9b9b</item>
+
+        <item name="UntactCheckBoxIconType1Selector">@drawable/untact_selector_checkbox_type_1</item>
+        <item name="UntactCheckBoxIconType2Selector">@drawable/untact_selector_checkbox_type_2</item>
+        <item name="UntactCheckBoxIconType3Selector">@drawable/untact_selector_checkbox_type_3</item>
+
+        <item name="BtnType1Background">#7a7a7a</item>
+        <item name="InvestResultType1Background">@color/color_dc6060</item>
+        <item name="InvestResultType2Background">@color/color_e7a66a</item>
+        <item name="InvestResultType3Background">@color/color_a572d2</item>
+        <item name="InvestResultType4Background">@color/color_186fa9</item>
+        <item name="InvestResultType5Background">@color/color_509c9a</item>
+
+        <item name="UntactSwitchButtonSelector">@drawable/untact_selector_switch_type_white</item>   <!-- 비대면 계좌개설 작업 -->
+<!--        <item name="ellips_tab_text_selector_new">@color/ellips_tab_text_selector_new</item>    &lt;!&ndash; 비대면 계좌개설 작업 &ndash;&gt;-->
+        <item name="UntactButtonRound">@drawable/untact_selector_round_button_bg</item> <!-- 비대면 계좌개설 작업 -->
+
+        <item name="selector_new_untact_indicator">@drawable/untact_selector_indicator</item>   <!-- indicator -->
+<!--        <item name="divider_line_color_new_untact_invest_survey_list">@color/transparent</item>-->
+
+        <item name="UntactSelectorPwMaskImage1">@drawable/untact_selector_pw_mask_bg_1</item>
+        <item name="UntactSelectorPwMaskImage2">@drawable/untact_selector_pw_mask_bg_2</item>
+        <item name="UntactSelectorPwMaskImage3">@drawable/untact_selector_pw_mask_bg_3</item>
+
+    </style>
+
+    <!-- Dialog -->
+
+    <style name="WhiteTheme.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:theme">@style/WhiteTheme</item>
+        <item name="android:windowBackground">?attr/dialogBackground</item>
+        <item name="android:windowElevation">@dimen/dimen_20</item>
+    </style>
+
+    <style name="WhiteThemeDialog" parent="WhiteTheme.Dialog">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+
+    <!-- Translucent -->
+    <style name="WhiteThemeTranslucent" parent="WhiteTheme">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+</resources>

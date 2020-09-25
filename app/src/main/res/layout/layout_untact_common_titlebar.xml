@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_untact_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 컨테이너 -->
+        <LinearLayout
+            android:id="@+id/ll_untact_title_container"
+            style="@style/UntactTitleContainerStyle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_30" />
+
+            <!-- 상단영역 -->
+            <RelativeLayout
+                android:id="@+id/rl_untact_title_container_area_up"
+                android:translationZ="@dimen/dimen_100"
+                style="@style/UntactTitleContainerAreaUpStyle" >
+
+                <!-- Back 버튼 -->
+                <com.example.mvvmappapplication.custom.HSUntactButton
+                    android:id="@+id/hsnbtn_untact_title_back"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    style="@style/UntactTitleBackButtonStyle" />
+
+                <!-- 타이틀 -->
+                <com.example.mvvmappapplication.custom.HSUntactTextView
+                    android:id="@+id/hsntv_untact_title_name"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    style="@style/UntactTitleTextStyle"
+                    tools:text="타이틀" />
+
+                <!-- 관리자 버튼 -->
+                <com.example.mvvmappapplication.custom.HSUntactButton
+                    android:id="@+id/hsnbtn_untact_title_admin"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    style="@style/UntactTitleAdminButtonStyle"
+                    android:text="관리" />
+
+                <!-- Close 버튼 -->
+                <com.example.mvvmappapplication.custom.HSUntactButton
+                    android:id="@+id/hsnbtn_untact_title_close"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    style="@style/UntactTitleCloseButtonStyle" />
+
+                <View
+                    android:id="@+id/v_untact_title_underline"
+                    style="@style/UntactTitleLineStyle"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+            <!-- 하단영역 -->
+            <RelativeLayout
+                android:id="@+id/rl_untact_title_container_area_down"
+                style="@style/UntactTitleContainerAreaDownStyle">
+
+                <com.example.mvvmappapplication.custom.HSUntactTextView
+                    android:id="@+id/hsntv_untact_title_desc"
+                    style="@style/UntactTitleTextSubStyle"
+                    tools:text="부연설명 Description"/>
+            </RelativeLayout>
+
+            <com.example.mvvmappapplication.custom.HSUntactTextView
+                android:visibility="gone"
+                android:id="@+id/hsuv_untact_title_bottom_line"
+                style="@style/UntactTitleLineStyle"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

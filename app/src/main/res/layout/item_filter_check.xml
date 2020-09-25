@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/layoutCheck"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dialog_list_item_height">
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:id="@+id/tvDividerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/content_margin"
+            android:layout_toLeftOf="@+id/imgSelect"
+            android:textSize="@dimen/dimen_14"
+            android:textStyle="italic"
+            tools:text="ITEM" />
+
+        <com.example.mvvmappapplication.custom.HSImageView
+            android:id="@+id/imgSelect"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:layout_marginRight="@dimen/content_margin"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="?attr/check_on"/>
+
+        <com.example.mvvmappapplication.custom.HSView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:layout_alignParentBottom="true"
+            android:background="?attr/cardOnLineColor" />
+    </RelativeLayout>
+</layout>

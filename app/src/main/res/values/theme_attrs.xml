@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="windowBackground" format="color" />
+
+    <!-- Component - Button -->
+    <attr name="buttonTextColor" format="reference" />
+    <attr name="buttonBackground" format="reference" />
+    <attr name="primary_text_selector" format="reference" />
+    <attr name="primary_background_selector" format="reference" />
+    <attr name="surface_text_selector" format="reference" />
+    <attr name="surface_background_selector" format="reference" />
+    <attr name="outline_stroke_selector" format="reference" />
+    <attr name="outline_stroke_reverse_selector" format="reference" />
+    <attr name="outline_stroke_text_selector" format="reference" />
+    <attr name="outline_stroke_text_reverse_selector" format="reference" />
+    <attr name="outline_background_selector" format="reference" />
+    <attr name="terms_button_text_selector" format="reference" />
+    <attr name="terms_button_background_selector" format="reference" />
+    <attr name="terms_button_stroke_selector" format="reference" />
+
+    <!-- Component - EditText -->
+    <attr name="btn_rounded_num_input_selector" format="reference"/>
+
+    <!-- Component - CheckBox -->
+    <attr name="checkbox_textcolor" format="reference" />
+    <attr name="checkbox_selector" format="reference" />
+    <attr name="checkbox_selector_all" format="reference" />
+    <attr name="checkbox_01_selector" format="reference" />
+    <attr name="check_s_selector" format="reference" />
+    <attr name="check_s_01_selector" format="reference" />
+    <attr name="ic_s_check_selector" format="reference" />
+    <attr name="ic_s_check_01_selector" format="reference"/>
+    <attr name="btn_switch_selector" format="reference" />
+
+    <!-- Component - CardView -->
+    <attr name="cardBackground" format="reference" />
+    <attr name="cardStrockColor" format="reference" />
+    <attr name="cardViewTop" format="reference" />
+    <attr name="cardViewMiddle" format="reference" />
+    <attr name="cardViewBottom" format="reference" />
+    <attr name="cardViewTop15" format="reference" />
+
+    <!-- Component - Dialog -->
+    <attr name="dialogBackground" format="reference" />
+    <!-- Calendar -->
+    <attr name="calendarWeekBackgroundColor" format="color" />
+    <attr name="calendar_day_selector" format="reference" />
+
+    <!-- Component - Tab -->
+    <attr name="ellips_tab_text_selector" format="reference" />
+    <attr name="ellips_tap_selector" format="reference" />
+    <attr name="ellipsTabBackground" format="reference" />
+    <attr name="rectangle_tab_text_selector" format="reference" />
+    <attr name="rectangle_tab_selector" format="reference" />
+    <attr name="rectangleTabBackground" format="reference" />
+    <attr name="product_ellips_tab_selector" format="reference"/>
+    <attr name="bg_tab_rounded_selector" format="reference" />
+
+    <!-- Component - Spinner -->
+    <attr name="spinnerBackground" format="reference" />
+
+
+    <attr name="indicator_selector" format="reference" />
+    <attr name="item_recycler_divider" format="color" />
+    <attr name="theme_listview_item_selector" format="reference" />
+    <attr name="horizontalProgressBarDrawable" format="reference" />
+
+    <!-- Component - Tag -->
+    <attr name="tag_filter_edit_selector" format="reference" />
+    <attr name="tag_filter" format="reference" />
+    <attr name="tag_default" format="reference" />
+
+    <attr name="defaultImage" format="reference"/>
+
+    <!-- ================================================================================== -->
+
+    <!-- Text -->
+    <attr name="colorSecondaryBlue" format="color" />
+    <attr name="colorSecondaryRed" format="color" />
+    <attr name="subTextColor" format="color" />
+    <attr name="subTextColor2" format="color" />
+    <attr name="guideTextColor" format="color" />
+    <attr name="itemTitleColor" format="color" />
+    <attr name="labelColor" format="color" />
+    <attr name="disableColor" format="color" />
+    <attr name="selectedColor" format="color" />
+    <attr name="lowColor" format="color" />
+    <attr name="highColor" format="color" />
+    <attr name="stockPriceRateColor" format="color" />
+    <attr name="textColorReverse" format="color" />
+    <attr name="dimColor" format="color" />
+    <attr name="simulContentTitleColor" format="color" />
+    <attr name="simulGroupTitleColor" format="color" />
+    <attr name="hogaTextColor" format="color" />
+    <attr name="stepNumTextColor" format="color" />
+    <attr name="dialogListTextColor" format="color" />
+    <attr name="periodTextColor" format="color" />
+    <attr name="sellButtonColor" format="color" />
+    <attr name="bottomSheetTextColor2Selector" format="color"/>
+    <attr name="enableTextColor" format="color"/>
+
+    <!-- Line -->
+    <attr name="titleLineColor" format="reference" />
+    <attr name="listLineColor" format="reference" />
+    <attr name="dividerLineColor" format="reference" />
+    <attr name="accountSpinnerLineColor" format="reference" />
+    <attr name="cardOnLineColor" format="reference" />
+    <attr name="buttonDividerLineColor" format="reference" />
+
+    <!-- Bg -->
+    <attr name="backgroundColor1" format="color" />
+    <attr name="backgroundColor2" format="color" />
+    <attr name="backgroundColor4" format="color" />
+    <attr name="backgroundColor5" format="color" />
+    <attr name="toastBackground" format="color"/>
+    <attr name="mainTabBackground" format="color"/>
+    <attr name="bg_toast_rounded" format="reference"/>
+    <attr name="searchSectorBackgroundColor" format="color" />
+    <attr name="tableTitleBackgroundColor" format="color" />
+    <attr name="homeBestSellerBackgroundColor" format="color" />
+
+    <!-- Text Box Border -->
+    <attr name="borderColor1" format="color" />
+
+    <!-- Drawable Xml -->
+    <attr name="colorDot" format="color" />
+    <attr name="dotLine1" format="reference" />
+    <attr name="dotLine3" format="reference" />
+    <attr name="dotLineV1" format="reference" />
+
+    <attr name="redStrokeBox" format="reference" />
+
+    <!-- Custom Drawable -->
+    <attr name="drawable_step_round_selector" format="reference" />
+    <attr name="drawable_selected_box_selector" format="reference" />
+    <attr name="drawable_hoga_line" format="reference" />
+    <attr name="drawable_hoga_current_price_box" format="reference" />
+    <attr name="btn_persona_selector" format="reference"/>
+    <attr name="ic_s_star_selector" format="reference"/>
+
+    <!-- 자산 -->
+    <attr name="assetsRealDotColor" format="color" />
+    <attr name="assetsDelayDotColor" format="color" />
+
+    <!-- 펀드 -->
+    <attr name="fundWeightColor1" format="color" />
+    <attr name="fundWeightColor2" format="color" />
+    <attr name="fundWeightColor3" format="color" />
+
+    <!-- Invest color -->
+    <attr name="color_risk_grade_0" format="color" />
+    <attr name="color_risk_grade_1" format="color" />
+    <attr name="color_risk_grade_2" format="color" />
+    <attr name="color_risk_grade_3" format="color" />
+    <attr name="color_risk_grade_4" format="color" />
+    <attr name="color_risk_grade_5" format="color" />
+
+    <!-- Asset color -->
+    <attr name="color_asset_1" format="color"/>
+    <attr name="color_asset_2" format="color"/>
+    <attr name="color_asset_3" format="color"/>
+    <attr name="color_asset_4" format="color"/>
+    <attr name="color_asset_5" format="color"/>
+    <attr name="color_asset_6" format="color"/>
+    <attr name="color_asset_7" format="color"/>
+    <attr name="color_asset_8" format="color"/>
+    <attr name="color_asset_9" format="color"/>
+    <attr name="color_asset_10" format="color"/>
+    <attr name="color_asset_risk_manage_1" format="color"/>
+    <attr name="color_asset_risk_manage_2" format="color"/>
+    <attr name="color_asset_risk_manage_3" format="color"/>
+    <attr name="bg_asset_01" format="reference"/>
+    <attr name="bg_asset_02" format="reference"/>
+    <attr name="bg_asset_03" format="reference"/>
+    <attr name="bg_asset_04" format="reference"/>
+    <attr name="bg_asset_05" format="reference"/>
+    <attr name="bg_asset_06" format="reference"/>
+    <attr name="bg_asset_07" format="reference"/>
+    <attr name="bg_asset_08" format="reference"/>
+    <attr name="bg_asset_09" format="reference"/>
+    <attr name="bg_asset_10" format="reference"/>
+    <attr name="bg_asset_status_bar" format="color"/>
+    <attr name="bg_asset_status_bar1" format="color"/>
+    <attr name="bg_asset_status_bar2" format="color"/>
+    <attr name="bg_asset_status_bar3" format="color"/>
+    <attr name="bg_asset_status_bar_pattern_01" format="reference"/>
+    <attr name="bg_asset_status_bar_pattern_02" format="reference"/>
+    <attr name="bg_asset_status_bar_pattern_03" format="reference"/>
+
+    <!-- styleBox -->
+    <attr name="styleBoxColor1" format="color" />
+    <attr name="styleBoxColor2" format="color" />
+    <attr name="styleBoxColor3" format="color" />
+    <attr name="styleBoxBackground" format="reference" />
+
+    <!-- Drawable -->
+
+    <attr name="btn_top_plus" format="reference"/>
+    <attr name="btn_top_search" format="reference"/>
+    <attr name="btn_top_news" format="reference"/>
+    <attr name="btn_top_modify" format="reference"/>
+    <attr name="btn_top_info" format="reference"/>
+    <attr name="btn_top_export_doc" format="reference" />
+    <attr name="btn_top_close" format="reference" />
+    <attr name="btn_top_cart" format="reference"/>
+    <attr name="btn_top_arrowbox" format="reference"/>
+    <attr name="btn_top_arrow" format="reference"/>
+    <attr name="btn_top_arrow_next" format="reference"/>
+
+    <attr name="btn_arrow_b" format="reference"/>
+    <attr name="btn_arrow_g" format="reference" />
+    <attr name="btn_arrow_s_b" format="reference"/>
+    <attr name="btn_arrow_s_g" format="reference"/>
+    <attr name="btn_delete" format="reference"/>
+    <attr name="btn_drop_less_b" format="reference"/>
+    <attr name="btn_drop_less_g" format="reference"/>
+    <attr name="btn_drop_less_w" format="reference"/>
+    <attr name="btn_drop_more_b" format="reference"/>
+    <attr name="btn_drop_more_g" format="reference"/>
+    <attr name="btn_drop_more_w" format="reference"/>
+    <attr name="btn_drop_s_n" format="reference"/>
+    <attr name="btn_file_pdf" format="reference" />
+    <attr name="btn_help_s" format="reference"/>
+    <attr name="btn_help" format="reference"/>
+    <attr name="btn_info" format="reference" />
+    <attr name="btn_s_info" format="reference"/>
+    <attr name="btn_list_del" format="reference" />
+
+    <attr name="ic_accountlink" format="reference"/>
+    <attr name="ic_accountnew" format="reference"/>
+    <attr name="ic_attention_big" format="reference"/>
+    <attr name="ic_attention_s" format="reference"/>
+    <attr name="ic_camera" format="reference" />
+    <attr name="ic_con_account_setup_01" format="reference" />
+    <attr name="ic_con_account_setup_02" format="reference" />
+    <attr name="ic_con_apply_koreacurrency" format="reference" />
+    <attr name="ic_con_apply_overseasstock" format="reference" />
+    <attr name="ic_con_apply_realprice" format="reference" />
+    <attr name="ic_con_apply_status" format="reference" />
+    <attr name="ic_con_buy_foreigncurrency" format="reference" />
+    <attr name="ic_con_sell_foreigncurrency" format="reference" />
+    <attr name="ic_con_buy_hopeprice" format="reference" />
+    <attr name="ic_con_buy_immediate" format="reference" />
+    <attr name="ic_con_order_reserve" format="reference" />
+    <attr name="ic_con_singleprice_overtime" format="reference" />
+    <attr name="ic_con_closingprice_beforestart" format="reference" />
+    <attr name="ic_con_closingprice_overtime" format="reference" />
+    <attr name="ic_con_cs" format="reference"/>
+    <attr name="ic_con_faq" format="reference"/>
+    <attr name="ic_easyremit" format="reference"/>
+    <attr name="ic_myorder" format="reference"/>
+    <attr name="ic_transfer" format="reference"/>
+    <attr name="ic_con_otp_01" format="reference" />
+    <attr name="ic_con_otp_02" format="reference" />
+    <attr name="ic_con_my_01" format="reference" />
+    <attr name="ic_con_my_02" format="reference" />
+    <attr name="ic_con_my_03" format="reference" />
+    <attr name="ic_con_my_04" format="reference" />
+    <attr name="ic_con_my_05" format="reference" />
+    <attr name="img_profile_basic" format="reference" />
+    <attr name="img_s_profile_basic" format="reference" />
+    <attr name="img_graph_down_1" format="reference"/>
+    <attr name="img_graph_down_2" format="reference"/>
+    <attr name="img_graph_up_1" format="reference"/>
+    <attr name="img_graph_up_2" format="reference"/>
+    <attr name="img_graph_up_3" format="reference"/>
+    <attr name="img_graph_nodata" format="reference"/>
+    <attr name="img_weather_down" format="reference"/>
+    <attr name="img_weather_normal" format="reference"/>
+    <attr name="img_weather_up" format="reference"/>
+    <attr name="img_weather_nodata" format="reference"/>
+    <attr name="img_graph_line_01" format="reference"/>
+    <attr name="img_graph_line_02" format="reference"/>
+    <attr name="img_graph_line_03" format="reference"/>
+    <attr name="img_graph_line_nodata" format="reference"/>
+    <attr name="img_con_result" format="reference" />
+    <attr name="img_pin_cancel" format="reference" />
+    <attr name="img_finger_cancel" format="reference" />
+    <attr name="img_eye_cancel" format="reference" />
+    <attr name="img_faceid_cancel" format="reference" />
+    <attr name="img_eye" format="reference" />
+    <attr name="img_faceid" format="reference" />
+    <attr name="img_finger" format="reference" />
+    <attr name="img_finger_login" format="reference" />
+    <attr name="img_eye_login" format="reference" />
+    <attr name="img_pin" format="reference" />
+    <attr name="img_pin_login" format="reference" />
+    <attr name="ic_con_certificate_import" format="reference" />
+    <attr name="ic_con_certificate_register" format="reference" />
+    <attr name="ic_con_certificate_export" format="reference" />
+    <attr name="ic_con_certificate_reload" format="reference" />
+    <attr name="ic_con_finger_eye" format="reference" />
+    <attr name="ic_con_certificate" format="reference" />
+    <attr name="ic_con_otp" format="reference" />
+    <attr name="ic_con_pin" format="reference" />
+    <attr name="ic_o" format="reference"/>
+    <attr name="ic_chart_highprice" format="reference" />
+    <attr name="ic_chart_lowprice" format="reference" />
+    <attr name="ic_price_high" format="reference" />
+    <attr name="ic_price_low" format="reference" />
+    <attr name="ic_price_up" format="reference" />
+    <attr name="ic_price_down" format="reference" />
+    <attr name="ic_s_adjust_b" format="reference"/>
+    <attr name="ic_s_zoom" format="reference"/>
+    <attr name="ic_s_star_on" format="reference"/>
+    <attr name="ic_s_star_off" format="reference"/>
+    <attr name="ic_star_on" format="reference"/>
+    <attr name="ic_star_off" format="reference"/>
+    <attr name="ic_s_filter" format="reference" />
+    <attr name="ic_s_edit" format="reference" />
+    <attr name="btn_text_del" format="reference" />
+    <attr name="btn_reorder" format="reference"/>
+    <attr name="btn_refresh" format="reference"/>
+    <attr name="ic_done_big" format="reference"/>
+    <attr name="ic_fail_big" format="reference"/>
+    <attr name="ic_error_s" format="reference"/>
+    <attr name="ic_s_team" format="reference"/>
+    <attr name="img_soldout_s" format="reference" />
+    <attr name="img_soldend_s" format="reference" />
+    <attr name="img_soldstop_s" format="reference" />
+    <attr name="ic_s_calendar" format="reference" />
+    <attr name="ic_s_phone" format="reference" />
+    <attr name="ic_clock_red" format="reference"/>
+    <attr name="ic_clock_w" format="reference"/>
+    <attr name="check_s_on_01" format="reference"/>
+    <attr name="ic_ss_del" format="reference"/>
+    <attr name="ic_ss_dot_gray" format="reference" />
+    <attr name="img_table_investbehavior" format="reference" />
+    <attr name="btn_play" format="reference" />
+
+    <attr name="btn_fav_selector" format="reference"/>
+    <attr name="btn_fav_01_selector" format="reference"/>
+    <attr name="btn_fav_02_selector" format="reference"/>
+    <attr name="btn_menu_home_selector" format="reference" />
+    <attr name="btn_menu_search_selector" format="reference" />
+    <attr name="btn_menu_watchlist_selector" format="reference" />
+    <attr name="btn_menu_asset_selector" format="reference" />
+    <attr name="btn_menu_mypage_selector" format="reference" />
+    <attr name="btn_chart_r_tool_selector" format="reference" />
+    <attr name="btn_camera_close_selector" format="reference" />
+    <attr name="btn_close_white_selecter" format="reference" />
+    <attr name="btn_shuttor_selector" format="reference" />
+    <attr name="img_pw_mask_selector" format="reference" />
+    <attr name="img_pw_mask2_selector" format="reference" />
+
+    <attr name="btn_plus_big" format="reference"/>
+    <attr name="btn_plus_big_01" format="reference"/>
+    <attr name="btn_photo_setting" format="reference"/>
+    <attr name="logo_steps" format="reference"/>
+    <attr name="logo_t_steps" format="reference"/>
+    <attr name="img_iccard_01" format="reference" />
+    <attr name="ic_finger_certi" format="reference"/>
+    <attr name="ic_eye_certi" format="reference"/>
+    <attr name="ic_pin_certi" format="reference"/>
+    <attr name="ic_public_certi" format="reference"/>
+    <attr name="btn_update_selector" format="reference" />
+    <attr name="btn_price_down" format="reference"/>
+    <attr name="btn_price_up" format="reference"/>
+    <attr name="icon_close" format="reference"/>
+    <attr name="icon_open" format="reference"/>
+    <attr name="ic_s_add" format="reference" />
+    <attr name="ic_s_check" format="reference"/>
+    <attr name="ic_s_delete" format="reference"/>
+    <attr name="ic_s_delete_selector" format="reference"/>
+    <attr name="ic_tab_minus_g" format="reference"/>
+    <attr name="ic_tab_plus_g" format="reference"/>
+    <attr name="check_on" format="reference" />
+    <attr name="img_name_confirm_01" format="reference" />
+    <attr name="ic_s_spacing_selector" format="reference" />
+    <attr name="ic_s_put_in" format="reference"/>
+    <attr name="img_certificate_smartphone" format="reference" />
+    <attr name="img_certificate_pc" format="reference" />
+    <attr name="ic_logo_facebook" format="reference"/>
+    <attr name="ic_logo_google" format="reference"/>
+    <attr name="ic_logo_kakao" format="reference"/>
+    <attr name="ic_logo_naver" format="reference"/>
+    <attr name="ic_logo_payco" format="reference"/>
+    <attr name="btn_logo_facebook" format="reference"/>
+    <attr name="btn_logo_twitter" format="reference"/>
+    <attr name="btn_logo_kakao" format="reference"/>
+    <attr name="btn_logo_link" format="reference"/>
+    <attr name="ic_search_g" format="reference" />
+    <attr name="icon_rank_up_triangle" format="reference"/>
+    <attr name="icon_rank_down_triangle" format="reference"/>
+    <attr name="tooltip_top_gray" format="reference" />
+    <attr name="img_arrow_fill" format="reference"/>
+    <attr name="alet_input" format="reference"/>
+    <attr name="img_securitycard" format="reference" />
+    <attr name="img_otp" format="reference" />
+    <attr name="ic_simul_investment_rule_green" format="reference" />
+    <attr name="ic_simul_investment_rule_red" format="reference" />
+    <attr name="ic_toggle_table_top" format="reference" />
+    <attr name="ic_toggle_table_bottom" format="reference" />
+    <attr name="img_r_persona" format="reference" />
+
+    <attr name="bg_tag_red" format="reference" />
+    <attr name="bg_tooltip" format="reference" />
+    <attr name="ic_popup_check_selector" format="reference" />
+    <attr name="img_tooltip_point" format="reference" />
+    <attr name="input_line_selector" format="reference" />
+    <attr name="check_icon_n" format="reference"/>
+    <attr name="icon_error_message2" format="reference"/>
+    <attr name="bg_badge_blue" format="reference"/>
+
+    <!-- 상품 default Img-->
+    <attr name="default_img_stock" format="reference" />
+    <attr name="default_img_bond_overseas" format="reference" />
+    <attr name="default_img_bond" format="reference" />
+    <attr name="default_img_fund" format="reference" />
+
+    <!-- 해외송금 -->
+    <attr name="ic_con_remitoverseas" format="reference" />
+    <attr name="ic_con_remitoverseas_inquiry" format="reference" />
+    <attr name="ic_remit_overseas_apply_d" format="reference" />
+    <attr name="ic_remit_overseas_apply" format="reference" />
+    <attr name="ic_remit_overseas_ongoing_d" format="reference" />
+    <attr name="ic_remit_overseas_ongoing" format="reference" />
+    <attr name="ic_remit_complete_d" format="reference" />
+    <attr name="ic_remit_complete" format="reference" />
+
+    <attr name="textColorHint" format="reference" />
+
+    <!-- home -->
+    <attr name="comingsoon_base" format="reference" />
+
+
+
+
+    <!-- ////////////////////////////////// 비대면용 ////////////////////////////////// -->
+    <attr name="UntactTitleContainerBgColor" format="color" />
+    <attr name="UntactTitleBackButtonIcon" format="reference"/>
+    <attr name="UntactTitleCloseButtonIcon" format="reference"/>
+    <attr name="UntactTitleAdminTextSelector" format="reference" />
+    <attr name="UntactTitleAdminBgSelector" format="reference"/>
+<!--    <attr name="UntactTitleAdminDrawableRightBgSelector" format="reference"/>-->
+    <attr name="UntactCheckBoxIconType1Selector" format="reference" />
+    <attr name="UntactCheckBoxIconType2Selector" format="reference" />
+    <attr name="UntactCheckBoxIconType3Selector" format="reference" />
+
+    <attr name="UntactTitleLineColor" format="reference" />
+
+    <attr name="UntactSwitchButtonSelector" format="reference" />  <!-- 비대면 계좌개설 작업 -->
+<!--    <attr name="ellips_tab_text_selector_new" format="reference" /> &lt;!&ndash; 비대면 계좌개설 작업 &ndash;&gt;-->
+<!--    <attr name="product_ellips_tab_selector_new" format="reference"/>   &lt;!&ndash; 비대면 계좌개설 작업 &ndash;&gt;-->
+    <attr name="UntactButtonRound" format="reference"/>   <!-- 비대면 계좌개설 작업 -->
+
+    <attr name="selector_new_untact_indicator" format="reference" /><!-- indicator -->
+<!--    <attr name="divider_line_color_new_untact_invest_survey_list" format="reference" />-->
+
+    <attr name="UntactReCallBgSelector" format="reference"/>
+
+    <attr name="BtnType1Background" format="color"/><!--투자자정보확인서 안내 버튼-->
+    <attr name="InvestResultType1Background" format="color"/><!--투자자정보 확인서 결과 Type 1 -->
+    <attr name="InvestResultType2Background" format="color"/><!--투자자정보 확인서 결과 Type 2 -->
+    <attr name="InvestResultType3Background" format="color"/><!--투자자정보 확인서 결과 Type 3 -->
+    <attr name="InvestResultType4Background" format="color"/><!--투자자정보 확인서 결과 Type 4 -->
+    <attr name="InvestResultType5Background" format="color"/><!--투자자정보 확인서 결과 Type 5 -->
+
+    <attr name="UntactSelectorPwMaskImage1" format="reference" />
+    <attr name="UntactSelectorPwMaskImage2" format="reference" />
+    <attr name="UntactSelectorPwMaskImage3" format="reference" />
+
+</resources>

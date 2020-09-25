@@ -9,5 +9,129 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="signup_redirect">Don\'t have an account? Register here!</string>
 
+    <string name="invest_amount_stock_description">최근 5일 평균 거래량은 %s, 주가는 %s 입니다.</string>
 
+    <!-- 팝업 -->
+    <string name="alert_title">알림</string>
+    <string name="alert_confirm">확인</string>
+    <string name="alert_cancel">취소</string>
+    <string name="alert_login">로그인</string>
+    <string name="alert_account_connection">기존계좌연결</string>
+    <string name="alert_move_to_the_cart">장바구니 가기</string>
+    <string name="alert_notice_member_level_up">정회원으로 전환하시겠습니까?</string>
+    <string name="alert_notice_available_after_login">로그인 후 이용할 수 있습니다.</string>
+    <string name="alert_notice_end_of_sale">판매가 종료되었습니다.</string>
+    <string name="alert_notice_end_of_sold_out">SOLD OUT 판매가 종료 되었습니다.</string>
+    <string name="alert_notice_available_after_account_connection">신규계좌개설 또는 기존계좌 연결후 이용할 수 있습니다.</string>
+    <string name="alert_please_check_the_shopping_basket">장바구니는 상품 20개까지 담을 수 있습니다. 장바구니를 확인해주세요.</string>
+    <string name="alert_notice_available_only_individual">개인만 거래 가능한 상품입니다.</string>
+    <string name="alert_notice_available_only_domestic_resident">국내 거주자만 거래 가능합니다.</string>
+
+    <!-- 사용자 권한 6.0 미만 안내 title message -->
+    <string name="intro_permission_title">STEPS 의 안정적인 사용을 위하여 다음의 필수적/선택적 접근권한들이 자동으로 허용됩니다.\n\n</string>
+
+    <!-- 사용자 권한 6.0 이상 안내 title message -->
+    <string name="intro_permission_title_2">STEPS 의 안정적인 사용을 위하여 다음의 필수적 접근권한들을 허용해주세요.\n\n</string>
+
+    <!-- 사용자 권한 6.0 이상 퍼미션 요청 title message -->
+    <string name="permission_request_title">STEPS 의 안정적인 사용을 위하여 다음의 선택적 접근권한을 허용해주세요.\n\n</string>
+
+    <!-- 사용자 권한 6.0 이상 퍼미션 거부 title message -->
+    <string name="intro_permission_denied_title">STEPS 의 안정적인 사용을 위한 앱 선택적 접근권한 중 허용되지 않은 권한 항목이 있습니다.\n\n</string>
+
+    <!-- 사용자 권한 6.0 이상 퍼미션 거부 title message2 -->
+    <string name="intro_permission_denied_title2">STEPS 의 안정적인 사용을 위한 앱 필수적 접근권한 중 허용되지 않은 권한 항목이 있습니다.\n\n</string>
+
+    <!-- 사용자 6.0 이상 권한 설정 화면 요청 -->
+    <string name="permission_setting_message">휴대폰설정 > 애플리케이션 관리자 > STEPS > 권한 화면에서 권한을 다시 설정하시겠습니까?</string>
+
+    <!-- 사용자 권한 필수 message -->
+    <string name="intro_permission_notice">
+        ○ 저장공간(필수)\n종목정보, 사용자 설정 등을 위해 필요한 권한\n\n○ 전화(필수)\n단말정보 확인, 고객지원센터 전화연결, ARS인증 등의 업무에 필요한 권한\n\n○ 주소록(필수)\n휴대폰 간편송금을 위해 필요한 권한\n\n
+    </string>
+    <!-- 사용자 권한 선택 message -->
+    <string name="intro_permission_choice">
+        ○ 위치(선택)\n고객정보변경, 계좌개설 주소입력 시 현재 위치 정보 확인을 위해 필요한 권한\n\n○ 카메라(선택)\n계좌개설 신분증 촬영, 프로필 사진 변경을 위해 필요한 권한\n
+    </string>
+
+    <string name="app_finish">필수적 접근권한 중 허용되지 않은 권한이 있습니다. 앱을 재실행하여 필수적 접근권한을 허용해 주세요.</string>
+
+    <!-- 사용자 6.0 이상 권한 요청 개별 message-->
+    <string name="permission_request_camera_message">○ 카메라(선택)\n계좌개설 신분증 촬영, 프로필 사진 변경을 위해 필요한 권한</string>
+    <string name="permission_request_location_message">○ 위치(선택)\n고객정보변경, 계좌개설 주소입력 시 현재 위치 정보 확인을 위해 필요한 권한</string>
+
+    <!-- 홈:추천펀드 -->
+    <string name="home_fund_info_1">한화투자증권에서는 투자 전문가들이 모여 시장의 흐름과 트렌드를 파악하고 그에 맞는 상품을 선정하여 월별로 추천하는 펀드입니다.\n\n  수익률 분석 및 변동성 분석 + 정량적 평가 및 정성적 평가 = 펀드 변화 파악 지속적인 모니터링</string>
+    <string name="home_fund_info_2">예금자보호법 상 보호상품 아님</string>
+    <string name="home_fund_info_3">원금손실 발생 시 투자자 귀속</string>
+    <string name="home_fund_info_4">가입 전 (간이)투자설명서 필독</string>
+    <string name="home_fund_info_5">과거 운용실적은 미래 수익 미보장</string>
+    <string name="home_fund_info_6">종류형 펀드는 클래스별 보수, 수수료 차이에 따라 운용실적 변동 가능</string>
+    <string name="home_fund_info_7">환율변동에 따른 손실 가능</string>
+    <string name="home_fund_info_8">피투자펀드 보수 등 추가비용 발생 가능</string>
+    <string name="home_fund_info_9">증권거래비용 등 추가발생 가능</string>
+    <string name="home_fund_info_10">[하이일드/레버리지형]원금손실 크게 발생가능</string>
+    <string name="home_fund_info_11">[레버리지형]레버리지펀드의 기간수익률은 추종하는 기초자산의 일간 수익률과 차이발생 가능</string>
+    <string name="home_fund_info_12">[월지급식]투자성과 부진 및 이익금 초과분배시 원금감소 가능</string>
+    <string name="home_fund_info_13">[세제혜택]과세기준 및 방법 향후 변동가능</string>
+    <string name="home_fund_info_14">준법감시인 심사필 제2019-252호(2019.05.24~2020.05.23)</string>
+
+    <!-- Switch -->
+    <style name="SwitchStyle">
+        <item name="android:minWidth">@dimen/dimen_44</item>
+        <item name="android:minHeight">@dimen/dimen_30</item>
+        <item name="android:maxWidth">@dimen/dimen_44</item>
+        <item name="android:maxHeight">@dimen/dimen_30</item>
+        <item name="android:background">?attr/btn_switch_selector</item>
+        <item name="android:textOn">""</item>
+        <item name="android:textOff">""</item>
+    </style>
+
+    <string name="dialog_voice_phishing_caution1">전화(문자)로 대출을 권유하고\n먼저 입금을 요구하면 100% 사기입니다.</string>
+    <string name="dialog_voice_phishing_caution2">보이스피싱 위험 확인 후 다시 거래해 주세요.</string>
+    <string name="dialog_voice_phishing_caution3">검찰, 경찰 등 공공기관, 금융기관은 어떠한 경우에도 개인 계좌로 돈을 입금 받지 않습니다.</string>
+    <string name="dialog_voice_phishing_caution4">보이스피싱 주요 수법</string>
+    <string name="dialog_voice_phishing_caution5">1.  햇살론 등 저금리 정부지원 자금으로 대환대출 권유\n2.  신용등급 상향 목적의 입금 요구\n3.  고금리 대출을 개인명의 계좌로 상환 요구\n4.  경찰, 검찰, 금융감독원에서 안전계좌로 입금 요구</string>
+    <string name="dialog_voice_phishing_caution6">이런 전화는 즉시 신고하세요!</string>
+    <string name="dialog_voice_phishing_caution7">경찰청 (112)</string>
+    <string name="dialog_voice_phishing_caution8">금융감독원 (1332)</string>
+    <string name="checkpoint_bond_rating_info01">원리금 지급확실성이 최고 수준으로 투자 위험도가 극히 낮음. 현 단계에서 합리적으로 예측 가능한 장래 급격한 환경 변화에도 영향을 받지 않을 만큼 안정적.</string>
+    <string name="checkpoint_bond_rating_info02">원리금 지급확실성이 매우 높아 투자위험도가 매우 낮음. AAA등급에 비해 다소 열등.</string>
+    <string name="checkpoint_bond_rating_info03">원리금 지급확실성 높아 투자위험도 낮은 수준, 장래 급격한 환경변화에 다소 영향을 받을 수 있음.</string>
+    <string name="checkpoint_bond_rating_info04">원리금 지급확실성은 인정되지만 장래 환경 변화로 지급확실성 저하될 가능성이 있음.</string>
+    <string name="checkpoint_bond_rating_info05">전반적인 채무상환 능력에 당면 문제는 없지만 장래의 안정성 면에서 투기적 요소 내포.</string>
+    <string name="checkpoint_bond_rating_info06">원리금 지급확실성이 부족하여 투기적, 장래의 안정성에 대해서는 현 단계에서 단언할 수 없음.</string>
+    <string name="checkpoint_bond_rating_info07">채무불이행이 발생할 가능성 내포, 매우 투기</string>
+    <string name="checkpoint_bond_rating_info08">채무불이행이 발생할 가능성 높음, 상위등급에 비해 불안요소가 더욱 많음.</string>
+    <string name="checkpoint_bond_rating_info09">채무불이행이 발생할 가능성 극히 높음, 현단계에서 장래 회복 가능성 없을 것으로 판단.</string>
+    <string name="checkpoint_bond_rating_info10">원금 또는 이자 지급불능 상태.</string>
+    <style name="ItemTitleStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/dimen_30</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/dimen_16</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+    <style name="ItemSubTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/dimen_20</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/dimen_12</item>
+        <item name="android:textColor">?attr/subTextColor</item>
+        <item name="android:lineSpacingExtra">@dimen/dimen_3</item>
+    </style>
+
+    <!-- 프로필 관리 -->
+    <string name="profile">프로필</string>
+    <string name="profile_title">프로필 관리</string>
+    <string name="profile_guide">프로필 사진과 이름을 변경할 수 있습니다.</string>
+    <string name="profile_name_title">프로필 명</string>
+    <string name="profile_select_title">프로필 사진 변경</string>
+    <string name="profile_select_gallery">앨범에서 사진 선택</string>
+    <string name="profile_select_camara">사진 촬영</string>
+    <string name="profile_select_default">기본이미지로 변경</string>
+    <string name="profile_update">프로필을 변경하였습니다.</string>
+    <string name="profile_image_upload_fail">프로필 이미지 업로드에 실패하였습니다.</string>
 </resources>

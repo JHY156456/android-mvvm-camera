@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.example.mvvmappapplication.custom.HSUntactView
+            style="@style/UntactTableOfLineStyle" />
+
+        <com.example.mvvmappapplication.custom.HSUntactTextView
+            style="@style/UntactTableOfSubTitleStyle"
+            android:layout_marginLeft="@dimen/dimen_50"
+            android:layout_marginTop="@dimen/dimen_17"
+            android:layout_marginBottom="@dimen/dimen_17"
+            android:text="필수항목" />
+
+        <com.example.mvvmappapplication.custom.HSUntactCheckBox
+            android:id="@+id/cb_layout_untact_common_term_sub_type_2_term_1"
+            android:layout_width="match_parent"
+            style="@style/UntactCheckBoxType2Style"
+            android:text="개인(신용)정보 필수동의서(공통)" />
+
+        <com.example.mvvmappapplication.custom.HSUntactCheckBox
+            android:id="@+id/cb_layout_untact_common_term_sub_type_2_term_2"
+            android:layout_width="match_parent"
+            style="@style/UntactCheckBoxType2Style"
+            android:text="계좌개설/온라인 이용약관" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.example.mvvmappapplication.custom.HSUntactCheckBox
+                android:id="@+id/cb_layout_untact_common_term_sub_type_2_term_3"
+                android:layout_width="match_parent"
+                style="@style/UntactCheckBoxType2Style"
+                android:text="간편송금서비스 이용약관" />
+
+            <com.example.mvvmappapplication.custom.HSUntactTextView
+                android:id="@+id/hsntv_layout_untact_common_term_sub_type_2_term_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_50"
+                android:layout_marginRight="@dimen/dimen_40"
+                android:layout_marginTop="@dimen/dimen_2"
+                android:lineSpacingExtra="@dimen/dimen_4"
+                android:text="계좌개설 완료 후 간편송금 출금계좌 (전자서명 및 보안매체 없이 1일 200만원 한도내에서 송금가능) 로 등록됩니다."
+                android:textColor="@color/untact_selector_term_sub_text_color"
+                android:textSize="@dimen/dimen_12"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <com.example.mvvmappapplication.custom.HSUntactCheckBox
+            android:id="@+id/cb_layout_untact_common_term_sub_type_2_term_4"
+            android:layout_width="match_parent"
+            style="@style/UntactCheckBoxType2Style"
+            android:text="혁신금융 등 유의사항 및 바이오정보 수집동의" />
+
+        <com.example.mvvmappapplication.custom.HSUntactCheckBox
+            android:id="@+id/cb_layout_untact_common_term_sub_type_2_term_7"
+            android:layout_width="match_parent"
+            style="@style/UntactCheckBoxType2Style"
+            android:drawableRight="@null"
+            android:text="거래내역 이메일,SMS,Push알림으로 안내받기" />
+
+    </LinearLayout>
+</FrameLayout>

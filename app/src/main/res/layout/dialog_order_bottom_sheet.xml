@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/layout_confirm_invest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="false"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/content_margin"
+        android:paddingRight="@dimen/content_margin"
+        android:paddingBottom="@dimen/dimen_30">
+
+        <LinearLayout
+            android:id="@+id/layoutInvestManual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_30"
+                android:layout_marginTop="@dimen/dimen_22"
+                android:clickable="true">
+                <com.example.mvvmappapplication.custom.HSCheckBox
+                    android:id="@+id/btn_check_invest_confirm_1"
+                    android:layout_width="@dimen/dimen_30"
+                    android:layout_height="@dimen/dimen_30"
+                    android:layout_centerVertical="true" />
+
+                <com.example.mvvmappapplication.custom.HSTextView
+                    android:id="@+id/pdfBtnTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:layout_toRightOf="@+id/btn_check_invest_confirm_1"
+                    android:textSize="@dimen/dimen_16"
+                    android:textStyle="italic" />
+
+                <com.example.mvvmappapplication.custom.HSImageView
+                    android:id="@+id/ivPdfBtn"
+                    android:layout_width="@dimen/dimen_28"
+                    android:layout_height="@dimen/dimen_28"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/btn_arrow_b" />
+            </RelativeLayout>
+
+            <com.example.mvvmappapplication.custom.HSView
+                android:id="@+id/top_line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:background="?attr/listLineColor"
+                android:clickable="true"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <com.example.mvvmappapplication.custom.HSCheckBox
+            android:id="@+id/btn_check_invest_confirm_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_30"
+            android:layout_marginTop="@dimen/dimen_18"
+            android:enabled="false"
+            android:textStyle="italic" />
+
+        <RelativeLayout
+            android:id="@+id/rlayout1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_24"
+            android:layout_marginTop="@dimen/dimen_11"
+            android:clickable="true">
+
+            <com.example.mvvmappapplication.custom.HSImageView
+                android:id="@+id/btn_check_invest_confirm_3"
+                android:layout_width="@dimen/dimen_24"
+                android:layout_height="@dimen/dimen_24"
+                android:layout_marginLeft="@dimen/dimen_4"
+                android:src="?attr/check_s_selector" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_12"
+                android:layout_toRightOf="@+id/btn_check_invest_confirm_3"
+                android:textColor="?attr/colorSecondaryRed"
+                android:textSize="@dimen/dimen_12"
+                android:textStyle="italic" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:clickable="true">
+
+            <com.example.mvvmappapplication.custom.HSImageView
+                android:id="@+id/btn_check_invest_confirm_4"
+                android:layout_width="@dimen/dimen_24"
+                android:layout_height="@dimen/dimen_24"
+                android:layout_marginLeft="@dimen/dimen_4"
+                android:src="?attr/check_s_selector" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/tvInvestConfirm4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_12"
+                android:layout_toRightOf="@+id/btn_check_invest_confirm_4"
+                android:lineSpacingExtra="@dimen/dimen_3"
+                android:textSize="@dimen/dimen_12"
+                android:textStyle="italic" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlayout3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_24"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:clickable="true">
+
+            <com.example.mvvmappapplication.custom.HSImageView
+                android:id="@+id/btn_check_invest_confirm_5"
+                android:layout_width="@dimen/dimen_24"
+                android:layout_height="@dimen/dimen_24"
+                android:layout_marginLeft="@dimen/dimen_4"
+                android:src="?attr/check_s_selector" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/tvInvestConfirm5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_12"
+                android:layout_toRightOf="@+id/btn_check_invest_confirm_5"
+                android:textSize="@dimen/dimen_12"
+                android:textStyle="italic" />
+
+        </RelativeLayout>
+
+        <com.example.mvvmappapplication.custom.SwipeButton
+            android:id="@+id/swipe_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_30" />
+    </LinearLayout>
+</layout>

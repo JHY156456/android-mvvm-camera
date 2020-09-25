@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/layout_confirm_invest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <com.example.mvvmappapplication.custom.HSTextView
+            android:id="@+id/productName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_54"
+            android:layout_marginTop="@dimen/dimen_14"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/content_margin"
+            android:paddingRight="@dimen/content_margin"
+            android:textSize="@dimen/dimen_20"
+            android:textStyle="bold"
+            tools:text="상품" />
+
+        <com.example.mvvmappapplication.custom.HSView
+            android:id="@+id/top_line"
+            style="@style/TitleLineStyle" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:paddingLeft="@dimen/content_margin"
+            android:paddingRight="@dimen/content_margin">
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/title_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/dimen_14"
+                android:textStyle="italic" />
+
+            <com.example.mvvmappapplication.custom.HSButton
+                android:id="@+id/btn_fund_info"
+                android:layout_width="@dimen/dimen_20"
+                android:layout_height="@dimen/dimen_20"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_6"
+                android:layout_toRightOf="@+id/title_1"
+                android:background="?attr/btn_help"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <com.example.mvvmappapplication.custom.HSMaterialButton
+                android:id="@+id/all"
+                style="@style/MaterialButton.Outline.Ellipse"
+                android:layout_width="@dimen/dimen_80"
+                android:layout_height="@dimen/dimen_30"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="전액"
+                android:textSize="@dimen/dimen_12" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/content_margin"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/content_margin"
+            android:baselineAligned="false"
+            android:orientation="vertical">
+
+            <com.example.mvvmappapplication.custom.HSEditTextXIcon
+                android:id="@+id/et_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textColor="?attr/selectedColor"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_24"
+            android:paddingLeft="@dimen/content_margin"
+            android:paddingRight="@dimen/content_margin">
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/tv_psbl_qnt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:textColor="?attr/subTextColor"
+                android:textSize="@dimen/dimen_11"
+                android:textStyle="italic"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_bond_info"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginBottom="@dimen/dimen_19"
+            android:paddingLeft="@dimen/content_margin"
+            android:paddingRight="@dimen/content_margin"
+            android:visibility="invisible"
+            tools:visibility="visible">
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/title_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/dimen_14"
+                android:textStyle="italic" />
+            <com.example.mvvmappapplication.custom.HSButton
+                android:id="@+id/btn_bond_info"
+                android:layout_width="@dimen/dimen_20"
+                android:layout_height="@dimen/dimen_20"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_6"
+                android:layout_toRightOf="@+id/title_2"
+                android:background="?attr/btn_help" />
+
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/exPrice"
+                android:layout_width="@dimen/dimen_180"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/exPriceUnit"
+                android:gravity="center_vertical|end"
+                android:maxLines="1"
+                android:textColor="?attr/selectedColor"
+                android:textSize="@dimen/dimen_20"
+                android:textStyle="bold"
+                tools:text="100" />
+
+            <com.example.mvvmappapplication.custom.HSTextView
+                android:id="@+id/exPriceUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/dimen_2"
+                android:gravity="center"
+                android:textColor="?attr/selectedColor"
+                android:textSize="@dimen/dimen_12"
+                android:textStyle="italic"
+                tools:text="원" />
+
+        </RelativeLayout>
+
+        <com.example.mvvmappapplication.custom.HSView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:background="?attr/subTextColor"
+            android:clickable="true"
+            android:visibility="visible" />
+        <!-- 하단 버튼 -->
+        <LinearLayout
+            android:id="@+id/bottomBtn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_gravity="bottom"
+            android:baselineAligned="false"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:baselineAligned="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <com.example.mvvmappapplication.custom.HSMaterialButton
+                    android:id="@+id/cancelBtn"
+                    style="@style/MaterialButton.Primary"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    />
+
+                <com.example.mvvmappapplication.custom.HSMaterialButton
+                    android:id="@+id/okBtn"
+                    style="@style/MaterialButton.Primary"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textColor="?attr/sellButtonColor"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>
