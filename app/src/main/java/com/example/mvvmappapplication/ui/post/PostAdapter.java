@@ -4,7 +4,6 @@ package com.example.mvvmappapplication.ui.post;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.databinding.library.baseAdapters.BR;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mvvmappapplication.R;
@@ -45,7 +44,7 @@ public class PostAdapter extends RecyclerView.Adapter<ViewBindingHolder> {
     //뷰홀더와 뷰모델을 바인딩 한다
     @Override
     public void onBindViewHolder(@NonNull ViewBindingHolder holder, int position) {
-        holder.getBinding().setVariable(BR.item, items.get(position));
+        //holder.getBinding().setVariable(BR.item, items.get(position));
         holder.getBinding().executePendingBindings();
     }
 

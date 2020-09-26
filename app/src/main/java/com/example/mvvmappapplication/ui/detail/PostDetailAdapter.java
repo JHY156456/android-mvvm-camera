@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mvvmappapplication.BR;
 import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.util.ViewBindingHolder;
 
@@ -45,7 +44,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<ViewBindingHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewBindingHolder holder, int position) {
-        holder.getBinding().setVariable(BR.item, items.get(position));
+        //holder.getBinding().setVariable(BR.item, items.get(position));
         holder.getBinding().executePendingBindings();
     }
 

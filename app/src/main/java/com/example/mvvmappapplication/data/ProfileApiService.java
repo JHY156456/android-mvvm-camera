@@ -17,7 +17,7 @@ import retrofit2.http.Part;
 public interface ProfileApiService {
 
     String IMAGE_DOWNLOAD = "file/profileImage/imageDownload.cmd";
-    String BASE_URL =  "http://test.steps.plus:8099/";
+    String BASE_URL =  "url";
 
     @Multipart
     @POST("file/profileImage/imageUpload.cmd")

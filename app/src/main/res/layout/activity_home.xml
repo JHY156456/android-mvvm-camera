@@ -8,12 +8,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_below="@+id/my_toolbar"
+            android:layout_height="match_parent">
         <com.example.mvvmappapplication.custom.HSRelativeLayout
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/windowBackground" />
+             />
+<!--            android:background="?attr/windowBackground"-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:text="Home">
 
+            </TextView>
         <FrameLayout
             android:id="@+id/bottomMenuLayout"
             android:layout_width="match_parent"
@@ -26,8 +45,9 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="?attr/mainTabBackground"
+
                 android:onClick="onClick">
+<!--                android:background="?attr/mainTabBackground"-->
 
                 <com.example.mvvmappapplication.custom.HSView
                     app:layout_constraintTop_toTopOf="parent"
@@ -35,7 +55,8 @@
                     app:layout_constraintRight_toRightOf="parent"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/dimen_1"
-                    android:background="?attr/listLineColor" />
+                     />
+<!--                android:background="?attr/listLineColor"-->
 
                 <FrameLayout
                     android:id="@+id/home"
@@ -53,7 +74,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:background="?attr/btn_menu_home_selector"
+                        android:background="@drawable/btn_menu_home_selector"
                         android:button="@null"
                         android:onClick="onClick" />
 
@@ -63,11 +84,12 @@
                         android:layout_width="@dimen/dimen_6"
                         android:layout_height="@dimen/dimen_6"
                         android:visibility="gone"
-                        app:dotColor="?attr/highColor"
+
                         android:layout_gravity="right"
                         android:layout_marginTop="@dimen/dimen_16"
                         android:layout_marginRight="@dimen/dimen_24"
                         tools:visibility="visible" />
+<!--                    app:dotColor="?attr/highColor"-->
                 </FrameLayout>
 
                 <FrameLayout
@@ -86,7 +108,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:background="?attr/btn_menu_search_selector"
+                        android:background="@drawable/btn_menu_search_selector"
                         android:button="@null"
                         android:onClick="onClick" />
 
@@ -108,7 +130,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:background="?attr/btn_menu_watchlist_selector"
+                        android:background="@drawable/btn_menu_watchlist_selector"
                         android:button="@null"
                         android:onClick="onClick" />
                 </FrameLayout>
@@ -129,9 +151,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:background="?attr/btn_menu_asset_selector"
+
                         android:button="@null"
                         android:onClick="onClick" />
+<!--                    android:background="@drawable/btn_menu_asset_selector"-->
                 </FrameLayout>
 
                 <FrameLayout
@@ -150,13 +173,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:background="?attr/btn_menu_mypage_selector"
+                        android:background="@drawable/btn_menu_mypage_selector"
                         android:button="@null"
                         android:onClick="onClick" />
                 </FrameLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
-
+        </RelativeLayout>
     </RelativeLayout>
 
 </layout>

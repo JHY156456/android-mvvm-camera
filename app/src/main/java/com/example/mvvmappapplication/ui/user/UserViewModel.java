@@ -3,14 +3,20 @@ package com.example.mvvmappapplication.ui.user;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 
 import com.example.mvvmappapplication.data.UserService;
 import com.example.mvvmappapplication.data.entity.User;
+import com.example.mvvmappapplication.ui.BaseNavigator;
+import com.example.mvvmappapplication.ui.BaseViewModel;
 import com.example.mvvmappapplication.util.SingleLiveEvent;
+import com.example.mvvmappapplication.utils.AlertUtil;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.IOException;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -18,9 +24,11 @@ import javax.inject.Named;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+import retrofit2.HttpException;
+import retrofit2.Response;
 import timber.log.Timber;
 
-public class UserViewModel extends AndroidViewModel {
+public class UserViewModel extends BaseViewModel<BaseNavigator> {
     @NonNull
     private final UserService userService;
     @NonNull
@@ -35,8 +43,7 @@ public class UserViewModel extends AndroidViewModel {
 
 
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>(true);
-    private final MutableLiveData<Boolean> response = new MutableLiveData<>(false);
-
+    private final MutableLiveData<Response> response = new MutableLiveData<>();
     @Inject
     public UserViewModel(@NonNull Application application,
                          @NonNull UserService userService,
@@ -58,6 +65,9 @@ public class UserViewModel extends AndroidViewModel {
 
     public MutableLiveData<Boolean> getLoading() {
         return loading;
+    }
+    public MutableLiveData<Response> getResponse() {
+        return response;
     }
 
     public LiveData<String> getName() {
@@ -90,10 +100,29 @@ public class UserViewModel extends AndroidViewModel {
         compositeDisposable.add(userService.login(email,password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSuccess((item) -> loading.postValue(false))
-                .subscribe(response::setValue(true), errorEvent::setValue));
+                .subscribe(this::handleResponse, this::handleError));
     }
-    public void onSignInButtonClick(){
-        startActivity
+
+    private void handleResponse(Response response) {
+        setResponse(response);
+    }
+
+    private void handleError(Throwable error) {
+        if (error instanceof HttpException) {
+            Gson gson = new GsonBuilder().create();
+            try {
+                String errorBody = ((HttpException) error).response().errorBody().string();
+                Response response = gson.fromJson(errorBody, Response.class);
+                setResponse(response);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            AlertUtil.toast(getActivity(), error.getMessage());
+        }
+    }
+
+    private void setResponse(Response response) {
+        this.response.setValue(response);
     }
 }

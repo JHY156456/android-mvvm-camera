@@ -17,13 +17,13 @@ import dagger.Provides;
 public abstract class LoginModule {
     @Provides
     @ActivityScope
-    static ActivityLoginBinding provideBinding(LoginActivity activity) {
+    static ActivityLoginBinding provideLoginBinding(LoginActivity activity) {
         return DataBindingUtil.setContentView(activity, R.layout.activity_login);
     }
 
     @Provides
     @ActivityScope
-    static ActivityRegistrationBinding provideBinding(RegistrationActivity activity) {
+    static ActivityRegistrationBinding provideRegistrationBinding(RegistrationActivity activity) {
         return DataBindingUtil.setContentView(activity, R.layout.activity_registration);
     }
 

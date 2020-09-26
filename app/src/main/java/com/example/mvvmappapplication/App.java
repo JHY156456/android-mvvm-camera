@@ -8,7 +8,6 @@ import com.example.mvvmappapplication.consts.Const;
 import com.example.mvvmappapplication.di.DaggerAppComponent;
 import com.example.mvvmappapplication.dto.UserInfoDto;
 import com.example.mvvmappapplication.utils.LogUtil;
-import com.example.mvvmappapplication.utils.StringUtil;
 
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;

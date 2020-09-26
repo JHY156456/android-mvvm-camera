@@ -125,7 +125,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:text="@string/signup_redirect"
-                    android:onClick="@{v->viewModel.onSignInButtonClick}"
+                    android:onClick="buttonClick"
                     android:textColor="@color/gray" />
 
 

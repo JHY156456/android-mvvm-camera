@@ -26,7 +26,7 @@ import timber.log.Timber;
 
 public class PostDetailViewModel
         extends AndroidViewModel
-        implements PostDetailUserItem.EventListener{
+        implements PostDetailUserItem.EventListener {
 
 
     private final MutableLiveData<List<PostDetailItem>> liveItems = new MutableLiveData<>();

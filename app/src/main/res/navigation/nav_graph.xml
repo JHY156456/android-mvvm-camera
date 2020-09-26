@@ -5,23 +5,6 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/post_fragment"><!--시작 목적지-->
 
-    <activity
-        android:id="@+id/login_activity"
-        android:name="com.example.mvvmappapplication.ui.user.LoginActivity"
-        tools:layout="@layout/activity_login">
-
-        <action
-            android:id="@+id/action_login_activity_to_register_activity"
-            app:destination="@id/register_activity"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
-    </activity>
-    <activity
-        android:id="@+id/register_activity"
-        android:name="com.example.mvvmappapplication.ui.user.RegisterActivity"
-        tools:layout="@layout/activity_registration"
-        >
-    </activity>
     <fragment
         android:id="@+id/post_fragment"
         android:name="com.example.mvvmappapplication.ui.post.PostFragment"

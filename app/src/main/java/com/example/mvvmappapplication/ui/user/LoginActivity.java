@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.Window;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mvvmappapplication.R;
@@ -28,13 +29,27 @@ public class LoginActivity extends DaggerAppCompatActivity {
         super.onCreate(savedInstanceState);
         binding.get().setLifecycleOwner(this);
         viewModel = new ViewModelProvider(this, viewModelFactory).get(UserViewModel.class);
-
+        initLiveItems();
     }
+    public void initLiveItems(){
+        viewModel.getResponse().observe((LifecycleOwner) getLifecycle(), response->{
+            if(response.isSuccessful()){
 
+            }else{
+
+            }
+        });
+    }
     public void buttonClick(View view){
-        if(view.getId()== R.id.btnSignIn){
-            viewModel.login(binding.get().atvEmailLog.getText().toString()
-            ,binding.get().atvPasswordLog.getText().toString());
+        switch(view.getId()){
+            case R.id.btnSignIn:{
+                viewModel.login(binding.get().atvEmailLog.getText().toString()
+                        ,binding.get().atvPasswordLog.getText().toString());
+            }
+            case R.id.tvSignIn:{
+
+            }
         }
+
     }
 }

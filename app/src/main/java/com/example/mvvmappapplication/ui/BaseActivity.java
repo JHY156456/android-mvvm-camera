@@ -5,19 +5,16 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.mvvmappapplication.App;
 import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.consts.Const;
+import com.example.mvvmappapplication.consts.Const.eThemeType;
 import com.example.mvvmappapplication.consts.MainEvent;
 import com.example.mvvmappapplication.custom.HSTitleBar;
 import com.example.mvvmappapplication.dialog.ProgressDialogBase;
@@ -25,13 +22,13 @@ import com.example.mvvmappapplication.utils.AlertUtil;
 import com.example.mvvmappapplication.utils.IntentUtil;
 import com.example.mvvmappapplication.utils.LogUtil;
 import com.example.mvvmappapplication.utils.PermissionUtil;
-import com.example.mvvmappapplication.utils.PreferenceFileUtil;
 import com.example.mvvmappapplication.utils.ThemeUtil;
 import com.example.mvvmappapplication.utils.UIUtil;
-import com.example.mvvmappapplication.consts.Const.*;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+
+import dagger.android.support.DaggerAppCompatActivity;
 
 
 /**
@@ -41,7 +38,7 @@ import org.greenrobot.eventbus.Subscribe;
  * @version 1.0
  * @since 2016-07-26
  */
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+public abstract class BaseActivity extends DaggerAppCompatActivity implements View.OnClickListener {
 
     private ProgressDialogBase mProgressDialog;
 
