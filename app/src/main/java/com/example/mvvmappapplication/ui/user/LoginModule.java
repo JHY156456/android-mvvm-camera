@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.databinding.ActivityLoginBinding;
+import com.example.mvvmappapplication.databinding.ActivityRegistrationBinding;
 import com.example.mvvmappapplication.di.ActivityContext;
 import com.example.mvvmappapplication.di.ActivityScope;
 
@@ -18,6 +19,12 @@ public abstract class LoginModule {
     @ActivityScope
     static ActivityLoginBinding provideBinding(LoginActivity activity) {
         return DataBindingUtil.setContentView(activity, R.layout.activity_login);
+    }
+
+    @Provides
+    @ActivityScope
+    static ActivityRegistrationBinding provideBinding(RegistrationActivity activity) {
+        return DataBindingUtil.setContentView(activity, R.layout.activity_registration);
     }
 
     @Provides

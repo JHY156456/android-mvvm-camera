@@ -17,4 +17,6 @@ public class UserModule {
     FragmentUserBinding provideBinding(@ActivityContext Context context){
         return FragmentUserBinding.inflate(LayoutInflater.from(context));
     }
+
+
 }

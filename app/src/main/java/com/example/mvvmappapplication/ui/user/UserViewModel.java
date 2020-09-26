@@ -35,6 +35,7 @@ public class UserViewModel extends AndroidViewModel {
 
 
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>(true);
+    private final MutableLiveData<Boolean> response = new MutableLiveData<>(false);
 
     @Inject
     public UserViewModel(@NonNull Application application,
@@ -85,4 +86,14 @@ public class UserViewModel extends AndroidViewModel {
         compositeDisposable.dispose();
     }
 
+    public void login(String email, String password){
+        compositeDisposable.add(userService.login(email,password)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSuccess((item) -> loading.postValue(false))
+                .subscribe(response::setValue(true), errorEvent::setValue));
+    }
+    public void onSignInButtonClick(){
+        startActivity
+    }
 }

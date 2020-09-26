@@ -10,4 +10,7 @@ import retrofit2.http.Path;
 public interface UserService {
     @GET("/users/{userId}")
     Single<User> getUser(@Path("userId") long userId);
+
+    @GET("/users/login/{email}/{password}")
+    void login(@Path("email") String email, @Path("password")  String password);
 }

@@ -1,14 +1,12 @@
 package com.example.mvvmappapplication.ui.user;
 
 import android.os.Bundle;
-import android.view.View;
 import android.view.Window;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.mvvmappapplication.R;
-import com.example.mvvmappapplication.databinding.ActivityLoginBinding;
+import com.example.mvvmappapplication.databinding.ActivityRegistrationBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
 
 import javax.inject.Inject;
@@ -16,9 +14,10 @@ import javax.inject.Inject;
 import dagger.Lazy;
 import dagger.android.support.DaggerAppCompatActivity;
 
-public class LoginActivity extends DaggerAppCompatActivity {
+public class RegistrationActivity extends
+        DaggerAppCompatActivity {
     @Inject
-    Lazy<ActivityLoginBinding> binding;
+    Lazy<ActivityRegistrationBinding> binding;
     UserViewModel viewModel;
     @Inject
     AppViewModelFactory viewModelFactory;
@@ -29,12 +28,5 @@ public class LoginActivity extends DaggerAppCompatActivity {
         binding.get().setLifecycleOwner(this);
         viewModel = new ViewModelProvider(this, viewModelFactory).get(UserViewModel.class);
 
-    }
-
-    public void buttonClick(View view){
-        if(view.getId()== R.id.btnSignIn){
-            viewModel.login(binding.get().atvEmailLog.getText().toString()
-            ,binding.get().atvPasswordLog.getText().toString());
-        }
     }
 }
