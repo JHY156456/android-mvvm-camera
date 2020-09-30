@@ -5,6 +5,8 @@ import com.example.mvvmappapplication.ui.HomeActivity;
 import com.example.mvvmappapplication.ui.HomeModule;
 import com.example.mvvmappapplication.ui.MainActivity;
 import com.example.mvvmappapplication.ui.MainModule;
+import com.example.mvvmappapplication.ui.menu.CameraViewActivity;
+import com.example.mvvmappapplication.ui.menu.CameraViewModule;
 import com.example.mvvmappapplication.ui.user.LoginActivity;
 import com.example.mvvmappapplication.ui.user.LoginModule;
 
@@ -28,4 +30,9 @@ public abstract class ActivityModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = HomeModule.class)
     abstract HomeActivity homeActivity();
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = CameraViewModule.class)
+    abstract CameraViewActivity cameraViewActivity();
+
 }

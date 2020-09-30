@@ -8,10 +8,13 @@ import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.databinding.ActivityHomeBinding;
 import com.example.mvvmappapplication.di.ActivityContext;
 import com.example.mvvmappapplication.di.ActivityScope;
-import com.example.mvvmappapplication.ui.user.LoginActivity;
+import com.example.mvvmappapplication.di.FragmentScope;
+import com.example.mvvmappapplication.ui.menu.CameraFragment;
+import com.example.mvvmappapplication.ui.menu.CameraModule;
 
 import dagger.Module;
 import dagger.Provides;
+import dagger.android.ContributesAndroidInjector;
 
 @Module
 public abstract class HomeModule {
@@ -22,7 +25,12 @@ public abstract class HomeModule {
     }
     @Provides
     @ActivityContext
-    static Context provideContext(LoginActivity activity) {
+    static Context provideContext(HomeActivity activity) {
         return activity;
     }
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = CameraModule.class)
+    abstract CameraFragment getCameraFragment();
+
 }

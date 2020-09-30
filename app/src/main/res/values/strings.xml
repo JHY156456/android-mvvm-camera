@@ -28,19 +28,19 @@
     <string name="alert_notice_available_only_domestic_resident">국내 거주자만 거래 가능합니다.</string>
 
     <!-- 사용자 권한 6.0 미만 안내 title message -->
-    <string name="intro_permission_title">STEPS 의 안정적인 사용을 위하여 다음의 필수적/선택적 접근권한들이 자동으로 허용됩니다.\n\n</string>
+    <string name="intro_permission_title">주차관리시스템의 안정적인 사용을 위하여 다음의 필수적/선택적 접근권한들이 자동으로 허용됩니다.\n\n</string>
 
     <!-- 사용자 권한 6.0 이상 안내 title message -->
-    <string name="intro_permission_title_2">STEPS 의 안정적인 사용을 위하여 다음의 필수적 접근권한들을 허용해주세요.\n\n</string>
+    <string name="intro_permission_title_2">주차관리시스템의 안정적인 사용을 위하여 다음의 필수적 접근권한들을 허용해주세요.\n\n</string>
 
     <!-- 사용자 권한 6.0 이상 퍼미션 요청 title message -->
-    <string name="permission_request_title">STEPS 의 안정적인 사용을 위하여 다음의 선택적 접근권한을 허용해주세요.\n\n</string>
+    <string name="permission_request_title">주차관리시스템의 안정적인 사용을 위하여 다음의 선택적 접근권한을 허용해주세요.\n\n</string>
 
     <!-- 사용자 권한 6.0 이상 퍼미션 거부 title message -->
-    <string name="intro_permission_denied_title">STEPS 의 안정적인 사용을 위한 앱 선택적 접근권한 중 허용되지 않은 권한 항목이 있습니다.\n\n</string>
+    <string name="intro_permission_denied_title">주차관리시스템의 안정적인 사용을 위한 앱 선택적 접근권한 중 허용되지 않은 권한 항목이 있습니다.\n\n</string>
 
     <!-- 사용자 권한 6.0 이상 퍼미션 거부 title message2 -->
-    <string name="intro_permission_denied_title2">STEPS 의 안정적인 사용을 위한 앱 필수적 접근권한 중 허용되지 않은 권한 항목이 있습니다.\n\n</string>
+    <string name="intro_permission_denied_title2">주차관리시스템의 안정적인 사용을 위한 앱 필수적 접근권한 중 허용되지 않은 권한 항목이 있습니다.\n\n</string>
 
     <!-- 사용자 6.0 이상 권한 설정 화면 요청 -->
     <string name="permission_setting_message">휴대폰설정 > 애플리케이션 관리자 > STEPS > 권한 화면에서 권한을 다시 설정하시겠습니까?</string>
@@ -57,7 +57,7 @@
     <string name="app_finish">필수적 접근권한 중 허용되지 않은 권한이 있습니다. 앱을 재실행하여 필수적 접근권한을 허용해 주세요.</string>
 
     <!-- 사용자 6.0 이상 권한 요청 개별 message-->
-    <string name="permission_request_camera_message">○ 카메라(선택)\n계좌개설 신분증 촬영, 프로필 사진 변경을 위해 필요한 권한</string>
+    <string name="permission_request_camera_message">○ 카메라(선택)\n차량 번호판 사진 촬영을 위해 필요한 권한</string>
     <string name="permission_request_location_message">○ 위치(선택)\n고객정보변경, 계좌개설 주소입력 시 현재 위치 정보 확인을 위해 필요한 권한</string>
 
     <!-- 홈:추천펀드 -->

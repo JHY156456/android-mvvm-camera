@@ -42,6 +42,7 @@ public abstract class MainModule {
     @ContributesAndroidInjector(modules = PostModule.class)
     abstract PostFragment getPostFragment();
 
+
     @FragmentScope
     @ContributesAndroidInjector(modules = PostDetailModule.class)
     abstract PostDetailFragment getPostDetailFragment();

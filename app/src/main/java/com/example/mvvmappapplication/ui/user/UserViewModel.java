@@ -11,7 +11,7 @@ import com.example.mvvmappapplication.data.UserService;
 import com.example.mvvmappapplication.data.entity.User;
 import com.example.mvvmappapplication.ui.BaseNavigator;
 import com.example.mvvmappapplication.ui.BaseViewModel;
-import com.example.mvvmappapplication.util.SingleLiveEvent;
+import com.example.mvvmappapplication.utils.SingleLiveEvent;
 import com.example.mvvmappapplication.utils.AlertUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

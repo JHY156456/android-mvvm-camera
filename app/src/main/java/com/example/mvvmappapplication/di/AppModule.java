@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.example.mvvmappapplication.App;
-import com.example.mvvmappapplication.util.SingleLiveEvent;
+import com.example.mvvmappapplication.utils.SingleLiveEvent;
 
 import javax.inject.Named;
 import javax.inject.Singleton;

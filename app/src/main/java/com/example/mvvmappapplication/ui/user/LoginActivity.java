@@ -23,6 +23,7 @@ public class LoginActivity extends DaggerAppCompatActivity {
     UserViewModel viewModel;
     @Inject
     AppViewModelFactory viewModelFactory;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -31,22 +32,24 @@ public class LoginActivity extends DaggerAppCompatActivity {
         viewModel = new ViewModelProvider(this, viewModelFactory).get(UserViewModel.class);
         initLiveItems();
     }
-    public void initLiveItems(){
-        viewModel.getResponse().observe((LifecycleOwner) getLifecycle(), response->{
-            if(response.isSuccessful()){
 
-            }else{
+    public void initLiveItems() {
+        viewModel.getResponse().observe((LifecycleOwner) getLifecycle(), response -> {
+            if (response.isSuccessful()) {
+                //홈액티비티를 띄운다
+            } else {
 
             }
         });
     }
-    public void buttonClick(View view){
-        switch(view.getId()){
-            case R.id.btnSignIn:{
+
+    public void buttonClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnSignIn: {
                 viewModel.login(binding.get().atvEmailLog.getText().toString()
-                        ,binding.get().atvPasswordLog.getText().toString());
+                        , binding.get().atvPasswordLog.getText().toString());
             }
-            case R.id.tvSignIn:{
+            case R.id.tvSignIn: {
 
             }
         }

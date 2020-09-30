@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mvvmappapplication.ui.detail.PostDetailViewModel;
+import com.example.mvvmappapplication.ui.menu.CameraViewModel;
 import com.example.mvvmappapplication.ui.post.PostViewModel;
 import com.example.mvvmappapplication.ui.user.UserViewModel;
 
@@ -32,5 +33,10 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(UserViewModel.class)
     abstract ViewModel bindsUserViewModel(UserViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CameraViewModel.class)
+    abstract ViewModel bindsCameraViewModel(CameraViewModel viewModel);
 
 }

@@ -10,7 +10,7 @@ import com.example.mvvmappapplication.data.CommentService;
 import com.example.mvvmappapplication.data.UserService;
 import com.example.mvvmappapplication.data.entity.Comment;
 import com.example.mvvmappapplication.data.entity.Post;
-import com.example.mvvmappapplication.util.SingleLiveEvent;
+import com.example.mvvmappapplication.utils.SingleLiveEvent;
 
 import java.util.ArrayList;
 import java.util.List;

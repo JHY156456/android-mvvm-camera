@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.mvvmappapplication.custom.HSCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="@dimen/dimen_15"
-    app:strokeColor="?attr/accountSpinnerLineColor"
-    app:strokeWidth="@dimen/dimen_1">
 
+    app:strokeWidth="@dimen/dimen_1">
+<!--    app:strokeColor="?attr/accountSpinnerLineColor"-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,10 +26,10 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/dimen_10"
                 android:layout_marginRight="@dimen/dimen_10"
-                android:background="?attr/btn_top_close"
+
                 android:visibility="gone"
                 tools:visibility="visible" />
-
+<!--            android:background="?attr/btn_top_close"-->
             <com.example.mvvmappapplication.custom.HSAutofitTextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
@@ -76,21 +77,21 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dimen_30"
             android:gravity="center"
-            android:textColor="?attr/subTextColor"
+
             android:textSize="@dimen/dimen_14"
             android:visibility="gone"
             tools:text="BOTTOM MESSAGE" />
-
+<!--        android:textColor="?attr/subTextColor"-->
         <LinearLayout
             android:id="@+id/bottomBtnLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:orientation="horizontal">
 
-            <com.example.mvvmappapplication.custom.HSMaterialButton
+            android:orientation="horizontal">
+<!--            android:background="?attr/colorPrimary"-->
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_negative"
-                style="@style/MaterialButton.Primary"
+
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -98,19 +99,19 @@
                 android:text="@string/alert_cancel"
                 android:visibility="gone"
                 tools:visibility="visible" />
-
+<!--            style="@style/MaterialButton.Primary"-->
             <com.example.mvvmappapplication.custom.HSView
                 android:id="@+id/btnLine"
                 android:layout_width="@dimen/dimen_1"
                 android:layout_height="@dimen/dimen_25"
                 android:layout_gravity="center_vertical"
-                android:background="?attr/buttonDividerLineColor"
+
                 android:visibility="gone"
                 tools:visibility="visible" />
-
-            <com.example.mvvmappapplication.custom.HSMaterialButton
+<!--            android:background="?attr/buttonDividerLineColor"-->
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_positive"
-                style="@style/MaterialButton.Primary"
+
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -118,6 +119,7 @@
                 android:text="@string/alert_confirm"
                 android:visibility="gone"
                 tools:visibility="visible" />
+<!--            style="@style/MaterialButton.Primary"-->
         </LinearLayout>
     </LinearLayout>
-</com.example.mvvmappapplication.custom.HSCardView>
+</com.google.android.material.card.MaterialCardView>

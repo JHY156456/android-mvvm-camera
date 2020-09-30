@@ -7,7 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.mvvmappapplication.data.PostService;
-import com.example.mvvmappapplication.util.SingleLiveEvent;
+import com.example.mvvmappapplication.utils.SingleLiveEvent;
 
 import java.util.List;
 

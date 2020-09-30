@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <!--ProgressBar 표현을 위한 View 패키지 참조 및 ViewModel 변수 선언-->
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.mvvmappapplication.ui.menu.CameraViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CameraViewActivity">
+
+        <TextureView
+            android:id="@+id/cameraTextureView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일반" />
+
+            <Button
+                android:id="@+id/wide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="광각" />
+
+            <Button
+                android:id="@+id/capture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="촬영" />
+
+            <Button
+                android:id="@+id/change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전환" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

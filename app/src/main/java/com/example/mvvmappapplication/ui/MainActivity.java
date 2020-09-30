@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.mvvmappapplication.databinding.ActivityMainBinding;
-import com.example.mvvmappapplication.util.SingleLiveEvent;
+import com.example.mvvmappapplication.utils.SingleLiveEvent;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -14,6 +14,7 @@ import dagger.android.support.DaggerAppCompatActivity;
 
 public class MainActivity extends DaggerAppCompatActivity {
 
+    public static final int REQUEST_CAMERA = 1;
     //바인딩 클래스 주입
     @Inject
     Lazy<ActivityMainBinding> binding;

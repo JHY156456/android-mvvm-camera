@@ -20,10 +20,12 @@
             android:layout_width="match_parent"
             android:layout_below="@+id/my_toolbar"
             android:layout_height="match_parent">
-        <com.example.mvvmappapplication.custom.HSRelativeLayout
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            app:navGraph="@navigation/nav_home"
              />
 <!--            android:background="?attr/windowBackground"-->
             <TextView
@@ -45,7 +47,6 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
                 android:onClick="onClick">
 <!--                android:background="?attr/mainTabBackground"-->
 
@@ -55,7 +56,9 @@
                     app:layout_constraintRight_toRightOf="parent"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/dimen_1"
-                     />
+                    android:background="@color/cardview_dark_background"
+
+                    />
 <!--                android:background="?attr/listLineColor"-->
 
                 <FrameLayout
@@ -99,7 +102,7 @@
                     android:layout_marginTop="@dimen/dimen_1"
                     android:onClick="onClick"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/watchlis"
+                    app:layout_constraintEnd_toStartOf="@+id/camera"
                     app:layout_constraintStart_toEndOf="@+id/home"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -115,7 +118,7 @@
                 </FrameLayout>
 
                 <FrameLayout
-                    android:id="@+id/watchlis"
+                    android:id="@+id/camera"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginTop="@dimen/dimen_1"
@@ -125,15 +128,18 @@
                     app:layout_constraintStart_toEndOf="@+id/search"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <com.example.mvvmappapplication.custom.HSRadioButton
-                        android:id="@+id/watchlisBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/btn_menu_watchlist_selector"
-                        android:button="@null"
-                        android:onClick="onClick" />
-                </FrameLayout>
+
+
+            <com.example.mvvmappapplication.custom.HSRadioButton
+                android:id="@+id/cameraBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_menu_camera_selector"
+                android:checked="true"
+                android:button="@null"
+                android:onClick="onClick" />
+        </FrameLayout>
 
                 <FrameLayout
                     android:id="@+id/assets"
@@ -143,7 +149,7 @@
                     android:onClick="onClick"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/myMenu"
-                    app:layout_constraintStart_toEndOf="@+id/watchlis"
+                    app:layout_constraintStart_toEndOf="@+id/camera"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <com.example.mvvmappapplication.custom.HSRadioButton

@@ -1,5 +1,6 @@
 package com.example.mvvmappapplication.di;
 
+import com.example.mvvmappapplication.data.CameraService;
 import com.example.mvvmappapplication.data.CommentService;
 import com.example.mvvmappapplication.data.PostService;
 import com.example.mvvmappapplication.data.UserService;
@@ -40,5 +41,11 @@ public class RetrofitModule {
     @Reusable
     CommentService provideCommentService(Retrofit retrofit) {
         return retrofit.create(CommentService.class);
+    }
+
+    @Provides
+    @Reusable
+    CameraService provideCameraService(Retrofit retrofit) {
+        return retrofit.create(CameraService.class);
     }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+
+    app:startDestination="@id/camera_fragment">
+    <fragment
+        android:id="@+id/camera_fragment"
+        android:name="com.example.mvvmappapplication.ui.menu.CameraFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_camera">
+        <!--PostFragment에서 PostDetailFragment로 이동-->
+        <!-- label : 목적지 XML 레이아웃 파일 이름 -->
+        <!--화면 전환시 사용할 애니메이션도 적용한다-->
+        <action
+            android:id="@+id/action_post_fragment_to_post_detail_fragment"
+            app:destination="@id/post_detail_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_post_fragment_to_post_detail_fragment2"
+            app:destination="@id/post_detail_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_post_fragment_to_post_detail_fragment3"
+            app:destination="@id/post_detail_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+</navigation>

@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mvvmappapplication.R;
-import com.example.mvvmappapplication.util.ViewBindingHolder;
+import com.example.mvvmappapplication.utils.ViewBindingHolder;
 
 import java.util.ArrayList;
 import java.util.List;

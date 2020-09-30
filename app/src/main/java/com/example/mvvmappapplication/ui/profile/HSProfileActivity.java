@@ -3,7 +3,6 @@ package com.example.mvvmappapplication.ui.profile;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -21,10 +20,6 @@ import android.widget.TextView;
 import androidx.core.content.FileProvider;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.mvvmappapplication.App;
 import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.consts.Const;
@@ -34,7 +29,6 @@ import com.example.mvvmappapplication.dialog.HSBottomSheetListDialog;
 import com.example.mvvmappapplication.dto.SelectDialogDto;
 import com.example.mvvmappapplication.ui.BaseDataBindingActivity;
 import com.example.mvvmappapplication.utils.AlertUtil;
-import com.example.mvvmappapplication.utils.BitmapUtil;
 import com.example.mvvmappapplication.utils.LogUtil;
 import com.example.mvvmappapplication.utils.PermissionUtil;
 import com.example.mvvmappapplication.utils.ResourceUtil;
@@ -50,7 +44,6 @@ import java.io.IOException;
  * @author ehjung
  */
 public class HSProfileActivity extends BaseDataBindingActivity<ActivityProfileBinding, ProfileViewModel> {
-
     private static final int REQUEST_CODE_PICK_IMAGE = 1;
     private static final int REQUEST_CODE_PICK_CAMERA = 2;
 

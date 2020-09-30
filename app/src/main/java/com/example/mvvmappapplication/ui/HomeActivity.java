@@ -1,11 +1,13 @@
 package com.example.mvvmappapplication.ui;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.databinding.ActivityHomeBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
 import com.example.mvvmappapplication.ui.user.UserViewModel;
@@ -27,5 +29,14 @@ public class HomeActivity extends DaggerAppCompatActivity {
         super.onCreate(savedInstanceState);
         binding.get().setLifecycleOwner(this);
         viewModel = new ViewModelProvider(this, viewModelFactory).get(UserViewModel.class);
+    }
+    public void onClick(View view){
+        switch (view.getId()){
+            case R.id.camera:{
+
+                break;
+            }
+
+        }
     }
 }
