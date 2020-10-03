@@ -13,8 +13,6 @@ import com.example.mvvmappapplication.ui.detail.PostDetailFragment;
 import com.example.mvvmappapplication.ui.detail.PostDetailModule;
 import com.example.mvvmappapplication.ui.post.PostFragment;
 import com.example.mvvmappapplication.ui.post.PostModule;
-import com.example.mvvmappapplication.ui.user.UserFragment;
-import com.example.mvvmappapplication.ui.user.UserModule;
 
 import dagger.Module;
 import dagger.Provides;
@@ -35,9 +33,7 @@ public abstract class MainModule {
         return activity;
     }
 
-    /**
-     * 서브컴포넌트 정의
-     */
+
     @FragmentScope
     @ContributesAndroidInjector(modules = PostModule.class)
     abstract PostFragment getPostFragment();
@@ -47,7 +43,5 @@ public abstract class MainModule {
     @ContributesAndroidInjector(modules = PostDetailModule.class)
     abstract PostDetailFragment getPostDetailFragment();
 
-    @FragmentScope
-    @ContributesAndroidInjector(modules = UserModule.class)
-    abstract UserFragment getUserFragment();
+
 }

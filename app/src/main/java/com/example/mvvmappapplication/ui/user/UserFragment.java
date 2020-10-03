@@ -24,6 +24,7 @@ public class UserFragment extends DaggerFragment {
     FragmentUserBinding binding;
     UserViewModel viewModel;
 
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,12 +1,9 @@
 package com.example.mvvmappapplication.ui.menu;
 
-import android.Manifest;
 import android.app.Activity;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.TextureView;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -53,28 +50,29 @@ public class CameraViewActivity extends DaggerAppCompatActivity {
         mPreview = new Preview(this, mCameraTextureView, mNormalAngleButton, mWideAngleButton, mCameraCaptureButton, mCameraDirectionButton);
 
     }
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case REQUEST_CAMERA:
-                for (int i = 0; i < permissions.length; i++) {
-                    String permission = permissions[i];
-                    int grantResult = grantResults[i];
-                    if (permission.equals(Manifest.permission.CAMERA)) {
-                        if(grantResult == PackageManager.PERMISSION_GRANTED) {
-                            mCameraTextureView = (TextureView) findViewById(R.id.cameraTextureView);
-                            mPreview = new Preview(this, mCameraTextureView, mNormalAngleButton, mWideAngleButton, mCameraCaptureButton, mCameraDirectionButton);
-                            mPreview.openCamera();
-                        } else {
-                            Toast.makeText(this,"Should have camera permission to run", Toast.LENGTH_LONG).show();
-                            finish();
-                        }
-                    }
-                }
-                break;
-        }
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        Log.d("jhy","CameraViewActivity onRequestPermissionsResult");
+//        switch (requestCode) {
+//            case REQUEST_CAMERA:
+//                for (int i = 0; i < permissions.length; i++) {
+//                    String permission = permissions[i];
+//                    int grantResult = grantResults[i];
+//                    if (permission.equals(Manifest.permission.CAMERA)) {
+//                        if(grantResult == PackageManager.PERMISSION_GRANTED) {
+//                            mCameraTextureView = (TextureView) findViewById(R.id.cameraTextureView);
+//                            mPreview = new Preview(this, mCameraTextureView, mNormalAngleButton, mWideAngleButton, mCameraCaptureButton, mCameraDirectionButton);
+//                            mPreview.openCamera();
+//                        } else {
+//                            Toast.makeText(this,"Should have camera permission to run", Toast.LENGTH_LONG).show();
+//                            finish();
+//                        }
+//                    }
+//                }
+//                break;
+//        }
+//    }
 
 
     @Override

@@ -3,8 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_home"
-
-    app:startDestination="@id/camera_fragment">
+    app:startDestination="@id/camera_fragment"
+    >
+    <action
+        android:id="@+id/action_home_activity_to_camera_fragment"
+        app:destination="@id/camera_fragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim" />
+    <action
+        android:id="@+id/action_home_activity_to_user_fragment"
+        app:destination="@id/userFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim" />
     <fragment
         android:id="@+id/camera_fragment"
         android:name="com.example.mvvmappapplication.ui.menu.CameraFragment"
@@ -13,20 +23,16 @@
         <!--PostFragment에서 PostDetailFragment로 이동-->
         <!-- label : 목적지 XML 레이아웃 파일 이름 -->
         <!--화면 전환시 사용할 애니메이션도 적용한다-->
-        <action
-            android:id="@+id/action_post_fragment_to_post_detail_fragment"
-            app:destination="@id/post_detail_fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
-        <action
-            android:id="@+id/action_post_fragment_to_post_detail_fragment2"
-            app:destination="@id/post_detail_fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
-        <action
-            android:id="@+id/action_post_fragment_to_post_detail_fragment3"
-            app:destination="@id/post_detail_fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.mvvmappapplication.ui.user.UserFragment"
+        tools:layout="@layout/fragment_user"
+        android:label="UserFragment">
+        <argument
+            android:name="userId"
+            app:argType="long" />
     </fragment>
 </navigation>

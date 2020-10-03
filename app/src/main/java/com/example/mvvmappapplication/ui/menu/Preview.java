@@ -178,7 +178,7 @@ public class Preview extends Thread {
 
         @Override
         public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
-            
+
             Log.e(TAG, "onSurfaceTextureAvailable, width=" + width + ", height=" + height);
             openCamera();
         }
@@ -186,19 +186,19 @@ public class Preview extends Thread {
         @Override
         public void onSurfaceTextureSizeChanged(SurfaceTexture surface,
                                                 int width, int height) {
-            
+
             Log.e(TAG, "onSurfaceTextureSizeChanged");
         }
 
         @Override
         public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
-            
+
             return false;
         }
 
         @Override
         public void onSurfaceTextureUpdated(SurfaceTexture surface) {
-            
+
         }
     };
 
@@ -206,7 +206,7 @@ public class Preview extends Thread {
 
         @Override
         public void onOpened(CameraDevice camera) {
-            
+
             Log.e(TAG, "onOpened");
             mCameraDevice = camera;
             startPreview();
@@ -214,7 +214,7 @@ public class Preview extends Thread {
 
         @Override
         public void onDisconnected(CameraDevice camera) {
-            
+
             Log.e(TAG, "onDisconnected");
         }
 
@@ -267,7 +267,7 @@ public class Preview extends Thread {
     }
 
     protected void updatePreview() {
-        
+
         if (null == mCameraDevice) {
             Log.e(TAG, "updatePreview error, return");
         }
@@ -358,8 +358,8 @@ public class Preview extends Thread {
                         Bitmap imgRoi;
                         OpenCVLoader.initDebug(); // 초기화
 
-                        Mat matBase=new Mat();
-                        Utils.bitmapToMat(bitmap ,matBase);
+                        Mat matBase = new Mat();
+                        Utils.bitmapToMat(bitmap, matBase);
                         Mat matGray = new Mat();
                         Mat matCny = new Mat();
 
@@ -376,45 +376,31 @@ public class Preview extends Thread {
                         Imgproc.findContours(matCny, contours, hierarchy, Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_SIMPLE);//RETR_EXTERNAL //RETR_TREE
                         Imgproc.drawContours(matBase, contours, -1, new Scalar(255, 0, 0), 5);
 
-                        imgBase= Bitmap.createBitmap(matBase.cols(), matBase.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
+                        imgBase = Bitmap.createBitmap(matBase.cols(), matBase.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
                         Utils.matToBitmap(matBase, imgBase); // Mat을 비트맵으로 변환
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
-//                                runOnUiThread(new Runnable(){
-//                                    @Override
-//                                    public void run() {
-//                                        imageView.setImageBitmap(imgBase);
-//                                    }
-//                                });
-                                Log.e("dd","imageView에 셋팅");
+
                             }
                         }).start();
-                        imgRoi= Bitmap.createBitmap(matCny.cols(), matCny.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
-                        /**
-                         * 관심영역 생성
-                         */
+                        imgRoi = Bitmap.createBitmap(matCny.cols(), matCny.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
                         Utils.matToBitmap(matCny, imgRoi);
 
-                        Intent intent = new Intent();
-                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                        roi.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-                        byte[] byteArray = stream.toByteArray();
-                        intent.putExtra("image", byteArray);
-                        cameraViewActivity.setResult(100,intent);
-                        cameraViewActivity.finish();
-                        for(int idx = 0; idx >= 0; idx = (int) hierarchy.get(0, idx)[0]) {
+                        for (int idx = 0; idx >= 0; idx = (int) hierarchy.get(0, idx)[0]) {
                             MatOfPoint matOfPoint = contours.get(idx);
                             Rect rect = Imgproc.boundingRect(matOfPoint);
 
                             if (rect.width < 30 || rect.height < 30 || rect.width <= rect.height || rect.width <= rect.height * 3 || rect.width >= rect.height * 6)
                                 continue; // 사각형 크기에 따라 출력 여부 결정
-                            roi = Bitmap.createBitmap( imgRoi, (int)rect.tl().x, (int)rect.tl().y, rect.width, rect.height);
+
+                            roi = Bitmap.createBitmap(imgRoi, (int) rect.tl().x, (int) rect.tl().y, rect.width, rect.height);
+
 
                             new Thread(new Runnable() {
                                 @Override
                                 public void run() {
-//                                    runOnUiThread(new Runnable(){
+//                                    runOnUiThread(new Runnable() {
 //                                        @Override
 //                                        public void run() {
 //                                            imageResult.setImageBitmap(roi);
@@ -423,12 +409,23 @@ public class Preview extends Thread {
 //                                            btnTakePicture.setText("텍스트 인식중...");
 //                                        }
 //                                    });
-                                    Log.e("dd","텍스트 인식중..");
                                 }
                             }).start();
                             break;
                         }
-                    }  catch (Exception e) {
+
+                        if(roi==null){
+                            cameraViewActivity.setResult(Activity.RESULT_CANCELED);
+                        } else{
+                            Intent intent = new Intent();
+                            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                            imgRoi.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                            byte[] byteArray = stream.toByteArray();
+                            intent.putExtra("image", byteArray);
+                            cameraViewActivity.setResult(Activity.RESULT_OK,intent);
+                        }
+                        cameraViewActivity.finish();
+                    } catch (Exception e) {
                         e.printStackTrace();
                     } finally {
                         if (image != null) {
@@ -468,7 +465,7 @@ public class Preview extends Thread {
                                                CaptureRequest request, TotalCaptureResult result) {
                     super.onCaptureCompleted(session, request, result);
                     Log.e(TAG, "CaptureCallback onCaptureCompleted");
-                    Toast.makeText(mContext, "Saved:" + file, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(mContext, "Saved:" + file, Toast.LENGTH_SHORT).show();
                     delayPreview.postDelayed(mDelayPreviewRunnable, 1000);
                     //startPreview();
                 }
@@ -496,8 +493,10 @@ public class Preview extends Thread {
             e.printStackTrace();
         }
     }
+
     Bitmap imgBase;
     Bitmap roi;
+
     public synchronized static Bitmap GetRotatedBitmap(Bitmap bitmap, int degrees) {
         if (degrees != 0 && bitmap != null) {
             Matrix m = new Matrix();
@@ -527,7 +526,7 @@ public class Preview extends Thread {
     private Semaphore mCameraOpenCloseLock = new Semaphore(1);
 
     public void onPause() {
-        
+
         Log.d(TAG, "onPause");
         try {
             mCameraOpenCloseLock.acquire();

@@ -12,7 +12,7 @@
     <dimen name="content_margin">@dimen/dimen_20</dimen>
     <dimen name="button_height">@dimen/dimen_50</dimen>
 
-    <dimen name="main_bottom_menu_height">@dimen/dimen_68</dimen>
+    <dimen name="main_bottom_menu_height">@dimen/dimen_65</dimen>
     <dimen name="dam_product_bottom_edit_height">@dimen/dimen_66</dimen>
     <dimen name="dam_product_bottom_height">@dimen/dimen_116</dimen>
     <dimen name="elevation_shadow_height">@dimen/dimen_10</dimen>
