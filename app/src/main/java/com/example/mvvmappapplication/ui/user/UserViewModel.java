@@ -34,11 +34,6 @@ import timber.log.Timber;
 public class UserViewModel extends BaseViewModel<BaseNavigator> {
     @NonNull
     private final UserService userService;
-    @NonNull
-    private final SingleLiveEvent<Throwable> errorEvent;
-    @NonNull
-    private final SingleLiveEvent<ResponseBody> successEvent;
-
 
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private final MutableLiveData<User> liveItem = new MutableLiveData<>();
@@ -55,35 +50,22 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
     private final MutableLiveData<Response> response = new MutableLiveData<>();
 
     @Inject
-    public UserViewModel(@NonNull Application application,
-                         @NonNull UserService userService,
-                         @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent,
-                         @Named("successEvent") SingleLiveEvent<ResponseBody> successEvent
-    ) {
-        super(application);
+    public UserViewModel(@NonNull Application application
+                        , @NonNull UserService userService
+                        , @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent
+                        , @Named("successEvent") SingleLiveEvent<ResponseBody> responseBodySingleLiveEvent) {
+        super(application,errorEvent,responseBodySingleLiveEvent);
         Timber.d("UserViewModel created");
-
         this.userService = userService;
-        this.errorEvent = errorEvent;
-        this.successEvent = successEvent;
     }
 
-    @NonNull
-    public SingleLiveEvent<Throwable> getErrorEvent() {
-        return errorEvent;
-    }
-
-    @NonNull
-    public SingleLiveEvent<ResponseBody> getSuccessEvent() {
-        return successEvent;
-    }
 
     public void loadUser(long userId) {
         compositeDisposable.add(userService.getUser(userId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSuccess((item) -> loading.postValue(false))
-                .subscribe(liveItem::setValue, errorEvent::setValue));
+                .subscribe(liveItem::setValue, getErrorEvent()::setValue));
     }
     public void onRegisterCompletedClick() {
         compositeDisposable.add(userService.register
@@ -92,7 +74,7 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
                         , getPassword().get()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(successEvent::setValue, errorEvent::setValue));
+                .subscribe(getResponseBodySingleEvent()::setValue, getErrorEvent()::setValue));
     }
 
     public MutableLiveData<Boolean> getLoading() {

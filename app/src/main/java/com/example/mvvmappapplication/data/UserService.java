@@ -17,7 +17,7 @@ public interface UserService {
     @GET("/users/{userId}")
     Single<User> getUser(@Path("userId") long userId);
 
-    @POST("/api/auth/register")
+    @POST("api/auth/register")
     Observable<ResponseBody> register(@Body UserInfo user);
 
     @GET("/users/login/{email}/{password}")

@@ -59,8 +59,8 @@ public class AppModule {
     //네트워크 연결 성공 이벤트를 처리하는 SingleLiveEvent
     @Singleton
     @Provides
-    @Named("successEvent")
-    SingleLiveEvent<ResponseBody> provideSuccessEvent(){
+    @Named("responseBodySingleLiveEvent")
+    SingleLiveEvent<ResponseBody> provideResponseBodySingleLiveEvent(){
         return new SingleLiveEvent<>();
     }
 }

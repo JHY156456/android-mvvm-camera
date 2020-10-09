@@ -4,14 +4,18 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <application
+        android:name="com.example.mvvmappapplication.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name="com.example.mvvmappapplication.App"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ui.user.LoginActivity">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.user.LoginActivity"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -19,11 +23,9 @@
         </activity>
 
         <activity android:name=".ui.menu.CameraViewActivity" />
-        <activity android:name=".ui.user.RegistrationActivity"
-
-            android:windowSoftInputMode="adjustResize"
-
-            />
+        <activity
+            android:name=".ui.user.RegistrationActivity"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
     <!--인터넷 사용을 위한 권한 추가-->

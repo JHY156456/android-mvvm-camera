@@ -30,7 +30,7 @@ public class RegistrationActivity extends
         binding.get().setLifecycleOwner(this);
         viewModel = new ViewModelProvider(this, viewModelFactory).get(UserViewModel.class);
         binding.get().setViewModel(viewModel);
-        viewModel.getSuccessEvent().observe(this,response -> {
+        viewModel.getResponseBodySingleEvent().observe(this,response -> {
             //로그인액티비티를 띄운다.
             Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
             finish();

@@ -25,4 +25,5 @@ public class CameraViewModule {
     static Context provideContext(CameraViewActivity activity) {
         return activity;
     }
+
 }

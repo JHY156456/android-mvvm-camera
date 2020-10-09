@@ -29,6 +29,18 @@
             tools:ignore="MissingConstraints" />
 
         <!--데이터가 로드 중임을 알린다-->
+        <Button
+            android:id="@+id/button_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_camera"
+            android:layout_centerInParent="true"
+            android:onClick="@{(v)->viewModel.onClickCall(v)}"
+            android:text="전화걸기"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints" />
+
+
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

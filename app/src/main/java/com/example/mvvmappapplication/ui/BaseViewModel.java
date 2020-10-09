@@ -6,7 +6,12 @@ import android.content.Context;
 import android.util.SparseIntArray;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+
+import com.example.mvvmappapplication.utils.SingleLiveEvent;
+
+import okhttp3.ResponseBody;
 
 /**
  * [공통] BaseViewModel
@@ -19,9 +24,25 @@ public class BaseViewModel<V extends BaseNavigator> extends AndroidViewModel {
     public SparseIntArray mDataLoadState = new SparseIntArray();
 
     private V mNavigator;
+    @NonNull
+    private final SingleLiveEvent<Throwable> errorEvent;
+    @NonNull
+    private final SingleLiveEvent<ResponseBody> responseBodySingleLiveEvent;
 
-    public BaseViewModel(Application context) {
+    public BaseViewModel(Application context, SingleLiveEvent<Throwable> errorEvent,
+                          SingleLiveEvent<ResponseBody> responseBodySingleLiveEvent) {
         super(context);
+        this.errorEvent = errorEvent;
+        this.responseBodySingleLiveEvent = responseBodySingleLiveEvent;
+    }
+
+    @NonNull
+    public SingleLiveEvent<Throwable> getErrorEvent() {
+        return errorEvent;
+    }
+    @NonNull
+    public SingleLiveEvent<ResponseBody> getResponseBodySingleEvent() {
+        return responseBodySingleLiveEvent;
     }
 
 

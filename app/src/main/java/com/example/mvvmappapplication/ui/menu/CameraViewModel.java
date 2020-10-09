@@ -16,18 +16,28 @@ import com.example.mvvmappapplication.ui.BaseNavigator;
 import com.example.mvvmappapplication.ui.BaseViewModel;
 import com.example.mvvmappapplication.utils.SingleLiveEvent;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import timber.log.Timber;
 
 public class CameraViewModel extends BaseViewModel<BaseNavigator> {
 
     @NonNull
     private final CameraService cameraService;
-    @NonNull
-    private final SingleLiveEvent<Throwable> errorEvent;
     private final CompositeDisposable
             compositeDisposable = new CompositeDisposable();
     private final SingleLiveEvent<View> buttonCameraClickEvent = new SingleLiveEvent<>();
@@ -36,12 +46,12 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
     @Inject
     public CameraViewModel(@NonNull Application application,
                          CameraService cameraService,
-                         @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent) {
-        super(application);
+                         @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent,
+                           @Named("responseBodySingleLiveEvent") SingleLiveEvent<ResponseBody> responseBodySingleLiveEvent) {
+        super(application,errorEvent,responseBodySingleLiveEvent);
         Timber.d("CameraViewModule created");
         //오브젝트 그래프로 부터 생성자 주입
         this.cameraService = cameraService;
-        this.errorEvent = errorEvent;
     }
 
     @Override
@@ -59,6 +69,45 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
     }
     public void onClickButtonCamera(View view){
         buttonCameraClickEvent.setValue(view);
+    }
+
+    public void onClickCall(View view)  {
+        buttonCameraClickEvent.setValue(view);
+
+        File f = new File("asdf");
+        try {
+            f.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //Convert bitmap to byte array
+        Bitmap bitmap = cameraItem.getValue();
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 0 /*ignored for PNG*/, bos);
+        byte[] bitmapdata = bos.toByteArray();
+
+        //write the bytes in file
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(f);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            fos.write(bitmapdata);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), f);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("upload", f.getName(), reqFile);
+        compositeDisposable.add(cameraService.uploadFoodImage(body)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(getResponseBodySingleEvent()::setValue, getErrorEvent()::setValue));
     }
 
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

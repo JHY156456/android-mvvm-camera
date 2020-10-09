@@ -68,9 +68,14 @@ public class CameraFragment extends DaggerFragment {
         viewModel.getCameraItem().observe(getViewLifecycleOwner(), bitmap -> {
             if (bitmap == null) {
                 Toast.makeText(getActivity(), "번호판 인식에 실패했습니다. 다시 촬영해주세요", Toast.LENGTH_SHORT).show();
+                binding.buttonCall.setVisibility(View.GONE);
             } else {
                 binding.ivCompletedImage.setImageBitmap(bitmap);
+                binding.buttonCall.setVisibility(View.VISIBLE);
             }
+        });
+        viewModel.getResponseBodySingleEvent().observe(getViewLifecycleOwner(),responseBody -> {
+
         });
     }
 

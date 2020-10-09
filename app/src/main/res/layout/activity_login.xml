@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.example.mvvmappapplication.ui.user.UserViewModel" />
     </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,9 +21,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="50dp"
-
+            android:layout_centerInParent="true"
             >
 
 
@@ -60,6 +61,7 @@
                     android:drawableStart="@drawable/icon_person"
                     android:drawableLeft="@drawable/icon_person"
                     android:drawablePadding="10dp"
+                    android:imeOptions="actionNext"
                     android:hint="@string/emailReg"
                     android:inputType="textEmailAddress"
                     android:paddingStart="10dp"
@@ -77,6 +79,7 @@
                     android:background="@drawable/rounded_rect"
                     android:drawableStart="@drawable/icon_password"
                     android:drawableLeft="@drawable/icon_password"
+                    android:imeOptions="actionNext"
                     android:drawablePadding="10dp"
                     android:hint="@string/passwordReg"
                     android:inputType="textPassword"
@@ -104,8 +107,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/btnsignin_gradient"
-                    android:text="로그인"
                     android:onClick="buttonClick"
+                    android:text="로그인"
                     android:textColor="#FFFFFF" />
 
 
@@ -124,8 +127,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:text="@string/signup_redirect"
                     android:onClick="buttonClick"
+                    android:text="@string/signup_redirect"
                     android:textColor="@color/gray" />
             </LinearLayout>
 
