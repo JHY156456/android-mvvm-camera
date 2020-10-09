@@ -11,6 +11,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.ResponseBody;
 
 /**
  * incldues : ViewModel을 애플리케이션 범위로 관리하도록 AppModule에 포함시킨다.
@@ -55,4 +56,11 @@ public class AppModule {
         return new SingleLiveEvent<>();
     }
 
+    //네트워크 연결 성공 이벤트를 처리하는 SingleLiveEvent
+    @Singleton
+    @Provides
+    @Named("successEvent")
+    SingleLiveEvent<ResponseBody> provideSuccessEvent(){
+        return new SingleLiveEvent<>();
+    }
 }

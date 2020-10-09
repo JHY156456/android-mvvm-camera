@@ -2,12 +2,12 @@ package com.example.mvvmappapplication.ui.menu;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.TextureView;
 import android.widget.Button;
 
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mvvmappapplication.R;
+import com.example.mvvmappapplication.custom.AutoFitTextureView;
 import com.example.mvvmappapplication.databinding.ActivityCameraViewBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
 
@@ -17,8 +17,8 @@ import dagger.Lazy;
 import dagger.android.support.DaggerAppCompatActivity;
 
 public class CameraViewActivity extends DaggerAppCompatActivity {
-    private TextureView mCameraTextureView;
-    private Preview mPreview;
+    private AutoFitTextureView mCameraTextureView;
+    private CameraPreview mPreview;
     private Button mNormalAngleButton;
     private Button mWideAngleButton;
     private Button mCameraCaptureButton;
@@ -46,8 +46,8 @@ public class CameraViewActivity extends DaggerAppCompatActivity {
         mCameraCaptureButton = (Button) findViewById(R.id.capture);
         mCameraDirectionButton = (Button) findViewById(R.id.change);
 
-        mCameraTextureView = (TextureView) findViewById(R.id.cameraTextureView);
-        mPreview = new Preview(this, mCameraTextureView, mNormalAngleButton, mWideAngleButton, mCameraCaptureButton, mCameraDirectionButton);
+        mCameraTextureView =  findViewById(R.id.cameraTextureView);
+        mPreview = new CameraPreview(this, mCameraTextureView, mNormalAngleButton, mWideAngleButton, mCameraCaptureButton, mCameraDirectionButton);
 
     }
 //    @Override

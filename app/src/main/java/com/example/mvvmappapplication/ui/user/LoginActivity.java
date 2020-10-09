@@ -1,11 +1,11 @@
 package com.example.mvvmappapplication.ui.user;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
 import androidx.annotation.Nullable;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mvvmappapplication.R;
@@ -34,7 +34,7 @@ public class LoginActivity extends DaggerAppCompatActivity {
     }
 
     public void initLiveItems() {
-        viewModel.getResponse().observe((LifecycleOwner) getLifecycle(), response -> {
+        viewModel.getResponse().observe(this, response -> {
             if (response.isSuccessful()) {
                 //홈액티비티를 띄운다
             } else {
@@ -50,7 +50,7 @@ public class LoginActivity extends DaggerAppCompatActivity {
                         , binding.get().atvPasswordLog.getText().toString());
             }
             case R.id.tvSignIn: {
-
+                startActivity(new Intent(this,RegistrationActivity.class));
             }
         }
 

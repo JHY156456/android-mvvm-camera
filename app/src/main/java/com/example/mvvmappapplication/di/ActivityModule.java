@@ -9,6 +9,8 @@ import com.example.mvvmappapplication.ui.menu.CameraViewActivity;
 import com.example.mvvmappapplication.ui.menu.CameraViewModule;
 import com.example.mvvmappapplication.ui.user.LoginActivity;
 import com.example.mvvmappapplication.ui.user.LoginModule;
+import com.example.mvvmappapplication.ui.user.RegistrationActivity;
+import com.example.mvvmappapplication.ui.user.RegistrationModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -16,9 +18,6 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public abstract class ActivityModule {
 
-    /**
-     * MainActivity를 위한 서브컴포넌트 정의
-     */
     @ActivityScope
     @ContributesAndroidInjector(modules = MainModule.class)
     abstract MainActivity mainActivity();
@@ -26,6 +25,10 @@ public abstract class ActivityModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = LoginModule.class)
     abstract LoginActivity loginActivity();
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = RegistrationModule.class)
+    abstract RegistrationActivity registrationActivity();
 
     @ActivityScope
     @ContributesAndroidInjector(modules = HomeModule.class)

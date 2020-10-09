@@ -127,8 +127,6 @@
                     android:text="@string/signup_redirect"
                     android:onClick="buttonClick"
                     android:textColor="@color/gray" />
-
-
             </LinearLayout>
 
 
