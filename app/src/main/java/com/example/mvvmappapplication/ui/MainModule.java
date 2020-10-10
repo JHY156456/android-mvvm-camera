@@ -34,6 +34,15 @@ public abstract class MainModule {
     }
 
 
+    /**
+     * - PostModule,PostDetailModule,UserModule(프래그먼트)을
+     * 서브 컴포넌트로 정의하기 위해 MainModule에 아래와같이 추가한다.
+     * - 87P : 액티비티 또는 서비스를 위한 Dagger 컴포넌트는
+     * 애플리케이션 컴포넌트의 서브 컴포넌트로 구성하고(AppComponent)
+     * 프래그먼트는 액티비티 컴포넌트의 서브 컴포넌트로 다시 지정한다.
+     *
+     * @return
+     */
     @FragmentScope
     @ContributesAndroidInjector(modules = PostModule.class)
     abstract PostFragment getPostFragment();

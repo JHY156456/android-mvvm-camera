@@ -49,6 +49,12 @@ public class AppModule {
     }
 
     //앱의 오류 이벤트를 처리하는 SingleLiveEvent
+
+    /**
+     * ViewModelModule을 애플리케이션 범위로 관리하도록 포함되어있기때문에
+     * 액티비티에서 직접 주입받아도되고 뷰모델어서 주입받아 사용해도 된다.
+     * @return
+     */
     @Singleton
     @Provides
     @Named("errorEvent")
