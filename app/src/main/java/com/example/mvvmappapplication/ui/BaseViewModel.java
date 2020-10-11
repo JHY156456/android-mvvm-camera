@@ -8,9 +8,14 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.mvvmappapplication.utils.SingleLiveEvent;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 
 /**
@@ -103,5 +108,19 @@ public class BaseViewModel<V extends BaseNavigator> extends AndroidViewModel {
         if (mNavigator instanceof BaseStepNavigator) {
             ((BaseStepNavigator) mNavigator).onPreStep();
         }
+    }
+
+    protected void performUserService(CompositeDisposable compositeDisposable, Observable<ResponseBody> service,
+                                      MutableLiveData<Boolean> loading) {
+        loading.setValue(true);
+        compositeDisposable.add(
+                service.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(responseBody -> getResponseBodySingleEvent().setValue(responseBody),
+                        throwable -> {
+                    getErrorEvent().setValue(throwable);
+                    loading.postValue(false);
+                        },
+                        ()->loading.postValue(false)));
     }
 }

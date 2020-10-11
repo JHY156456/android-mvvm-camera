@@ -42,19 +42,23 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
     private ObservableField<String> loginId = new ObservableField<>();
     private ObservableField<String> loginPassword= new ObservableField<>();
 
-    private final MutableLiveData<Boolean> loading = new MutableLiveData<>(true);
+    private final MutableLiveData<Boolean> loading = new MutableLiveData<>(false);
 
     @Inject
-    public UserViewModel(@NonNull Application application
-                        , @NonNull UserService userService
-                        , @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent
-                        , @Named("responseBodySingleLiveEvent") SingleLiveEvent<ResponseBody> responseBodySingleLiveEvent) {
+    public UserViewModel(@NonNull Application application,
+                         @NonNull UserService userService,
+                         @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent,
+                         @Named("responseBodySingleLiveEvent") SingleLiveEvent<ResponseBody> responseBodySingleLiveEvent) {
         super(application,errorEvent,responseBodySingleLiveEvent);
         Timber.d("UserViewModel created");
         this.userService = userService;
     }
 
 
+    /**
+     * 메소드 참조 방식
+     * @param userId
+     */
     public void loadUser(long userId) {
         compositeDisposable.add(userService.getUser(userId)
                 .subscribeOn(Schedulers.io())
@@ -62,20 +66,23 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
                 .doOnSuccess((item) -> loading.postValue(false))
                 .subscribe(liveItem::setValue, getErrorEvent()::setValue));
     }
+
+    /**
+     * 기본적인 람다방식
+     */
     public void onRegisterCompletedClick() {
-        compositeDisposable.add(userService.register
-                (new UserInfo( getId().get()
-                        , getPassword().get()))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(getResponseBodySingleEvent()::setValue, getErrorEvent()::setValue));
+        performUserService(compositeDisposable,
+                userService.register(
+                        new UserInfo(
+                                getId().get(),
+                                getPassword().get())),loading);
     }
 
+
+
     public void login(String id, String pw) {
-        compositeDisposable.add(userService.login(new UserInfo(id,pw))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(getResponseBodySingleEvent()::setValue, getErrorEvent()::setValue));
+        performUserService(compositeDisposable,
+                userService.login(new UserInfo(id,pw)),loading);
     }
 
     public ObservableField<String> getLoginId() {

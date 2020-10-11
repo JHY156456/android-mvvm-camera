@@ -20,6 +20,7 @@ import dagger.Provides;
 import dagger.Reusable;
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -29,6 +30,10 @@ public class RetrofitModule {
     @Singleton
     Retrofit provideRetrofit() {
         return new Retrofit.Builder()
+                .client(new OkHttpClient.Builder().addInterceptor(
+                        new HttpLoggingInterceptor().setLevel(
+                                HttpLoggingInterceptor.Level.BODY))
+                        .build())
                 .baseUrl("http://ec2-15-164-218-88.ap-northeast-2.compute.amazonaws.com:8072/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())

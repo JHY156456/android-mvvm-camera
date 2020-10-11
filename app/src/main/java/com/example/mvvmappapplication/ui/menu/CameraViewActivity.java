@@ -32,12 +32,12 @@ public class CameraViewActivity extends DaggerAppCompatActivity {
         viewModel = new ViewModelProvider(this, viewModelFactory).get(CameraViewModel.class);
         binding.get().setViewModel(viewModel);
 
-        mPreview = new CameraPreview(this
-                , binding.get().cameraTextureView
-                , binding.get().normal
-                , binding.get().wide
-                , binding.get().capture
-                , binding.get().change);
+        mPreview = new CameraPreview(this,
+                binding.get().cameraTextureView,
+                binding.get().normal,
+                binding.get().wide,
+                binding.get().capture,
+                binding.get().change);
     }
 //    @Override
 //    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
