@@ -36,6 +36,12 @@ public class BaseViewModel<V extends BaseNavigator> extends AndroidViewModel {
         this.responseBodySingleLiveEvent = responseBodySingleLiveEvent;
     }
 
+    public BaseViewModel(Application context) {
+        super(context);
+        errorEvent= new SingleLiveEvent<>();
+        responseBodySingleLiveEvent = new SingleLiveEvent<>();
+    }
+
     @NonNull
     public SingleLiveEvent<Throwable> getErrorEvent() {
         return errorEvent;

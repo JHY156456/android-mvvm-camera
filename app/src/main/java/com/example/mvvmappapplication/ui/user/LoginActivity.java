@@ -11,11 +11,13 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.databinding.ActivityLoginBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
+import com.example.mvvmappapplication.ui.HomeActivity;
 
 import javax.inject.Inject;
 
 import dagger.Lazy;
 import dagger.android.support.DaggerAppCompatActivity;
+import timber.log.Timber;
 
 public class LoginActivity extends DaggerAppCompatActivity {
     @Inject
@@ -30,25 +32,23 @@ public class LoginActivity extends DaggerAppCompatActivity {
         super.onCreate(savedInstanceState);
         binding.get().setLifecycleOwner(this);
         viewModel = new ViewModelProvider(this, viewModelFactory).get(UserViewModel.class);
+        binding.get().setViewModel(viewModel);
         initLiveItems();
     }
 
     public void initLiveItems() {
-        viewModel.getResponse().observe(this, response -> {
-            if (response.isSuccessful()) {
-                //홈액티비티를 띄운다
-            } else {
+        viewModel.getResponseBodySingleEvent().observe(this,responseBody -> {
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+        });
 
-            }
+        viewModel.getErrorEvent().observe(this,throwable -> {
+            Timber.e(throwable.getMessage());
         });
     }
 
     public void buttonClick(View view) {
         switch (view.getId()) {
-            case R.id.btnSignIn: {
-                viewModel.login(binding.get().atvEmailLog.getText().toString()
-                        , binding.get().atvPasswordLog.getText().toString());
-            }
             case R.id.tvSignIn: {
                 startActivity(new Intent(this,RegistrationActivity.class));
             }

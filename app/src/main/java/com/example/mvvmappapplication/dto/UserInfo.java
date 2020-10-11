@@ -10,4 +10,9 @@ public class UserInfo {
         this.id = id;
         this.password = password;
     }
+
+    public UserInfo(String s, String s1) {
+        this.id = s;
+        this.password = s1;
+    }
 }

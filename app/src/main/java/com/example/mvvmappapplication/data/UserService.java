@@ -7,7 +7,6 @@ import com.example.mvvmappapplication.dto.UserInfo;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
 import okhttp3.ResponseBody;
-import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -20,6 +19,6 @@ public interface UserService {
     @POST("api/auth/register")
     Observable<ResponseBody> register(@Body UserInfo user);
 
-    @GET("/users/login/{email}/{password}")
-    Observable<Response> login(@Path("email") String email, @Path("password")  String password);
+    @POST("api/auth/login")
+    Observable<ResponseBody> login(@Body UserInfo user);
 }

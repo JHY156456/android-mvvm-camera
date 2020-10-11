@@ -13,12 +13,7 @@ import com.example.mvvmappapplication.data.entity.User;
 import com.example.mvvmappapplication.dto.UserInfo;
 import com.example.mvvmappapplication.ui.BaseNavigator;
 import com.example.mvvmappapplication.ui.BaseViewModel;
-import com.example.mvvmappapplication.utils.AlertUtil;
 import com.example.mvvmappapplication.utils.SingleLiveEvent;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.io.IOException;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -27,8 +22,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import okhttp3.ResponseBody;
-import retrofit2.HttpException;
-import retrofit2.Response;
 import timber.log.Timber;
 
 public class UserViewModel extends BaseViewModel<BaseNavigator> {
@@ -46,14 +39,16 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
     private ObservableField<String> carNumber = new ObservableField<>();
     private ObservableField<String> id = new ObservableField<>();
     private ObservableField<String> password= new ObservableField<>();
+    private ObservableField<String> loginId = new ObservableField<>();
+    private ObservableField<String> loginPassword= new ObservableField<>();
+
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>(true);
-    private final MutableLiveData<Response> response = new MutableLiveData<>();
 
     @Inject
     public UserViewModel(@NonNull Application application
                         , @NonNull UserService userService
                         , @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent
-                        , @Named("successEvent") SingleLiveEvent<ResponseBody> responseBodySingleLiveEvent) {
+                        , @Named("responseBodySingleLiveEvent") SingleLiveEvent<ResponseBody> responseBodySingleLiveEvent) {
         super(application,errorEvent,responseBodySingleLiveEvent);
         Timber.d("UserViewModel created");
         this.userService = userService;
@@ -69,20 +64,30 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
     }
     public void onRegisterCompletedClick() {
         compositeDisposable.add(userService.register
-                (new UserInfo(getCarNumber().get().toString()
-                        , getId().get()
+                (new UserInfo( getId().get()
                         , getPassword().get()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(getResponseBodySingleEvent()::setValue, getErrorEvent()::setValue));
     }
 
-    public MutableLiveData<Boolean> getLoading() {
-        return loading;
+    public void login(String id, String pw) {
+        compositeDisposable.add(userService.login(new UserInfo(id,pw))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(getResponseBodySingleEvent()::setValue, getErrorEvent()::setValue));
     }
 
-    public MutableLiveData<Response> getResponse() {
-        return response;
+    public ObservableField<String> getLoginId() {
+        return loginId;
+    }
+
+    public ObservableField<String> getLoginPassword() {
+        return loginPassword;
+    }
+
+    public MutableLiveData<Boolean> getLoading() {
+        return loading;
     }
 
     public LiveData<String> getName() {
@@ -110,40 +115,6 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
         super.onCleared();
         compositeDisposable.dispose();
     }
-
-    public void login(String email, String password) {
-        compositeDisposable.add(userService.login(email, password)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::handleResponse, this::handleError));
-    }
-
-    private void handleResponse(Response response) {
-        setResponse(response);
-    }
-
-    private void handleError(Throwable error) {
-        if (error instanceof HttpException) {
-            Gson gson = new GsonBuilder().create();
-            try {
-                String errorBody = ((HttpException) error).response().errorBody().string();
-                Response response = gson.fromJson(errorBody, Response.class);
-                setResponse(response);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            AlertUtil.toast(getActivity(), error.getMessage());
-        }
-    }
-
-    private void setSuccess(){
-
-    }
-    private void setResponse(Response response) {
-        this.response.setValue(response);
-    }
-
 
 
 
