@@ -1,5 +1,6 @@
 package com.example.mvvmappapplication.ui.user;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -52,7 +53,7 @@ public class LoginActivity extends DaggerAppCompatActivity {
     public void buttonClick(View view) {
         switch (view.getId()) {
             case R.id.tvSignIn: {
-                startActivity(Charles.intentForRegistrationActivity(this));
+                startActivity(Hanwha.intentForRegistrationActivity(this));
                 //startActivity(Charles.intentForSecondActivity(this));
                 //startActivity(new Intent(this,RegistrationActivity.class));
             }

@@ -11,8 +11,12 @@ import com.example.mvvmappapplication.databinding.ActivityHomeBinding;
 import com.example.mvvmappapplication.di.ActivityContext;
 import com.example.mvvmappapplication.di.ActivityScope;
 import com.example.mvvmappapplication.di.FragmentScope;
+import com.example.mvvmappapplication.ui.detail.PostDetailFragment;
+import com.example.mvvmappapplication.ui.detail.PostDetailModule;
 import com.example.mvvmappapplication.ui.menu.CameraFragment;
 import com.example.mvvmappapplication.ui.menu.CameraModule;
+import com.example.mvvmappapplication.ui.menu.HomeMenuFragment;
+import com.example.mvvmappapplication.ui.menu.HomeMenuModule;
 import com.example.mvvmappapplication.ui.user.UserFragment;
 import com.example.mvvmappapplication.ui.user.UserModule;
 
@@ -53,4 +57,12 @@ public abstract class HomeModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = UserModule.class)
     abstract UserFragment getUserFragment();
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = HomeMenuModule.class)
+    abstract HomeMenuFragment getHomeMenuFragment();
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = PostDetailModule.class)
+    abstract PostDetailFragment getPostDetailFragment();
 }

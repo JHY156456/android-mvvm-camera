@@ -3,10 +3,12 @@ package com.example.mvvmappapplication.di;
 import com.example.mvvmappapplication.data.CameraService;
 import com.example.mvvmappapplication.data.CommentService;
 import com.example.mvvmappapplication.data.PostService;
+import com.example.mvvmappapplication.data.UserServerService;
 import com.example.mvvmappapplication.data.UserService;
 
 import java.security.cert.CertificateException;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -28,7 +30,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitModule {
     @Provides
     @Singleton
-    Retrofit provideRetrofit() {
+    @Named("json")
+    Retrofit provideJsonRetrofit() {
+        return new Retrofit.Builder()
+                .client(new OkHttpClient.Builder().addInterceptor(
+                        new HttpLoggingInterceptor().setLevel(
+                                HttpLoggingInterceptor.Level.BODY))
+                        .build())
+                .baseUrl("https://jsonplaceholder.typicode.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+                .build();
+    }
+    @Provides
+    @Singleton
+    @Named("server")
+    Retrofit provideServerRetrofit() {
         return new Retrofit.Builder()
                 .client(new OkHttpClient.Builder().addInterceptor(
                         new HttpLoggingInterceptor().setLevel(
@@ -41,25 +58,29 @@ public class RetrofitModule {
     }
     @Provides
     @Reusable
-    PostService providePostService(Retrofit retrofit) {
+    PostService providePostService(@Named("json") Retrofit retrofit) {
         return retrofit.create(PostService.class);
     }
 
     @Provides
     @Reusable
-    UserService provideUserService(Retrofit retrofit) {
+    UserService provideUserService(@Named("json") Retrofit retrofit) {
         return retrofit.create(UserService.class);
     }
-
     @Provides
     @Reusable
-    CommentService provideCommentService(Retrofit retrofit) {
+    UserServerService provideUserServerService(@Named("server") Retrofit retrofit) {
+        return retrofit.create(UserServerService.class);
+    }
+    @Provides
+    @Reusable
+    CommentService provideCommentService(@Named("json") Retrofit retrofit) {
         return retrofit.create(CommentService.class);
     }
 
     @Provides
     @Reusable
-    CameraService provideCameraService(Retrofit retrofit) {
+    CameraService provideCameraService(@Named("server") Retrofit retrofit) {
         return retrofit.create(CameraService.class);
     }
 

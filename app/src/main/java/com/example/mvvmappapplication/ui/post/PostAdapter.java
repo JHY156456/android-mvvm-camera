@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mvvmappapplication.BR;
 import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.utils.ViewBindingHolder;
 
@@ -44,8 +45,8 @@ public class PostAdapter extends RecyclerView.Adapter<ViewBindingHolder> {
     //뷰홀더와 뷰모델을 바인딩 한다
     @Override
     public void onBindViewHolder(@NonNull ViewBindingHolder holder, int position) {
-        //holder.getBinding().setVariable(BR.item, items.get(position));
-        holder.getBinding().executePendingBindings();
+        holder.getBinding().setVariable(BR.item, items.get(position));
+        //holder.getBinding().executePendingBindings();
     }
 
     //외부로부터 게시글목록을 받아서 UI를 갱신한다.

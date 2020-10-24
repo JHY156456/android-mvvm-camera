@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ui.user.LoginActivity"
+            android:name=".ui.HomeActivity"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +23,7 @@
         </activity>
 
         <activity android:name=".ui.menu.CameraViewActivity" />
-        <activity android:name=".ui.HomeActivity" />
+<!--        <activity android:name=".ui.HomeActivity" />-->
         <activity
             android:name=".ui.user.RegistrationActivity"
             android:windowSoftInputMode="adjustResize" />

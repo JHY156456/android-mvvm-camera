@@ -14,7 +14,6 @@ import androidx.navigation.NavController;
 
 import com.example.mvvmappapplication.databinding.FragmentCameraBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
-import com.example.mvvmappapplication.ui.post.PostAdapter;
 import com.example.mvvmappapplication.utils.PermissionUtil;
 
 import javax.inject.Inject;
@@ -32,9 +31,6 @@ public class CameraFragment extends DaggerFragment {
     FragmentCameraBinding binding;
     @Inject
     AppViewModelFactory viewModelFactory;
-    @Inject
-    PostAdapter adapter;
-
     @Inject
     Lazy<NavController> navController;
 

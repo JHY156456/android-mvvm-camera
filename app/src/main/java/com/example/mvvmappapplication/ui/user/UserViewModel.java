@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 
+import com.example.mvvmappapplication.data.UserServerService;
 import com.example.mvvmappapplication.data.UserService;
 import com.example.mvvmappapplication.data.entity.User;
 import com.example.mvvmappapplication.dto.UserInfo;
@@ -27,6 +28,8 @@ import timber.log.Timber;
 public class UserViewModel extends BaseViewModel<BaseNavigator> {
     @NonNull
     private final UserService userService;
+    @NonNull
+    private final UserServerService userServerService;
 
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private final MutableLiveData<User> liveItem = new MutableLiveData<>();
@@ -47,11 +50,13 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
     @Inject
     public UserViewModel(@NonNull Application application,
                          @NonNull UserService userService,
+                         @NonNull UserServerService userServerService,
                          @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent,
                          @Named("responseBodySingleLiveEvent") SingleLiveEvent<ResponseBody> responseBodySingleLiveEvent) {
         super(application,errorEvent,responseBodySingleLiveEvent);
         Timber.d("UserViewModel created");
         this.userService = userService;
+        this.userServerService = userServerService;
     }
 
 
@@ -72,7 +77,7 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
      */
     public void onRegisterCompletedClick() {
         performUserService(compositeDisposable,
-                userService.register(
+                userServerService.register(
                         new UserInfo(
                                 getId().get(),
                                 getPassword().get())),loading);
@@ -82,7 +87,7 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
 
     public void login(String id, String pw) {
         performUserService(compositeDisposable,
-                userService.login(new UserInfo(id,pw)),loading);
+                userServerService.login(new UserInfo(id,pw)),loading);
     }
 
     public ObservableField<String> getLoginId() {

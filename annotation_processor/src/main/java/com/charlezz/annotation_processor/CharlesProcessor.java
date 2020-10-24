@@ -1,5 +1,12 @@
 package com.charlezz.annotation_processor;
 
+import com.charlezz.annotation.CharlesIntent;
+import com.google.auto.service.AutoService;
+import com.squareup.javapoet.ClassName;
+import com.squareup.javapoet.JavaFile;
+import com.squareup.javapoet.MethodSpec;
+import com.squareup.javapoet.TypeSpec;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -17,13 +24,6 @@ import javax.lang.model.element.Modifier;
 import javax.lang.model.element.PackageElement;
 import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
-
-import com.charlezz.annotation.CharlesIntent;
-import com.google.auto.service.AutoService;
-import com.squareup.javapoet.ClassName;
-import com.squareup.javapoet.JavaFile;
-import com.squareup.javapoet.MethodSpec;
-import com.squareup.javapoet.TypeSpec;
 
 @AutoService(Processor.class)
 public class CharlesProcessor extends AbstractProcessor {
@@ -100,7 +100,7 @@ public class CharlesProcessor extends AbstractProcessor {
 
     private void generateJavaFile(List<MethodSpec> methodSpecList) throws IOException {
         System.out.println("methodSpecList Count = "+methodSpecList.size());
-        final TypeSpec.Builder builder = TypeSpec.classBuilder("Charles");
+        final TypeSpec.Builder builder = TypeSpec.classBuilder("Hanwha");
         builder.addModifiers(Modifier.PUBLIC, Modifier.FINAL);
         for (MethodSpec methodSpec : methodSpecList) {
             builder.addMethod(methodSpec);

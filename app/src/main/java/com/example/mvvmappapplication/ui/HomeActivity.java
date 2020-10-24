@@ -13,6 +13,7 @@ import com.example.mvvmappapplication.custom.HSRadioButton;
 import com.example.mvvmappapplication.databinding.ActivityHomeBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
 import com.example.mvvmappapplication.ui.menu.CameraFragmentDirections;
+import com.example.mvvmappapplication.ui.menu.HomeMenuFragmentDirections;
 import com.example.mvvmappapplication.ui.user.UserFragmentDirections;
 
 import javax.inject.Inject;
@@ -44,6 +45,7 @@ public class HomeActivity extends DaggerAppCompatActivity {
             radioButton.setChecked(true);
             switch (view.getId()){
                 case R.id.homeBtn:
+                    navController.get().navigate(HomeMenuFragmentDirections.actionHomeActivityToHomeMenuFragment());
                     break;
                 case R.id.myMenuBtn:
                     navController.get().navigate(UserFragmentDirections.actionHomeActivityToUserFragment(1));

@@ -9,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mvvmappapplication.custom.RecyclerDecoration;
 import com.example.mvvmappapplication.databinding.FragmentPostDetailBinding;
 import com.example.mvvmappapplication.di.ApplicationContext;
 import com.example.mvvmappapplication.di.FragmentScope;
@@ -45,4 +46,9 @@ public class PostDetailModule {
         return NavHostFragment.findNavController(fragment);
     }
 
+    @Provides
+    @FragmentScope
+    public RecyclerDecoration provideRecyclerDecoration(@ApplicationContext Context context){
+        return new RecyclerDecoration(context);
+    }
 }

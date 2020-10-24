@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.mvvmappapplication.HomeViewModel;
 import com.example.mvvmappapplication.ui.detail.PostDetailViewModel;
 import com.example.mvvmappapplication.ui.menu.CameraViewModel;
+import com.example.mvvmappapplication.ui.menu.HomeMenuViewModel;
 import com.example.mvvmappapplication.ui.post.PostViewModel;
 import com.example.mvvmappapplication.ui.user.UserViewModel;
 
@@ -45,4 +46,8 @@ public abstract class ViewModelModule {
     @ViewModelKey(CameraViewModel.class)
     abstract ViewModel bindsCameraViewModel(CameraViewModel viewModel);
 
+    @Binds
+    @IntoMap
+    @ViewModelKey(HomeMenuViewModel.class)
+    abstract ViewModel bindsHomeMenuViewModel(HomeMenuViewModel viewModel);
 }

@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.mvvmappapplication.custom.RecyclerDecoration;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
 
 import javax.inject.Inject;
@@ -33,7 +34,8 @@ public class PostDetailFragment extends DaggerFragment {
     AppViewModelFactory viewModelFactory;
     @Inject
     Lazy<NavController> navController;
-
+    @Inject
+    RecyclerDecoration recyclerDecoration;
     PostDetailViewModel viewModel;
 
     @Override
@@ -58,6 +60,7 @@ public class PostDetailFragment extends DaggerFragment {
         binding.setLifecycleOwner(getViewLifecycleOwner());
         binding.recyclerView.setAdapter(adapter);
         binding.recyclerView.setLayoutManager(layoutManager);
+        binding.recyclerView.addItemDecoration(recyclerDecoration);
         binding.setViewModel(viewModel);
         viewModel.getLiveItems().observe(getViewLifecycleOwner(), items -> adapter.setItems(items));
         viewModel.getUserClickEvent().observe(getViewLifecycleOwner(), userId -> {
