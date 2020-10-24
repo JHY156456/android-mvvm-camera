@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.charlezz.annotation.CharlesIntent;
 import com.example.mvvmappapplication.databinding.ActivityRegistrationBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
 
@@ -19,8 +20,8 @@ import dagger.Lazy;
 import dagger.android.support.DaggerAppCompatActivity;
 import timber.log.Timber;
 
-public class RegistrationActivity extends
-        DaggerAppCompatActivity {
+@CharlesIntent
+public class RegistrationActivity extends DaggerAppCompatActivity {
     @Inject
     Lazy<ActivityRegistrationBinding> binding;
     UserViewModel viewModel;

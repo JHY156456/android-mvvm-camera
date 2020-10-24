@@ -1,6 +1,4 @@
 include ':opencv-4.4.0-sdk'
-include ':sdk'
-include ':app'
-project(':sdk').projectDir = new File(rootDir, 'app/lib/opencv-4.4.0-android-sdk/OpenCV-android-sdk/sdk')
+include ':app',':annotation_processor', ':annotation'
 project(':opencv-4.4.0-sdk').projectDir = new File(rootDir, 'app/lib/opencv-4.4.0-sdk/')
 rootProject.name = "MVVMAppApplication"

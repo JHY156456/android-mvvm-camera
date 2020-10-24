@@ -21,6 +21,7 @@ import javax.inject.Inject;
 
 import dagger.Lazy;
 import dagger.android.support.DaggerFragment;
+import timber.log.Timber;
 
 public class CameraFragment extends DaggerFragment {
 
@@ -75,7 +76,10 @@ public class CameraFragment extends DaggerFragment {
             }
         });
         viewModel.getResponseBodySingleEvent().observe(getViewLifecycleOwner(),responseBody -> {
-
+            Timber.e("responseBody : "+responseBody.toString());
+        });
+        viewModel.getErrorEvent().observe(getViewLifecycleOwner(),throwable -> {
+            Timber.e("error : " + throwable.getMessage());
         });
     }
 

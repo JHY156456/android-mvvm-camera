@@ -48,16 +48,10 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.mvvmappapplication.custom.AutoFitTextureView;
 
-import org.opencv.android.OpenCVLoader;
-import org.opencv.android.Utils;
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfPoint;
-import org.opencv.core.Rect;
-import org.opencv.core.Scalar;
-import org.opencv.imgproc.Imgproc;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -422,6 +416,7 @@ public class CameraPreview extends Thread {
         mWideAngleButton = button2;
         mCameraCaptureButton = button3;
         mCameraDirectionButton = button4;
+        mFile = new File(mContext.getExternalFilesDir(null), "pic.jpg");
 
         mNormalAngleButton.setOnClickListener(new View.OnClickListener() {
 
@@ -916,97 +911,37 @@ public class CameraPreview extends Thread {
         @Override
         public void run() {
             try {
-
                 ByteBuffer buffer = mImage.getPlanes()[0].getBuffer();
-                byte[] bytes = new byte[buffer.capacity()];
+                byte[] bytes = new byte[buffer.remaining()];
                 buffer.get(bytes);
-                Log.d(TAG, "takePicture");
-
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inSampleSize = 8;
-
-                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, options);
-                bitmap = GetRotatedBitmap(bitmap, 90);
-
-                Bitmap imgRoi;
-                OpenCVLoader.initDebug(); // 초기화
-
-                Mat matBase = new Mat();
-                Utils.bitmapToMat(bitmap, matBase);
-                Mat matGray = new Mat();
-                Mat matCny = new Mat();
-
-                Imgproc.cvtColor(matBase, matGray, Imgproc.COLOR_BGR2GRAY); // GrayScale
-                Imgproc.Canny(matGray, matCny, 10, 100, 3, true); // Canny Edge 검출
-                Imgproc.threshold(matGray, matCny, 150, 255, Imgproc.THRESH_BINARY); //Binary
-
-                List<MatOfPoint> contours = new ArrayList<>();
-                Mat hierarchy = new Mat();
-                //노이즈제거
-                Imgproc.erode(matCny, matCny, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(6, 6)));
-                Imgproc.dilate(matCny, matCny, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(12, 12)));
-                //관심영역 추출
-                Imgproc.findContours(matCny, contours, hierarchy, Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_SIMPLE);//RETR_EXTERNAL //RETR_TREE
-                Imgproc.drawContours(matBase, contours, -1, new Scalar(255, 0, 0), 5);
-
-                imgBase = Bitmap.createBitmap(matBase.cols(), matBase.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
-                Utils.matToBitmap(matBase, imgBase); // Mat을 비트맵으로 변환
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-
+                FileOutputStream output = null;
+                try {
+                    output = new FileOutputStream(mFile);
+                    output.write(bytes);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    mImage.close();
+                    if (null != output) {
+                        try {
+                            output.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
-                }).start();
-                imgRoi = Bitmap.createBitmap(matCny.cols(), matCny.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
-                Utils.matToBitmap(matCny, imgRoi);
-
+                }
                 Intent intent = new Intent();
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = 8;
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, options);
+                bitmap = GetRotatedBitmap(bitmap, 90);
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 byte[] byteArray = stream.toByteArray();
                 intent.putExtra("image", byteArray);
+                intent.putExtra("file",mFile);
                 mContext.setResult(Activity.RESULT_OK, intent);
                 mContext.finish();
-
-                for (int idx = 0; idx >= 0; idx = (int) hierarchy.get(0, idx)[0]) {
-                    MatOfPoint matOfPoint = contours.get(idx);
-                    Rect rect = Imgproc.boundingRect(matOfPoint);
-
-                    if (rect.width < 30 || rect.height < 30 || rect.width <= rect.height || rect.width <= rect.height * 3 || rect.width >= rect.height * 6)
-                        continue; // 사각형 크기에 따라 출력 여부 결정
-
-                    roi = Bitmap.createBitmap(imgRoi, (int) rect.tl().x, (int) rect.tl().y, rect.width, rect.height);
-
-
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-//                                    runOnUiThread(new Runnable() {
-//                                        @Override
-//                                        public void run() {
-//                                            imageResult.setImageBitmap(roi);
-//                                            new AsyncTess().execute(roi);
-//                                            btnTakePicture.setEnabled(false);
-//                                            btnTakePicture.setText("텍스트 인식중...");
-//                                        }
-//                                    });
-                        }
-                    }).start();
-                    break;
-                }
-
-//                if (roi == null) {
-//                    mContext.setResult(Activity.RESULT_CANCELED);
-//                } else {
-//                    Intent intent = new Intent();
-//                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-//                    imgRoi.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-//                    byte[] byteArray = stream.toByteArray();
-//                    intent.putExtra("image", byteArray);
-//                    mContext.setResult(Activity.RESULT_OK, intent);
-//                }
-//                mContext.finish();
-//
 
             } catch (Exception e) {
                 e.printStackTrace();

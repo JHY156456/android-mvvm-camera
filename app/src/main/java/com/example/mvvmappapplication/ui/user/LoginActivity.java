@@ -8,6 +8,7 @@ import android.view.Window;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.charlezz.annotation.CharlesIntent;
 import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.databinding.ActivityLoginBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
@@ -19,6 +20,7 @@ import dagger.Lazy;
 import dagger.android.support.DaggerAppCompatActivity;
 import timber.log.Timber;
 
+@CharlesIntent
 public class LoginActivity extends DaggerAppCompatActivity {
     @Inject
     Lazy<ActivityLoginBinding> binding;
@@ -43,14 +45,16 @@ public class LoginActivity extends DaggerAppCompatActivity {
         });
 
         viewModel.getErrorEvent().observe(this,throwable -> {
-            Timber.e(throwable.getMessage());
+            Timber.e("throwable : " + throwable.getMessage());
         });
     }
 
     public void buttonClick(View view) {
         switch (view.getId()) {
             case R.id.tvSignIn: {
-                startActivity(new Intent(this,RegistrationActivity.class));
+                startActivity(Charles.intentForRegistrationActivity(this));
+                //startActivity(Charles.intentForSecondActivity(this));
+                //startActivity(new Intent(this,RegistrationActivity.class));
             }
         }
 

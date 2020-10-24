@@ -16,11 +16,7 @@ import com.example.mvvmappapplication.ui.BaseNavigator;
 import com.example.mvvmappapplication.ui.BaseViewModel;
 import com.example.mvvmappapplication.utils.SingleLiveEvent;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -67,41 +63,13 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
     public MutableLiveData<Bitmap> getCameraItem(){
         return cameraItem;
     }
+
     public void onClickButtonCamera(View view){
         buttonCameraClickEvent.setValue(view);
     }
 
+    File f;
     public void onClickCall(View view)  {
-        buttonCameraClickEvent.setValue(view);
-
-        File f = new File("asdf");
-        try {
-            f.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        //Convert bitmap to byte array
-        Bitmap bitmap = cameraItem.getValue();
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 0 /*ignored for PNG*/, bos);
-        byte[] bitmapdata = bos.toByteArray();
-
-        //write the bytes in file
-        FileOutputStream fos = null;
-        try {
-            fos = new FileOutputStream(f);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            fos.write(bitmapdata);
-            fos.flush();
-            fos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), f);
         MultipartBody.Part body = MultipartBody.Part.createFormData("upload", f.getName(), reqFile);
         compositeDisposable.add(cameraService.uploadFoodImage(body)
@@ -114,6 +82,7 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
         if(requestCode==100){
             if(resultCode== Activity.RESULT_OK){
                 byte[] byteArray = data.getByteArrayExtra("image");
+                f = (File) data.getSerializableExtra("file");
                 Bitmap image = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
                 cameraItem.setValue(image);
             } else{

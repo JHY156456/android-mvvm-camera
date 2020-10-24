@@ -6,8 +6,8 @@
     <string name="sign_upReg">회원가입</string>
     <string name="sign_inLog">Sign in</string>
     <string name="signin_redirect">Already a member? Sign in!</string>
-    <string name="forgot_password">Forgot password?</string>
-    <string name="signup_redirect">회원가입</string>
+    <string name="forgot_password"><u>비밀번호를 잊어버리셨나요?</u></string>
+    <string name="signup_redirect"><u>회원가입</u></string>
 
     <string name="invest_amount_stock_description">최근 5일 평균 거래량은 %s, 주가는 %s 입니다.</string>
 
