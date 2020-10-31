@@ -159,12 +159,14 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <com.example.mvvmappapplication.custom.HSRadioButton
-                            android:id="@+id/assetsBtn"
+                            android:id="@+id/qrBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-
+                            android:background="@drawable/btn_menu_camera_selector"
                             android:button="@null"
+                            android:checked="true"
+                            android:onClick="@{v->viewModel.onMenuClick(v)}"/>
                              />
                         <!--                    android:background="@drawable/btn_menu_asset_selector"-->
                     </FrameLayout>

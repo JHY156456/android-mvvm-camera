@@ -100,4 +100,8 @@ dependencies {
     // EventBus
     implementation 'org.greenrobot:eventbus:3.2.0'
 
+    // qr스캔
+    implementation 'com.journeyapps:zxing-android-embedded:4.0.0'
+    implementation 'com.google.zxing:core:3.3.0'
+
 }

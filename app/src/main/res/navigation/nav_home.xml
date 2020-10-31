@@ -20,6 +20,13 @@
         app:popUpTo="@id/nav_home"
         app:popUpToInclusive="true" />
     <action
+        android:id="@+id/action_home_activity_to_qr_fragment"
+        app:destination="@id/qr_fragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popUpTo="@id/nav_home"
+        app:popUpToInclusive="true" />
+    <action
         android:id="@+id/action_home_activity_to_user_fragment"
         app:destination="@id/user_frmagnet"
         app:enterAnim="@anim/nav_default_enter_anim"
@@ -96,5 +103,17 @@
         <argument
             android:name="userId"
             app:argType="long" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/qr_fragment"
+        android:name="com.example.mvvmappapplication.ui.menu.QRFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_qr">
+        <!--PostFragment에서 PostDetailFragment로 이동-->
+        <!-- label : 목적지 XML 레이아웃 파일 이름 -->
+        <!--화면 전환시 사용할 애니메이션도 적용한다-->
+
     </fragment>
 </navigation>

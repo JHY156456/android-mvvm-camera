@@ -50,6 +50,9 @@ public class HomeActivity extends DaggerAppCompatActivity {
                 case R.id.myMenuBtn:
                     navController.get().navigate(UserFragmentDirections.actionHomeActivityToUserFragment(1));
                     break;
+                case R.id.qrBtn:
+                    navController.get().navigate(UserFragmentDirections.actionHomeActivityToQrFragment());
+                    break;
                 case R.id.cameraBtn:
                     navController.get().navigate(CameraFragmentDirections.actionHomeActivityToCameraFragment());
                     break;

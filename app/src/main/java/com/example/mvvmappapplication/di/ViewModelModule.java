@@ -7,6 +7,7 @@ import com.example.mvvmappapplication.HomeViewModel;
 import com.example.mvvmappapplication.ui.detail.PostDetailViewModel;
 import com.example.mvvmappapplication.ui.menu.CameraViewModel;
 import com.example.mvvmappapplication.ui.menu.HomeMenuViewModel;
+import com.example.mvvmappapplication.ui.menu.QRViewModel;
 import com.example.mvvmappapplication.ui.post.PostViewModel;
 import com.example.mvvmappapplication.ui.user.UserViewModel;
 
@@ -45,7 +46,10 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(CameraViewModel.class)
     abstract ViewModel bindsCameraViewModel(CameraViewModel viewModel);
-
+    @Binds
+    @IntoMap
+    @ViewModelKey(QRViewModel.class)
+    abstract ViewModel bindsCameraViewModel(QRViewModel viewModel);
     @Binds
     @IntoMap
     @ViewModelKey(HomeMenuViewModel.class)

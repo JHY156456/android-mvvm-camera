@@ -17,6 +17,8 @@ import com.example.mvvmappapplication.ui.menu.CameraFragment;
 import com.example.mvvmappapplication.ui.menu.CameraModule;
 import com.example.mvvmappapplication.ui.menu.HomeMenuFragment;
 import com.example.mvvmappapplication.ui.menu.HomeMenuModule;
+import com.example.mvvmappapplication.ui.menu.QRFragment;
+import com.example.mvvmappapplication.ui.menu.QRModule;
 import com.example.mvvmappapplication.ui.user.UserFragment;
 import com.example.mvvmappapplication.ui.user.UserModule;
 
@@ -53,7 +55,9 @@ public abstract class HomeModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = CameraModule.class)
     abstract CameraFragment getCameraFragment();
-
+    @FragmentScope
+    @ContributesAndroidInjector(modules = QRModule.class)
+    abstract QRFragment getQRFragment();
     @FragmentScope
     @ContributesAndroidInjector(modules = UserModule.class)
     abstract UserFragment getUserFragment();
