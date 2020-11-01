@@ -29,6 +29,7 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
+import retrofit2.Response;
 import timber.log.Timber;
 
 public class QRViewModel extends BaseViewModel<BaseNavigator> {
@@ -43,17 +44,22 @@ public class QRViewModel extends BaseViewModel<BaseNavigator> {
     private final MutableLiveData<Event<Boolean>> isSuccess = new MutableLiveData<>();
     private final MutableLiveData<Event<Boolean>> isFail = new MutableLiveData<>();
     private MutableLiveData<String> resultContents = new MutableLiveData<>();
-
+    private final SingleLiveEvent<Response<ResponseBody>> responseBodySingleLiveEvent;
+    @NonNull
+    public SingleLiveEvent<Response<ResponseBody>> getResponseBodySingleLiveEvent() {
+        return responseBodySingleLiveEvent;
+    }
 
     @Inject
     public QRViewModel(@NonNull Application application,
                        CameraService cameraService,
                        @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent,
-                       @Named("responseBodySingleLiveEvent") SingleLiveEvent<ResponseBody> responseBodySingleLiveEvent) {
-        super(application,errorEvent,responseBodySingleLiveEvent);
+                       @Named("responseBodySingleLiveEvent") SingleLiveEvent<Response<ResponseBody>> responseBodySingleLiveEvent) {
+        super(application,errorEvent);
         Timber.d("CameraViewModule created");
         //오브젝트 그래프로 부터 생성자 주입
         this.cameraService = cameraService;
+        this.responseBodySingleLiveEvent = responseBodySingleLiveEvent;
     }
 
     @Override
@@ -93,7 +99,7 @@ public class QRViewModel extends BaseViewModel<BaseNavigator> {
         compositeDisposable.add(cameraService.uploadFoodImage(body)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(getResponseBodySingleEvent()::setValue, getErrorEvent()::setValue));
+                .subscribe(getResponseBodySingleLiveEvent()::setValue, getErrorEvent()::setValue));
     }
 
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

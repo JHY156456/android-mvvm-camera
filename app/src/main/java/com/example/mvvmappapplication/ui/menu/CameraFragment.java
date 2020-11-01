@@ -71,11 +71,14 @@ public class CameraFragment extends DaggerFragment {
                 binding.buttonCall.setVisibility(View.VISIBLE);
             }
         });
-        viewModel.getResponseBodySingleEvent().observe(getViewLifecycleOwner(),responseBody -> {
-            Timber.e("responseBody : "+responseBody.toString());
+        viewModel.getResponseBodySingleLiveEvent().observe(getViewLifecycleOwner(),response -> {
+            Timber.e("response.toString() : " + response.toString());
+            Timber.e("response.body().toString() : " + response.body().toString());
+            Toast.makeText(getActivity(), "reponsebody성공 : " + response.toString(), Toast.LENGTH_SHORT).show();
         });
         viewModel.getErrorEvent().observe(getViewLifecycleOwner(),throwable -> {
-            Timber.e("error : " + throwable.getMessage());
+            Timber.e("throwable : " + throwable.getMessage());
+            Toast.makeText(getActivity(), "error : " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
         });
     }
 

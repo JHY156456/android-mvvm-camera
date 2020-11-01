@@ -1,6 +1,6 @@
 package com.example.mvvmappapplication.dto;
 
-public class UserInfo {
+public  class UserInfo{
     private String carNumber;
     private String id;
     private String password;
@@ -9,10 +9,5 @@ public class UserInfo {
         this.carNumber = carNumber;
         this.id = id;
         this.password = password;
-    }
-
-    public UserInfo(String s, String s1) {
-        this.id = s;
-        this.password = s1;
     }
 }

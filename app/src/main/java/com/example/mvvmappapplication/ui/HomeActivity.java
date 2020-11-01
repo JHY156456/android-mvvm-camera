@@ -19,7 +19,6 @@ import com.example.mvvmappapplication.di.AppViewModelFactory;
 import com.example.mvvmappapplication.ui.menu.CameraFragmentDirections;
 import com.example.mvvmappapplication.ui.menu.HomeMenuFragmentDirections;
 import com.example.mvvmappapplication.ui.user.UserFragmentDirections;
-import com.google.android.material.navigation.NavigationView;
 
 import javax.inject.Inject;
 import javax.inject.Named;

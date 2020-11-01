@@ -6,6 +6,7 @@ import android.content.Context;
 
 import com.example.mvvmappapplication.consts.Const;
 import com.example.mvvmappapplication.di.DaggerAppComponent;
+import com.example.mvvmappapplication.dto.UserInfo;
 import com.example.mvvmappapplication.dto.UserInfoDto;
 import com.example.mvvmappapplication.utils.LogUtil;
 
@@ -20,6 +21,7 @@ public class App extends DaggerApplication {
     public static Const.eBuildMode BUILD_MODE = Const.eBuildMode.DEPLOY_DEV; // 배포 모드
     public static boolean PROTECT_SCREEN_CAPTURE = (BUILD_MODE == Const.eBuildMode.DEPLOY); // 캡쳐 방지 여부
     private static UserInfoDto userInfo = UserInfoDto.getInstance();
+    private static UserInfo user;
 
     @Override
     public void onCreate() {
@@ -75,6 +77,7 @@ public class App extends DaggerApplication {
     public static void setUserInfoData(UserInfoDto data) {
         App.userInfo = data;
     }
-
-
+    public static void setUserInfo(UserInfo data) {
+        App.user = data;
+    }
 }

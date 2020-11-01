@@ -66,7 +66,7 @@ public class AppModule {
     @Singleton
     @Provides
     @Named("responseBodySingleLiveEvent")
-    SingleLiveEvent<ResponseBody> provideResponseBodySingleLiveEvent(){
+    SingleLiveEvent<retrofit2.Response<ResponseBody>> provideResponseBodySingleLiveEvent(){
         return new SingleLiveEvent<>();
     }
 }

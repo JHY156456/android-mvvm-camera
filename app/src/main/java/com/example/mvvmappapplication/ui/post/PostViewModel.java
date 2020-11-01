@@ -57,7 +57,12 @@ public class PostViewModel extends AndroidViewModel implements PostItem.EventLis
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSuccess(item -> loading.postValue(false))
-                .subscribe(livePosts::setValue, errorEvent::setValue));
+                .subscribe(
+                        list -> {
+                            Timber.e("?? : " + list);
+                            livePosts.setValue(list);
+                        },
+                        errorEvent::setValue));
     }
 
     @NonNull
@@ -87,10 +92,12 @@ public class PostViewModel extends AndroidViewModel implements PostItem.EventLis
         //SingleLiveEvent의 값을 변경한다.
         postClickEvent.setValue(postItem);
     }
+
     //PostFragment로 postClickEvent 변수를 노출
     public SingleLiveEvent<PostItem> getPostClickEvent() {
         return postClickEvent;
     }
+
     public MutableLiveData<Boolean> getLoading() {
         return loading;
     }

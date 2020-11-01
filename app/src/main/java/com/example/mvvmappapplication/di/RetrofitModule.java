@@ -7,6 +7,7 @@ import com.example.mvvmappapplication.data.UserServerService;
 import com.example.mvvmappapplication.data.UserService;
 
 import java.security.cert.CertificateException;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -28,6 +29,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class RetrofitModule {
+    /**
+     * - GsonConverter : 대부분의 서버에서는 응답으로 json을 주로 이용합니다.
+     *   retrofit은 이러한 응답을 간단하게 변환할 수 있도록, 다양한 Converter을 제공하고 있습니다.
+     */
     @Provides
     @Singleton
     @Named("json")
@@ -51,7 +56,7 @@ public class RetrofitModule {
                         new HttpLoggingInterceptor().setLevel(
                                 HttpLoggingInterceptor.Level.BODY))
                         .build())
-                .baseUrl("http://ec2-15-164-218-88.ap-northeast-2.compute.amazonaws.com:8072/")
+                .baseUrl("http://ec2-3-34-178-144.ap-northeast-2.compute.amazonaws.com:8072/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build();
@@ -61,11 +66,15 @@ public class RetrofitModule {
     @Named("image")
     Retrofit provideImageRetrofit() {
         return new Retrofit.Builder()
-                .client(new OkHttpClient.Builder().addInterceptor(
+                .client(new OkHttpClient.Builder()
+                        .readTimeout(5, TimeUnit.SECONDS)
+                        .writeTimeout(5,TimeUnit.SECONDS)
+                        .connectTimeout(5, TimeUnit.SECONDS)
+                        .addInterceptor(
                         new HttpLoggingInterceptor().setLevel(
                                 HttpLoggingInterceptor.Level.BODY))
                         .build())
-                .baseUrl("http://ec2-15-165-76-70.ap-northeast-2.compute.amazonaws.com:8072/")
+                .baseUrl("http://ec2-3-35-166-249.ap-northeast-2.compute.amazonaws.com:8072/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build();

@@ -45,7 +45,8 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void initLiveItems() {
-        viewModel.getResponseBodySingleEvent().observe(this,responseBody -> {
+        viewModel.getResponseBodySingleLiveEvent().observe(this,response -> {
+            Timber.e("LoginActivity : " + response.toString());
             startActivity(new Intent(this, HomeActivity.class));
             finish();
         });

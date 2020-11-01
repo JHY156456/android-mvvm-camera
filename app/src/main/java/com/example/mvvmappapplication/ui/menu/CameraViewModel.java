@@ -28,12 +28,15 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
+import retrofit2.Response;
 import timber.log.Timber;
 
 public class CameraViewModel extends BaseViewModel<BaseNavigator> {
 
     @NonNull
     private final CameraService cameraService;
+    @NonNull
+    private final SingleLiveEvent<Response<ResponseBody>> responseBodySingleLiveEvent;
     private final CompositeDisposable
             compositeDisposable = new CompositeDisposable();
     private final SingleLiveEvent<View> buttonCameraClickEvent = new SingleLiveEvent<>();
@@ -43,11 +46,12 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
     public CameraViewModel(@NonNull Application application,
                          CameraService cameraService,
                          @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent,
-                           @Named("responseBodySingleLiveEvent") SingleLiveEvent<ResponseBody> responseBodySingleLiveEvent) {
-        super(application,errorEvent,responseBodySingleLiveEvent);
+                           @Named("responseBodySingleLiveEvent") SingleLiveEvent<Response<ResponseBody>> responseBodySingleLiveEvent) {
+        super(application,errorEvent);
         Timber.d("CameraViewModule created");
         //오브젝트 그래프로 부터 생성자 주입
         this.cameraService = cameraService;
+        this.responseBodySingleLiveEvent = responseBodySingleLiveEvent;
     }
 
     @Override
@@ -55,6 +59,11 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
         super.onCleared();
         Timber.d("onCleared");
         compositeDisposable.dispose();
+    }
+
+    @NonNull
+    public SingleLiveEvent<Response<ResponseBody>> getResponseBodySingleLiveEvent() {
+        return responseBodySingleLiveEvent;
     }
 
     public SingleLiveEvent<View> getButtonCameraClickEvent() {
@@ -70,13 +79,16 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
 
     File f;
     public void onClickCall(View view)  {
+        loading.setValue(true);
         RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), f);
-        MultipartBody.Part body = MultipartBody.Part.createFormData("upload", f.getName(), reqFile);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("carImage", f.getName(), reqFile);
         compositeDisposable.add(cameraService.uploadFoodImage(body)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(getResponseBodySingleEvent()::setValue, getErrorEvent()::setValue));
+                .subscribe(getResponseBodySingleLiveEvent()::setValue, getErrorEvent()::setValue,
+                        ()->loading.setValue(false)));
     }
+
 
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if(requestCode==100){

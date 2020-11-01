@@ -35,7 +35,7 @@ public class RegistrationActivity extends DaggerAppCompatActivity {
         binding.get().setLifecycleOwner(this);
         viewModel = new ViewModelProvider(this, viewModelFactory).get(UserViewModel.class);
         binding.get().setViewModel(viewModel);
-        viewModel.getResponseBodySingleEvent().observe(this,responseBody -> {
+        viewModel.getResponseBodySingleLiveEvent().observe(this,responseBody -> {
             //로그인액티비티를 띄운다.
             Timber.e(responseBody.toString());
             InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);

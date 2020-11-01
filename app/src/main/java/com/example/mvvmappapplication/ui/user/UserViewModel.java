@@ -8,10 +8,12 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 
+import com.example.mvvmappapplication.App;
 import com.example.mvvmappapplication.data.UserServerService;
 import com.example.mvvmappapplication.data.UserService;
 import com.example.mvvmappapplication.data.entity.User;
 import com.example.mvvmappapplication.dto.UserInfo;
+import com.example.mvvmappapplication.dto.UserInfoBuilder;
 import com.example.mvvmappapplication.ui.BaseNavigator;
 import com.example.mvvmappapplication.ui.BaseViewModel;
 import com.example.mvvmappapplication.utils.SingleLiveEvent;
@@ -23,6 +25,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import okhttp3.ResponseBody;
+import retrofit2.Response;
 import timber.log.Timber;
 
 public class UserViewModel extends BaseViewModel<BaseNavigator> {
@@ -30,6 +33,8 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
     private final UserService userService;
     @NonNull
     private final UserServerService userServerService;
+    @NonNull
+    private final SingleLiveEvent<Response<ResponseBody>> responseBodySingleLiveEvent;
 
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private final MutableLiveData<User> liveItem = new MutableLiveData<>();
@@ -41,9 +46,9 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
 
     private ObservableField<String> carNumber = new ObservableField<>();
     private ObservableField<String> id = new ObservableField<>();
-    private ObservableField<String> password= new ObservableField<>();
+    private ObservableField<String> password = new ObservableField<>();
     private ObservableField<String> loginId = new ObservableField<>();
-    private ObservableField<String> loginPassword= new ObservableField<>();
+    private ObservableField<String> loginPassword = new ObservableField<>();
 
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>(false);
 
@@ -52,16 +57,22 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
                          @NonNull UserService userService,
                          @NonNull UserServerService userServerService,
                          @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent,
-                         @Named("responseBodySingleLiveEvent") SingleLiveEvent<ResponseBody> responseBodySingleLiveEvent) {
-        super(application,errorEvent,responseBodySingleLiveEvent);
+                         @Named("responseBodySingleLiveEvent") SingleLiveEvent<Response<ResponseBody>> responseBodySingleLiveEvent) {
+        super(application, errorEvent);
         Timber.d("UserViewModel created");
         this.userService = userService;
         this.userServerService = userServerService;
+        this.responseBodySingleLiveEvent = responseBodySingleLiveEvent;
     }
 
+    @NonNull
+    public SingleLiveEvent<Response<ResponseBody>> getResponseBodySingleLiveEvent() {
+        return responseBodySingleLiveEvent;
+    }
 
     /**
      * 메소드 참조 방식
+     *
      * @param userId
      */
     public void loadUser(long userId) {
@@ -76,18 +87,45 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
      * 기본적인 람다방식
      */
     public void onRegisterCompletedClick() {
-        performUserService(compositeDisposable,
+        loading.setValue(true);
+        compositeDisposable.add(
                 userServerService.register(
-                        new UserInfo(
-                                getId().get(),
-                                getPassword().get())),loading);
+                        new UserInfoBuilder().setId(getId().get())
+                                .setPassword(getPassword().get())
+                                .build())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                responseBody -> {
+                                    getResponseBodySingleLiveEvent().setValue(responseBody);
+                                },
+                                throwable -> {
+                                    getErrorEvent().setValue(throwable);
+                                    loading.postValue(false);
+                                },
+                                ()->loading.postValue(false)));
     }
 
 
-
     public void login(String id, String pw) {
-        performUserService(compositeDisposable,
-                userServerService.login(new UserInfo(id,pw)),loading);
+        loading.setValue(true);
+        UserInfo userInfo= new UserInfoBuilder().setId(id)
+                .setPassword(pw)
+                .build();
+        App.setUserInfo(userInfo);
+        compositeDisposable.add(
+                userServerService.login(userInfo)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                responseBody -> {
+                                    getResponseBodySingleLiveEvent().setValue(responseBody);
+                                },
+                                throwable -> {
+                                    getErrorEvent().setValue(throwable);
+                                    loading.postValue(false);
+                                },
+                                ()->loading.postValue(false)));
     }
 
     public ObservableField<String> getLoginId() {
@@ -127,7 +165,6 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
         super.onCleared();
         compositeDisposable.dispose();
     }
-
 
 
     public ObservableField<String> getCarNumber() {
