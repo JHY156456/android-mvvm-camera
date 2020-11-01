@@ -9,6 +9,6 @@ import retrofit2.http.Part;
 
 public interface CameraService {
     @Multipart
-    @POST("/api/camera")
+    @POST("/api/auth/ocr")
     Observable<ResponseBody> uploadFoodImage(@Part MultipartBody.Part file);
 }

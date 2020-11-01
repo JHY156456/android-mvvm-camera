@@ -52,7 +52,7 @@ public abstract class BaseActivity extends DaggerAppCompatActivity implements Vi
             mThemeType = eThemeType.DARK;
             setTheme(mThemeType);
         }
-        ThemeUtil.setStatusBarColor(getActivity());
+        //ThemeUtil.setStatusBarColor(getActivity());
         super.onCreate(savedInstanceState);
         if(savedInstanceState!=null)
             onRestoreInstance(savedInstanceState);

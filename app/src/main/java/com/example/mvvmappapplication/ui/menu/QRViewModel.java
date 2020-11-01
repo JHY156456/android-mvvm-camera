@@ -82,7 +82,7 @@ public class QRViewModel extends BaseViewModel<BaseNavigator> {
         return cameraItem;
     }
 
-    public void onClickButtonCamera(View view){
+    public void onClickButtonQR(View view){
         buttonCameraClickEvent.setValue(view);
     }
 

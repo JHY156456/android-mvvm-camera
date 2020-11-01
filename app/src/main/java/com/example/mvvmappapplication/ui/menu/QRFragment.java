@@ -57,24 +57,29 @@ public class QRFragment extends DaggerFragment {
         //Lifecycle Owner 등록
         binding.setLifecycleOwner(getViewLifecycleOwner());
         binding.setViewModel(viewModel);
-        /* QR code scanner 객체 */
-
-        /* QR code Scanner Setting */
-        qrScan = IntentIntegrator.forSupportFragment(this);
-        qrScan.setPrompt("아래 띄울 문구");
-        qrScan.initiateScan();
         initEvent();
-
     }
 
-    private void initEvent(){
-        viewModel.getIsFail().observe(getViewLifecycleOwner(),new EventObserver<>(data -> {
-            boolean isFail = (Boolean)data;
-            if(isFail){
+    private void initEvent() {
+        viewModel.getButtonCameraClickEvent().observe(getViewLifecycleOwner(), view1 -> {
+            if (!PermissionUtil.isGranted(getActivity(), PermissionUtil.REQUEST_CAMERA_PERMISSION)) {
+                PermissionUtil.requestPermissionCamera(getActivity());
+            } else {
+                qrScan = IntentIntegrator.forSupportFragment(this);
+                qrScan.setOrientationLocked(true);
+                qrScan.setPrompt("아래 띄울 문구");
+                qrScan.initiateScan();
+            }
+        });
+
+        viewModel.getIsFail().observe(getViewLifecycleOwner(), new EventObserver<>(data -> {
+            boolean isFail = (Boolean) data;
+            if (isFail) {
                 Toast.makeText(getActivity(), "Cancelled", Toast.LENGTH_LONG).show();
             }
         }));
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

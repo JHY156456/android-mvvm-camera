@@ -49,7 +49,7 @@ public abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(QRViewModel.class)
-    abstract ViewModel bindsCameraViewModel(QRViewModel viewModel);
+    abstract ViewModel bindsQRViewModel(QRViewModel viewModel);
     @Binds
     @IntoMap
     @ViewModelKey(HomeMenuViewModel.class)

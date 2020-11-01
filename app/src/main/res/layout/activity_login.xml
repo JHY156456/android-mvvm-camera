@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
-
         <import type="android.view.View" />
-
         <variable
             name="viewModel"
             type="com.example.mvvmappapplication.ui.user.UserViewModel" />
@@ -17,6 +14,7 @@
         android:layout_height="match_parent"
         android:background="@mipmap/background"
         tools:context="com.example.mvvmappapplication.ui.user.LoginActivity">
+
         <ProgressBar
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
@@ -31,8 +29,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            >
+            android:layout_centerInParent="true">
 
 
             <LinearLayout
@@ -71,12 +68,12 @@
                     android:drawableStart="@drawable/icon_person"
                     android:drawableLeft="@drawable/icon_person"
                     android:drawablePadding="10dp"
-                    android:imeOptions="actionNext"
                     android:hint="@string/emailReg"
+                    android:imeOptions="actionNext"
                     android:inputType="textEmailAddress"
                     android:paddingStart="10dp"
-                    android:text="@={viewModel.loginId}"
                     android:paddingEnd="10dp"
+                    android:text="@={viewModel.loginId}"
                     android:textColor="@color/white"
                     android:textColorHint="@color/gray"
                     android:textSize="15sp" />
@@ -87,16 +84,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginBottom="10dp"
-                    android:text="@={viewModel.loginPassword}"
                     android:background="@drawable/rounded_rect"
                     android:drawableStart="@drawable/icon_password"
                     android:drawableLeft="@drawable/icon_password"
-                    android:imeOptions="actionNext"
                     android:drawablePadding="10dp"
                     android:hint="@string/passwordReg"
+                    android:imeOptions="actionNext"
                     android:inputType="textPassword"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
+                    android:text="@={viewModel.loginPassword}"
                     android:textColor="@color/white"
                     android:textColorHint="@color/gray"
                     android:textSize="15sp" />

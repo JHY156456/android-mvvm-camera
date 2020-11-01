@@ -12,6 +12,8 @@ public class Event<T> {
 
     /**
      * Returns the content and prevents its use again.
+     * 처리 되면 : null
+     * 처리되지 않으면 : true
      */
     public T getContentIfNotHandled() {
         if (hasBeenHandled) {

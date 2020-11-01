@@ -23,8 +23,8 @@
             android:id="@+id/button_camera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="차량 촬영하기"
-            android:onClick="@{(v)->viewModel.onClickButtonCamera(v)}"
+            android:text="QR 촬영하기"
+            android:onClick="@{(v)->viewModel.onClickButtonQR(v)}"
             android:layout_centerInParent="true"
             tools:ignore="MissingConstraints" />
 

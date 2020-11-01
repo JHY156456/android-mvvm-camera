@@ -3,43 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activity.main.HSMainActivity">
+
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.example.mvvmappapplication.HomeViewModel" />
     </data>
 
-    <RelativeLayout
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/my_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/my_toolbar">
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/include"
+                layout="@layout/app_bar_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
             <androidx.fragment.app.FragmentContainerView
+                android:layout_marginTop="@dimen/dimen_55"
                 android:id="@+id/content"
                 android:name="androidx.navigation.fragment.NavHostFragment"
-                app:navGraph="@navigation/nav_home"
-                app:defaultNavHost="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_above="@+id/bottomMenuLayout"
-                />
-<!--                속성은 NavHostFragment 시스템 뒤로 버튼을 가로 채도록합니다. -->
-<!--                단 하나만 NavHost기본값이 될 수 있습니다. -->
-<!--                동일한 레이아웃 (예 : 두 개의 창 레이아웃)에 여러 호스트가있는 경우 하나의 기본값 만 지정해야합니다.-->
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_home" />
+            <!--                속성은 NavHostFragment 시스템 뒤로 버튼을 가로 채도록합니다. -->
+            <!--                단 하나만 NavHost기본값이 될 수 있습니다. -->
+            <!--                동일한 레이아웃 (예 : 두 개의 창 레이아웃)에 여러 호스트가있는 경우 하나의 기본값 만 지정해야합니다.-->
 
             <!--            android:background="?attr/windowBackground"-->
             <FrameLayout
@@ -53,8 +55,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="match_parent">
                     <!--                android:background="?attr/mainTabBackground"-->
 
                     <com.example.mvvmappapplication.custom.HSView
@@ -85,8 +86,7 @@
                             android:layout_gravity="center"
                             android:background="@drawable/btn_menu_home_selector"
                             android:button="@null"
-                            android:onClick="@{v->viewModel.onMenuClick(v)}"
-                             />
+                            android:onClick="@{v->viewModel.onMenuClick(v)}" />
 
                         <!-- badge -->
                         <com.example.mvvmappapplication.custom.HSDotView
@@ -102,34 +102,34 @@
                         <!--                    app:dotColor="?attr/highColor"-->
                     </FrameLayout>
 
-<!--                    <FrameLayout-->
-<!--                        android:id="@+id/search"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="0dp"-->
-<!--                        android:layout_marginTop="@dimen/dimen_1"-->
-<!--                        -->
-<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                        app:layout_constraintEnd_toStartOf="@+id/camera"-->
-<!--                        app:layout_constraintStart_toEndOf="@+id/home"-->
-<!--                        app:layout_constraintTop_toTopOf="parent">-->
+                    <!--                    <FrameLayout-->
+                    <!--                        android:id="@+id/search"-->
+                    <!--                        android:layout_width="0dp"-->
+                    <!--                        android:layout_height="0dp"-->
+                    <!--                        android:layout_marginTop="@dimen/dimen_1"-->
+                    <!--                        -->
+                    <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--                        app:layout_constraintEnd_toStartOf="@+id/camera"-->
+                    <!--                        app:layout_constraintStart_toEndOf="@+id/home"-->
+                    <!--                        app:layout_constraintTop_toTopOf="parent">-->
 
-<!--                        <com.example.mvvmappapplication.custom.HSRadioButton-->
-<!--                            android:id="@+id/searchBtn"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:background="@drawable/btn_menu_search_selector"-->
-<!--                            android:button="@null"-->
-<!--                             />-->
+                    <!--                        <com.example.mvvmappapplication.custom.HSRadioButton-->
+                    <!--                            android:id="@+id/searchBtn"-->
+                    <!--                            android:layout_width="wrap_content"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:layout_gravity="center"-->
+                    <!--                            android:background="@drawable/btn_menu_search_selector"-->
+                    <!--                            android:button="@null"-->
+                    <!--                             />-->
 
-<!--                    </FrameLayout>-->
+                    <!--                    </FrameLayout>-->
 
                     <FrameLayout
                         android:id="@+id/camera"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_marginTop="@dimen/dimen_1"
-                        
+
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/assets"
                         app:layout_constraintStart_toEndOf="@+id/home"
@@ -144,7 +144,7 @@
                             android:background="@drawable/btn_menu_camera_selector"
                             android:button="@null"
                             android:checked="true"
-                            android:onClick="@{v->viewModel.onMenuClick(v)}"/>
+                            android:onClick="@{v->viewModel.onMenuClick(v)}" />
                     </FrameLayout>
 
                     <FrameLayout
@@ -152,7 +152,7 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_marginTop="@dimen/dimen_1"
-                        
+
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/myMenu"
                         app:layout_constraintStart_toEndOf="@+id/camera"
@@ -163,11 +163,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:background="@drawable/btn_menu_camera_selector"
+                            android:background="@drawable/btn_menu_qr_selector"
                             android:button="@null"
-                            android:checked="true"
-                            android:onClick="@{v->viewModel.onMenuClick(v)}"/>
-                             />
+                            android:onClick="@{v->viewModel.onMenuClick(v)}" />
+                        />
                         <!--                    android:background="@drawable/btn_menu_asset_selector"-->
                     </FrameLayout>
 
@@ -176,7 +175,7 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_marginTop="@dimen/dimen_1"
-                        
+
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/assets"
@@ -194,6 +193,16 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </FrameLayout>
         </RelativeLayout>
-    </RelativeLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_main"
+            app:menu="@menu/activity_main_drawer" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </layout>

@@ -57,6 +57,20 @@ public class RetrofitModule {
                 .build();
     }
     @Provides
+    @Singleton
+    @Named("image")
+    Retrofit provideImageRetrofit() {
+        return new Retrofit.Builder()
+                .client(new OkHttpClient.Builder().addInterceptor(
+                        new HttpLoggingInterceptor().setLevel(
+                                HttpLoggingInterceptor.Level.BODY))
+                        .build())
+                .baseUrl("http://ec2-15-165-76-70.ap-northeast-2.compute.amazonaws.com:8072/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+                .build();
+    }
+    @Provides
     @Reusable
     PostService providePostService(@Named("json") Retrofit retrofit) {
         return retrofit.create(PostService.class);
@@ -80,7 +94,7 @@ public class RetrofitModule {
 
     @Provides
     @Reusable
-    CameraService provideCameraService(@Named("server") Retrofit retrofit) {
+    CameraService provideCameraService(@Named("image") Retrofit retrofit) {
         return retrofit.create(CameraService.class);
     }
 

@@ -3,9 +3,9 @@ package com.example.mvvmappapplication.ui.detail;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.library.baseAdapters.BR;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mvvmappapplication.BR;
 import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.utils.ViewBindingHolder;
 
