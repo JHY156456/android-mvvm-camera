@@ -13,16 +13,9 @@
             type="com.example.mvvmappapplication.HomeViewModel" />
     </data>
 
-    <com.sothree.slidinguppanel.SlidingUpPanelLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        app:umanoDragView="@id/dragView"
-        app:umanoOverlay="false"
-        app:umanoPanelHeight="70dp"
-        app:umanoParallaxOffset="200dp"
-        app:umanoScrollableView="@id/listView"
-        app:umanoShadowHeight="10dp">
+        android:layout_height="match_parent">
 
         <androidx.drawerlayout.widget.DrawerLayout
             android:id="@+id/drawer_layout"
@@ -78,8 +71,6 @@
                             app:layout_constraintTop_toTopOf="parent"
 
                             />
-                        <!--                android:background="?attr/listLineColor"-->
-
                         <FrameLayout
                             android:id="@+id/home"
                             android:layout_width="0dp"
@@ -110,30 +101,7 @@
                                 android:layout_marginRight="@dimen/dimen_24"
                                 android:visibility="gone"
                                 tools:visibility="visible" />
-                            <!--                    app:dotColor="?attr/highColor"-->
                         </FrameLayout>
-
-                        <!--                    <FrameLayout-->
-                        <!--                        android:id="@+id/search"-->
-                        <!--                        android:layout_width="0dp"-->
-                        <!--                        android:layout_height="0dp"-->
-                        <!--                        android:layout_marginTop="@dimen/dimen_1"-->
-                        <!--                        -->
-                        <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
-                        <!--                        app:layout_constraintEnd_toStartOf="@+id/camera"-->
-                        <!--                        app:layout_constraintStart_toEndOf="@+id/home"-->
-                        <!--                        app:layout_constraintTop_toTopOf="parent">-->
-
-                        <!--                        <com.example.mvvmappapplication.custom.HSRadioButton-->
-                        <!--                            android:id="@+id/searchBtn"-->
-                        <!--                            android:layout_width="wrap_content"-->
-                        <!--                            android:layout_height="wrap_content"-->
-                        <!--                            android:layout_gravity="center"-->
-                        <!--                            android:background="@drawable/btn_menu_search_selector"-->
-                        <!--                            android:button="@null"-->
-                        <!--                             />-->
-
-                        <!--                    </FrameLayout>-->
 
                         <FrameLayout
                             android:id="@+id/camera"
@@ -203,7 +171,6 @@
                         </FrameLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </FrameLayout>
-
             </RelativeLayout>
 
             <com.google.android.material.navigation.NavigationView
@@ -217,34 +184,59 @@
 
         </androidx.drawerlayout.widget.DrawerLayout>
 
-        <LinearLayout
-            android:id="@+id/dragView"
+        <com.sothree.slidinguppanel.SlidingUpPanelLayout
+            android:id="@+id/sliding_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="false"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            app:umanoDragView="@id/dragView"
+            app:umanoOverlay="true"
+            app:umanoPanelHeight="@dimen/dimen_150"
+            app:umanoParallaxOffset="200dp"
+            app:umanoScrollableView="@id/listView"
+            app:umanoShadowHeight="10dp">
+            <!--            아래 clickable true로 주니까 패널 외부클릭시 click listener 작동함-->
+            <LinearLayout
+                android:id="@+id/sliding_up_back_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:clickable="true"
+                android:orientation="horizontal" />
 
             <LinearLayout
+                android:id="@+id/dragView"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_round_white"
+                android:clickable="true"
+                android:focusable="false"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="16sp"
-                    android:text="Action"
-                    android:textSize="24sp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@drawable/border_round_white"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16sp"
+                        android:textColor="@color/white"
+                        android:text="Action"
+                        android:textSize="24sp" />
+                </RelativeLayout>
+
+                <!-- 스크롤 해서 보여줄 부분은 listview 또는 custom listview 또는 recyclerview를 사용 -->
+                <ListView
+                    android:id="@+id/listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp">
+
+                </ListView>
             </LinearLayout>
+        </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
-            <!-- 스크롤 해서 보여줄 부분은 listview 또는 custom listview 또는 recyclerview를 사용 -->
-            <ListView
-                android:id="@+id/listView"
-                android:layout_width="match_parent"
-                android:layout_height="300dp">
-
-            </ListView>
-        </LinearLayout>
-    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+    </FrameLayout>
 </layout>

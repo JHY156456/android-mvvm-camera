@@ -2,13 +2,14 @@ package com.example.mvvmappapplication.ui;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -24,6 +25,7 @@ import com.example.mvvmappapplication.di.AppViewModelFactory;
 import com.example.mvvmappapplication.ui.menu.CameraFragmentDirections;
 import com.example.mvvmappapplication.ui.menu.HomeMenuFragmentDirections;
 import com.example.mvvmappapplication.ui.user.UserFragmentDirections;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -54,7 +56,7 @@ public class HomeActivity extends DaggerAppCompatActivity {
             setCheckedFalseAllRadioButton();
             HSRadioButton radioButton = (HSRadioButton) view;
             radioButton.setChecked(true);
-            switch (view.getId()){
+            switch (view.getId()) {
                 case R.id.homeBtn:
                     navController.get().navigate(HomeMenuFragmentDirections.actionHomeActivityToHomeMenuFragment());
                     break;
@@ -79,25 +81,50 @@ public class HomeActivity extends DaggerAppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(binding.get().navView, navController);
+        // collapsed : 살짝 올라와있는 상태
+        binding.get().slidingLayout.setFadeOnClickListener(view -> {
+            binding.get().slidingUpBackLayout.setClickable(false);
+            binding.get().slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
+        });
+        binding.get().listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+                new String[]{"은쀠빙", "화이팅"}));
 
-
-        final ListView listView = findViewById(R.id.listView);
-        listView.setAdapter(new ArrayAdapter<String>(this, R.layout.simple_list_item_1,
-                new String[]{"copy","past","cut","delete","convert","open", "copy","past","cut","delete","convert","open", "copy","past","cut","delete","convert","open"}));
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.get().listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), position+" 번째 값 : " + parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), position + " 번째 값 : " + parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    public void setCheckedFalseAllRadioButton(){
+    @Override
+    public void onBackPressed() {
+        if (binding.get().slidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.HIDDEN) {
+            super.onBackPressed();
+        } else {
+            binding.get().slidingUpBackLayout.setClickable(false);
+            binding.get().slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
+        }
+    }
+
+    public void setCheckedFalseAllRadioButton() {
         binding.get().cameraBtn.setChecked(false);
         binding.get().qrBtn.setChecked(false);
         binding.get().myMenuBtn.setChecked(false);
         binding.get().homeBtn.setChecked(false);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.action_panel:
+                binding.get().slidingUpBackLayout.setClickable(true);
+                binding.get().slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

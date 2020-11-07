@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.mvvmappapplication.ui.user.LoginActivity;
+import com.example.mvvmappapplication.ui.HomeActivity;
 
 public class SplashActivity extends AppCompatActivity {
     @Override
@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
         startLoading();
     }
     private void goLoginActivity(){
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         finish();
     }
