@@ -83,9 +83,6 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
                 .subscribe(liveItem::setValue, getErrorEvent()::setValue));
     }
 
-    /**
-     * 기본적인 람다방식
-     */
     public void onRegisterCompletedClick() {
         loading.setValue(true);
         compositeDisposable.add(
@@ -107,6 +104,7 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
     }
 
 
+    //Todo : onComplete에 ()->loading.setValue(false) 하니까 바로 실행되면서 로그인 로딩화면이 꺼지는것같은데 이유를 찾아보자
     public void login(String id, String pw) {
         loading.setValue(true);
         UserInfo userInfo= new UserInfoBuilder().setId(id)
@@ -124,8 +122,7 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
                                 throwable -> {
                                     getErrorEvent().setValue(throwable);
                                     loading.postValue(false);
-                                },
-                                ()->loading.postValue(false)));
+                                }));
     }
 
     public ObservableField<String> getLoginId() {

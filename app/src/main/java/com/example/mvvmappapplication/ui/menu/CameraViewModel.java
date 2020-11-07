@@ -85,8 +85,7 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
         compositeDisposable.add(cameraService.uploadFoodImage(body)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(getResponseBodySingleLiveEvent()::setValue, getErrorEvent()::setValue,
-                        ()->loading.setValue(false)));
+                .subscribe(getResponseBodySingleLiveEvent()::setValue, getErrorEvent()::setValue));
     }
 
 
