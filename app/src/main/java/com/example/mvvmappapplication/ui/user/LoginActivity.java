@@ -16,6 +16,11 @@ import com.example.mvvmappapplication.di.AppViewModelFactory;
 import com.example.mvvmappapplication.ui.BaseActivity;
 import com.example.mvvmappapplication.ui.HomeActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
 import javax.inject.Inject;
 
 import dagger.Lazy;
@@ -46,7 +51,15 @@ public class LoginActivity extends BaseActivity {
 
     public void initLiveItems() {
         viewModel.getResponseBodySingleLiveEvent().observe(this,response -> {
-            Timber.e("LoginActivity : " + response.toString());
+            JSONObject jsonObj = null;
+            String login="";
+            try {
+                jsonObj = new JSONObject(response.body().string());
+                login = jsonObj.getString("login_STATUS");
+            } catch (JSONException | IOException e) {
+                e.printStackTrace();
+            }
+            Timber.e("LoginActivity : " +login);
             startActivity(new Intent(this, HomeActivity.class));
             finish();
         });

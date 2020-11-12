@@ -146,4 +146,9 @@
     <string name="profile_select_default">기본이미지로 변경</string>
     <string name="profile_update">프로필을 변경하였습니다.</string>
     <string name="profile_image_upload_fail">프로필 이미지 업로드에 실패하였습니다.</string>
+
+
+    <string name="btn_txt_history">히스토리 보기</string>
+    <string name="btn_txt_call"></string>
+    <string name="btn_txt_camera"></string>
 </resources>

@@ -8,8 +8,12 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.MutableLiveData;
 
+import com.example.mvvmappapplication.utils.Event;
 import com.example.mvvmappapplication.utils.SingleLiveEvent;
+
+import java.util.List;
 
 /**
  * [공통] BaseViewModel
@@ -18,6 +22,16 @@ import com.example.mvvmappapplication.utils.SingleLiveEvent;
  * @author ehjung
  */
 public class BaseViewModel<V extends BaseNavigator> extends AndroidViewModel {
+    private final MutableLiveData<Event<Boolean>> openSlidingUpPopup = new MutableLiveData<>();
+    private final MutableLiveData<List<String>> SlidingUpData = new MutableLiveData<>();
+
+    public MutableLiveData<List<String>> getSlidingUpData() {
+        return SlidingUpData;
+    }
+
+    public MutableLiveData<Event<Boolean>> getOpenSlidingUpPopup() {
+        return openSlidingUpPopup;
+    }
 
     public SparseIntArray mDataLoadState = new SparseIntArray();
 

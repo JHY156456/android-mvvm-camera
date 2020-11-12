@@ -56,7 +56,7 @@ public class RetrofitModule {
                         new HttpLoggingInterceptor().setLevel(
                                 HttpLoggingInterceptor.Level.BODY))
                         .build())
-                .baseUrl("http://ec2-3-34-178-144.ap-northeast-2.compute.amazonaws.com:8072/")
+                .baseUrl("http://ec2-13-209-5-246.ap-northeast-2.compute.amazonaws.com:8072/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build();

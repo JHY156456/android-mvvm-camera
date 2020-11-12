@@ -3,11 +3,7 @@ package com.example.mvvmappapplication.ui;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +12,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.mvvmappapplication.HomeViewModel;
 import com.example.mvvmappapplication.R;
@@ -24,7 +21,9 @@ import com.example.mvvmappapplication.databinding.ActivityHomeBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
 import com.example.mvvmappapplication.ui.menu.CameraFragmentDirections;
 import com.example.mvvmappapplication.ui.menu.HomeMenuFragmentDirections;
+import com.example.mvvmappapplication.ui.post.SlidingAdapter;
 import com.example.mvvmappapplication.ui.user.UserFragmentDirections;
+import com.example.mvvmappapplication.utils.EventObserver;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import javax.inject.Inject;
@@ -42,7 +41,11 @@ public class HomeActivity extends DaggerAppCompatActivity {
     @Inject
     @Named("HomeActivity")
     Lazy<NavController> navController;
-
+    @Inject
+    @Named("asdf")
+    LinearLayoutManager layoutManager;
+    @Inject
+    SlidingAdapter adapter;
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -83,27 +86,30 @@ public class HomeActivity extends DaggerAppCompatActivity {
         NavigationUI.setupWithNavController(binding.get().navView, navController);
         // collapsed : 살짝 올라와있는 상태
         binding.get().slidingLayout.setFadeOnClickListener(view -> {
-            binding.get().slidingUpBackLayout.setClickable(false);
             binding.get().slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
         });
-        binding.get().listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-                new String[]{"은쀠빙", "화이팅"}));
-
-        binding.get().listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), position + " 번째 값 : " + parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
-            }
+        binding.get().listView.setLayoutManager(layoutManager);
+        binding.get().listView.setAdapter(adapter);
+        viewModel.getSlidingUpData().observe(this, list -> {
+            adapter.setItems(list);
         });
+
+        viewModel.getOpenSlidingUpPopup().observe(this, new EventObserver<>(data -> {
+            boolean isOpen = (Boolean) data;
+            if (isOpen) {
+                binding.get().slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
+            }
+        }));
     }
+
 
     @Override
     public void onBackPressed() {
-        if (binding.get().slidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.HIDDEN) {
+        if (binding.get().slidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.COLLAPSED) {
             super.onBackPressed();
-        } else {
-            binding.get().slidingUpBackLayout.setClickable(false);
-            binding.get().slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
+        } else if (binding.get().slidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED) {
+            //binding.get().slidingUpBackLayout.setClickable(false);
+            binding.get().slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
         }
     }
 
@@ -117,10 +123,9 @@ public class HomeActivity extends DaggerAppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
             case R.id.action_panel:
-                binding.get().slidingUpBackLayout.setClickable(true);
-                binding.get().slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
+                //binding.get().slidingUpBackLayout.setClickable(true);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

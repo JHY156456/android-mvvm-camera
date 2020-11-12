@@ -1,15 +1,19 @@
 package com.example.mvvmappapplication.ui;
 
 import android.content.Context;
+import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.databinding.ActivityHomeBinding;
 import com.example.mvvmappapplication.di.ActivityContext;
 import com.example.mvvmappapplication.di.ActivityScope;
+import com.example.mvvmappapplication.di.ApplicationContext;
 import com.example.mvvmappapplication.di.FragmentScope;
 import com.example.mvvmappapplication.ui.detail.PostDetailFragment;
 import com.example.mvvmappapplication.ui.detail.PostDetailModule;
@@ -48,6 +52,18 @@ public abstract class HomeModule {
         return Navigation.findNavController(activity,R.id.content);
     }
 
+    //RecyclerView용 레이아웃 매니저
+    @Provides
+    @ActivityScope
+    @Named("asdf")
+    static LinearLayoutManager provideLinearLayoutManager(@ApplicationContext Context context) {
+        return new LinearLayoutManager(context) {
+            @Override
+            public RecyclerView.LayoutParams generateDefaultLayoutParams() {
+                return new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+            }
+        };
+    }
 
     /**
      * 서브컴포넌트 정의

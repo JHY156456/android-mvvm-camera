@@ -106,4 +106,13 @@ dependencies {
 
     //sliding up layout
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
+    
+    //Room Database
+    def room_version = "2.2.0"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
+    implementation "androidx.room:room-guava:$room_version"
+    implementation "androidx.room:room-testing:$room_version"
 }

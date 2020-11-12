@@ -42,12 +42,13 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
     private final SingleLiveEvent<View> buttonCameraClickEvent = new SingleLiveEvent<>();
     private final MutableLiveData<Bitmap> cameraItem = new MutableLiveData<>();
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>(false);
+
     @Inject
     public CameraViewModel(@NonNull Application application,
-                         CameraService cameraService,
-                         @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent,
+                           CameraService cameraService,
+                           @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent,
                            @Named("responseBodySingleLiveEvent") SingleLiveEvent<Response<ResponseBody>> responseBodySingleLiveEvent) {
-        super(application,errorEvent);
+        super(application, errorEvent);
         Timber.d("CameraViewModule created");
         //오브젝트 그래프로 부터 생성자 주입
         this.cameraService = cameraService;
@@ -69,38 +70,47 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
     public SingleLiveEvent<View> getButtonCameraClickEvent() {
         return buttonCameraClickEvent;
     }
-    public MutableLiveData<Bitmap> getCameraItem(){
+
+    public MutableLiveData<Bitmap> getCameraItem() {
         return cameraItem;
     }
 
-    public void onClickButtonCamera(View view){
+    public void onClickButtonCamera(View view) {
         buttonCameraClickEvent.setValue(view);
     }
 
     File f;
-    public void onClickCall(View view)  {
+
+    public void onClickCall(View view) {
         loading.setValue(true);
         RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), f);
         MultipartBody.Part body = MultipartBody.Part.createFormData("carImage", f.getName(), reqFile);
         compositeDisposable.add(cameraService.uploadFoodImage(body)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(getResponseBodySingleLiveEvent()::setValue, getErrorEvent()::setValue));
+                .subscribe((responseBodyResponse) -> {
+                    getResponseBodySingleLiveEvent().setValue(responseBodyResponse);
+                    getLoading().setValue(false);
+                }, throwable -> {
+                    getErrorEvent().setValue(throwable);
+                    loading.postValue(false);
+                }));
     }
 
 
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode==100){
-            if(resultCode== Activity.RESULT_OK){
+        if (requestCode == 100) {
+            if (resultCode == Activity.RESULT_OK) {
                 byte[] byteArray = data.getByteArrayExtra("image");
                 f = (File) data.getSerializableExtra("file");
                 Bitmap image = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
                 cameraItem.setValue(image);
-            } else{
+            } else {
                 cameraItem.setValue(null);
             }
         }
     }
+
 
     public MutableLiveData<Boolean> getLoading() {
         return loading;

@@ -12,9 +12,12 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 
+import com.example.mvvmappapplication.HomeViewModel;
 import com.example.mvvmappapplication.databinding.FragmentCameraBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
 import com.example.mvvmappapplication.utils.PermissionUtil;
+
+import java.io.IOException;
 
 import javax.inject.Inject;
 
@@ -35,12 +38,13 @@ public class CameraFragment extends DaggerFragment {
     Lazy<NavController> navController;
 
     CameraViewModel viewModel;
-
+    HomeViewModel homeViewModel;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //ViewModel 객체를 요청
         viewModel = new ViewModelProvider(this, viewModelFactory).get(CameraViewModel.class);
+        homeViewModel = new ViewModelProvider(getActivity(), viewModelFactory).get(HomeViewModel.class);
     }
 
     @Nullable
@@ -55,6 +59,8 @@ public class CameraFragment extends DaggerFragment {
         //Lifecycle Owner 등록
         binding.setLifecycleOwner(getViewLifecycleOwner());
         binding.setViewModel(viewModel);
+        //setHomeViewModel을 해야 activity의 viewmodel을 사용할 수 있다.
+        binding.setHomeViewModel(homeViewModel);
         viewModel.getButtonCameraClickEvent().observe(getViewLifecycleOwner(), view1 -> {
             if (!PermissionUtil.isGranted(getActivity(), PermissionUtil.REQUEST_CAMERA_PERMISSION)) {
                 PermissionUtil.requestPermissionCamera(getActivity());
@@ -72,8 +78,11 @@ public class CameraFragment extends DaggerFragment {
             }
         });
         viewModel.getResponseBodySingleLiveEvent().observe(getViewLifecycleOwner(),response -> {
-            Timber.e("response.toString() : " + response.toString());
-            Timber.e("response.body().toString() : " + response.body().toString());
+            try {
+                Timber.e("response.string() : " + response.body().string());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             Toast.makeText(getActivity(), "reponsebody성공 : " + response.toString(), Toast.LENGTH_SHORT).show();
         });
         viewModel.getErrorEvent().observe(getViewLifecycleOwner(),throwable -> {

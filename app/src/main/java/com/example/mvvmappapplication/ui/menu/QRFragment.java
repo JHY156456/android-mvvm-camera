@@ -67,7 +67,7 @@ public class QRFragment extends DaggerFragment {
             } else {
                 qrScan = IntentIntegrator.forSupportFragment(this);
                 qrScan.setOrientationLocked(true);
-                qrScan.setPrompt("아래 띄울 문구");
+                qrScan.setPrompt("QR코드를 촬영하세요");
                 qrScan.initiateScan();
             }
         });

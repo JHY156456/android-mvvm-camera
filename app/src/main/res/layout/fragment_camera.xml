@@ -10,6 +10,9 @@
         <variable
             name="viewModel"
             type="com.example.mvvmappapplication.ui.menu.CameraViewModel" />
+        <variable
+            name="homeViewModel"
+            type="com.example.mvvmappapplication.HomeViewModel" />
     </data>
 
     <RelativeLayout
@@ -27,13 +30,20 @@
             android:onClick="@{(v)->viewModel.onClickButtonCamera(v)}"
             android:layout_centerInParent="true"
             tools:ignore="MissingConstraints" />
-
-        <!--데이터가 로드 중임을 알린다-->
+        <Button
+            android:id="@+id/button_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_camera"
+            android:layout_centerInParent="true"
+            android:onClick="@{(v)->homeViewModel.onClickHistory(v)}"
+            android:text="@string/btn_txt_history"
+            tools:ignore="MissingConstraints" />
         <Button
             android:id="@+id/button_call"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/button_camera"
+            android:layout_below="@+id/button_history"
             android:layout_centerInParent="true"
             android:onClick="@{(v)->viewModel.onClickCall(v)}"
             android:text="전화걸기"
