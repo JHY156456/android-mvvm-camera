@@ -22,7 +22,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import timber.log.Timber;
 
-public class HomeMenuViewModel extends BaseViewModel<BaseNavigator> implements PostItem.EventListener{
+public class HomeMenuViewModel extends BaseViewModel<BaseNavigator> implements PostItem.EventListener {
     @NonNull
     private final PostService postService;
     @NonNull
@@ -38,8 +38,8 @@ public class HomeMenuViewModel extends BaseViewModel<BaseNavigator> implements P
 
     @Inject
     public HomeMenuViewModel(@NonNull Application application,
-                         PostService postService,
-                         @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent) {
+                             PostService postService,
+                             @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent) {
         super(application);
         Timber.d("PostViewModel created");
         //오브젝트 그래프로 부터 생성자 주입
@@ -88,10 +88,12 @@ public class HomeMenuViewModel extends BaseViewModel<BaseNavigator> implements P
         //SingleLiveEvent의 값을 변경한다.
         postClickEvent.setValue(postItem);
     }
+
     //PostFragment로 postClickEvent 변수를 노출
     public SingleLiveEvent<PostItem> getPostClickEvent() {
         return postClickEvent;
     }
+
     public MutableLiveData<Boolean> getLoading() {
         return loading;
     }

@@ -54,6 +54,7 @@ public class HomeActivity extends DaggerAppCompatActivity implements NavigationV
     private AppBarConfiguration mAppBarConfiguration;
     @Inject
     BackPressCloseHandler backPressCloseHandler;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -90,7 +91,7 @@ public class HomeActivity extends DaggerAppCompatActivity implements NavigationV
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.camera_fragment, R.id.home_menu_fragment, R.id.qr_fragment,R.id.user_frmagnet)
+                R.id.camera_fragment, R.id.home_menu_fragment, R.id.qr_fragment, R.id.user_frmagnet)
                 .setDrawerLayout(binding.get().drawerLayout)
                 .build();
         //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -118,7 +119,11 @@ public class HomeActivity extends DaggerAppCompatActivity implements NavigationV
     @Override
     public void onBackPressed() {
         if (binding.get().slidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.COLLAPSED) {
-            super.onBackPressed();
+            if (mAppBarConfiguration.getTopLevelDestinations().contains(navController.get().getCurrentDestination().getId())) {
+                backPressCloseHandler.onBackPressed();
+            } else {
+                super.onBackPressed();
+            }
         } else if (binding.get().slidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED) {
             //binding.get().slidingUpBackLayout.setClickable(false);
             binding.get().slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);

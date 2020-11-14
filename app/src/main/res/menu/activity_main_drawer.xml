@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 <!--    아래 item의 아이디와 nav_home.xml의 fragment id가 같아야하는듯?-->
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="none">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
