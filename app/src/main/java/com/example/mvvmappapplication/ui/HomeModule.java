@@ -25,6 +25,7 @@ import com.example.mvvmappapplication.ui.menu.QRFragment;
 import com.example.mvvmappapplication.ui.menu.QRModule;
 import com.example.mvvmappapplication.ui.user.UserFragment;
 import com.example.mvvmappapplication.ui.user.UserModule;
+import com.example.mvvmappapplication.utils.BackPressCloseHandler;
 
 import javax.inject.Named;
 
@@ -63,6 +64,12 @@ public abstract class HomeModule {
                 return new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
             }
         };
+    }
+
+    @Provides
+    @ActivityScope
+    static BackPressCloseHandler provideBackPressCloseHandler(HomeActivity homeActivity){
+        return new BackPressCloseHandler(homeActivity);
     }
 
     /**

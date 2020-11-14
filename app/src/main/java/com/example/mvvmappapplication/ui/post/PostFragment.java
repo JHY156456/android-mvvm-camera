@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.mvvmappapplication.databinding.FragmentPostBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
+import com.example.mvvmappapplication.ui.menu.HomeMenuFragmentDirections;
 
 import javax.inject.Inject;
 
@@ -75,7 +76,7 @@ public class PostFragment extends DaggerFragment {
         //게시글이 클릭 되었을 때 다음 목적지로 이동
         viewModel.getPostClickEvent()
                 .observe(getViewLifecycleOwner(), postItem ->
-                        navController.get().navigate(PostFragmentDirections
+                        navController.get().navigate(HomeMenuFragmentDirections
                                 .actionPostFragmentToPostDetailFragment(postItem.getPost())));
 
     }

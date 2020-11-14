@@ -1,5 +1,6 @@
 package com.example.mvvmappapplication.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -7,9 +8,9 @@ import android.view.Window;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,11 +20,15 @@ import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.custom.HSRadioButton;
 import com.example.mvvmappapplication.databinding.ActivityHomeBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
+import com.example.mvvmappapplication.ui.gallery.GalleryActivity;
 import com.example.mvvmappapplication.ui.menu.CameraFragmentDirections;
 import com.example.mvvmappapplication.ui.menu.HomeMenuFragmentDirections;
 import com.example.mvvmappapplication.ui.post.SlidingAdapter;
+import com.example.mvvmappapplication.ui.slideshow.SlideshowActivity;
 import com.example.mvvmappapplication.ui.user.UserFragmentDirections;
+import com.example.mvvmappapplication.utils.BackPressCloseHandler;
 import com.example.mvvmappapplication.utils.EventObserver;
+import com.google.android.material.navigation.NavigationView;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import javax.inject.Inject;
@@ -32,7 +37,7 @@ import javax.inject.Named;
 import dagger.Lazy;
 import dagger.android.support.DaggerAppCompatActivity;
 
-public class HomeActivity extends DaggerAppCompatActivity {
+public class HomeActivity extends DaggerAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     @Inject
     Lazy<ActivityHomeBinding> binding;
     HomeViewModel viewModel;
@@ -47,7 +52,8 @@ public class HomeActivity extends DaggerAppCompatActivity {
     @Inject
     SlidingAdapter adapter;
     private AppBarConfiguration mAppBarConfiguration;
-
+    @Inject
+    BackPressCloseHandler backPressCloseHandler;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -55,6 +61,9 @@ public class HomeActivity extends DaggerAppCompatActivity {
         binding.get().setLifecycleOwner(this);
         viewModel = new ViewModelProvider(this, viewModelFactory).get(HomeViewModel.class);
         binding.get().setViewModel(viewModel);
+        setSupportActionBar(binding.get().include.toolbar);
+        binding.get().include.toolbarLayout.setTitle("촬영");
+        binding.get().navView.setNavigationItemSelectedListener(this);
         viewModel.getBottomMenuClickEvent().observe(this, view -> {
             setCheckedFalseAllRadioButton();
             HSRadioButton radioButton = (HSRadioButton) view;
@@ -62,28 +71,31 @@ public class HomeActivity extends DaggerAppCompatActivity {
             switch (view.getId()) {
                 case R.id.homeBtn:
                     navController.get().navigate(HomeMenuFragmentDirections.actionHomeActivityToHomeMenuFragment());
+                    binding.get().include.toolbarLayout.setTitle("홈");
                     break;
                 case R.id.myMenuBtn:
                     navController.get().navigate(UserFragmentDirections.actionHomeActivityToUserFragment(1));
+                    binding.get().include.toolbarLayout.setTitle("촬영");
                     break;
                 case R.id.qrBtn:
                     navController.get().navigate(UserFragmentDirections.actionHomeActivityToQrFragment());
+                    binding.get().include.toolbarLayout.setTitle("QR");
                     break;
                 case R.id.cameraBtn:
                     navController.get().navigate(CameraFragmentDirections.actionHomeActivityToCameraFragment());
+                    binding.get().include.toolbarLayout.setTitle("프로필");
                     break;
             }
         });
-        setSupportActionBar(binding.get().include.toolbar);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.camera_fragment, R.id.home_menu_fragment, R.id.qr_fragment,R.id.user_frmagnet)
                 .setDrawerLayout(binding.get().drawerLayout)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(binding.get().navView, navController);
+        //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController.get(), mAppBarConfiguration);
+        //NavigationUI.setupWithNavController(binding.get().navView, navController.get());
         // collapsed : 살짝 올라와있는 상태
         binding.get().slidingLayout.setFadeOnClickListener(view -> {
             binding.get().slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
@@ -141,8 +153,28 @@ public class HomeActivity extends DaggerAppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+        //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return NavigationUI.navigateUp(navController.get(), mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        // Handle navigation view item clicks here.
+        switch (item.getItemId()) {
+
+            case R.id.nav_gallery: {
+                startActivity(new Intent(this, GalleryActivity.class));
+                break;
+            }
+            case R.id.nav_slideshow: {
+                startActivity(new Intent(this, SlideshowActivity.class));
+                break;
+            }
+        }
+        //close navigation drawer
+        binding.get().drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

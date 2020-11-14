@@ -5,10 +5,12 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mvvmappapplication.HomeViewModel;
 import com.example.mvvmappapplication.ui.detail.PostDetailViewModel;
+import com.example.mvvmappapplication.ui.gallery.GalleryViewModel;
 import com.example.mvvmappapplication.ui.menu.CameraViewModel;
 import com.example.mvvmappapplication.ui.menu.HomeMenuViewModel;
 import com.example.mvvmappapplication.ui.menu.QRViewModel;
 import com.example.mvvmappapplication.ui.post.PostViewModel;
+import com.example.mvvmappapplication.ui.slideshow.SlideshowViewModel;
 import com.example.mvvmappapplication.ui.user.UserViewModel;
 
 import dagger.Binds;
@@ -56,4 +58,14 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(HomeMenuViewModel.class)
     abstract ViewModel bindsHomeMenuViewModel(HomeMenuViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(GalleryViewModel.class)
+    abstract ViewModel bindsGalleryViewModel(GalleryViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SlideshowViewModel.class)
+    abstract ViewModel bindsSlideshowViewModel(SlideshowViewModel viewModel);
 }

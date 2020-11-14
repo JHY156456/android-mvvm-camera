@@ -12,6 +12,7 @@
         app:popUpTo="@id/nav_home"
         app:popUpToInclusive="true" />
 
+
     <action
         android:id="@+id/action_home_activity_to_home_menu_fragment"
         app:destination="@id/home_menu_fragment"
@@ -47,16 +48,6 @@
         <!--화면 전환시 사용할 애니메이션도 적용한다-->
         <action
             android:id="@+id/action_post_fragment_to_post_detail_fragment"
-            app:destination="@id/post_detail_fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
-        <action
-            android:id="@+id/action_post_fragment_to_post_detail_fragment2"
-            app:destination="@id/post_detail_fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
-        <action
-            android:id="@+id/action_post_fragment_to_post_detail_fragment3"
             app:destination="@id/post_detail_fragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
@@ -116,4 +107,23 @@
         <!--화면 전환시 사용할 애니메이션도 적용한다-->
 
     </fragment>
+
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_home"-->
+<!--        android:name="com.example.mvvmappapplication.ui.home.HomeFragment"-->
+<!--        android:label="@string/menu_home"-->
+<!--        tools:layout="@layout/fragment_home" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_gallery"-->
+<!--        android:name="com.example.mvvmappapplication.ui.gallery.GalleryActivity"-->
+<!--        android:label="@string/menu_gallery"-->
+<!--        tools:layout="@layout/fragment_gallery" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_slideshow"-->
+<!--        android:name="com.example.mvvmappapplication.ui.slideshow.SlideshowActivity"-->
+<!--        android:label="@string/menu_slideshow"-->
+<!--        tools:layout="@layout/fragment_slideshow" />-->
 </navigation>

@@ -5,8 +5,12 @@ import com.example.mvvmappapplication.ui.HomeActivity;
 import com.example.mvvmappapplication.ui.HomeModule;
 import com.example.mvvmappapplication.ui.MainActivity;
 import com.example.mvvmappapplication.ui.MainModule;
+import com.example.mvvmappapplication.ui.gallery.GalleryActivity;
+import com.example.mvvmappapplication.ui.gallery.GalleryModule;
 import com.example.mvvmappapplication.ui.menu.CameraViewActivity;
 import com.example.mvvmappapplication.ui.menu.CameraViewModule;
+import com.example.mvvmappapplication.ui.slideshow.SlideshowActivity;
+import com.example.mvvmappapplication.ui.slideshow.SlideshowModule;
 import com.example.mvvmappapplication.ui.user.LoginActivity;
 import com.example.mvvmappapplication.ui.user.LoginModule;
 import com.example.mvvmappapplication.ui.user.RegistrationActivity;
@@ -38,4 +42,12 @@ public abstract class ActivityModule {
     @ContributesAndroidInjector(modules = CameraViewModule.class)
     abstract CameraViewActivity cameraViewActivity();
 
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = GalleryModule.class)
+    abstract GalleryActivity galleryActivity();
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = SlideshowModule.class)
+    abstract SlideshowActivity slideshowActivity();
 }

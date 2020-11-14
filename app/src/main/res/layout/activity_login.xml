@@ -115,6 +115,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:layout_marginRight="@dimen/dimen_15"
+                    android:layout_marginLeft="@dimen/dimen_15"
                     android:background="@drawable/btnsignin_gradient"
                     android:onClick="@{()->viewModel.login(viewModel.loginId,viewModel.loginPassword)}"
                     android:text="로그인"

@@ -50,23 +50,19 @@
                     <include
                         android:id="@+id/include"
                         layout="@layout/app_bar_main"
+                        android:layout_above="@+id/bottomMenuLayout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 
-                    <androidx.fragment.app.FragmentContainerView
-                        android:id="@+id/content"
-                        android:name="androidx.navigation.fragment.NavHostFragment"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_above="@+id/bottomMenuLayout"
-                        android:layout_marginTop="@dimen/dimen_55"
-                        app:defaultNavHost="true"
-                        app:navGraph="@navigation/nav_home" />
-                    <!--                속성은 NavHostFragment 시스템 뒤로 버튼을 가로 채도록합니다. -->
-                    <!--                단 하나만 NavHost기본값이 될 수 있습니다. -->
-                    <!--                동일한 레이아웃 (예 : 두 개의 창 레이아웃)에 여러 호스트가있는 경우 하나의 기본값 만 지정해야합니다.-->
-
-                    <!--            android:background="?attr/windowBackground"-->
+<!--                    <androidx.fragment.app.FragmentContainerView-->
+<!--                        android:id="@+id/content"-->
+<!--                        android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_above="@+id/bottomMenuLayout"-->
+<!--                        android:layout_marginTop="@dimen/dimen_55"-->
+<!--                        app:defaultNavHost="true"-->
+<!--                        app:navGraph="@navigation/nav_home" />-->
                     <FrameLayout
                         android:id="@+id/bottomMenuLayout"
                         android:layout_width="match_parent"

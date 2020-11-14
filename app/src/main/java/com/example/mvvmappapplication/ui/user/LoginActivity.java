@@ -52,14 +52,14 @@ public class LoginActivity extends BaseActivity {
     public void initLiveItems() {
         viewModel.getResponseBodySingleLiveEvent().observe(this,response -> {
             JSONObject jsonObj = null;
-            String login="";
+            String hi = "";
             try {
                 jsonObj = new JSONObject(response.body().string());
-                login = jsonObj.getString("login_STATUS");
+                hi = jsonObj.getString("login_STATUS");
             } catch (JSONException | IOException e) {
                 e.printStackTrace();
             }
-            Timber.e("LoginActivity : " +login);
+            Timber.e("LoginActivity : " +hi);
             startActivity(new Intent(this, HomeActivity.class));
             finish();
         });
@@ -77,9 +77,9 @@ public class LoginActivity extends BaseActivity {
     public void buttonClick(View view) {
         switch (view.getId()) {
             case R.id.tvSignIn: {
-                startActivity(Hanwha.intentForRegistrationActivity(this));
+               // startActivity(Hanwha.intentForRegistrationActivity(this));
                 //startActivity(Charles.intentForSecondActivity(this));
-                //startActivity(new Intent(this,RegistrationActivity.class));
+                startActivity(new Intent(this,RegistrationActivity.class));
             }
         }
 
