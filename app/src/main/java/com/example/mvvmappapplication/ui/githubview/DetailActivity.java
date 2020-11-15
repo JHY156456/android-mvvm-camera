@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.example.mvvmappapplication.App;
 import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.data.githubcontract.DetailViewContract;
 import com.example.mvvmappapplication.data.githubmodel.GitHubService;
@@ -36,7 +37,7 @@ public class DetailActivity extends AppCompatActivity implements DetailViewContr
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     final ActivityDetailBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
-    final GitHubService gitHubService = ((NewGitHubReposApplication) getApplication()).getGitHubService();
+    final GitHubService gitHubService = ((App) getApplication()).getGitHubService();
     final DetailViewModel detailViewModel = new DetailViewModel((DetailViewContract) this, gitHubService);
     binding.setViewModel(detailViewModel);
 

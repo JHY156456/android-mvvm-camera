@@ -7,9 +7,17 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.mvvmappapplication.App;
 import com.example.mvvmappapplication.R;
@@ -18,12 +26,17 @@ import com.example.mvvmappapplication.consts.Const.eThemeType;
 import com.example.mvvmappapplication.consts.MainEvent;
 import com.example.mvvmappapplication.custom.HSTitleBar;
 import com.example.mvvmappapplication.dialog.ProgressDialogBase;
+import com.example.mvvmappapplication.ui.gallery.GalleryActivity;
+import com.example.mvvmappapplication.ui.slideshow.SlideshowActivity;
 import com.example.mvvmappapplication.utils.AlertUtil;
 import com.example.mvvmappapplication.utils.IntentUtil;
 import com.example.mvvmappapplication.utils.LogUtil;
 import com.example.mvvmappapplication.utils.PermissionUtil;
 import com.example.mvvmappapplication.utils.ThemeUtil;
 import com.example.mvvmappapplication.utils.UIUtil;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.navigation.NavigationView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -38,7 +51,7 @@ import dagger.android.support.DaggerAppCompatActivity;
  * @version 1.0
  * @since 2016-07-26
  */
-public abstract class BaseActivity extends DaggerAppCompatActivity implements View.OnClickListener {
+public abstract class BaseActivity extends DaggerAppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
     private ProgressDialogBase mProgressDialog;
 
@@ -46,17 +59,56 @@ public abstract class BaseActivity extends DaggerAppCompatActivity implements Vi
 
     private boolean isActived = false;
 
+    DrawerLayout drawerLayout;
+    Toolbar toolbar;
+    CollapsingToolbarLayout collapsingToolbarLayout;
+    NavigationView navigationView;
+    AppBarLayout appBarLayout;
+    AppBarConfiguration appBarConfiguration;
+    ActionBarDrawerToggle drawerToggle;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (App.getThemeType() == Const.eThemeType.DARK) {
-            mThemeType = eThemeType.DARK;
-            setTheme(mThemeType);
-        }
+//        if (App.getThemeType() == Const.eThemeType.DARK) {
+//            mThemeType = eThemeType.DARK;
+//            setTheme(mThemeType);
+//        }
         //ThemeUtil.setStatusBarColor(getActivity());
         super.onCreate(savedInstanceState);
-        if(savedInstanceState!=null)
-            onRestoreInstance(savedInstanceState);
-        App.setCurrentActivity(this);
+//        if(savedInstanceState!=null)
+//            onRestoreInstance(savedInstanceState);
+//        App.setCurrentActivity(this);
+    }
+
+    public void setToolbarTitle(String title){
+        collapsingToolbarLayout.setTitle(title);
+    }
+
+    public void setDrawerLayoutAndToolbar() {
+        drawerLayout = findViewById(R.id.drawer_layout);
+        toolbar = findViewById(R.id.toolbar);
+        navigationView = findViewById(R.id.nav_view);
+        collapsingToolbarLayout = findViewById(R.id.toolbar_layout);
+        //appBarLayout = findViewById(R.id.app_bar);
+
+        if (drawerLayout != null && toolbar != null && navigationView != null && collapsingToolbarLayout != null) {
+            setSupportActionBar(toolbar);
+            navigationView.setNavigationItemSelectedListener(this);
+            //appBarLayout.setExpanded(false);
+        }
+    }
+    public void setAppBarLayout(boolean isOpen){
+        appBarLayout = findViewById(R.id.app_bar);
+        appBarLayout.setExpanded(isOpen);
+    }
+    public void setAppBarConfigurationForLeftMenuIcon() {
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        drawerToggle.syncState();
+        drawerLayout.addDrawerListener(drawerToggle);
     }
 
     /**
@@ -64,22 +116,23 @@ public abstract class BaseActivity extends DaggerAppCompatActivity implements Vi
      */
     public void setTheme(eThemeType themeType) {
 
-            setTheme((themeType == eThemeType.DARK) ? R.style.DarkTheme : R.style.WhiteTheme);
+        setTheme((themeType == eThemeType.DARK) ? R.style.DarkTheme : R.style.WhiteTheme);
     }
 
     private Dialog mNetworkPopup;
-    public void showNetworkPopup(int nType, String message){
+
+    public void showNetworkPopup(int nType, String message) {
 //        if(this instanceof HSIntroMainActivity){
 //            nType = 0;
 //            message = getString(R.string.network_error_connect_base);
 //        }
-        if(mNetworkPopup != null) {
+        if (mNetworkPopup != null) {
             if (mNetworkPopup.isShowing()) {
                 return;
             }
         }
 
-        switch (nType){
+        switch (nType) {
             case 0:
                 mNetworkPopup = AlertUtil.alert(getActivity(), message,
                         new DialogInterface.OnClickListener() {
@@ -105,8 +158,8 @@ public abstract class BaseActivity extends DaggerAppCompatActivity implements Vi
 
     }
 
-    public void dismissNetworkPopup(){
-        if(mNetworkPopup != null){
+    public void dismissNetworkPopup() {
+        if (mNetworkPopup != null) {
             if (mNetworkPopup.isShowing()) {
                 mNetworkPopup.dismiss();
             }
@@ -142,7 +195,11 @@ public abstract class BaseActivity extends DaggerAppCompatActivity implements Vi
     /**
      * 화면 UI/데이터 갱신 처리를 하는 공통 Method
      */
-    public abstract void onRefreshScreen();
+    public void onRefreshScreen() {
+
+    }
+
+    ;
 
     /**
      * 테마 변경 처리를 하는 공통 Method
@@ -195,10 +252,11 @@ public abstract class BaseActivity extends DaggerAppCompatActivity implements Vi
     }
 
     private boolean mPermissionGranted = true;
+
     private void onRestoreInstance(Bundle savedInstanceState) {
 
 
-        if(PermissionUtil.isDeniedSize(this, PermissionUtil.REQUEST_ESSENTIAL_PERMISSION) > 0) {
+        if (PermissionUtil.isDeniedSize(this, PermissionUtil.REQUEST_ESSENTIAL_PERMISSION) > 0) {
             hideProgress();
             mPermissionGranted = false;
             String message = getString(R.string.app_finish);
@@ -245,13 +303,13 @@ public abstract class BaseActivity extends DaggerAppCompatActivity implements Vi
      *********************************************************************************************************/
 
     public void showProgress() {
-        if(mPermissionGranted) {
+        if (mPermissionGranted) {
             showProgress(null, 0, true);
         }
     }
 
     public void showProgress(final String msg, final int duration, final boolean cancelable) {
-        if(!mPermissionGranted) {
+        if (!mPermissionGranted) {
             return;
         }
         if (mProgressDialog != null)
@@ -407,4 +465,26 @@ public abstract class BaseActivity extends DaggerAppCompatActivity implements Vi
             titleBar.setBackIconType(type);
         }
     }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        // Handle navigation view item clicks here.
+        switch (item.getItemId()) {
+
+            case R.id.nav_gallery: {
+                startActivity(new Intent(this, GalleryActivity.class));
+                break;
+            }
+            case R.id.nav_slideshow: {
+                startActivity(new Intent(this, SlideshowActivity.class));
+                break;
+            }
+        }
+        //close navigation drawer
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+
 }

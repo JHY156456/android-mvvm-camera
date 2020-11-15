@@ -1,14 +1,11 @@
 package com.example.mvvmappapplication.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.GravityCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -20,24 +17,18 @@ import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.custom.HSRadioButton;
 import com.example.mvvmappapplication.databinding.ActivityHomeBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
-import com.example.mvvmappapplication.ui.gallery.GalleryActivity;
 import com.example.mvvmappapplication.ui.menu.CameraFragmentDirections;
-import com.example.mvvmappapplication.ui.menu.HomeMenuFragmentDirections;
 import com.example.mvvmappapplication.ui.post.SlidingAdapter;
-import com.example.mvvmappapplication.ui.slideshow.SlideshowActivity;
-import com.example.mvvmappapplication.ui.user.UserFragmentDirections;
 import com.example.mvvmappapplication.utils.BackPressCloseHandler;
 import com.example.mvvmappapplication.utils.EventObserver;
-import com.google.android.material.navigation.NavigationView;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import dagger.Lazy;
-import dagger.android.support.DaggerAppCompatActivity;
 
-public class HomeActivity extends DaggerAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends BaseActivity {
     @Inject
     Lazy<ActivityHomeBinding> binding;
     HomeViewModel viewModel;
@@ -57,34 +48,35 @@ public class HomeActivity extends DaggerAppCompatActivity implements NavigationV
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         binding.get().setLifecycleOwner(this);
         viewModel = new ViewModelProvider(this, viewModelFactory).get(HomeViewModel.class);
         binding.get().setViewModel(viewModel);
-        setSupportActionBar(binding.get().include.toolbar);
-        binding.get().include.toolbarLayout.setTitle("촬영");
-        binding.get().navView.setNavigationItemSelectedListener(this);
+        super.setDrawerLayoutAndToolbar();
+        super.setToolbarTitle("촬영");
+
         viewModel.getBottomMenuClickEvent().observe(this, view -> {
             setCheckedFalseAllRadioButton();
             HSRadioButton radioButton = (HSRadioButton) view;
             radioButton.setChecked(true);
+            binding.get().include.appBarLayoutMain.appBar.setExpanded(false);
             switch (view.getId()) {
                 case R.id.homeBtn:
-                    navController.get().navigate(HomeMenuFragmentDirections.actionHomeActivityToHomeMenuFragment());
-                    binding.get().include.toolbarLayout.setTitle("홈");
-                    break;
-                case R.id.myMenuBtn:
-                    navController.get().navigate(UserFragmentDirections.actionHomeActivityToUserFragment(1));
-                    binding.get().include.toolbarLayout.setTitle("촬영");
-                    break;
-                case R.id.qrBtn:
-                    navController.get().navigate(UserFragmentDirections.actionHomeActivityToQrFragment());
-                    binding.get().include.toolbarLayout.setTitle("QR");
+                    navController.get().navigate(CameraFragmentDirections.actionHomeActivityToHomeMenuFragment());
+                    binding.get().include.appBarLayoutMain.toolbarLayout.setTitle("홈");
+                    binding.get().include.appBarLayoutMain.appBar.setExpanded(true);
                     break;
                 case R.id.cameraBtn:
                     navController.get().navigate(CameraFragmentDirections.actionHomeActivityToCameraFragment());
-                    binding.get().include.toolbarLayout.setTitle("프로필");
+                    binding.get().include.appBarLayoutMain.toolbarLayout.setTitle("촬영");
+                    break;
+                case R.id.qrBtn:
+                    navController.get().navigate(CameraFragmentDirections.actionHomeActivityToQrFragment());
+                    binding.get().include.appBarLayoutMain.toolbarLayout.setTitle("QR");
+                    break;
+                case R.id.myMenuBtn:
+                    navController.get().navigate(CameraFragmentDirections.actionHomeActivityToUserFragment(1));
+                    binding.get().include.appBarLayoutMain.toolbarLayout.setTitle("프로필");
                     break;
             }
         });
@@ -92,9 +84,12 @@ public class HomeActivity extends DaggerAppCompatActivity implements NavigationV
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.camera_fragment, R.id.home_menu_fragment, R.id.qr_fragment, R.id.user_frmagnet)
-                .setDrawerLayout(binding.get().drawerLayout)
+                .setOpenableLayout(binding.get().drawerLayout)
                 .build();
         //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        /**
+         * 왼쪽 위 서랍 아이콘 셋
+         */
         NavigationUI.setupActionBarWithNavController(this, navController.get(), mAppBarConfiguration);
         //NavigationUI.setupWithNavController(binding.get().navView, navController.get());
         // collapsed : 살짝 올라와있는 상태
@@ -164,22 +159,4 @@ public class HomeActivity extends DaggerAppCompatActivity implements NavigationV
     }
 
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
-        switch (item.getItemId()) {
-
-            case R.id.nav_gallery: {
-                startActivity(new Intent(this, GalleryActivity.class));
-                break;
-            }
-            case R.id.nav_slideshow: {
-                startActivity(new Intent(this, SlideshowActivity.class));
-                break;
-            }
-        }
-        //close navigation drawer
-        binding.get().drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
-    }
 }

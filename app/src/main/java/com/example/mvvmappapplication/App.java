@@ -3,8 +3,10 @@ package com.example.mvvmappapplication;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 
 import com.example.mvvmappapplication.consts.Const;
+import com.example.mvvmappapplication.data.githubmodel.GitHubService;
 import com.example.mvvmappapplication.di.DaggerAppComponent;
 import com.example.mvvmappapplication.dto.UserInfo;
 import com.example.mvvmappapplication.dto.UserInfoDto;
@@ -12,6 +14,11 @@ import com.example.mvvmappapplication.utils.LogUtil;
 
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;
+import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import timber.log.Timber;
 
 public class App extends DaggerApplication {
@@ -29,6 +36,7 @@ public class App extends DaggerApplication {
         context = getApplicationContext();
         //로깅용 Timber 설정
         Timber.plant(new Timber.DebugTree());
+        setupAPIClient();
     }
 
     @Override
@@ -80,4 +88,34 @@ public class App extends DaggerApplication {
     public static void setUserInfo(UserInfo data) {
         App.user = data;
     }
+
+
+    private void setupAPIClient() {
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+            @Override
+            public void log(String message) {
+                Log.d("API LOG", message);
+            }
+        });
+
+        logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
+
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(logging).build();
+
+        retrofit = new Retrofit.Builder()
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+                .baseUrl("https://api.github.com")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build();
+
+        gitHubService = retrofit.create(GitHubService.class);
+    }
+
+    public GitHubService getGitHubService() {
+        return gitHubService;
+    }
+
+    private Retrofit retrofit;
+    private GitHubService gitHubService;
 }

@@ -28,6 +28,7 @@
         <activity android:name=".ui.user.LoginActivity" />
         <activity android:name=".ui.gallery.GalleryActivity" />
         <activity android:name=".ui.slideshow.SlideshowActivity" />
+        <activity android:name="com.example.mvvmappapplication.ui.githubview.DetailActivity" />
         <activity android:name=".ui.HomeActivity" />
         <activity
             android:name=".ui.user.RegistrationActivity"

@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-<!--    아래 item의 아이디와 nav_home.xml의 fragment id가 같아야하는듯?-->
+<!--    아래 item의 아이디와 nav_home.xml의 fragment id가 같아야한다-->
     <group android:checkableBehavior="none">
         <item
             android:id="@+id/nav_home"

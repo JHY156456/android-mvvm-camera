@@ -8,14 +8,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mvvmappapplication.databinding.FragmentGalleryBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
+import com.example.mvvmappapplication.ui.BaseActivity;
 
 import javax.inject.Inject;
 
 import dagger.Lazy;
-import dagger.android.support.DaggerAppCompatActivity;
 
 
-public class GalleryActivity extends DaggerAppCompatActivity {
+public class GalleryActivity extends BaseActivity {
 
     @Inject
     Lazy<FragmentGalleryBinding> binding;
@@ -28,7 +28,9 @@ public class GalleryActivity extends DaggerAppCompatActivity {
         binding.get().setLifecycleOwner(this);
         viewModel = new ViewModelProvider(this, viewModelFactory).get(GalleryViewModel.class);
         binding.get().setViewModel(viewModel);
-
+        super.setDrawerLayoutAndToolbar();
+        super.setToolbarTitle("갤러리");
+        super.setAppBarConfigurationForLeftMenuIcon();
         viewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
