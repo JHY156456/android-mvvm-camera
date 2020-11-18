@@ -17,6 +17,9 @@ import com.example.mvvmappapplication.databinding.FragmentCameraBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
 import com.example.mvvmappapplication.utils.PermissionUtil;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 import javax.inject.Inject;
@@ -78,12 +81,17 @@ public class CameraFragment extends DaggerFragment {
             }
         });
         viewModel.getResponseBodySingleLiveEvent().observe(getViewLifecycleOwner(),response -> {
+            JSONObject jsonObj = null;
+            String resultStr = "";
+            String phoneNum = "";
             try {
-                Timber.e("response.string() : " + response.body().string());
-            } catch (IOException e) {
+                jsonObj = new JSONObject(response.body().string());
+                resultStr = jsonObj.getString("resultStr");
+                phoneNum = jsonObj.getString("phoneNum");
+            } catch (JSONException | IOException e) {
                 e.printStackTrace();
             }
-            Toast.makeText(getActivity(), "reponsebody성공 : " + response.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "resultStr : " + resultStr + "\nphoneNum : " + phoneNum, Toast.LENGTH_SHORT).show();
         });
         viewModel.getErrorEvent().observe(getViewLifecycleOwner(),throwable -> {
             Timber.e("throwable : " + throwable.getMessage());

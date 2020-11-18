@@ -76,11 +76,15 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
      * @param userId
      */
     public void loadUser(long userId) {
+        loading.setValue(true);
         compositeDisposable.add(userService.getUser(userId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSuccess((item) -> loading.postValue(false))
-                .subscribe(liveItem::setValue, getErrorEvent()::setValue));
+                .subscribe(user -> {
+                    liveItem.setValue(user);
+                    loading.setValue(false);
+                }, getErrorEvent()::setValue));
     }
 
     public void onRegisterCompletedClick() {
@@ -93,8 +97,8 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
-                                responseBody -> {
-                                    getResponseBodySingleLiveEvent().setValue(responseBody);
+                                response -> {
+                                    getResponseBodySingleLiveEvent().setValue(response);
                                 },
                                 throwable -> {
                                     getErrorEvent().setValue(throwable);

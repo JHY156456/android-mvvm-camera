@@ -6,13 +6,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mvvmappapplication.App;
 import com.example.mvvmappapplication.R;
 import com.example.mvvmappapplication.data.githubcontract.RepositoryListViewContract;
 import com.example.mvvmappapplication.data.githubmodel.GitHubService;
@@ -45,14 +43,14 @@ public class SlideshowActivity extends BaseActivity implements RepositoryListVie
         binding.get().setLifecycleOwner(this);
         viewModel = new ViewModelProvider(this, viewModelFactory).get(SlideshowViewModel.class);
         binding.get().setViewModel(viewModel);
+
         super.setDrawerLayoutAndToolbar();
         super.setToolbarTitle("저장소");
         super.setAppBarConfigurationForLeftMenuIcon();
         super.setAppBarLayout(true);
 
-        viewModel.setRepositoryListView(this);
-        viewModel.setGitHubService(((App) getApplication()).getGitHubService());
         setupViews();
+        initLiveData();
 //        viewModel.getText().observe(this, new Observer<String>() {
 //            @Override
 //            public void onChanged(@Nullable String s) {
@@ -61,14 +59,19 @@ public class SlideshowActivity extends BaseActivity implements RepositoryListVie
 //        });
     }
 
+    private void initLiveData(){
+        viewModel.getRepositoriesMutableLiveData().observe(this,repositories -> {
+            repositoryAdapter.setItemsAndRefresh(repositories.items);
+        });
+        viewModel.errorEvent.observe(this,throwable -> {
+            Snackbar.make(coordinatorLayout, "읽을 수 없습니다", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        });
+    }
     /**
      * 목록 등 화면 요소를 만든다
      */
     private void setupViews() {
-        // 툴바 설정
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         // Recycler View
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_repos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -93,6 +96,7 @@ public class SlideshowActivity extends BaseActivity implements RepositoryListVie
     public void startDetailActivity(String full_name) {
         DetailActivity.start(this, full_name);
     }
+
 
     @Override
     public void showRepositories(GitHubService.Repositories repositories) {

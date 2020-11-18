@@ -48,6 +48,14 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.mvvmappapplication.custom.AutoFitTextureView;
 
+import org.opencv.android.OpenCVLoader;
+import org.opencv.android.Utils;
+import org.opencv.core.Mat;
+import org.opencv.core.MatOfPoint;
+import org.opencv.core.Rect;
+import org.opencv.core.Scalar;
+import org.opencv.imgproc.Imgproc;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -904,10 +912,13 @@ public class CameraPreview extends Thread {
             mImage = image;
             mFile = file;
         }
-
+        //1
         Bitmap imgBase;
         Bitmap roi;
 
+        //2
+        Bitmap image1;
+        Bitmap img1;
         @Override
         public void run() {
             try {
@@ -936,7 +947,63 @@ public class CameraPreview extends Thread {
                 options.inSampleSize = 8;
                 Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, options);
                 bitmap = GetRotatedBitmap(bitmap, 90);
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+
+                /**
+                 * OpenCv시작
+                 */
+                Bitmap imgRoi;
+                OpenCVLoader.initDebug(); // 초기화
+
+                Mat matBase=new Mat();
+                Utils.bitmapToMat(bitmap ,matBase);
+                Mat matGray = new Mat();
+                Mat matCny = new Mat();
+
+                Imgproc.cvtColor(matBase, matGray, Imgproc.COLOR_BGR2GRAY); // GrayScale
+                Imgproc.Canny(matGray, matCny, 10, 100, 3, true); // Canny Edge 검출
+                Imgproc.threshold(matGray, matCny, 150, 255, Imgproc.THRESH_BINARY); //Binary
+
+                List<MatOfPoint> contours = new ArrayList<>();
+                Mat hierarchy = new Mat();
+                //노이즈제거
+                Imgproc.erode(matCny, matCny, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(6, 6)));
+                Imgproc.dilate(matCny, matCny, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(12, 12)));
+                //관심영역 추출
+                Imgproc.findContours(matCny, contours, hierarchy, Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_SIMPLE);//RETR_EXTERNAL //RETR_TREE
+                Imgproc.drawContours(matBase, contours, -1, new Scalar(255, 0, 0), 5);
+
+                //imgBase : 관심영역 빨간색으로 표시됨
+                imgBase= Bitmap.createBitmap(matBase.cols(), matBase.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
+                Utils.matToBitmap(matBase, imgBase); // Mat을 비트맵으로 변환
+
+
+                imgRoi= Bitmap.createBitmap(matCny.cols(), matCny.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
+                Utils.matToBitmap(matCny, imgRoi);
+
+                for(int idx = 0; idx >= 0; idx = (int) hierarchy.get(0, idx)[0]) {
+                    MatOfPoint matOfPoint = contours.get(idx);
+                    Rect rect = Imgproc.boundingRect(matOfPoint);
+
+                    if (rect.width < 30 || rect.height < 30 || rect.width <= rect.height || rect.width <= rect.height * 3 || rect.width >= rect.height * 6)
+                        continue; // 사각형 크기에 따라 출력 여부 결정
+
+                    roi = imgRoi.createBitmap( bitmap, (int)rect.tl().x, (int)rect.tl().y, rect.width, rect.height);
+                    break;
+                }
+
+                /**
+                 * OpenCv 끝
+                 */
+
+                /**
+                 * OpenCv적용한 데이터 전달 시작
+                 */
+                roi.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                /**
+                 * OpenCv적용한 데이터 전달 끝
+                 */
+
+                //bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 byte[] byteArray = stream.toByteArray();
                 intent.putExtra("image", byteArray);
                 intent.putExtra("file",mFile);
@@ -944,6 +1011,7 @@ public class CameraPreview extends Thread {
                 mContext.finish();
 
             } catch (Exception e) {
+                Toast.makeText(mContext,"인식에 실패했습니다.",Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             } finally {
                 if (mImage != null) {

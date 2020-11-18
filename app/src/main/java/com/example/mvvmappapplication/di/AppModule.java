@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 import com.example.mvvmappapplication.App;
+import com.example.mvvmappapplication.data.githubcontract.RepositoryListViewContract;
+import com.example.mvvmappapplication.data.githubmodel.GitHubService;
 import com.example.mvvmappapplication.utils.SingleLiveEvent;
 
 import javax.inject.Named;
@@ -68,5 +70,12 @@ public class AppModule {
     @Named("responseBodySingleLiveEvent")
     SingleLiveEvent<retrofit2.Response<ResponseBody>> provideResponseBodySingleLiveEvent(){
         return new SingleLiveEvent<>();
+    }
+
+    @Singleton
+    @Provides
+    @Named("githubService")
+    GitHubService provideGithubService(App app){
+        return app.getGitHubService();
     }
 }

@@ -94,6 +94,7 @@ public abstract class BaseActivity extends DaggerAppCompatActivity implements Vi
 
         if (drawerLayout != null && toolbar != null && navigationView != null && collapsingToolbarLayout != null) {
             setSupportActionBar(toolbar);
+            navigationView.bringToFront();
             navigationView.setNavigationItemSelectedListener(this);
             //appBarLayout.setExpanded(false);
         }
@@ -103,7 +104,9 @@ public abstract class BaseActivity extends DaggerAppCompatActivity implements Vi
         appBarLayout.setExpanded(isOpen);
     }
     public void setAppBarConfigurationForLeftMenuIcon() {
-        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar,
+        drawerToggle = new ActionBarDrawerToggle(this,
+                drawerLayout,
+                toolbar,
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -469,9 +472,16 @@ public abstract class BaseActivity extends DaggerAppCompatActivity implements Vi
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
         switch (item.getItemId()) {
-
+            case R.id.nav_home: {
+                Intent intent = new Intent(this, HomeActivity.class);
+                //intent.addCategory(Intent.CATEGORY_HOME);
+                //나중에 위 방식도 사용해보자
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                break;
+            }
             case R.id.nav_gallery: {
                 startActivity(new Intent(this, GalleryActivity.class));
                 break;
@@ -481,10 +491,7 @@ public abstract class BaseActivity extends DaggerAppCompatActivity implements Vi
                 break;
             }
         }
-        //close navigation drawer
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
 }

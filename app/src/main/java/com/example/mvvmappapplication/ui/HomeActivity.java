@@ -157,6 +157,4 @@ public class HomeActivity extends BaseActivity {
         return NavigationUI.navigateUp(navController.get(), mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-
 }

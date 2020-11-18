@@ -5,6 +5,7 @@
 
     <data>
         <!-- RepositoryListViewModel에 바인딩한다 -->
+        <import type="android.view.View" />
         <variable
             name="viewModel"
             type="com.example.mvvmappapplication.ui.slideshow.SlideshowViewModel" />
@@ -41,7 +42,13 @@
                     app:contentScrim="?attr/colorPrimary"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed"
                     app:toolbarId="@+id/toolbar">
-
+<!--                    android:scaleType="centerCrop" : 가운데를 기준으로 맞추는듯?-->
+                    <ImageView
+                        android:id="@+id/ivActivityMaterialDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/hanwha_logo_ci"
+                        app:layout_collapseMode="parallax"/>
                     <androidx.appcompat.widget.Toolbar
                         android:id="@+id/toolbar"
                         android:layout_width="match_parent"
@@ -52,7 +59,7 @@
                     <Spinner
                         android:id="@+id/language_spinner"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_40"
+                        android:layout_height="@dimen/dimen_30"
                         android:layout_margin="16dp"
                         android:fitsSystemWindows="true"
                         android:layout_gravity="bottom"

@@ -3,7 +3,6 @@ package com.example.mvvmappapplication.ui.gallery;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mvvmappapplication.databinding.FragmentGalleryBinding;
@@ -31,12 +30,7 @@ public class GalleryActivity extends BaseActivity {
         super.setDrawerLayoutAndToolbar();
         super.setToolbarTitle("갤러리");
         super.setAppBarConfigurationForLeftMenuIcon();
-        viewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                binding.get().textGallery.setText(s);
-            }
-        });
+        viewModel.getText().observe(this, s -> binding.get().textGallery.setText(s));
 
     }
 }

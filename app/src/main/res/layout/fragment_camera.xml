@@ -18,10 +18,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ImageView
             android:id="@+id/iv_completed_image"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_200"/>
+
+            android:layout_height="@dimen/dimen_200"
+            android:layout_marginTop="@dimen/dimen_50"/>
+
         <Button
             android:id="@+id/button_camera"
             android:layout_width="wrap_content"
@@ -49,14 +53,15 @@
             android:text="전화걸기"
             android:visibility="gone"
             tools:ignore="MissingConstraints" />
-
-
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="@{viewModel.loading? View.VISIBLE : View.GONE}"
             android:layout_centerInParent="true"
+            android:elevation="@dimen/dimen_10"
             />
+
+
 
     </RelativeLayout>
 </layout>
