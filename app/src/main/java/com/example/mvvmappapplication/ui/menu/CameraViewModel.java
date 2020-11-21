@@ -40,6 +40,7 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
     private final CompositeDisposable
             compositeDisposable = new CompositeDisposable();
     private final SingleLiveEvent<View> buttonCameraClickEvent = new SingleLiveEvent<>();
+    private final SingleLiveEvent<Boolean> buttonClickImmediatelyCallEvent = new SingleLiveEvent<>();
     private final MutableLiveData<Bitmap> cameraItem = new MutableLiveData<>();
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>(false);
 
@@ -71,6 +72,10 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
         return buttonCameraClickEvent;
     }
 
+    public SingleLiveEvent<Boolean> getButtonClickImmediatelyCallEvent() {
+        return buttonClickImmediatelyCallEvent;
+    }
+
     public MutableLiveData<Bitmap> getCameraItem() {
         return cameraItem;
     }
@@ -97,7 +102,9 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
                 }));
     }
 
-
+    public void onClickImmediatelyCall(View view) {
+        getButtonClickImmediatelyCallEvent().setValue(true);
+    }
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == 100) {
             if (resultCode == Activity.RESULT_OK) {
@@ -115,4 +122,6 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
     public MutableLiveData<Boolean> getLoading() {
         return loading;
     }
+
+
 }

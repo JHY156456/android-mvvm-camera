@@ -1,6 +1,7 @@
 package com.example.mvvmappapplication.ui.menu;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,6 +77,17 @@ public class QRFragment extends DaggerFragment {
             boolean isFail = (Boolean) data;
             if (isFail) {
                 Toast.makeText(getActivity(), "Cancelled", Toast.LENGTH_LONG).show();
+            }
+        }));
+
+        viewModel.getResultContents().observe(getViewLifecycleOwner(), new EventObserver<>(data -> {
+            String resultData = (String)data;
+
+            if(resultData != null){
+                Toast.makeText(getActivity(), "resultData : " + resultData, Toast.LENGTH_LONG).show();
+                Intent tt;
+                tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "01063797794"));
+                startActivity(tt);
             }
         }));
     }

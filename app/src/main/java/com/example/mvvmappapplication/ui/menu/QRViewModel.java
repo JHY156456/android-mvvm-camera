@@ -43,7 +43,7 @@ public class QRViewModel extends BaseViewModel<BaseNavigator> {
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>(false);
     private final MutableLiveData<Event<Boolean>> isSuccess = new MutableLiveData<>();
     private final MutableLiveData<Event<Boolean>> isFail = new MutableLiveData<>();
-    private MutableLiveData<String> resultContents = new MutableLiveData<>();
+    private MutableLiveData<Event<String>> resultContents = new MutableLiveData<>();
     private final SingleLiveEvent<Response<ResponseBody>> responseBodySingleLiveEvent;
     @NonNull
     public SingleLiveEvent<Response<ResponseBody>> getResponseBodySingleLiveEvent() {
@@ -77,7 +77,7 @@ public class QRViewModel extends BaseViewModel<BaseNavigator> {
         return isFail;
     }
 
-    public MutableLiveData<String> getResultContents() {
+    public MutableLiveData<Event<String>> getResultContents() {
         return resultContents;
     }
 
@@ -108,7 +108,7 @@ public class QRViewModel extends BaseViewModel<BaseNavigator> {
             if(result.getContents() == null) {
                 isFail.setValue(new Event<>(true));
             } else {
-                resultContents.setValue(result.getContents());
+                resultContents.setValue(new Event<>(result.getContents()));
             }
         }
     }

@@ -53,6 +53,16 @@
             android:text="전화걸기"
             android:visibility="gone"
             tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/button_immediately_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_call"
+            android:layout_centerInParent="true"
+            android:onClick="@{(v)->viewModel.onClickImmediatelyCall(v)}"
+            android:text="전화걸기가 안될때"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints" />
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

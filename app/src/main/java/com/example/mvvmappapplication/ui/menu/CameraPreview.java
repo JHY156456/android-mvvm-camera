@@ -912,6 +912,7 @@ public class CameraPreview extends Thread {
             mImage = image;
             mFile = file;
         }
+
         //1
         Bitmap imgBase;
         Bitmap roi;
@@ -919,6 +920,7 @@ public class CameraPreview extends Thread {
         //2
         Bitmap image1;
         Bitmap img1;
+
         @Override
         public void run() {
             try {
@@ -954,8 +956,8 @@ public class CameraPreview extends Thread {
                 Bitmap imgRoi;
                 OpenCVLoader.initDebug(); // 초기화
 
-                Mat matBase=new Mat();
-                Utils.bitmapToMat(bitmap ,matBase);
+                Mat matBase = new Mat();
+                Utils.bitmapToMat(bitmap, matBase);
                 Mat matGray = new Mat();
                 Mat matCny = new Mat();
 
@@ -973,21 +975,21 @@ public class CameraPreview extends Thread {
                 Imgproc.drawContours(matBase, contours, -1, new Scalar(255, 0, 0), 5);
 
                 //imgBase : 관심영역 빨간색으로 표시됨
-                imgBase= Bitmap.createBitmap(matBase.cols(), matBase.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
+                imgBase = Bitmap.createBitmap(matBase.cols(), matBase.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
                 Utils.matToBitmap(matBase, imgBase); // Mat을 비트맵으로 변환
 
 
-                imgRoi= Bitmap.createBitmap(matCny.cols(), matCny.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
+                imgRoi = Bitmap.createBitmap(matCny.cols(), matCny.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
                 Utils.matToBitmap(matCny, imgRoi);
 
-                for(int idx = 0; idx >= 0; idx = (int) hierarchy.get(0, idx)[0]) {
+                for (int idx = 0; idx >= 0; idx = (int) hierarchy.get(0, idx)[0]) {
                     MatOfPoint matOfPoint = contours.get(idx);
                     Rect rect = Imgproc.boundingRect(matOfPoint);
 
                     if (rect.width < 30 || rect.height < 30 || rect.width <= rect.height || rect.width <= rect.height * 3 || rect.width >= rect.height * 6)
                         continue; // 사각형 크기에 따라 출력 여부 결정
 
-                    roi = imgRoi.createBitmap( bitmap, (int)rect.tl().x, (int)rect.tl().y, rect.width, rect.height);
+                    roi = imgRoi.createBitmap(bitmap, (int) rect.tl().x, (int) rect.tl().y, rect.width, rect.height);
                     break;
                 }
 
@@ -1006,12 +1008,12 @@ public class CameraPreview extends Thread {
                 //bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 byte[] byteArray = stream.toByteArray();
                 intent.putExtra("image", byteArray);
-                intent.putExtra("file",mFile);
+                intent.putExtra("file", mFile);
                 mContext.setResult(Activity.RESULT_OK, intent);
                 mContext.finish();
 
             } catch (Exception e) {
-                Toast.makeText(mContext,"인식에 실패했습니다.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "인식에 실패했습니다.", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             } finally {
                 if (mImage != null) {

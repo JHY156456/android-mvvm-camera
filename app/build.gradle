@@ -115,4 +115,7 @@ dependencies {
     implementation "androidx.room:room-rxjava2:$room_version"
     implementation "androidx.room:room-guava:$room_version"
     implementation "androidx.room:room-testing:$room_version"
+
+    //tesseract
+    implementation 'com.rmtheis:tess-two:9.0.0'
 }
