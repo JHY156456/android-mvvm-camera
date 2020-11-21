@@ -35,7 +35,7 @@ public class CameraViewActivity extends DaggerAppCompatActivity {
         mPreview = new CameraPreview(this,
                 binding.get().cameraTextureView,
                 binding.get().normal,
-                binding.get().wide,
+                binding.get().flash,
                 binding.get().capture,
                 binding.get().change);
     }

@@ -35,10 +35,10 @@
                 android:text="일반" />
 
             <Button
-                android:id="@+id/wide"
+                android:id="@+id/flash"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="광각" />
+                android:text="플래시" />
 
             <Button
                 android:id="@+id/capture"

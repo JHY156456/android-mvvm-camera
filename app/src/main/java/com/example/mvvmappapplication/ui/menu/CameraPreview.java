@@ -410,18 +410,21 @@ public class CameraPreview extends Thread {
     }
 
     private Button mNormalAngleButton;
-    private Button mWideAngleButton;
+    private Button mFlash;
     private Button mCameraCaptureButton;
     private Button mCameraDirectionButton;
     private CameraViewActivity cameraViewActivity;
     private static CameraViewActivity mContext;
+    private boolean mFlashOn = false;
 
-    public CameraPreview(Context context, AutoFitTextureView textureView, Button button1, Button button2, Button button3, Button button4) {
+
+    public CameraPreview(Context context, AutoFitTextureView textureView, Button button1,
+                         Button button2, Button button3, Button button4) {
         mContext = (CameraViewActivity) context;
         mTextureView = textureView;
         cameraViewActivity = (CameraViewActivity) context;
         mNormalAngleButton = button1;
-        mWideAngleButton = button2;
+        mFlash = button2;
         mCameraCaptureButton = button3;
         mCameraDirectionButton = button4;
         mFile = new File(mContext.getExternalFilesDir(null), "pic.jpg");
@@ -436,13 +439,14 @@ public class CameraPreview extends Thread {
             }
         });
 
-        mWideAngleButton.setOnClickListener(new View.OnClickListener() {
+        mFlash.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                onPause();
-                mCameraId = "2";
-                openCamera(mTextureView.getWidth(), mTextureView.getHeight());
+//                onPause();
+//                mCameraId = "2";
+//                openCamera(mTextureView.getWidth(), mTextureView.getHeight());
+                flashlight();
             }
         });
 
@@ -467,8 +471,37 @@ public class CameraPreview extends Thread {
                 openCamera(mTextureView.getWidth(), mTextureView.getHeight());
             }
         });
-    }
 
+    }
+    private void flashlight() {
+
+        mFlashOn = !mFlashOn;
+        if(mFlashOn){
+            flashOn();
+        } else{
+            flashOff();
+        }
+    }
+    // Flash On
+    public void flashOn() {
+        try {
+            mPreviewRequestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_TORCH);
+            mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
+            mCaptureSession.setRepeatingRequest(mPreviewRequestBuilder.build(), null, null);
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+    }
+    //Flash Off
+    public void flashOff() {
+        try {
+            mPreviewRequestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
+            mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_OFF);
+            mCaptureSession.setRepeatingRequest(mPreviewRequestBuilder.build(), null, null);
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+    }
     public void onResume() {
         startBackgroundThread();
 
@@ -706,10 +739,18 @@ public class CameraPreview extends Thread {
                             // When the session is ready, we start displaying the preview.
                             mCaptureSession = cameraCaptureSession;
                             try {
-                                // Auto focus should be continuous for camera preview.
-                                mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AF_MODE,
-                                        CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
-                                // Flash is automatically enabled when necessary.
+                                /**
+                                 * Flash 기존방식 시작
+                                 */
+//                                // Auto focus should be continuous for camera preview.
+//                                mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AF_MODE,
+//                                        CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
+//                                // Flash is automatically enabled when necessary.
+                                /**
+                                 * Flash 기존방식 끝
+                                 */
+                                mPreviewRequestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
+                                mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
                                 setAutoFlash(mPreviewRequestBuilder);
 
                                 // Finally, we start displaying the camera preview.
