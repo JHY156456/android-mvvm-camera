@@ -38,11 +38,34 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
 
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private final MutableLiveData<User> liveItem = new MutableLiveData<>();
+
+    //******** UserProfile *********
     private final LiveData<String> name = Transformations.map(liveItem, input -> input.getName());
     private final LiveData<String> email = Transformations.map(liveItem, input -> input.getEmail());
     private final LiveData<String> homepage = Transformations.map(liveItem, input -> input.getWebsite());
     private final LiveData<String> phone = Transformations.map(liveItem, input -> input.getPhone());
     private final LiveData<String> location = Transformations.map(liveItem, input -> input.getAddress().toString());
+    //******** UserProfile *********
+
+
+    //******** MyProfile *********
+    private final MutableLiveData<String> profileId = new MutableLiveData<>();
+    private final MutableLiveData<String> profileCarNumber = new MutableLiveData<>();
+    private final MutableLiveData<String> profilePhone = new MutableLiveData<>();
+
+    public MutableLiveData<String> getProfileId() {
+        return profileId;
+    }
+
+    public MutableLiveData<String> getProfileCarNumber() {
+        return profileCarNumber;
+    }
+
+    public MutableLiveData<String> getProfilePhone() {
+        return profilePhone;
+    }
+    //******** MyProfile *********
+
 
     private ObservableField<String> carNumber = new ObservableField<>();
     private ObservableField<String> id = new ObservableField<>();
@@ -63,6 +86,8 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
         this.userService = userService;
         this.userServerService = userServerService;
         this.responseBodySingleLiveEvent = responseBodySingleLiveEvent;
+        profileCarNumber.setValue("");
+        profilePhone.setValue("");
     }
 
     @NonNull
@@ -87,8 +112,17 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
                 }, getErrorEvent()::setValue));
     }
 
+    public void loadMyProfile() {
+        UserInfo myProfile = App.getUserInfo();
+        profileId.setValue(myProfile.getId());
+        profileCarNumber.setValue(myProfile.getCarNumber());
+        profilePhone.setValue(myProfile.getPhone());
+    }
+
     public void onRegisterCompletedClick() {
         loading.setValue(true);
+        App.carNumber = profileCarNumber.getValue().trim();
+        App.phoneNumber = profilePhone.getValue().trim();
         compositeDisposable.add(
                 userServerService.register(
                         new UserInfoBuilder().setId(getId().get())
@@ -104,15 +138,17 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
                                     getErrorEvent().setValue(throwable);
                                     loading.postValue(false);
                                 },
-                                ()->loading.postValue(false)));
+                                () -> loading.postValue(false)));
     }
 
 
     //Todo : onComplete에 ()->loading.setValue(false) 하니까 바로 실행되면서 로그인 로딩화면이 꺼지는것같은데 이유를 찾아보자
     public void login(String id, String pw) {
         loading.setValue(true);
-        UserInfo userInfo= new UserInfoBuilder().setId(id)
+        UserInfo userInfo = new UserInfoBuilder().setId(id)
                 .setPassword(pw)
+                .setCarNumber(App.carNumber)
+                .setPhone(App.phoneNumber)
                 .build();
         App.setUserInfo(userInfo);
         compositeDisposable.add(
@@ -165,11 +201,6 @@ public class UserViewModel extends BaseViewModel<BaseNavigator> {
     protected void onCleared() {
         super.onCleared();
         compositeDisposable.dispose();
-    }
-
-
-    public ObservableField<String> getCarNumber() {
-        return carNumber;
     }
 
     public ObservableField<String> getId() {

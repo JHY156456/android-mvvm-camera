@@ -45,7 +45,7 @@ public class SlideshowActivity extends BaseActivity implements RepositoryListVie
         binding.get().setViewModel(viewModel);
 
         super.setDrawerLayoutAndToolbar();
-        super.setToolbarTitle("저장소");
+        super.setToolbarTitleNoCollapsing("저장소");
         super.setAppBarConfigurationForLeftMenuIcon();
         super.setAppBarLayout(true);
 

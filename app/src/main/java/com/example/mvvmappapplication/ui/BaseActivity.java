@@ -84,7 +84,15 @@ public abstract class BaseActivity extends DaggerAppCompatActivity implements Vi
     public void setToolbarTitle(String title){
         collapsingToolbarLayout.setTitle(title);
     }
-
+    /*
+    TODO : collapsingToolbarLayout의 app:titleEnabled="false" 속성일때 collapsing.setTitle이 안되는것같다.
+            아래 setDisplayShowTitleEnabled(false)를 주어 내부적으로 툴바 타이틀이 적용되는것을 막고,
+            그다음 title을 set을 해준다. 정확한 원인 파악하기!
+     */
+    public void setToolbarTitleNoCollapsing(String title){
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbar.setTitle(title);
+    }
     public void setDrawerLayoutAndToolbar() {
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);

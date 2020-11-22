@@ -13,8 +13,8 @@
 
     <string name="app_name">번호판촬영</string>
     <string name="usernameReg">Username</string>
-    <string name="emailReg">id</string>
-    <string name="passwordReg">Password</string>
+    <string name="emailReg">아이디</string>
+    <string name="passwordReg">비밀번호</string>
     <string name="sign_upReg">회원가입</string>
     <string name="sign_inLog">Sign in</string>
     <string name="signin_redirect">Already a member? Sign in!</string>

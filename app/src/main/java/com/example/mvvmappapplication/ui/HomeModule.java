@@ -23,6 +23,8 @@ import com.example.mvvmappapplication.ui.menu.HomeMenuFragment;
 import com.example.mvvmappapplication.ui.menu.HomeMenuModule;
 import com.example.mvvmappapplication.ui.menu.QRFragment;
 import com.example.mvvmappapplication.ui.menu.QRModule;
+import com.example.mvvmappapplication.ui.user.ProfileFragment;
+import com.example.mvvmappapplication.ui.user.ProfileModule;
 import com.example.mvvmappapplication.ui.user.UserFragment;
 import com.example.mvvmappapplication.ui.user.UserModule;
 import com.example.mvvmappapplication.utils.BackPressCloseHandler;
@@ -81,9 +83,14 @@ public abstract class HomeModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = QRModule.class)
     abstract QRFragment getQRFragment();
+
     @FragmentScope
     @ContributesAndroidInjector(modules = UserModule.class)
     abstract UserFragment getUserFragment();
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = ProfileModule.class)
+    abstract ProfileFragment getProfileFragment();
 
     @FragmentScope
     @ContributesAndroidInjector(modules = HomeMenuModule.class)

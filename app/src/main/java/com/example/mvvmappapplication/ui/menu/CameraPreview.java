@@ -746,13 +746,19 @@ public class CameraPreview extends Thread {
 //                                mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AF_MODE,
 //                                        CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
 //                                // Flash is automatically enabled when necessary.
+//                                setAutoFlash(mPreviewRequestBuilder);
+
                                 /**
                                  * Flash 기존방식 끝
                                  */
+                                /**
+                                 * Flash 새방식 시작
+                                 */
                                 mPreviewRequestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
                                 mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
-                                setAutoFlash(mPreviewRequestBuilder);
-
+                                /**
+                                 * Flash 새방식 끝
+                                 */
                                 // Finally, we start displaying the camera preview.
                                 mPreviewRequest = mPreviewRequestBuilder.build();
                                 mCaptureSession.setRepeatingRequest(mPreviewRequest,
@@ -881,7 +887,11 @@ public class CameraPreview extends Thread {
                                                @NonNull TotalCaptureResult result) {
                     //showToast("Saved: " + mFile);
                     //Log.d(TAG, mFile.toString());
-                    unlockFocus();
+                    try{
+                        unlockFocus();
+                    } catch (Exception e){
+
+                    }
                 }
             };
 
@@ -1041,6 +1051,23 @@ public class CameraPreview extends Thread {
                 /**
                  * OpenCv적용한 데이터 전달 시작
                  */
+
+//                Mat matBase2 = new Mat();
+//                Utils.bitmapToMat(roi, matBase2);
+//                Mat matGray2 = new Mat();
+//                Mat matCny2 = new Mat();
+//
+//                Imgproc.cvtColor(matBase2, matGray2, Imgproc.COLOR_BGR2GRAY); // GrayScale
+//                Imgproc.Canny(matGray2, matCny2, 10, 100, 3, true); // Canny Edge 검출
+//                Imgproc.threshold(matGray2, matCny2, 150, 255, Imgproc.THRESH_BINARY); //Binary
+//
+//                //노이즈제거
+//                Imgproc.erode(matCny2, matCny2, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(6, 6)));
+//                Imgproc.dilate(matCny2, matCny2, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(12, 12)));
+//
+//                Utils.matToBitmap(matBase, roi); // Mat을 비트맵으로 변환
+
+
                 roi.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 /**
                  * OpenCv적용한 데이터 전달 끝

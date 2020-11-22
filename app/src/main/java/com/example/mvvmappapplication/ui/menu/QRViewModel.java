@@ -116,4 +116,25 @@ public class QRViewModel extends BaseViewModel<BaseNavigator> {
     public MutableLiveData<Boolean> getLoading() {
         return loading;
     }
+    // ********** 서버 차량번호 조회 이벤트**********
+    private final SingleLiveEvent<Response<ResponseBody>> responseSingleLiveEvent = new SingleLiveEvent<>();
+
+    public SingleLiveEvent<Response<ResponseBody>> getResponseSingleLiveEvent() {
+        return responseSingleLiveEvent;
+    }
+    // ********** 서버 차량번호 조회 이벤트**********
+    public void getPhoneNumberByCarNumber(String carNumber){
+        compositeDisposable.add(
+                cameraService.getPhoneNumberByCarNumber(carNumber)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                responseBody -> {
+                                    getResponseSingleLiveEvent().setValue(responseBody);
+                                },
+                                throwable -> {
+                                    getErrorEvent().setValue(throwable);
+                                    loading.postValue(false);
+                                }));
+    }
 }

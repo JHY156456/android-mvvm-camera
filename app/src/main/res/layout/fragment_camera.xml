@@ -28,7 +28,7 @@
 
         <Button
             android:id="@+id/button_camera"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dimen_150"
             android:layout_height="wrap_content"
             android:text="차량 촬영하기"
             android:onClick="@{(v)->viewModel.onClickButtonCamera(v)}"
@@ -36,7 +36,7 @@
             tools:ignore="MissingConstraints" />
         <Button
             android:id="@+id/button_history"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dimen_150"
             android:layout_height="wrap_content"
             android:layout_below="@+id/button_camera"
             android:layout_centerInParent="true"
@@ -45,7 +45,7 @@
             tools:ignore="MissingConstraints" />
         <Button
             android:id="@+id/button_call"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dimen_150"
             android:layout_height="wrap_content"
             android:layout_below="@+id/button_history"
             android:layout_centerInParent="true"
@@ -55,7 +55,7 @@
             tools:ignore="MissingConstraints" />
         <Button
             android:id="@+id/button_immediately_call"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dimen_150"
             android:layout_height="wrap_content"
             android:layout_below="@+id/button_call"
             android:layout_centerInParent="true"

@@ -19,6 +19,11 @@ import com.example.mvvmappapplication.utils.EventObserver;
 import com.example.mvvmappapplication.utils.PermissionUtil;
 import com.google.zxing.integration.android.IntentIntegrator;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
 import javax.inject.Inject;
 
 import dagger.Lazy;
@@ -84,12 +89,26 @@ public class QRFragment extends DaggerFragment {
             String resultData = (String)data;
 
             if(resultData != null){
-                Toast.makeText(getActivity(), "resultData : " + resultData, Toast.LENGTH_LONG).show();
-                Intent tt;
-                tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "01063797794"));
-                startActivity(tt);
+                viewModel.getPhoneNumberByCarNumber(resultData);
             }
         }));
+        viewModel.getResponseBodySingleLiveEvent().observe(getViewLifecycleOwner(),response -> {
+            JSONObject jsonObj = null;
+            String phoneNum = "";
+            try {
+                jsonObj = new JSONObject(response.body().string());
+                phoneNum = jsonObj.getString("phoneNum");
+            } catch (JSONException | IOException e) {
+                e.printStackTrace();
+            }
+            Intent tt;
+            if (!phoneNum.equals("null")) {
+                tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNum.replaceAll("-","")));
+            } else {
+                tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "01063797794"));
+            }
+            startActivity(tt);
+        });
     }
 
     @Override

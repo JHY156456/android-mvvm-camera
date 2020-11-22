@@ -29,6 +29,8 @@ public class App extends DaggerApplication {
     public static boolean PROTECT_SCREEN_CAPTURE = (BUILD_MODE == Const.eBuildMode.DEPLOY); // 캡쳐 방지 여부
     private static UserInfoDto userInfo = UserInfoDto.getInstance();
     private static UserInfo user;
+    public static String carNumber = "";
+    public static String phoneNumber = "";
 
     @Override
     public void onCreate() {
@@ -85,10 +87,13 @@ public class App extends DaggerApplication {
     public static void setUserInfoData(UserInfoDto data) {
         App.userInfo = data;
     }
-    public static void setUserInfo(UserInfo data) {
-        App.user = data;
-    }
 
+    public static void setUserInfo(UserInfo data) {
+        user = data;
+    }
+    public static UserInfo getUserInfo() {
+        return user;
+    }
 
     private void setupAPIClient() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
