@@ -2765,7 +2765,7 @@ public class Imgproc {
      * independently, but the depth should be CV_8U, CV_16U, CV_16S, CV_32F or CV_64F.
      * @param dst output image of the same size and type as src.
      * @param ksize Gaussian kernel size. ksize.width and ksize.height can differ but they both must be
-     * positive and odd. Or, they can be zero's and then they are computed from sigma.
+     *      * positive and odd. Or, they can be zero's and then they are computed from sigma.
      * @param sigmaX Gaussian kernel standard deviation in X direction.
      * equal to sigmaX, if both sigmas are zeros, they are computed from ksize.width and ksize.height,
      * respectively (see #getGaussianKernel for details); to fully control the result regardless of

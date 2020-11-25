@@ -48,6 +48,7 @@
                         android:id="@+id/ivActivityMaterialDetail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/dimen_20"
                         app:layout_collapseMode="parallax"
                         app:srcCompat="@drawable/hanwha_logo_ci" />
 

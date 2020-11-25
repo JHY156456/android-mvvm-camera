@@ -1,5 +1,7 @@
 package com.example.mvvmappapplication.data;
 
+import com.example.mvvmappapplication.dto.CarNumberDto;
+
 import io.reactivex.rxjava3.core.Observable;
 import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
@@ -15,5 +17,5 @@ public interface CameraService {
     Observable<retrofit2.Response<ResponseBody>> uploadFoodImage(@Part MultipartBody.Part file);
 
     @POST("/api/auth/phonenum")
-    Observable<Response<ResponseBody>> getPhoneNumberByCarNumber(@Body String carNum);
+    Observable<Response<ResponseBody>> getPhoneNumberByCarNumber(@Body CarNumberDto carNum);
 }

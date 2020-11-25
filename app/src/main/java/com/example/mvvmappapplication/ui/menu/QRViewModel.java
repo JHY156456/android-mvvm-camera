@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.mvvmappapplication.data.CameraService;
+import com.example.mvvmappapplication.dto.CarNumberDto;
 import com.example.mvvmappapplication.ui.BaseNavigator;
 import com.example.mvvmappapplication.ui.BaseViewModel;
 import com.example.mvvmappapplication.utils.Event;
@@ -124,13 +125,15 @@ public class QRViewModel extends BaseViewModel<BaseNavigator> {
     }
     // ********** 서버 차량번호 조회 이벤트**********
     public void getPhoneNumberByCarNumber(String carNumber){
+        loading.postValue(true);
         compositeDisposable.add(
-                cameraService.getPhoneNumberByCarNumber(carNumber)
+                cameraService.getPhoneNumberByCarNumber(new CarNumberDto(carNumber))
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
                                 responseBody -> {
                                     getResponseSingleLiveEvent().setValue(responseBody);
+                                    loading.postValue(false);
                                 },
                                 throwable -> {
                                     getErrorEvent().setValue(throwable);

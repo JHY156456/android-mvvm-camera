@@ -50,9 +50,12 @@ import com.example.mvvmappapplication.custom.AutoFitTextureView;
 
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
+import org.opencv.core.Core;
+import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.Rect;
+import org.opencv.core.RotatedRect;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
@@ -473,15 +476,17 @@ public class CameraPreview extends Thread {
         });
 
     }
+
     private void flashlight() {
 
         mFlashOn = !mFlashOn;
-        if(mFlashOn){
+        if (mFlashOn) {
             flashOn();
-        } else{
+        } else {
             flashOff();
         }
     }
+
     // Flash On
     public void flashOn() {
         try {
@@ -492,6 +497,7 @@ public class CameraPreview extends Thread {
             e.printStackTrace();
         }
     }
+
     //Flash Off
     public void flashOff() {
         try {
@@ -502,6 +508,7 @@ public class CameraPreview extends Thread {
             e.printStackTrace();
         }
     }
+
     public void onResume() {
         startBackgroundThread();
 
@@ -887,9 +894,9 @@ public class CameraPreview extends Thread {
                                                @NonNull TotalCaptureResult result) {
                     //showToast("Saved: " + mFile);
                     //Log.d(TAG, mFile.toString());
-                    try{
+                    try {
                         unlockFocus();
-                    } catch (Exception e){
+                    } catch (Exception e) {
 
                     }
                 }
@@ -998,40 +1005,75 @@ public class CameraPreview extends Thread {
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inSampleSize = 8;
-                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, options);
-                bitmap = GetRotatedBitmap(bitmap, 90);
+                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, options);
+                bmp = GetRotatedBitmap(bmp, 90);
 
                 /**
                  * OpenCv시작
                  */
                 Bitmap imgRoi;
                 OpenCVLoader.initDebug(); // 초기화
+//
+//                Mat matBase = new Mat();
+//                Utils.bitmapToMat(bmp, matBase);
+//                Mat matGray = new Mat();
+//                Mat matCny = new Mat();
+//
+//                Imgproc.cvtColor(matBase, matGray, Imgproc.COLOR_BGR2GRAY); // GrayScale
+//                Imgproc.Canny(matGray, matCny, 10, 100, 3, true); // Canny Edge 검출
+//                Imgproc.threshold(matGray, matCny, 150, 255, Imgproc.THRESH_BINARY); //Binary
+//First convert Bitmap to Mat
+                Mat ImageMatin = new Mat(bmp.getHeight(), bmp.getWidth(), CvType.CV_8U, new Scalar(4));
+                Mat ImageMatout = new Mat(bmp.getHeight(), bmp.getWidth(), CvType.CV_8U, new Scalar(4));
+                Mat ImageMatBk = new Mat(bmp.getHeight(), bmp.getWidth(), CvType.CV_8U, new Scalar(4));
+                Mat ImageMatTopHat = new Mat(bmp.getHeight(), bmp.getWidth(), CvType.CV_8U, new Scalar(4));
+                Mat temp = new Mat(bmp.getHeight(), bmp.getWidth(), CvType.CV_8U, new Scalar(4));
 
-                Mat matBase = new Mat();
-                Utils.bitmapToMat(bitmap, matBase);
-                Mat matGray = new Mat();
-                Mat matCny = new Mat();
+                Bitmap myBitmap32 = bmp.copy(Bitmap.Config.ARGB_8888, true);
+                Utils.bitmapToMat(myBitmap32, ImageMatin);
 
-                Imgproc.cvtColor(matBase, matGray, Imgproc.COLOR_BGR2GRAY); // GrayScale
-                Imgproc.Canny(matGray, matCny, 10, 100, 3, true); // Canny Edge 검출
-                Imgproc.threshold(matGray, matCny, 150, 255, Imgproc.THRESH_BINARY); //Binary
 
+//Converting RGB to Gray.
+                Imgproc.cvtColor(ImageMatin, ImageMatBk, Imgproc.COLOR_RGB2GRAY, 8);
+
+                Imgproc.dilate(ImageMatBk, temp, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(9, 9)));
+                Imgproc.erode(temp, ImageMatTopHat, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(9, 9)));
+
+//Core.absdiff(current, previous, difference);
+                Core.absdiff(ImageMatTopHat, ImageMatBk, ImageMatout);
+
+//Sobel operator in horizontal direction.
+                Imgproc.Sobel(ImageMatout, ImageMatout, CvType.CV_8U, 1, 0, 3, 1, 0.4);
+
+//Converting GaussianBlur
+                Imgproc.GaussianBlur(ImageMatout, ImageMatout, new org.opencv.core.Size(5, 5), 2);
+
+                Imgproc.dilate(ImageMatout, ImageMatout, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(3, 3)));
+
+                Mat element = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(17, 3));
+                Imgproc.morphologyEx(ImageMatout, ImageMatout, Imgproc.MORPH_CLOSE, element);
+
+//threshold image
+                Imgproc.threshold(ImageMatout, ImageMatout, 0, 255, Imgproc.THRESH_OTSU + Imgproc.THRESH_BINARY);
                 List<MatOfPoint> contours = new ArrayList<>();
+                ArrayList<RotatedRect> rects = new ArrayList<RotatedRect>();
+
+
                 Mat hierarchy = new Mat();
                 //노이즈제거
-                Imgproc.erode(matCny, matCny, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(6, 6)));
-                Imgproc.dilate(matCny, matCny, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(12, 12)));
+                Imgproc.erode(ImageMatout, ImageMatout, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(6, 6)));
+                Imgproc.dilate(ImageMatout, ImageMatout, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(12, 12)));
                 //관심영역 추출
-                Imgproc.findContours(matCny, contours, hierarchy, Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_SIMPLE);//RETR_EXTERNAL //RETR_TREE
-                Imgproc.drawContours(matBase, contours, -1, new Scalar(255, 0, 0), 5);
+                Imgproc.findContours(ImageMatout, contours, hierarchy, Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_SIMPLE);//RETR_EXTERNAL //RETR_TREE
+                Imgproc.drawContours(ImageMatin, contours, -1, new Scalar(255, 0, 0), 5);
 
                 //imgBase : 관심영역 빨간색으로 표시됨
-                imgBase = Bitmap.createBitmap(matBase.cols(), matBase.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
-                Utils.matToBitmap(matBase, imgBase); // Mat을 비트맵으로 변환
+                imgBase = Bitmap.createBitmap(ImageMatin.cols(), ImageMatin.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
+                Utils.matToBitmap(ImageMatin, imgBase); // Mat을 비트맵으로 변환
 
 
-                imgRoi = Bitmap.createBitmap(matCny.cols(), matCny.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
-                Utils.matToBitmap(matCny, imgRoi);
+                imgRoi = Bitmap.createBitmap(ImageMatout.cols(), ImageMatout.rows(), Bitmap.Config.ARGB_8888); // 비트맵 생성
+                Utils.matToBitmap(ImageMatout, imgRoi);
 
                 for (int idx = 0; idx >= 0; idx = (int) hierarchy.get(0, idx)[0]) {
                     MatOfPoint matOfPoint = contours.get(idx);
@@ -1040,7 +1082,7 @@ public class CameraPreview extends Thread {
                     if (rect.width < 30 || rect.height < 30 || rect.width <= rect.height || rect.width <= rect.height * 3 || rect.width >= rect.height * 6)
                         continue; // 사각형 크기에 따라 출력 여부 결정
 
-                    roi = imgRoi.createBitmap(bitmap, (int) rect.tl().x, (int) rect.tl().y, rect.width, rect.height);
+                    roi = imgRoi.createBitmap(bmp, (int) rect.tl().x, (int) rect.tl().y, rect.width, rect.height);
                     break;
                 }
 
@@ -1067,8 +1109,15 @@ public class CameraPreview extends Thread {
 //
 //                Utils.matToBitmap(matBase, roi); // Mat을 비트맵으로 변환
 
+                Mat gray = new Mat();
+                Utils.bitmapToMat(roi, gray);
 
-                roi.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                Imgproc.cvtColor(gray, gray, Imgproc.COLOR_RGBA2GRAY);
+
+                Bitmap grayBitmap = Bitmap.createBitmap(gray.cols(), gray.rows(), null);
+                // 윗 부분 오류발생하면 마지막 param null 대신 Bitmap.Config.ARGB_8888
+                Utils.matToBitmap(gray, grayBitmap);
+                grayBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 /**
                  * OpenCv적용한 데이터 전달 끝
                  */

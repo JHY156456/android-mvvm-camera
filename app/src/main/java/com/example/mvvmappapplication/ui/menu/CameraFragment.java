@@ -116,10 +116,10 @@ public class CameraFragment extends DaggerFragment {
             Intent tt;
             if (!phoneNum.equals("null")) {
                 tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNum));
+                startActivity(tt);
             } else {
-                tt = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "01063797794"));
+                Toast.makeText(getActivity(),"등록된 전화번호가 없습니다.",Toast.LENGTH_SHORT).show();
             }
-            startActivity(tt);
         });
 
         viewModel.getErrorEvent().observe(getViewLifecycleOwner(), throwable -> {

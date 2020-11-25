@@ -92,7 +92,7 @@ public class QRFragment extends DaggerFragment {
                 viewModel.getPhoneNumberByCarNumber(resultData);
             }
         }));
-        viewModel.getResponseBodySingleLiveEvent().observe(getViewLifecycleOwner(),response -> {
+        viewModel.getResponseSingleLiveEvent().observe(getViewLifecycleOwner(),response -> {
             JSONObject jsonObj = null;
             String phoneNum = "";
             try {

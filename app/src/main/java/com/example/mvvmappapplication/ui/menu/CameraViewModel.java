@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.mvvmappapplication.data.CameraService;
+import com.example.mvvmappapplication.dto.CarNumberDto;
 import com.example.mvvmappapplication.ui.BaseNavigator;
 import com.example.mvvmappapplication.ui.BaseViewModel;
 import com.example.mvvmappapplication.utils.SingleLiveEvent;
@@ -173,7 +174,7 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
             tessBaseAPI.init(dir, "kor");
 
         String result = "";
-        String matchResult = "";
+
         try {
             result = new AsyncTess().execute(getCameraItem().getValue()).get();
         } catch (ExecutionException e) {
@@ -182,20 +183,22 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
             e.printStackTrace();
         }
         String match = "[^\uAC00-\uD7A3xfe0-9a-zA-Z\\s]";
-        matchResult = result.replaceAll(match, " ");
-        matchResult = result.replaceAll(" ", "");
-        Timber.e("matchResult : " + matchResult);
-        getPhoneNumberByCarNumber(matchResult);
+        result = result.replaceAll(match, " ");
+        result = result.replaceAll(" ", "");
+        Timber.e("matchResult : " + result);
+        getPhoneNumberByCarNumber(result);
     }
 
     public void getPhoneNumberByCarNumber(String carNumber){
+        loading.postValue(true);
         compositeDisposable.add(
-                cameraService.getPhoneNumberByCarNumber(carNumber)
+                cameraService.getPhoneNumberByCarNumber(new CarNumberDto(carNumber))
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
                                 responseBody -> {
                                     getResponseSingleLiveEvent().setValue(responseBody);
+                                    loading.postValue(false);
                                 },
                                 throwable -> {
                                     getErrorEvent().setValue(throwable);
