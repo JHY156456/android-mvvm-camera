@@ -17,6 +17,7 @@ import com.example.mvvmappapplication.data.CameraService;
 import com.example.mvvmappapplication.dto.CarNumberDto;
 import com.example.mvvmappapplication.ui.BaseNavigator;
 import com.example.mvvmappapplication.ui.BaseViewModel;
+import com.example.mvvmappapplication.utils.Event;
 import com.example.mvvmappapplication.utils.SingleLiveEvent;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
@@ -62,6 +63,16 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
         return tesseractCarNumber;
     }
     // ********** 테서렉트 인식 번호**********
+
+    // ********** OnClick Event**********
+    private MutableLiveData<Event<String>> clickEvent = new MutableLiveData<>();
+
+    public MutableLiveData<Event<String>> getClickEvent() {
+        return clickEvent;
+    }
+    // ********** OnClick Event**********
+
+
 
     private final CompositeDisposable
             compositeDisposable = new CompositeDisposable();
@@ -187,6 +198,10 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
         result = result.replaceAll(" ", "");
         Timber.e("matchResult : " + result);
         getPhoneNumberByCarNumber(result);
+    }
+
+    public void onClickChat(View view){
+        getClickEvent().setValue(new Event<>("chat"));
     }
 
     public void getPhoneNumberByCarNumber(String carNumber){

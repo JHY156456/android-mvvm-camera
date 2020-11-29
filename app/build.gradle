@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: "androidx.navigation.safeargs"//네비게이션 컴포넌트의 Safe Args 플러그인 추가
-
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-android-extensions"
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -39,6 +40,16 @@ android {
 
 }
 
+
+
+ext {
+    splitties_version = "2.1.1"
+    arch_version = '2.2.0'
+    recyclerview_version = '1.1.0'
+    retrofit_version = '2.6.0'
+    okhttp_version = '3.8.0'
+    scarlet_version = '0.2.4'
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':annotation')
@@ -118,4 +129,25 @@ dependencies {
 
     //tesseract
     implementation 'com.rmtheis:tess-two:9.0.0'
+
+    //kotlin관련
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation "androidx.appcompat:appcompat:1.1.0"
+    implementation "androidx.core:core-ktx:1.1.0"
+    implementation "androidx.constraintlayout:constraintlayout:1.1.3"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.3"
+    implementation "androidx.lifecycle:lifecycle-extensions:$arch_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$arch_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$arch_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$arch_version"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    implementation "com.louiscad.splitties:splitties-activities:$splitties_version"
+    implementation "com.louiscad.splitties:splitties-toast:$splitties_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+    testImplementation "junit:junit:4.12"
+    androidTestImplementation "androidx.test.ext:junit:1.1.0"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.1.1"
 }

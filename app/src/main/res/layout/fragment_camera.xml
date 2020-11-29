@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:context=".activity.main.HSMainActivity"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.main.HSMainActivity">
 
     <data>
         <!--ProgressBar 표현을 위한 View 패키지 참조 및 ViewModel 변수 선언-->
-        <import type="android.view.View"/>
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.example.mvvmappapplication.ui.menu.CameraViewModel" />
+
         <variable
             name="homeViewModel"
             type="com.example.mvvmappapplication.HomeViewModel" />
@@ -24,16 +26,17 @@
             android:layout_width="match_parent"
 
             android:layout_height="@dimen/dimen_200"
-            android:layout_marginTop="@dimen/dimen_50"/>
+            android:layout_marginTop="@dimen/dimen_50" />
 
         <Button
             android:id="@+id/button_camera"
             android:layout_width="@dimen/dimen_150"
             android:layout_height="wrap_content"
-            android:text="차량 촬영하기"
-            android:onClick="@{(v)->viewModel.onClickButtonCamera(v)}"
             android:layout_centerInParent="true"
+            android:onClick="@{(v)->viewModel.onClickButtonCamera(v)}"
+            android:text="차량 촬영하기"
             tools:ignore="MissingConstraints" />
+
         <Button
             android:id="@+id/button_history"
             android:layout_width="@dimen/dimen_150"
@@ -43,16 +46,17 @@
             android:onClick="@{(v)->homeViewModel.onClickHistory(v)}"
             android:text="@string/btn_txt_history"
             tools:ignore="MissingConstraints" />
+
         <Button
-            android:id="@+id/button_call"
+            android:id="@+id/button_chat"
             android:layout_width="@dimen/dimen_150"
             android:layout_height="wrap_content"
             android:layout_below="@+id/button_history"
             android:layout_centerInParent="true"
-            android:onClick="@{(v)->viewModel.onClickCall(v)}"
-            android:text="전화걸기"
-            android:visibility="gone"
+            android:onClick="@{(v)->viewModel.onClickChat(v)}"
+            android:text="채팅"
             tools:ignore="MissingConstraints" />
+
         <Button
             android:id="@+id/button_immediately_call"
             android:layout_width="@dimen/dimen_150"
@@ -63,14 +67,13 @@
             android:text="전화걸기가 안될때"
             android:visibility="gone"
             tools:ignore="MissingConstraints" />
+
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="@{viewModel.loading? View.VISIBLE : View.GONE}"
             android:layout_centerInParent="true"
             android:elevation="@dimen/dimen_10"
-            />
-
+            android:visibility="@{viewModel.loading? View.VISIBLE : View.GONE}" />
 
 
     </RelativeLayout>

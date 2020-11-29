@@ -15,6 +15,7 @@ import com.example.mvvmappapplication.utils.LogUtil;
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
+import kotlin.jvm.JvmField;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -32,10 +33,17 @@ public class App extends DaggerApplication {
     public static String carNumber = "";
     public static String phoneNumber = "";
 
+    @JvmField
+    public static Context instance;
+    public static String API_HOST = "http://10.0.2.2";
+    public static int API_PORT = 8080;
+    public static String WEBSOCKET_ENDPOINT = "ws://10.0.2.2:8080/ws/randomchat";
+
     @Override
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
+        instance = this;
         //로깅용 Timber 설정
         Timber.plant(new Timber.DebugTree());
         setupAPIClient();
