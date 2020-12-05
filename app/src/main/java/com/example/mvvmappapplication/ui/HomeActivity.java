@@ -1,8 +1,10 @@
 package com.example.mvvmappapplication.ui;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,7 +23,7 @@ import com.example.mvvmappapplication.ui.menu.CameraFragmentDirections;
 import com.example.mvvmappapplication.ui.post.SlidingAdapter;
 import com.example.mvvmappapplication.utils.BackPressCloseHandler;
 import com.example.mvvmappapplication.utils.EventObserver;
-import com.sothree.slidinguppanel.SlidingUpPanelLayout;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -45,7 +47,7 @@ public class HomeActivity extends BaseActivity {
     private AppBarConfiguration mAppBarConfiguration;
     @Inject
     BackPressCloseHandler backPressCloseHandler;
-
+    BottomSheetBehavior bottomSheetBehavior;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,36 +94,36 @@ public class HomeActivity extends BaseActivity {
          */
         NavigationUI.setupActionBarWithNavController(this, navController.get(), mAppBarConfiguration);
         //NavigationUI.setupWithNavController(binding.get().navView, navController.get());
-        // collapsed : 살짝 올라와있는 상태
-        binding.get().slidingLayout.setFadeOnClickListener(view -> {
-            binding.get().slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
-        });
+
         binding.get().listView.setLayoutManager(layoutManager);
         binding.get().listView.setAdapter(adapter);
-        viewModel.getSlidingUpData().observe(this, list -> {
-            adapter.setItems(list);
-        });
 
+        bottomSheetBehavior = BottomSheetBehavior.from(binding.get().rlBottomSheet);
         viewModel.getOpenSlidingUpPopup().observe(this, new EventObserver<>(data -> {
             boolean isOpen = (Boolean) data;
             if (isOpen) {
-                binding.get().slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             }
         }));
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+        viewModel.getSlidingUpData().observe(this, list -> {
+            adapter.setItems(list);
+        });
     }
 
 
     @Override
     public void onBackPressed() {
-        if (binding.get().slidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.COLLAPSED) {
+        if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_HIDDEN) {
             if (mAppBarConfiguration.getTopLevelDestinations().contains(navController.get().getCurrentDestination().getId())) {
                 backPressCloseHandler.onBackPressed();
             } else {
                 super.onBackPressed();
             }
-        } else if (binding.get().slidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED) {
-            //binding.get().slidingUpBackLayout.setClickable(false);
-            binding.get().slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
+        } else if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
+            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        } else if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
+            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
         }
     }
 
@@ -156,5 +158,19 @@ public class HomeActivity extends BaseActivity {
         //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController.get(), mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if(ev.getAction() == MotionEvent.ACTION_DOWN){
+            if(bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED || bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED){
+                Rect outRect = new Rect();
+                binding.get().rlBottomSheet.getGlobalVisibleRect(outRect);
+                if(!outRect.contains((int)ev.getRawX(),(int)ev.getRawY())){
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                }
+            }
+        }
+        return super.dispatchTouchEvent(ev);
     }
 }

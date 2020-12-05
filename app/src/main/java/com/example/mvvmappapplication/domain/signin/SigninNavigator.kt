@@ -6,5 +6,5 @@ import com.example.kotlin_random_chat.api.response.SigninResponse
 interface SigninNavigator {
 
     fun startRandomChatActivity(response: ApiResponse<SigninResponse>)
-
+    fun startChatListActivity(response: ApiResponse<SigninResponse>)
 }

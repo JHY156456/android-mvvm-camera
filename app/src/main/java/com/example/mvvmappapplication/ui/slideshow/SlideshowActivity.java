@@ -2,9 +2,11 @@ package com.example.mvvmappapplication.ui.slideshow;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.lifecycle.ViewModelProvider;
@@ -19,11 +21,13 @@ import com.example.mvvmappapplication.di.AppViewModelFactory;
 import com.example.mvvmappapplication.ui.BaseActivity;
 import com.example.mvvmappapplication.ui.githubview.DetailActivity;
 import com.example.mvvmappapplication.ui.githubview.RepositoryAdapter;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.snackbar.Snackbar;
 
 import javax.inject.Inject;
 
 import dagger.Lazy;
+import timber.log.Timber;
 
 
 public class SlideshowActivity extends BaseActivity implements RepositoryListViewContract {
@@ -35,7 +39,6 @@ public class SlideshowActivity extends BaseActivity implements RepositoryListVie
     AppViewModelFactory viewModelFactory;
     private Spinner languageSpinner;
     private CoordinatorLayout coordinatorLayout;
-
     private RepositoryAdapter repositoryAdapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

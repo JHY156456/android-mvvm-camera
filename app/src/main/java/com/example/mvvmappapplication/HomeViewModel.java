@@ -31,6 +31,7 @@ public class HomeViewModel extends BaseViewModel<BaseNavigator> {
                                @Named("errorEvent") SingleLiveEvent<Throwable> errorEvent) {
         super(application);
         this.errorEvent = errorEvent;
+
     }
 
     @Override

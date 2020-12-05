@@ -21,6 +21,14 @@ class SigninViewModel(app: Application) : AndroidViewModel(app) {
 
     var nickName = MutableLiveData("")
 
+    /**
+     * let : 가장 흔한 용례는 널이 될 수 잇는 값을 널이 아닌 값만 인자로 받는 함수에 넘기는경우
+     * fun sendEmailTo(email : String) {}
+     * email?.let{email -> sendEmailTo(email)}
+     * == email?.let{sendEmailTo(it)}
+     * email이 널이면 아무일도 일어나지 않는다
+     *
+     */
     fun signIn() = viewModelScope.launch {
         nickName.value?.let {
             runCatching {

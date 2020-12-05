@@ -12,7 +12,7 @@ import com.example.kotlin_random_chat.domain.auth.Auth
 import com.example.kotlin_random_chat.domain.randomchat.messagelistener.Message
 import com.example.kotlin_random_chat.domain.randomchat.messagelistener.RandomChatMessageListener
 import com.example.kotlin_random_chat.domain.randomchat.websocketclient.RandomChatWebSocketClient
-import com.example.kotlin_random_chat.domain.signin.SigninActivity
+import com.example.mvvmappapplication.domain.signin.SigninActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import splitties.toast.toast

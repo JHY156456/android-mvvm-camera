@@ -35,8 +35,10 @@ public class App extends DaggerApplication {
 
     @JvmField
     public static Context instance;
+    //public static String API_HOST = "http://192.168.35.192";
     public static String API_HOST = "http://10.0.2.2";
     public static int API_PORT = 8080;
+    //public static String WEBSOCKET_ENDPOINT = "ws://192.168.35.192:8080/ws/randomchat";
     public static String WEBSOCKET_ENDPOINT = "ws://10.0.2.2:8080/ws/randomchat";
 
     @Override
@@ -100,7 +102,11 @@ public class App extends DaggerApplication {
         user = data;
     }
     public static UserInfo getUserInfo() {
-        return user;
+        if(user == null){
+            return new UserInfo("id null","","carNumber","phone");
+        } else{
+            return user;
+        }
     }
 
     private void setupAPIClient() {

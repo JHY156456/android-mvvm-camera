@@ -56,7 +56,16 @@
             android:onClick="@{(v)->viewModel.onClickChat(v)}"
             android:text="채팅"
             tools:ignore="MissingConstraints" />
-
+        <Button
+            android:id="@+id/button_call"
+            android:layout_width="@dimen/dimen_150"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_chat"
+            android:layout_centerInParent="true"
+            android:onClick="@{(v)->viewModel.onClickCall(v)}"
+            android:text="전화걸기(서버)"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints" />
         <Button
             android:id="@+id/button_immediately_call"
             android:layout_width="@dimen/dimen_150"
@@ -64,7 +73,7 @@
             android:layout_below="@+id/button_call"
             android:layout_centerInParent="true"
             android:onClick="@{(v)->viewModel.onClickImmediatelyCall(v)}"
-            android:text="전화걸기가 안될때"
+            android:text="전화걸기(로컬)"
             android:visibility="gone"
             tools:ignore="MissingConstraints" />
 

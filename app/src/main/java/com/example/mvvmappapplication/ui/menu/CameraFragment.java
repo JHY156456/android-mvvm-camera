@@ -13,10 +13,10 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 
-import com.example.kotlin_random_chat.domain.randomchat.RandomChatActivity;
 import com.example.mvvmappapplication.HomeViewModel;
 import com.example.mvvmappapplication.databinding.FragmentCameraBinding;
 import com.example.mvvmappapplication.di.AppViewModelFactory;
+import com.example.mvvmappapplication.domain.signin.SigninActivity;
 import com.example.mvvmappapplication.utils.PermissionUtil;
 
 import org.json.JSONException;
@@ -132,7 +132,7 @@ public class CameraFragment extends DaggerFragment {
             String onClick = stringEvent.getContentIfNotHandled();
 
             if("chat".equals(onClick)){
-                startActivity(new Intent(getActivity(),RandomChatActivity.class));
+                startActivity(new Intent(getActivity(), SigninActivity.class));
             }
 
         });

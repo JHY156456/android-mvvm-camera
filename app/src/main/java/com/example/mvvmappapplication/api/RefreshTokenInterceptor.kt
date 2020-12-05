@@ -3,7 +3,7 @@ package com.example.kotlin_random_chat.api
 import com.example.kotlin_random_chat.common.Prefs
 import com.example.kotlin_random_chat.common.clearTasksAndStartNewActivity
 import com.example.kotlin_random_chat.domain.auth.Auth
-import com.example.kotlin_random_chat.domain.signin.SigninActivity
+import com.example.mvvmappapplication.domain.signin.SigninActivity
 import okhttp3.Interceptor
 import okhttp3.Response
 

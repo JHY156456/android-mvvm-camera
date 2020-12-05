@@ -4,7 +4,7 @@ import com.example.kotlin_random_chat.api.response.ApiResponse
 import com.example.kotlin_random_chat.common.Prefs
 import com.example.kotlin_random_chat.common.clearTasksAndStartNewActivity
 import com.example.kotlin_random_chat.domain.auth.Auth
-import com.example.kotlin_random_chat.domain.signin.SigninActivity
+import com.example.mvvmappapplication.domain.signin.SigninActivity
 import kotlinx.coroutines.runBlocking
 import okhttp3.Authenticator
 import okhttp3.Request

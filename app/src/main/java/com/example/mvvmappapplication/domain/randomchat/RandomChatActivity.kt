@@ -1,10 +1,14 @@
-package com.example.kotlin_random_chat.domain.randomchat
+package com.example.mvvmappapplication.domain.randomchat
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.kotlin_random_chat.domain.randomchat.ConversationAdapter
+import com.example.kotlin_random_chat.domain.randomchat.MessageModel
+import com.example.kotlin_random_chat.domain.randomchat.RandomChatNavigator
+import com.example.kotlin_random_chat.domain.randomchat.RandomChatViewModel
 import com.example.mvvmappapplication.R
 import com.example.mvvmappapplication.databinding.ActivityRandomChatBinding
 import java.lang.ref.WeakReference
