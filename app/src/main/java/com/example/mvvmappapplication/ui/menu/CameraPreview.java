@@ -51,9 +51,9 @@ import com.example.mvvmappapplication.custom.AutoFitTextureView;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
 import org.opencv.core.Core;
-import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
+import org.opencv.core.MatOfPoint2f;
 import org.opencv.core.Rect;
 import org.opencv.core.RotatedRect;
 import org.opencv.core.Scalar;
@@ -73,6 +73,7 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 import static com.example.mvvmappapplication.ui.menu.Preview.GetRotatedBitmap;
+import static org.opencv.core.CvType.CV_8U;
 
 public class CameraPreview extends Thread {
     private final static String TAG = "Preview : ";
@@ -1023,11 +1024,11 @@ public class CameraPreview extends Thread {
 //                Imgproc.Canny(matGray, matCny, 10, 100, 3, true); // Canny Edge 검출
 //                Imgproc.threshold(matGray, matCny, 150, 255, Imgproc.THRESH_BINARY); //Binary
 //First convert Bitmap to Mat
-                Mat ImageMatin = new Mat(bmp.getHeight(), bmp.getWidth(), CvType.CV_8U, new Scalar(4));
-                Mat ImageMatout = new Mat(bmp.getHeight(), bmp.getWidth(), CvType.CV_8U, new Scalar(4));
-                Mat ImageMatBk = new Mat(bmp.getHeight(), bmp.getWidth(), CvType.CV_8U, new Scalar(4));
-                Mat ImageMatTopHat = new Mat(bmp.getHeight(), bmp.getWidth(), CvType.CV_8U, new Scalar(4));
-                Mat temp = new Mat(bmp.getHeight(), bmp.getWidth(), CvType.CV_8U, new Scalar(4));
+                Mat ImageMatin = new Mat(bmp.getHeight(), bmp.getWidth(), CV_8U, new Scalar(4));
+                Mat ImageMatout = new Mat(bmp.getHeight(), bmp.getWidth(), CV_8U, new Scalar(4));
+                Mat ImageMatBk = new Mat(bmp.getHeight(), bmp.getWidth(), CV_8U, new Scalar(4));
+                Mat ImageMatTopHat = new Mat(bmp.getHeight(), bmp.getWidth(), CV_8U, new Scalar(4));
+                Mat temp = new Mat(bmp.getHeight(), bmp.getWidth(), CV_8U, new Scalar(4));
 
                 Bitmap myBitmap32 = bmp.copy(Bitmap.Config.ARGB_8888, true);
                 Utils.bitmapToMat(myBitmap32, ImageMatin);
@@ -1043,7 +1044,7 @@ public class CameraPreview extends Thread {
                 Core.absdiff(ImageMatTopHat, ImageMatBk, ImageMatout);
 
 //Sobel operator in horizontal direction.
-                Imgproc.Sobel(ImageMatout, ImageMatout, CvType.CV_8U, 1, 0, 3, 1, 0.4);
+                Imgproc.Sobel(ImageMatout, ImageMatout, CV_8U, 1, 0, 3, 1, 0.4);
 
 //Converting GaussianBlur
                 Imgproc.GaussianBlur(ImageMatout, ImageMatout, new org.opencv.core.Size(5, 5), 2);
@@ -1140,6 +1141,61 @@ public class CameraPreview extends Thread {
         }
 
     }
+    private RotatedRect find_candidate(Bitmap bmp){
+        Mat originalBmpToMat = new Mat();
+        Utils.bitmapToMat(bmp, originalBmpToMat);
+        List<MatOfPoint> contours = new ArrayList<>();
+        Mat hierarchy = new Mat();
+        Imgproc.findContours(originalBmpToMat, contours, hierarchy,Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_SIMPLE);
+
+        RotatedRect[] minRect = new RotatedRect[contours.size()];
+        RotatedRect[] candidate = new RotatedRect[contours.size()];
+        for (int i = 0; i < contours.size(); i++) {
+            minRect[i] = Imgproc.minAreaRect(new MatOfPoint2f(contours.get(i).toArray()));
+        }
+
+        for(int i=0; i<minRect.length;i++){
+            if(verify_aspect_size(minRect[i].size)){
+                candidate[i] = minRect[i]
+            }
+        }
+    }
+
+    private boolean verify_aspect_size(org.opencv.core.Size size){
+        double w = size.width;
+        double h = size.height;
+        if (h == 0 || w == 0)return false;
+
+        double aspect = 0.0;
+        if (h > w) aspect = h / w; else aspect = w / h;
+        boolean chk1 = 2000 < (h * w) < 20000
+        boolean chk2 = 2.0 < aspect < 6.5
+        return (chk1 && chk2);
+    }
+
+    def find_candidate(Bitmap bmp):
+    results = cv2.findContours(image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours = results[0] if int(cv2.__version__[0]) >= 4 else results[1]
+
+    rects = [cv2.minAreaRect(c) for c in contours]
+    candidates = [(tuple(map(int, center)), tuple(map(int, size)), angle)
+            for center, size, angle in rects if verify_aspect_size(size)]
+
+            return candidates
+
+    private Mat preProcessing(Bitmap bmp){
+        Mat originalBmpToMat = new Mat();
+        Mat matGray = new Mat();
+        Utils.bitmapToMat(bmp, originalBmpToMat);
+        Imgproc.cvtColor(originalBmpToMat,matGray,Imgproc.COLOR_BGR2GRAY);
+        Imgproc.blur(matGray,matGray,new org.opencv.core.Size(5,5));
+        Imgproc.Sobel(matGray,matGray,CV_8U,1,0,3);
+        Imgproc.threshold(matGray,matGray,120,255,Imgproc.THRESH_BINARY);
+        Mat element = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(5, 17));
+        Imgproc.morphologyEx(matGray,matGray,Imgproc.MORPH_CLOSE,element);
+        return matGray;
+    }
+
 
     /**
      * Compares two {@code Size}s based on their areas.
@@ -1218,4 +1274,5 @@ public class CameraPreview extends Thread {
                     .create();
         }
     }
+
 }
