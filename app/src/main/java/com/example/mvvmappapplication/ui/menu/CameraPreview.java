@@ -1013,16 +1013,8 @@ public class CameraPreview extends Thread {
                  */
                 Bitmap imgRoi;
                 OpenCVLoader.initDebug(); // 초기화
-//
-//                Mat matBase = new Mat();
-//                Utils.bitmapToMat(bmp, matBase);
-//                Mat matGray = new Mat();
-//                Mat matCny = new Mat();
-//
-//                Imgproc.cvtColor(matBase, matGray, Imgproc.COLOR_BGR2GRAY); // GrayScale
-//                Imgproc.Canny(matGray, matCny, 10, 100, 3, true); // Canny Edge 검출
-//                Imgproc.threshold(matGray, matCny, 150, 255, Imgproc.THRESH_BINARY); //Binary
-//First convert Bitmap to Mat
+
+                //bitmap을 Mat객체로 변환
                 Mat ImageMatin = new Mat(bmp.getHeight(), bmp.getWidth(), CvType.CV_8U, new Scalar(4));
                 Mat ImageMatout = new Mat(bmp.getHeight(), bmp.getWidth(), CvType.CV_8U, new Scalar(4));
                 Mat ImageMatBk = new Mat(bmp.getHeight(), bmp.getWidth(), CvType.CV_8U, new Scalar(4));
@@ -1033,27 +1025,26 @@ public class CameraPreview extends Thread {
                 Utils.bitmapToMat(myBitmap32, ImageMatin);
 
 
-//Converting RGB to Gray.
+                //Gray Scale로 적용
                 Imgproc.cvtColor(ImageMatin, ImageMatBk, Imgproc.COLOR_RGB2GRAY, 8);
-
                 Imgproc.dilate(ImageMatBk, temp, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(9, 9)));
                 Imgproc.erode(temp, ImageMatTopHat, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(9, 9)));
 
-//Core.absdiff(current, previous, difference);
+                //Core.absdiff(current, previous, difference);
                 Core.absdiff(ImageMatTopHat, ImageMatBk, ImageMatout);
 
-//Sobel operator in horizontal direction.
+                //Sobel operator in horizontal direction.
                 Imgproc.Sobel(ImageMatout, ImageMatout, CvType.CV_8U, 1, 0, 3, 1, 0.4);
 
-//Converting GaussianBlur
+                //가우시안 블러 적용
+                //블러를 통해 픽셀간의 간격을 줄여, 원래 영상과 비슷하면서도 노이즈를 제거시킴
                 Imgproc.GaussianBlur(ImageMatout, ImageMatout, new org.opencv.core.Size(5, 5), 2);
-
                 Imgproc.dilate(ImageMatout, ImageMatout, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(3, 3)));
 
                 Mat element = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(17, 3));
                 Imgproc.morphologyEx(ImageMatout, ImageMatout, Imgproc.MORPH_CLOSE, element);
 
-//threshold image
+                //threshold image
                 Imgproc.threshold(ImageMatout, ImageMatout, 0, 255, Imgproc.THRESH_OTSU + Imgproc.THRESH_BINARY);
                 List<MatOfPoint> contours = new ArrayList<>();
                 ArrayList<RotatedRect> rects = new ArrayList<RotatedRect>();
@@ -1094,30 +1085,16 @@ public class CameraPreview extends Thread {
                  * OpenCv적용한 데이터 전달 시작
                  */
 
-//                Mat matBase2 = new Mat();
-//                Utils.bitmapToMat(roi, matBase2);
-//                Mat matGray2 = new Mat();
-//                Mat matCny2 = new Mat();
-//
-//                Imgproc.cvtColor(matBase2, matGray2, Imgproc.COLOR_BGR2GRAY); // GrayScale
-//                Imgproc.Canny(matGray2, matCny2, 10, 100, 3, true); // Canny Edge 검출
-//                Imgproc.threshold(matGray2, matCny2, 150, 255, Imgproc.THRESH_BINARY); //Binary
-//
-//                //노이즈제거
-//                Imgproc.erode(matCny2, matCny2, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(6, 6)));
-//                Imgproc.dilate(matCny2, matCny2, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new org.opencv.core.Size(12, 12)));
-//
-//                Utils.matToBitmap(matBase, roi); // Mat을 비트맵으로 변환
-
+                //*************************** 그레이 스케일 적용 ***************************
                 Mat gray = new Mat();
                 Utils.bitmapToMat(roi, gray);
-
                 Imgproc.cvtColor(gray, gray, Imgproc.COLOR_RGBA2GRAY);
-
                 Bitmap grayBitmap = Bitmap.createBitmap(gray.cols(), gray.rows(), null);
                 // 윗 부분 오류발생하면 마지막 param null 대신 Bitmap.Config.ARGB_8888
                 Utils.matToBitmap(gray, grayBitmap);
-                grayBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                //*************************** 그레이 스케일 적용 ***************************
+
+                roi.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 /**
                  * OpenCv적용한 데이터 전달 끝
                  */
