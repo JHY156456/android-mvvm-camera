@@ -232,10 +232,21 @@ public class CameraViewModel extends BaseViewModel<BaseNavigator> {
             String match = "[^\uAC00-\uD7A3xfe0-9a-zA-Z\\s]";
             result = result.replaceAll(match, " ");
             result = result.replaceAll(" ", "");
+
+            if(result.length() > 3){
+                if(Character.getType(result.charAt(0)) == 5){
+                    result = result.substring(1);
+                }
+                if(Character.getType(result.charAt(result.length()-1)) == 5){
+                    result = result.substring(0,result.length()-1);
+                }
+            }
+
             if (result.length() >= 7 && result.length() <= 8) {
                 getTesseractCarNumber().setValue(result);
                 getButtonClickImmediatelyCallEvent().setValue(true);
             } else {
+                getTesseractCarNumber().setValue(result);
                 getButtonClickImmediatelyCallEvent().setValue(false);
             }
         }
