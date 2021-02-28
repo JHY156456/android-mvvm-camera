@@ -25,6 +25,8 @@ import com.example.mvvmappapplication.utils.BackPressCloseHandler;
 import com.example.mvvmappapplication.utils.EventObserver;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
+import java.lang.reflect.Field;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -89,6 +91,7 @@ public class HomeActivity extends BaseActivity {
                 .setOpenableLayout(binding.get().drawerLayout)
                 .build();
         //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+
         /**
          * 왼쪽 위 서랍 아이콘 셋
          */

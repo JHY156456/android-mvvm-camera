@@ -67,9 +67,9 @@ public class RetrofitModule {
     Retrofit provideImageRetrofit() {
         return new Retrofit.Builder()
                 .client(new OkHttpClient.Builder()
-                        .readTimeout(5, TimeUnit.SECONDS)
-                        .writeTimeout(5,TimeUnit.SECONDS)
-                        .connectTimeout(5, TimeUnit.SECONDS)
+                        .readTimeout(3, TimeUnit.SECONDS)
+                        .writeTimeout(3,TimeUnit.SECONDS)
+                        .connectTimeout(3, TimeUnit.SECONDS)
                         .addInterceptor(
                         new HttpLoggingInterceptor().setLevel(
                                 HttpLoggingInterceptor.Level.BODY))

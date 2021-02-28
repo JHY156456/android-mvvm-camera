@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ui.user.LoginActivity"
+            android:name=".ui.HomeActivity"
             android:windowSoftInputMode="adjustResize">
             <!--            android:theme="@style/SplashTheme"-->
             <intent-filter>
@@ -25,7 +25,7 @@
         </activity>
 
         <activity android:name=".ui.menu.CameraViewActivity" />
-        <activity android:name=".ui.HomeActivity" />
+<!--        <activity android:name=".ui.HomeActivity" />-->
         <activity android:name=".ui.gallery.GalleryActivity" />
         <activity android:name=".ui.slideshow.SlideshowActivity" />
         <activity android:name="com.example.mvvmappapplication.ui.githubview.DetailActivity" />

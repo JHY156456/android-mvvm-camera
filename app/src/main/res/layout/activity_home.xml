@@ -209,7 +209,18 @@
             </androidx.drawerlayout.widget.DrawerLayout>
 
         </FrameLayout>
-
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/textView1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"/>
         <LinearLayout
             android:id="@+id/rl_bottom_sheet"
             android:layout_width="match_parent"
