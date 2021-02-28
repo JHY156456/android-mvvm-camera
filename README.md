@@ -7,9 +7,12 @@
 
 ### 앱 화면
 
-![KakaoTalk_20201213_152229379_01](https://user-images.githubusercontent.com/38919871/109413339-313b1680-79f0-11eb-9e05-f30ce9472acd.jpg)
-![KakaoTalk_20201213_152229379_02](https://user-images.githubusercontent.com/38919871/109413340-34360700-79f0-11eb-97e4-ef05cd931e85.jpg)
-![KakaoTalk_20201213_162318495_01](https://user-images.githubusercontent.com/38919871/109413344-3730f780-79f0-11eb-8406-17df6de08b65.jpg)
-![KakaoTalk_20201213_162318495_02](https://user-images.githubusercontent.com/38919871/109413346-38fabb00-79f0-11eb-9e1c-0091ee6212e0.jpg)
-![KakaoTalk_20201213_162318495](https://user-images.githubusercontent.com/38919871/109413347-3ac47e80-79f0-11eb-9ce8-98c3e2feb7b3.jpg)
-![KakaoTalk_20201213_152229379_03](https://user-images.githubusercontent.com/38919871/109413348-3d26d880-79f0-11eb-9ce8-8d806a92337c.jpg)
+
+![KakaoTalk_20201213_152229379_01](https://user-images.githubusercontent.com/38919871/109413574-7d3a8b00-79f1-11eb-9627-052c696f94f2.jpg)
+![KakaoTalk_20201213_152229379_02](https://user-images.githubusercontent.com/38919871/109413576-7dd32180-79f1-11eb-830e-8eeac775463c.jpg)
+![KakaoTalk_20201213_152229379_03](https://user-images.githubusercontent.com/38919871/109413577-7e6bb800-79f1-11eb-98ca-e77d3de05f02.jpg)
+![KakaoTalk_20201213_152229379_04](https://user-images.githubusercontent.com/38919871/109413578-7f044e80-79f1-11eb-9c12-c0cf4144debb.jpg)
+![KakaoTalk_20201213_162318495](https://user-images.githubusercontent.com/38919871/109413580-83306c00-79f1-11eb-8489-87707cdf03f2.jpg)
+![KakaoTalk_20201213_162318495_01](https://user-images.githubusercontent.com/38919871/109413581-862b5c80-79f1-11eb-90c4-2fd0ec68abfb.jpg)
+![KakaoTalk_20201213_162318495_02](https://user-images.githubusercontent.com/38919871/109413583-89264d00-79f1-11eb-946d-5a16f8d5f5cd.jpg)
+
